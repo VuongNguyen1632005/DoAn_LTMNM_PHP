@@ -282,6 +282,7 @@ Kết quả dưới đây là tổng hợp từ Phase reports, không phải k�
 | Mobile 390px | **PASS theo Phase 03B/06** | Order/detail responsive; không overflow toàn trang. |
 | Realtime browser flow | **PASS theo Phase 04/06** | SSE cập nhật order/delivery; offline/online reconnect chưa xác minh. |
 | Fauxton Mango/revision/validator | **PASS theo Phase 07** | Query demo; fixture revision 409, invalid validator 403, cleanup. |
+| Backup/restore round-trip | **PASS ngày 10/10/2026 trên demo local** | 60/60 document, data parity, 2 design docs, Mango/index và validator 403; xem `docs/RESTORE_VERIFICATION.md`. |
 | Render build/health/readiness/online flow | **UNVERIFIED / NOT RUN** | Phase 08 BLOCKED; không được tính PASS. |
 
 Phase 01 từng ghi `seed:verify` trên database đang cấu hình từ chối vì có document ngoài bộ seed; đó là guard mong đợi, không phải lỗi app. Phase 05/06 dùng `seed:verify-isolated` để xác minh fixture trong database riêng.

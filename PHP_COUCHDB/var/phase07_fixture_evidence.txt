@@ -1,0 +1,1 @@
+PASS: isolated fixture _rev generation 1→2; stale write HTTP 409; invalid order status rejected HTTP 403; fixture database cleaned up.

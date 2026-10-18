@@ -60,7 +60,9 @@ Các lệnh dưới đây chỉ cho phép database có hậu tố `_test`. Tạo
 docker compose exec -T app composer db:backup -- retail_order_delivery-20261007.json
 ```
 
-Backup chứa dữ liệu tài khoản/khách hàng và password hash; giữ file như dữ liệu nhạy cảm, không gửi qua kênh công khai. `var/backups/` đã được thêm vào `.gitignore`. Backup phân trang nên không tạo snapshot nguyên tử nếu app tiếp tục ghi trong lúc chạy; với quy trình hiện tại, hãy tạm ngừng thao tác ghi trước khi backup.
+Để backup và kiểm chứng database demo Phase 06 đang cấu hình riêng, dùng `-e COUCHDB_DATABASE=shopquan_ao_phase06_demo_test` cho cả `composer db:backup` và `composer db:backup-verify -- <filename.json>`. `composer db:backup-smoke` chạy targeted test trên database đó. Kết quả kiểm thử thực tế được ghi tại [Backup Verification](../../docs/BACKUP_VERIFICATION.md).
+
+Backup chứa dữ liệu tài khoản/khách hàng và password hash; giữ file như dữ liệu nhạy cảm, không gửi qua kênh công khai. `var/backups/` đã được thêm vào `.gitignore`; lệnh backup từ chối ghi đè file có sẵn. Đây là logical export document, không chứa toàn bộ lịch sử revision hay cấu hình CouchDB. Backup phân trang nên không tạo snapshot nguyên tử nếu app tiếp tục ghi trong lúc chạy; lệnh sẽ từ chối xuất file khi `doc_count` hoặc `update_seq` thay đổi trong thời gian đọc. Với quy trình hiện tại, hãy tạm ngừng thao tác ghi trước khi backup.
 
 Phục hồi luôn tạo một database `_test` mới và từ chối target đã tồn tại, không ghi đè database. Ví dụ:
 
@@ -68,6 +70,8 @@ Phục hồi luôn tạo một database `_test` mới và từ chối target đ�
 docker compose exec -T app composer db:restore -- retail_order_delivery-20261007.json retail_restore_check_test
 docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer seed:verify
 ```
+
+Với backup demo `nosql-demo-20261010.json`, quy trình kiểm thử thật đã tạo `nosql_report_restore_check_test` bằng `composer db:restore -- nosql-demo-20261010.json nosql_report_restore_check_test`. Chạy `composer db:restore-verify -- nosql-demo-20261010.json nosql_report_restore_check_test` để so sánh toàn bộ nội dung với backup, kiểm tra Mango/index và thử validator chỉ trên đích; `composer db:restore-smoke -- nosql-demo-20261010.json nosql_report_restore_check_test` kiểm tra các trường hợp lỗi và từ chối ghi đè. Xem [Restore Verification](../../docs/RESTORE_VERIFICATION.md). Database đích được giữ lại cho ảnh Fauxton; chạy lại cùng tên sẽ bị từ chối an toàn.
 
 Chạy smoke test trên database phục hồi trước khi dùng tiếp. Sau khi nghiệm thu có thể xóa database thử bằng Fauxton hoặc CouchDB API. Quy trình này hiện chỉ dành cho local/demo; chưa phải backup production có snapshot nhất quán. Ảnh upload nằm ở Docker volume `php_uploads`, không thuộc backup CouchDB, nên phải sao lưu riêng nếu cần giữ các file đó. `docker compose down -v` xóa dữ liệu cả volume và không phải cách phục hồi.
 
