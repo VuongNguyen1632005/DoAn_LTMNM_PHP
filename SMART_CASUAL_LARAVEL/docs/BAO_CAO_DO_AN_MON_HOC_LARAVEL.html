@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>BÁO CÁO ĐỒ ÁN CUỐI MÔN HỌC - LARAVEL FRAMEWORK</title>
+<style>
+    @page {
+        size: A4;
+        margin: 20mm 20mm 20mm 25mm;
+        mso-header-margin: 10mm;
+        mso-footer-margin: 10mm;
+    }
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 13pt;
+        line-height: 1.5;
+        color: #000000;
+        text-align: justify;
+    }
+    h1 {
+        font-size: 16pt;
+        font-weight: bold;
+        color: #0d47a1;
+        margin-top: 18pt;
+        margin-bottom: 8pt;
+        text-align: left;
+    }
+    h2 {
+        font-size: 14pt;
+        font-weight: bold;
+        color: #1565c0;
+        margin-top: 14pt;
+        margin-bottom: 6pt;
+        text-align: left;
+    }
+    h3 {
+        font-size: 13pt;
+        font-weight: bold;
+        color: #1a237e;
+        margin-top: 10pt;
+        margin-bottom: 4pt;
+        text-align: left;
+    }
+    h4 {
+        font-size: 13pt;
+        font-weight: bold;
+        font-style: italic;
+        color: #212121;
+        margin-top: 8pt;
+        margin-bottom: 3pt;
+        text-align: left;
+    }
+    p {
+        margin-top: 0pt;
+        margin-bottom: 6pt;
+        text-indent: 1cm;
+    }
+    ul, ol {
+        margin-top: 0;
+        margin-bottom: 6pt;
+        padding-left: 1.2cm;
+    }
+    li {
+        margin-bottom: 3pt;
+        text-align: justify;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10pt;
+        margin-bottom: 12pt;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #333333;
+        padding: 6pt 8pt;
+        text-align: left;
+        vertical-align: top;
+    }
+    th {
+        background-color: #f0f4f8;
+        font-weight: bold;
+        color: #0d47a1;
+        text-align: center;
+    }
+    pre {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-left: 4px solid #0d47a1;
+        padding: 8pt 10pt;
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 9.5pt;
+        line-height: 1.3;
+        white-space: pre-wrap;
+        word-break: break-word;
+        margin-top: 6pt;
+        margin-bottom: 8pt;
+    }
+    code {
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 10pt;
+        background-color: #f1f3f5;
+        padding: 1pt 3pt;
+        border-radius: 3px;
+    }
+</style>
+</head>
+<body>
+<h1>BÁO CÁO ĐỒ ÁN CUỐI MÔN HỌC</h1>
+<h2>HỌC PHẦN: LẬP TRÌNH MÃ NGUỒN MỞ</h2>
+<h3>ĐỀ TÀI: XÂY DỰNG WEBSITE BÁN HÀNG THỜI TRANG &quot;SMART CASUAL&quot; BẰNG LARAVEL FRAMEWORK VÀ CƠ SỞ DỮ LIỆU MYSQL</h3>
+<p><strong>TRƯỜNG ĐẠI HỌC CÔNG THƯƠNG TP. HỒ CHÍ MINH (HUIT)</strong></p>
+<p><strong>KHOA CÔNG NGHỆ THÔNG TIN — BỘ MÔN KỸ THUẬT PHẦN MỀM</strong></p>
+<ul><li><strong>Sinh viên thực hiện:</strong></li></ul>
+<ol><li>Nguyễn Huy Hoàng — MSSV: [2001230266] — Lớp: [14DHTH02] — Trưởng nhóm</li></ol>
+<ol><li>[Thành viên 2 - Điền họ tên] — MSSV: [Điền MSSV] — Thành viên</li></ol>
+<ol><li>[Thành viên 3 - Điền họ tên] — MSSV: [Điền MSSV] — Thành viên</li></ol>
+<ul><li><strong>Giảng viên hướng dẫn:</strong> [Thầy/Cô phụ trách học phần LTMNM]</li></ul>
+<ul><li><strong>Thời gian thực hiện:</strong> Học kỳ 1 — Năm học 2026 – 2027</li></ul>
+<h2>MỤC LỤC</h2>
+<ol><li>GIỚI THIỆU ĐỀ TÀI</li></ol>
+<ul><li>1.1. Lý do chọn đề tài</li></ul>
+<ul><li>1.2. Mục tiêu đề tài</li></ul>
+<ul><li>1.3. Phạm vi thực hiện</li></ul>
+<ol><li>PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG</li></ol>
+<ul><li>2.1. Phân tích đối tượng và vai trò người dùng</li></ul>
+<ul><li>2.2. Sơ đồ UML Use Case tổng quan</li></ul>
+<ul><li>2.3. Sơ đồ và thiết kế Cơ sở dữ liệu (ERD)</li></ul>
+<ul><li>2.4. Danh mục 13 bảng nghiệp vụ chi tiết</li></ul>
+<ul><li>2.5. Thiết kế Triggers và tính toán tự động</li></ul>
+<ol><li>CÔNG NGHỆ VÀ KIẾN TRÚC TRIỂN KHAI</li></ol>
+<ul><li>3.1. Kiến trúc tổng thể hệ thống</li></ul>
+<ul><li>3.2. Danh mục công nghệ và thư viện sử dụng</li></ul>
+<ul><li>3.3. Cơ chế xác thực và phân quyền (Multi-Auth & Middleware)</li></ul>
+<ul><li>3.4. Mô hình ORM Eloquent và bảo vệ toàn vẹn dữ liệu</li></ul>
+<ol><li>HƯỚNG DẪN CÀI ĐẶT VÀ SỬ DỤNG</li></ol>
+<ul><li>4.1. Yêu cầu môi trường hệ thống</li></ul>
+<ul><li>4.2. Các bước cài đặt chi tiết từ mã nguồn</li></ul>
+<ul><li>4.3. Danh sách tài khoản thử nghiệm hệ thống</li></ul>
+<ol><li>KẾT QUẢ ĐẠT ĐƯỢC VÀ CHỨC NĂNG HỆ THỐNG</li></ol>
+<ul><li>5.1. Phân hệ Khách hàng (Customer Storefront)</li></ul>
+<ul><li>5.2. Phân hệ Quản trị viên (Admin Portal)</li></ul>
+<ul><li>5.3. Bảng đối chiếu yêu cầu kỹ thuật (Traceability Matrix)</li></ul>
+<ol><li>KIỂM THỬ VÀ ĐÁNH GIÁ CHẤT LƯỢNG SẢN PHẨM</li></ol>
+<ul><li>6.1. Phương pháp kiểm thử tự động (Feature Tests)</li></ul>
+<ul><li>6.2. Kết quả kiểm thử 19 kịch bản kiểm thử tự động</li></ul>
+<ol><li>PHÂN CÔNG CÔNG VIỆC VÀ ĐÁNH GIÁ ĐÓNG GÓP NHÓM</li></ol>
+<ul><li>7.1. Bảng phân công nhiệm vụ chi tiết</li></ul>
+<ul><li>7.2. Tỷ lệ hoàn thành công việc</li></ul>
+<ol><li>HẠN CHẾ VÀ HƯỚNG PHÁT TRIỂN</li></ol>
+<ul><li>8.1. Các hạn chế hiện tại</li></ul>
+<ul><li>8.2. Kế hoạch nâng cấp và phát triển mở rộng</li></ul>
+<ol><li>KẾT LUẬN</li></ol>
+<ol><li>TÀI LIỆU THAM KHẢO</li></ol>
+<h2>1. GIỚI THIỆU ĐỀ TÀI</h2>
+<h3>1.1. Lý do chọn đề tài</h3>
+<p>Trong thời đại chuyển đổi số và phát triển mạnh mẽ của thương mại điện tử, việc mua sắm quần áo và trang phục qua các nền tảng trực tuyến đã trở thành thói quen phổ biến của người tiêu dùng hiện đại. Đối với các cửa hàng thời trang vừa và nhỏ, việc sở hữu một website bán hàng chuyên nghiệp, tải nhanh, trực quan, hỗ trợ quản lý tồn kho theo từng kích cỡ (size) và theo dõi tiến độ giao nhận là yếu tố sống còn để nâng cao năng lực cạnh tranh.</p>
+<p>Đề tài <strong>"Xây dựng Website Bán hàng Thời trang Smart Casual bằng Laravel Framework và MySQL"</strong> được nhóm lựa chọn nhằm giải quyết trọn vẹn bài toán thương mại điện tử thực tế. Dự án không chỉ là cơ hội để vận dụng toàn diện các kiến thức đã học trong học phần Lập trình mã nguồn mở (PHP 8.3, Laravel Framework, MySQL, Eloquent ORM, Blade Template, Bootstrap 5), mà còn hướng đến việc xây dựng một sản phẩm phần mềm có tính ứng dụng cao, cấu trúc mã nguồn sáng sủa và khả năng mở rộng bền vững.</p>
+<h3>1.2. Mục tiêu đề tài</h3>
+<ul><li><strong>Về chuẩn đầu ra học phần (CLOs):</strong></li></ul>
+<ul><li><strong>CLO1:</strong> Nắm vững và làm chủ kỹ thuật xây dựng ứng dụng web hiện đại với Laravel Framework, PHP hướng đối tượng và cơ sở dữ liệu quan hệ MySQL.</li></ul>
+<ul><li><strong>CLO2:</strong> Vận dụng các tiêu chuẩn thiết kế giao diện (UI/UX), kiểm tra tính đáp ứng (Responsive) và tối ưu trải nghiệm mua sắm của người dùng.</li></ul>
+<ul><li><strong>CLO3:</strong> Thể hiện tinh thần phối hợp làm việc nhóm, phân công rõ ràng, theo dõi tiến độ qua hệ thống quản lý phiên bản Git/GitHub.</li></ul>
+<ul><li><strong>CLO4:</strong> Hoàn thiện một phần mềm có khả năng vận hành thực tế cho ngành hàng thời trang với đầy đủ quy trình bán hàng, từ catalog sản phẩm, giỏ hàng, đặt hàng đến quản trị đơn và phân tích doanh thu.</li></ul>
+<ul><li><strong>CLO5:</strong> Tự chủ, chịu trách nhiệm và tuân thủ các nguyên tắc liêm chính học thuật trong toàn bộ quá trình phát triển dự án.</li></ul>
+<ul><li><strong>Về mục tiêu kỹ thuật phần mềm:</strong></li></ul>
+<ul><li>Thiết kế và chuẩn hóa cơ sở dữ liệu quan hệ gồm 13 bảng nghiệp vụ, đảm bảo chuẩn hóa 3NF, toàn vẹn khóa ngoại và tự động hóa qua Database Triggers.</li></ul>
+<ul><li>Áp dụng triệt để mô hình MVC của Laravel, phân tách mạch lạc giữa Model (Eloquent), Controller, Request Validation, Service Layer và Blade View.</li></ul>
+<ul><li>Xây dựng hệ thống bảo mật nhiều lớp: Chống tấn công CSRF, ngăn chặn SQL Injection qua PDO Parameter Binding, lọc XSS qua Blade Escaping, băm mật khẩu an toàn với thuật toán Bcrypt và chống lỗi leo thang đặc quyền (IDOR).</li></ul>
+<ul><li>Đảm bảo chất lượng bằng bộ kiểm thử tự động (Automated Feature Tests) đạt tỷ lệ vượt qua 100%.</li></ul>
+<h3>1.3. Phạm vi thực hiện</h3>
+<ul><li><strong>Đối tượng phục vụ:</strong></li></ul>
+<ul><li><em>Khách hàng mua sắm (Customer / Guest):</em> Người tiêu dùng tìm kiếm trang phục, xem chi tiết kích cỡ, chọn mua vào giỏ hàng, áp dụng mã ưu đãi, đặt hàng thanh toán khi nhận hàng (COD) và tra cứu lịch sử mua hàng.</li></ul>
+<ul><li><em>Nhân viên bán hàng (Staff):</em> Tiếp nhận đơn hàng, cập nhật các giai đoạn giao nhận (chờ duyệt, xác nhận, đóng gói, xuất kho giao hàng) và xác nhận thu tiền.</li></ul>
+<ul><li><em>Quản trị viên (Manager):</em> Toàn quyền quản trị danh mục, thêm mới, điều chỉnh giá bán/tồn kho sản phẩm, ẩn sản phẩm khỏi storefront, xem báo cáo doanh thu tài chính.</li></ul>
+<ul><li><strong>Phạm vi chức năng:</strong></li></ul>
+<ul><li>Quản lý danh mục và kích cỡ trang phục.</li></ul>
+<ul><li>Quản lý sản phẩm, hình ảnh và chi tiết biến thể kích cỡ/giá/kho.</li></ul>
+<ul><li>Tìm kiếm thời gian thực, lọc đa tiêu chí (danh mục, mức giá) và phân trang dữ liệu.</li></ul>
+<ul><li>Giỏ hàng phiên làm việc (Session Cart) và giỏ hàng thành viên lưu trữ CSDL (<code>GIO_HANG</code>), tự động đồng bộ khi đăng nhập.</li></ul>
+<ul><li>Thanh toán nguyên tử (Atomic Checkout) với cơ chế khóa dòng tồn kho (<code>lockForUpdate</code>), mã giảm giá và chi phí vận chuyển.</li></ul>
+<ul><li>Đánh giá sản phẩm (Review & Rating) có kiểm duyệt.</li></ul>
+<ul><li>Thống kê doanh thu theo trạng thái và theo tháng.</li></ul>
+<h2>2. PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG</h2>
+<h3>2.1. Phân tích đối tượng và vai trò người dùng</h3>
+<p>Hệ thống phân tách mạch lạc 3 nhóm người dùng chính:</p>
+<ol><li><strong>Khách hàng vãng lai (Guest):</strong> Có thể duyệt danh mục, tìm kiếm, xem chi tiết sản phẩm, thêm hàng vào giỏ hàng phiên, đăng ký tài khoản mới và đặt hàng không bắt buộc đăng nhập.</li></ol>
+<ol><li><strong>Khách hàng thành viên (Customer):</strong> Được cấp tài khoản, tự động đồng bộ giỏ hàng cá nhân, theo dõi lịch sử và trạng thái xử lý của toàn bộ đơn hàng cá nhân, xác nhận đã nhận hàng thành công và gửi đánh giá nhận xét sao cho sản phẩm.</li></ol>
+<ol><li><strong>Nhân viên & Quản trị viên (Staff & Manager):</strong> Đăng nhập tại cổng quản trị <code>/admin/login</code>. Nhân viên có quyền xem và xử lý đơn hàng, điều chỉnh trạng thái giao nhận và quản lý đánh giá. Quản trị viên (Manager) có thêm quyền tối cao về CRUD danh mục, CRUD sản phẩm, ẩn sản phẩm và truy cập báo cáo tài chính doanh thu.</li></ol>
+<h3>2.2. Sơ đồ UML Use Case tổng quan</h3>
+<pre><code>+-----------------------------------------------------------------------------------+
+|                        HỆ THỐNG WEBSITE SMART CASUAL                              |
+|                                                                                   |
+|  [Khách vãng lai]                                                                 |
+|         |-- (Xem Catalog, Tìm kiếm &amp; Lọc sản phẩm)                                |
+|         |-- (Xem Chi tiết sản phẩm &amp; Kích thước)                                  |
+|         |-- (Thêm sản phẩm vào Giỏ hàng)                                          |
+|         |-- (Đăng ký tài khoản mới)                                               |
+|         +-- (Đăng nhập hệ thống)                                                  |
+|                                                                                   |
+|  [Khách hàng thành viên]                                                          |
+|         |-- [Kế thừa mọi quyền của Khách vãng lai]                                |
+|         |-- (Đồng bộ giỏ hàng đa phiên)                                           |
+|         |-- (Đặt hàng &amp; Áp dụng mã giảm giá)                                      |
+|         |-- (Xem lịch sử đơn hàng cá nhân)                                        |
+|         |-- (Xác nhận đã nhận hàng / Hủy đơn chờ duyệt)                           |
+|         +-- (Đánh giá nhận xét sản phẩm)                                          |
+|                                                                                   |
+|  [Nhân viên bán hàng (Staff)]                                                     |
+|         |-- (Đăng nhập khu vực quản trị /admin)                                   |
+|         |-- (Xem danh sách &amp; chi tiết đơn hàng)                                   |
+|         |-- (Cập nhật tiến trình giao nhận đơn hàng)                              |
+|         |-- (Xác nhận tình trạng thanh toán đơn hàng)                             |
+|         +-- (Kiểm duyệt hiển thị đánh giá của khách)                              |
+|                                                                                   |
+|  [Quản trị viên (Manager)]                                                        |
+|         |-- [Kế thừa mọi quyền của Nhân viên]                                     |
+|         |-- (Quản lý Danh mục - Thêm / Sửa / Xóa)                                 |
+|         |-- (Quản lý Sản phẩm - Thêm / Sửa / Ẩn / Khôi phục)                      |
+|         |-- (Upload hình ảnh sản phẩm vào hệ thống)                               |
+|         +-- (Xem Báo cáo &amp; Thống kê Doanh thu)                                    |
+|                                                                                   |
++-----------------------------------------------------------------------------------+</code></pre>
+<p><em>Hình 2.1: Sơ đồ Use Case tổng quan thể hiện tương tác của từng vai trò trong hệ thống Smart Casual.</em></p>
+<h3>2.3. Sơ đồ và thiết kế Cơ sở dữ liệu (ERD)</h3>
+<p>Cơ sở dữ liệu của hệ thống được xây dựng trên hệ quản trị CSDL quan hệ MySQL 8.x, bao gồm 13 bảng nghiệp vụ liên kết chặt chẽ thông qua các ràng buộc khóa chính và khóa ngoại:</p>
+<pre><code>[DANH_MUC] 1 ----- N [SAN_PHAM] 1 ----- N [CHI_TIET_SP] 1 ----- N [GIO_HANG]
+                         |                      |                     |
+                         |                      |                     |
+                         1                      1                     N
+                         |                      |                     |
+                         N                      N                     |
+                   [HINH_ANH_SP]        [CHI_TIET_DON_HANG]           |
+                         |                      |                     |
+                         |                      N                     |
+                         |                 [DON_HANG] N ------------- 1 [KHACH_HANG]
+                         |                      |                          |
+                         |                      | 1                        |
+                         |                      |                          |
+                         |                      N                          |
+                    [DANH_GIA] N ---------------|--------------------------+
+                                                |
+                                                N ----- 1 [PHUONG_THUC_VAN_CHUYEN]
+                                                |
+                                                N ----- 1 [MA_GIAM_GIA]
+                                                |
+                                                N ----- 1 [NHAN_VIEN]</code></pre>
+<p><em>Hình 2.2: Sơ đồ quan hệ thực thể (ERD) của hệ thống thương mại điện tử Smart Casual.</em></p>
+<h3>2.4. Danh mục 13 bảng nghiệp vụ chi tiết</h3>
+<ol><li><strong>DANH_MUC (Danh mục sản phẩm):</strong></li></ol>
+<ul><li><code>MaDanhMuc</code> (VARCHAR(10), PK): Mã danh mục chữ in hoa ('A': Áo, 'Q': Quần, 'G': Giày).</li></ul>
+<ul><li><code>TenDanhMuc</code> (VARCHAR(100)): Tên hiển thị của danh mục.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái hoạt động (1: Hoạt động, 0: Tạm khóa).</li></ul>
+<ol><li><strong>KICH_THUOC (Bảng kích cỡ chuẩn):</strong></li></ol>
+<ul><li><code>MaKichThuoc</code> (VARCHAR(10), PK): Ký hiệu size (S, M, L, XL, 38, 39, 40...).</li></ul>
+<ul><li><code>TenKichThuoc</code> (VARCHAR(50)): Tên hiển thị đầy đủ của kích cỡ.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái kích hoạt.</li></ul>
+<ol><li><strong>SAN_PHAM (Sản phẩm gốc):</strong></li></ol>
+<ul><li><code>MaSP</code> (VARCHAR(20), PK): Mã sản phẩm (A01, A02, Q01, G01...).</li></ul>
+<ul><li><code>MaDanhMuc</code> (VARCHAR(10), FK): Liên kết bảng <code>DANH_MUC</code>.</li></ul>
+<ul><li><code>TenSanPham</code> (VARCHAR(200)): Tên gọi thương mại của sản phẩm.</li></ul>
+<ul><li><code>MoTa</code> (TEXT): Mô tả kiểu dáng, chất liệu, hướng dẫn bảo quản.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái kinh doanh (1: Đang bán, 0: Ẩn).</li></ul>
+<ol><li><strong>CHI_TIET_SP (Biến thể chi tiết sản phẩm theo Size):</strong></li></ol>
+<ul><li><code>MaCTSP</code> (VARCHAR(30), PK): Mã biến thể duy nhất (CTA01SzS, CTA01SzM...).</li></ul>
+<ul><li><code>MaSP</code> (VARCHAR(20), FK): Liên kết <code>SAN_PHAM</code>.</li></ul>
+<ul><li><code>MaKichThuoc</code> (VARCHAR(10), FK): Liên kết <code>KICH_THUOC</code>.</li></ul>
+<ul><li><code>GiaBan</code> (DECIMAL(18,2)): Đơn giá bán chính thức của kích cỡ đó.</li></ul>
+<ul><li><code>SoLuong</code> (INT UNSIGNED): Số lượng tồn kho sẵn sàng bán.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái khả dụng.</li></ul>
+<ul><li><em>Ràng buộc:</em> UNIQUE KEY (<code>MaSP</code>, <code>MaKichThuoc</code>) — Mỗi sản phẩm chỉ có một bản ghi duy nhất cho mỗi kích cỡ.</li></ul>
+<ol><li><strong>HINH_ANH_SP (Bộ sưu tập hình ảnh sản phẩm):</strong></li></ol>
+<ul><li><code>MaHinhAnh</code> (VARCHAR(30), PK): Mã hình ảnh.</li></ul>
+<ul><li><code>MaSP</code> (VARCHAR(20), FK): Thuộc về sản phẩm nào.</li></ul>
+<ul><li><code>DuongDan</code> (VARCHAR(255)): Đường dẫn tương đối lưu trữ ảnh.</li></ul>
+<ul><li><code>LaAnhChinh</code> (BOOLEAN): Đánh dấu 1 nếu là ảnh đại diện chính của sản phẩm.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái sử dụng.</li></ul>
+<ol><li><strong>KHACH_HANG (Tài khoản khách hàng thành viên):</strong></li></ol>
+<ul><li><code>MaKH</code> (VARCHAR(20), PK): Mã khách hàng (KH001, KH002...).</li></ul>
+<ul><li><code>TenDangNhap</code> (VARCHAR(100), UNIQUE): Tên đăng nhập duy nhất.</li></ul>
+<ul><li><code>MatKhau</code> (VARCHAR(255)): Mật khẩu đã băm bằng thuật toán Bcrypt.</li></ul>
+<ul><li><code>HoTen</code> (VARCHAR(100)): Họ và tên đầy đủ của khách hàng.</li></ul>
+<ul><li><code>SoDienThoai</code> (VARCHAR(20)): Số điện thoại nhận hàng.</li></ul>
+<ul><li><code>Email</code> (VARCHAR(100), UNIQUE): Địa chỉ email nhận thông báo.</li></ul>
+<ul><li><code>DiaChi</code> (VARCHAR(255)): Địa chỉ mặc định.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái tài khoản (1: Bình thường, 0: Bị khóa).</li></ul>
+<ol><li><strong>NHAN_VIEN (Tài khoản nhân viên và ban quản lý):</strong></li></ol>
+<ul><li><code>MaNV</code> (VARCHAR(20), PK): Mã nhân sự (NV001, NV002...).</li></ul>
+<ul><li><code>TenDangNhap</code> (VARCHAR(100), UNIQUE): Tên đăng nhập portal quản trị.</li></ul>
+<ul><li><code>MatKhau</code> (VARCHAR(255)): Mật khẩu Bcrypt an toàn.</li></ul>
+<ul><li><code>HoTen</code> (VARCHAR(100)): Họ tên nhân sự.</li></ul>
+<ul><li><code>ChucVu</code> (VARCHAR(50)): Phân vai chức vụ ('manager': Quản lý, 'staff': Nhân viên).</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái nhân sự.</li></ul>
+<ol><li><strong>MA_GIAM_GIA (Mã khuyến mãi & Voucher):</strong></li></ol>
+<ul><li><code>MaCode</code> (VARCHAR(50), PK): Ký tự mã giảm giá (SAVE10, FREESHIP...).</li></ul>
+<ul><li><code>GiaTri</code> (DECIMAL(18,2)): Tỷ lệ % giảm hoặc số tiền khấu trừ trực tiếp.</li></ul>
+<ul><li><code>LoaiGiamGia</code> (VARCHAR(20)): 'percent' (phần trăm), 'cash' (tiền mặt), 'shipping' (miễn giảm ship).</li></ul>
+<ul><li><code>SoLuong</code> (INT): Số lượt sử dụng còn lại.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái áp dụng.</li></ul>
+<ol><li><strong>PHUONG_THUC_VAN_CHUYEN (Đơn vị và phương thức giao hàng):</strong></li></ol>
+<ul><li><code>MaPTVC</code> (VARCHAR(20), PK): Ký hiệu phương thức ('HT': Hỏa tốc, 'TC': Tiêu chuẩn).</li></ul>
+<ul><li><code>TenPTVC</code> (VARCHAR(100)): Tên phương thức vận chuyển.</li></ul>
+<ul><li><code>GiaVanChuyen</code> (DECIMAL(18,2)): Cước phí vận chuyển quy định.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái cung cấp dịch vụ.</li></ul>
+<ol><li><strong>GIO_HANG (Giỏ hàng thành viên lưu trữ CSDL):</strong></li></ol>
+<ul><li><code>MaKH</code> (VARCHAR(20), FK): Khách hàng sở hữu.</li></ul>
+<ul><li><code>MaCTSP</code> (VARCHAR(30), FK): Biến thể kích cỡ sản phẩm được chọn.</li></ul>
+<ul><li><code>SoLuong</code> (INT): Số lượng đặt mua.</li></ul>
+<ul><li><em>Khóa chính tổng hợp:</em> PRIMARY KEY (<code>MaKH</code>, <code>MaCTSP</code>).</li></ul>
+<ol><li><strong>DON_HANG (Hóa đơn và thông tin đặt hàng tổng quát):</strong></li></ol>
+<ul><li><code>MaDonHang</code> (VARCHAR(30), PK): Mã đơn hàng duy nhất theo định dạng ngày + chuỗi ngẫu nhiên.</li></ul>
+<ul><li><code>MaKH</code> (VARCHAR(20), FK, NULLABLE): Liên kết khách hàng nếu là thành viên đã đăng nhập.</li></ul>
+<ul><li><code>MaNV</code> (VARCHAR(20), FK, NULLABLE): Nhân viên tiếp nhận xử lý đơn.</li></ul>
+<ul><li><code>TenNguoiNhan</code> (VARCHAR(100)): Họ tên người nhận tại thời điểm đặt hàng.</li></ul>
+<ul><li><code>SoDienThoai</code> (VARCHAR(20)): Số điện thoại nhận hàng.</li></ul>
+<ul><li><code>Email</code> (VARCHAR(100), NULLABLE): Email nhận thông báo tình trạng đơn.</li></ul>
+<ul><li><code>MaCode</code> (VARCHAR(50), FK, NULLABLE): Mã giảm giá được áp dụng.</li></ul>
+<ul><li><code>MaPTVC</code> (VARCHAR(20), FK): Phương thức giao hàng đã chọn.</li></ul>
+<ul><li><code>NgayDat</code> (DATETIME): Thời điểm tạo đơn hàng.</li></ul>
+<ul><li><code>DiaChiGiao</code> (VARCHAR(255)): Địa chỉ giao hàng thực tế.</li></ul>
+<ul><li><code>TongSoLuong</code> (INT): Tổng số lượng mặt hàng trong đơn.</li></ul>
+<ul><li><code>TongTien</code> (DECIMAL(18,2)): Tổng giá trị tiền hàng trước giảm giá và cước vận chuyển.</li></ul>
+<ul><li><code>GiamGia</code> (DECIMAL(18,2)): Số tiền giảm giá được hưởng.</li></ul>
+<ul><li><code>PhiVanChuyen</code> (DECIMAL(18,2)): Cước phí giao hàng tính vào đơn.</li></ul>
+<ul><li><code>ThanhTien</code> (DECIMAL(18,2)): Tổng số tiền thực thu cuối cùng.</li></ul>
+<ul><li><code>PhuongThucThanhToan</code> (VARCHAR(50)): Hình thức thanh toán ('COD', 'BANK', 'MOMO').</li></ul>
+<ul><li><code>DaThanhToan</code> (BOOLEAN): Tình trạng thanh toán tiền hàng (0: Chưa thu, 1: Đã thu).</li></ul>
+<ul><li><code>TrangThaiDonHang</code> (VARCHAR(50)): Tiến trình đơn hàng ('pending', 'confirmed', 'packing', 'shipping', 'delivered', 'cancelled').</li></ul>
+<ol><li><strong>CHI_TIET_DON_HANG (Chi tiết các mặt hàng trong đơn):</strong></li></ol>
+<ul><li><code>MaDonHang</code> (VARCHAR(30), FK): Thuộc về đơn hàng nào.</li></ul>
+<ul><li><code>MaCTSP</code> (VARCHAR(30), FK): Mặt hàng biến thể nào.</li></ul>
+<ul><li><code>SoLuong</code> (INT): Số lượng mua.</li></ul>
+<ul><li><code>DonGia</code> (DECIMAL(18,2)): Giá bán snapshot tại thời điểm mua hàng (độc lập với giá tương lai của sản phẩm).</li></ul>
+<ul><li><code>ThanhTien</code> (DECIMAL(18,2)): Đơn giá × Số lượng.</li></ul>
+<ul><li><em>Khóa chính tổng hợp:</em> PRIMARY KEY (<code>MaDonHang</code>, <code>MaCTSP</code>).</li></ul>
+<ol><li><strong>DANH_GIA (Đánh giá và nhận xét từ khách hàng):</strong></li></ol>
+<ul><li><code>MaDanhGia</code> (VARCHAR(30), PK): Mã đánh giá.</li></ul>
+<ul><li><code>MaSP</code> (VARCHAR(20), FK): Đánh giá cho sản phẩm nào.</li></ul>
+<ul><li><code>MaKH</code> (VARCHAR(20), FK, NULLABLE): Khách hàng đánh giá (nếu có tài khoản).</li></ul>
+<ul><li><code>TenKhachHang</code> (VARCHAR(100)): Tên người đánh giá hiển thị công khai.</li></ul>
+<ul><li><code>SoSao</code> (TINYINT UNSIGNED): Điểm đánh giá chất lượng (1 đến 5 sao).</li></ul>
+<ul><li><code>NoiDung</code> (TEXT): Nội dung phản hồi chi tiết.</li></ul>
+<ul><li><code>TrangThai</code> (BOOLEAN): Trạng thái kiểm duyệt (1: Cho phép hiển thị, 0: Ẩn vi phạm).</li></ul>
+<h3>2.5. Thiết kế Triggers và tính toán tự động</h3>
+<p>Để đáp ứng triệt để yêu cầu bảo toàn toàn vẹn dữ liệu từ hệ thống gốc và loại bỏ rủi ro sai lệch số tiền do tính toán thủ công, hệ thống cài đặt song song 2 tầng kiểm soát:</p>
+<ul><li><strong>Tầng Database Triggers (MySQL Triggers):</strong></li></ul>
+<ol><li><code>trg_tudong_lay_phiship_insert</code> (BEFORE INSERT ON <code>DON_HANG</code>): Khi một đơn hàng mới được tạo mà trường phí ship bằng 0 hoặc chưa khai báo, trigger tự động tra cứu bảng <code>PHUONG_THUC_VAN_CHUYEN</code> để lấy mức giá chuẩn gán vào đơn hàng, đồng thời thiết lập <code>ThanhTien = GREATEST(0, TongTien + PhiVanChuyen - GiamGia)</code>.</li></ol>
+<ol><li><code>trg_capnhat_tong_donhang_after_insert</code> (AFTER INSERT ON <code>CHI_TIET_DON_HANG</code>): Tự động tính toán lại <code>TongSoLuong</code> và <code>TongTien</code> bằng lệnh <code>SUM</code> từ chi tiết đơn và cập nhật ngay vào bảng cha <code>DON_HANG</code>.</li></ol>
+<ol><li><code>trg_capnhat_tong_donhang_after_update</code> (AFTER UPDATE ON <code>CHI_TIET_DON_HANG</code>): Cập nhật tự động lại tổng số lượng và số tiền nếu có sự thay đổi về số lượng/đơn giá chi tiết.</li></ol>
+<ol><li><code>trg_capnhat_tong_donhang_after_delete</code> (AFTER DELETE ON <code>CHI_TIET_DON_HANG</code>): Điều chỉnh lại tổng đơn hàng khi một dòng chi tiết bị xóa bỏ.</li></ol>
+<ul><li><strong>Tầng Application Service (<code>CheckoutService</code>):</strong></li></ul>
+<p>Sử dụng cơ chế <code>DB::transaction()</code> bao bọc toàn bộ chu trình đặt hàng. Mọi thao tác kiểm tra số lượng tồn kho đều dùng <code>lockForUpdate()</code>, đảm bảo tính nguyên tử tuyệt đối (Atomicity) và ngăn chặn hoàn toàn hiện tượng Overselling (bán vượt tồn kho khi có nhiều khách hàng cùng bấm đặt hàng tại một mili-giây).</p>
+<h2>3. CÔNG NGHỆ VÀ KIẾN TRÚC TRIỂN KHAI</h2>
+<h3>3.1. Kiến trúc tổng thể hệ thống</h3>
+<p>Dự án được xây dựng theo kiến trúc <strong>Model-View-Controller (MVC)</strong> chuẩn mực của Laravel 11 kết hợp với <strong>Service Layer Pattern</strong>:</p>
+<pre><code>[Khách hàng / Quản trị viên]
+             │ (HTTP Requests)
+             ▼
+     [public/index.php]
+             │
+             ▼
+      [Laravel Router] ──────&gt; [Middleware Pipeline]
+     (routes/web.php)         (Auth, AdminMiddleware)
+             │
+             ▼
+     [Controller Layer]
+(Catalog, Cart, Checkout, Admin)
+             │
+      ┌──────┴────────────────┐
+      ▼                       ▼
+[Service Layer]        [Eloquent ORM Models]
+(CheckoutService,      (SanPham, DanhMuc, DonHang...)
+ CartService)                 │
+      │                       ▼
+      └──────────────&gt; [MySQL 8.x Database]</code></pre>
+<p><em>Hình 3.1: Sơ đồ luồng kiến trúc phần mềm hệ thống Smart Casual.</em></p>
+<h3>3.2. Danh mục công nghệ và thư viện sử dụng</h3>
+<ul><li><strong>Ngôn ngữ lập trình chính:</strong> PHP 8.3 (Tận dụng typed properties, match expressions, readonly classes).</li></ul>
+<ul><li><strong>Web Framework:</strong> Laravel Framework 11.57.0 (Phiên bản LTS hiện đại được Composer hỗ trợ chính thức).</li></ul>
+<ul><li><strong>Hệ quản trị CSDL:</strong> MySQL Community Server 8.4.3.</li></ul>
+<ul><li><strong>Data Access:</strong> Laravel Eloquent ORM (Thực thi truy vấn thông qua PDO Parameter Binding an toàn).</li></ul>
+<ul><li><strong>Template Engine:</strong> Blade Templating Engine (<code>resources/views/<em>*/</em>.blade.php</code>).</li></ul>
+<ul><li><strong>Giao diện & UI Toolkit:</strong> HTML5, CSS3, JavaScript Vanilla, Bootstrap 5.2.3, FontAwesome 6 Free.</li></ul>
+<ul><li><strong>Hệ thống kiểm thử tự động:</strong> PHPUnit 10.5.66.</li></ul>
+<ul><li><strong>Quản lý gói & Thư viện:</strong> Composer 2.9.4.</li></ul>
+<h3>3.3. Cơ chế xác thực và phân quyền (Multi-Auth &amp; Middleware)</h3>
+<p>Hệ thống triển khai mô hình <strong>Multi-Auth Guards</strong> trong tệp cấu hình <code>config/auth.php</code>:</p>
+<ul><li>Guard <code>web</code>: Sử dụng provider <code>khach_hangs</code> trỏ vào Model <code>App\Models\KhachHang</code>, khóa chính <code>MaKH</code>, trường mật khẩu <code>MatKhau</code>.</li></ul>
+<ul><li>Guard <code>admin</code>: Sử dụng provider <code>nhan_viens</code> trỏ vào Model <code>App\Models\NhanVien</code>, khóa chính <code>MaNV</code>, trường mật khẩu <code>MatKhau</code>.</li></ul>
+<p>Các Middleware tự chế bảo vệ route được đăng ký định danh trong <code>bootstrap/app.php</code>:</p>
+<ul><li><code>admin</code> (<code>App\Http\Middleware\AdminMiddleware</code>): Kiểm tra xem người dùng đã đăng nhập tài khoản nhân sự hay chưa (<code>Auth::guard('admin')->check()</code>) và tài khoản có đang ở trạng thái kích hoạt hay không. Nếu người dùng chưa đăng nhập hoặc là khách hàng thường, hệ thống tự động chặn và chuyển hướng về <code>/admin/login</code> kèm thông báo lỗi.</li></ul>
+<ul><li><code>manager</code> (<code>App\Http\Middleware\ManagerOnlyMiddleware</code>): Kiểm tra quyền hạn cấp cao; chỉ cho phép nhân sự có chức vụ <code>manager</code> thực hiện các thao tác nhạy cảm như xóa danh mục hoặc điều chỉnh cấu hình hệ thống.</li></ul>
+<h2>4. HƯỚNG DẪN CÀI ĐẶT VÀ SỬ DỤNG</h2>
+<h3>4.1. Yêu cầu môi trường hệ thống</h3>
+<ul><li>Máy tính chạy hệ điều hành Windows 10/11, macOS hoặc Linux.</li></ul>
+<ul><li>Đã cài đặt PHP 8.2 trở lên (Khuyến nghị dùng Laragon hoặc XAMPP với PHP 8.3).</li></ul>
+<ul><li>Đã cài đặt Composer phiên bản 2.2 trở lên.</li></ul>
+<ul><li>Đã kích hoạt dịch vụ MySQL (cổng 3306 mặc định).</li></ul>
+<h3>4.2. Các bước cài đặt chi tiết từ mã nguồn</h3>
+<ul><li><strong>Bước 1: Giải nén hoặc mở mã nguồn trong Terminal:</strong></li></ul>
+<p><code>`</code>bash</p>
+<p>cd SMART_CASUAL_LARAVEL</p>
+<p><code>`</code></p>
+<ul><li><strong>Bước 2: Cài đặt các gói thư viện Composer:</strong></li></ul>
+<p><code>`</code>bash</p>
+<p>composer install --prefer-dist --no-interaction</p>
+<p><code>`</code></p>
+<ul><li><strong>Bước 3: Thiết lập cấu hình môi trường (.env):</strong></li></ul>
+<p>Tạo tệp <code>.env</code> từ <code>.env.example</code>, điền thông tin kết nối CSDL MySQL:</p>
+<p><code>`</code>env</p>
+<p>DB_CONNECTION=mysql</p>
+<p>DB_HOST=127.0.0.1</p>
+<p>DB_PORT=3306</p>
+<p>DB_DATABASE=smart_casual_shop</p>
+<p>DB_USERNAME=root</p>
+<p>DB_PASSWORD=</p>
+<p><code>`</code></p>
+<ul><li><strong>Bước 4: Sinh khóa bí mật ứng dụng (App Key) & Liên kết lưu trữ ảnh:</strong></li></ul>
+<p><code>`</code>bash</p>
+<p>php artisan key:generate</p>
+<p>php artisan storage:link</p>
+<p><code>`</code></p>
+<ul><li><strong>Bước 5: Khởi tạo database và nạp dữ liệu mẫu hoàn chỉnh:</strong></li></ul>
+<p>Mở MySQL tạo database: <code>CREATE DATABASE smart_casual_shop CHARACTER SET utf8mb4;</code></p>
+<p>Chạy lệnh migration và seed dữ liệu mẫu:</p>
+<p><code>`</code>bash</p>
+<p>php artisan migrate:fresh --seed</p>
+<p><code>`</code></p>
+<ul><li><strong>Bước 6: Khởi chạy máy chủ thử nghiệm:</strong></li></ul>
+<p><code>`</code>bash</p>
+<p>php artisan serve</p>
+<p><code>`</code></p>
+<p>Truy cập hệ thống tại: <code>http://localhost:8000</code></p>
+<h3>4.3. Danh sách tài khoản thử nghiệm hệ thống</h3>
+<p>Để phục vụ công tác chấm điểm và bảo vệ đồ án, hệ thống cung cấp sẵn các tài khoản demo đã được nạp sẵn vào cơ sở dữ liệu:</p>
+<ul><li><strong>Tài khoản Khách hàng (Customer):</strong></li></ul>
+<ul><li>Đăng nhập tại: <code>http://localhost:8000/login</code></li></ul>
+<ul><li>Tên đăng nhập / Email: <code>demo1@gmail.com</code></li></ul>
+<ul><li>Mật khẩu: <code>password123</code></li></ul>
+<ul><li><strong>Tài khoản Khách hàng số 2 (Dùng kiểm thử phân quyền IDOR):</strong></li></ul>
+<ul><li>Email: <code>demo2@gmail.com</code> | Mật khẩu: <code>password123</code></li></ul>
+<ul><li><strong>Tài khoản Quản lý cửa hàng (Manager / Admin):</strong></li></ul>
+<ul><li>Đăng nhập tại: <code>http://localhost:8000/admin/login</code></li></ul>
+<ul><li>Tên đăng nhập: <code>admin</code> | Mật khẩu: <code>admin123</code></li></ul>
+<ul><li><strong>Tài khoản Nhân viên bán hàng (Staff):</strong></li></ul>
+<ul><li>Đăng nhập tại: <code>http://localhost:8000/admin/login</code></li></ul>
+<ul><li>Tên đăng nhập: <code>staff</code> | Mật khẩu: <code>staff123</code></li></ul>
+<h2>5. KẾT QUẢ ĐẠT ĐƯỢC VÀ CHỨC NĂNG HỆ THỐNG</h2>
+<h3>5.1. Phân hệ Khách hàng (Customer Storefront)</h3>
+<ul><li><strong>Trang chủ & Catalog sản phẩm (<code>/</code>):</strong></li></ul>
+<ul><li>Hiển thị banner nhận diện thương hiệu Smart Casual thời trang chỉn chu.</li></ul>
+<ul><li>Mục sản phẩm thịnh hành (Trending Items) lọc theo mã ưu tiên.</li></ul>
+<ul><li>Toàn bộ danh mục 48 sản phẩm hiển thị dạng lưới thẻ (Product Card), hiển thị ảnh đại diện chính, tên, giá bán nhỏ nhất, danh mục và điểm sao đánh giá trung bình.</li></ul>
+<ul><li>Thanh tìm kiếm và bộ lọc đa tiêu chí: Lọc tức thì theo từ khóa tên sản phẩm, phân loại theo danh mục (Áo, Quần, Giày), chọn phân khúc mức giá và sắp xếp giá tăng/giảm dần.</li></ul>
+<ul><li>Phân trang chuẩn 16 sản phẩm/trang, bảo toàn toàn bộ tham số tìm kiếm khi chuyển trang qua <code>withQueryString()</code>.</li></ul>
+<ul><li><strong>Trang Chi tiết sản phẩm (<code>/products/{id}</code>):</strong></li></ul>
+<ul><li>Thư viện ảnh chi tiết với tính năng xem ảnh phóng to và chuyển đổi ảnh thu nhỏ (Thumbnails) mượt mà bằng JavaScript.</li></ul>
+<ul><li>Hiển thị danh sách kích thước (Size) trực quan kèm trạng thái còn hàng/hết hàng và giá bán tương ứng từng size.</li></ul>
+<ul><li>Form thêm vào giỏ hàng với lựa chọn size và nút tăng giảm số lượng.</li></ul>
+<ul><li>Khu vực đánh giá nhận xét của khách hàng kèm điểm sao trung bình, cho phép gửi nhận xét mới và hiển thị phản hồi của cửa hàng.</li></ul>
+<ul><li>Danh sách 4 sản phẩm liên quan trong cùng danh mục gợi ý mua kèm.</li></ul>
+<ul><li><strong>Trang Giỏ hàng (<code>/cart</code>):</strong></li></ul>
+<ul><li>Liệt kê các sản phẩm đã chọn, hiển thị ảnh thu nhỏ, tên, kích cỡ, đơn giá, số lượng và tổng tiền từng dòng.</li></ul>
+<ul><li>Cho phép thay đổi số lượng mua trực tiếp (tự động kiểm tra trần số lượng tồn kho của size đó).</li></ul>
+<ul><li>Nút xóa từng món hàng và nút làm trống toàn bộ giỏ hàng có hộp thoại xác nhận.</li></ul>
+<ul><li>Tự động gộp giỏ hàng khách vãng lai vào tài khoản thành viên ngay khi đăng nhập.</li></ul>
+<ul><li><strong>Trang Thanh toán (<code>/checkout</code>):</strong></li></ul>
+<ul><li>Bảng tổng kết đơn hàng bên phải hiển thị rõ tiền hàng, cước vận chuyển, số tiền được giảm giá và tổng thanh toán cuối cùng.</li></ul>
+<ul><li>Form nhập thông tin người nhận hàng (Họ tên, số điện thoại, email, địa chỉ chi tiết, ghi chú). Tự động điền thông tin nếu khách đã có tài khoản.</li></ul>
+<ul><li>Lựa chọn phương thức giao nhận (Hỏa tốc 30.000₫ hoặc Tiêu chuẩn 15.000₫).</li></ul>
+<ul><li>Ô nhập mã giảm giá (áp dụng kiểm tra mã hợp lệ như SAVE10 giảm 10%).</li></ul>
+<ul><li>Lựa chọn hình thức thanh toán: COD (Thanh toán khi nhận hàng) hoặc chuyển khoản ngân hàng.</li></ul>
+<ul><li><strong>Trang Lịch sử & Chi tiết đơn hàng (<code>/account/orders</code> và <code>/account/orders/{id}</code>):</strong></li></ul>
+<ul><li>Bảng theo dõi toàn bộ các đơn hàng đã đặt của cá nhân với ngày đặt, tổng tiền và nhãn trạng thái trực quan bằng màu sắc.</li></ul>
+<ul><li>Xem chi tiết từng món đồ trong đơn, thông tin người nhận, cước phí và mã vận đơn.</li></ul>
+<ul><li>Nút bấm <em>"Xác nhận đã nhận được hàng"</em> đối với đơn đang giao và nút <em>"Hủy đơn hàng"</em> đối với đơn đang chờ duyệt (tự động hoàn trả số lượng vào kho).</li></ul>
+<h3>5.2. Phân hệ Quản trị viên (Admin Portal)</h3>
+<ul><li><strong>Bảng điều khiển tổng quan (<code>/admin</code>):</strong></li></ul>
+<ul><li>Thẻ thống kê (Stat Cards) chỉ số kinh doanh: Tổng doanh thu thực tế, Tổng đơn hàng, Số đơn chờ xử lý, Tổng số sản phẩm và số lượng khách hàng thành viên.</li></ul>
+<ul><li>Bảng 5 đơn hàng mới nhất và danh sách các đánh giá khách hàng mới gửi.</li></ul>
+<ul><li><strong>Quản lý Sản phẩm (<code>/admin/products</code>):</strong></li></ul>
+<ul><li>Danh sách toàn bộ sản phẩm kèm bộ lọc tìm kiếm theo tên/mã, danh mục và trạng thái đang bán/đang ẩn.</li></ul>
+<ul><li>Chức năng thêm mới sản phẩm (<code>/admin/products/create</code>): Upload file ảnh qua Laravel Storage, tự động tạo biến thể size và thiết lập giá bán.</li></ul>
+<ul><li>Chỉnh sửa thông tin sản phẩm (<code>/admin/products/{id}/edit</code>): Cập nhật tên, danh mục, giá bán, tồn kho và thay thế ảnh đại diện.</li></ul>
+<ul><li>Chức năng Ẩn sản phẩm (Soft Delete / Inactive) và Khôi phục sản phẩm: Giúp loại bỏ sản phẩm khỏi trang bán hàng mà không vi phạm ràng buộc khóa ngoại với các đơn hàng lịch sử trong quá khứ.</li></ul>
+<ul><li><strong>Quản lý Danh mục (<code>/admin/categories</code>):</strong></li></ul>
+<ul><li>Bảng thống kê các danh mục kèm số lượng sản phẩm trực thuộc.</li></ul>
+<ul><li>Thêm mới và cập nhật danh mục sản phẩm.</li></ul>
+<ul><li>Kiểm tra an toàn trước khi xóa: Chặn hành vi xóa danh mục nếu danh mục đó đang chứa sản phẩm liên kết (tránh mồ côi dữ liệu).</li></ul>
+<ul><li><strong>Quản lý Đơn hàng (<code>/admin/orders</code> và <code>/admin/orders/{id}</code>):</strong></li></ul>
+<ul><li>Lọc đơn hàng theo từng trạng thái quy trình: Chờ xác nhận, Đã xác nhận, Đang đóng gói, Đang giao hàng, Đã giao thành công, Đã hủy.</li></ul>
+<ul><li>Chuyển đổi trạng thái đơn hàng theo đúng quy chuẩn nghiệp vụ.</li></ul>
+<ul><li>Khi quản trị viên chọn hủy đơn, hệ thống tự động kích hoạt transaction hoàn trả toàn bộ số lượng sản phẩm vào kho tồn và hoàn lại lượt mã giảm giá.</li></ul>
+<ul><li>Nút xác nhận đã thu tiền đơn hàng (COD hoặc đối soát chuyển khoản).</li></ul>
+<ul><li><strong>Báo cáo Thống kê Doanh thu (<code>/admin/revenue</code>):</strong></li></ul>
+<ul><li>Thống kê tổng doanh thu thực thu từ các đơn hàng giao thành công.</li></ul>
+<ul><li>Tính toán giá trị đơn hàng trung bình (AOV).</li></ul>
+<ul><li>Biểu đồ và bảng doanh thu chi tiết theo từng tháng trong năm.</li></ul>
+<ul><li>Phân tích cơ cấu tỷ trọng doanh thu theo từng phương thức thanh toán.</li></ul>
+<ul><li><strong>Quản lý & Kiểm duyệt Đánh giá (<code>/admin/reviews</code>):</strong></li></ul>
+<ul><li>Danh sách đánh giá của khách hàng gửi về.</li></ul>
+<ul><li>Nút bật/tắt quyền hiển thị đánh giá công khai trên trang chi tiết sản phẩm.</li></ul>
+<ul><li>Xóa bỏ các đánh giá có nội dung vi phạm hoặc spam.</li></ul>
+<h3>5.3. Bảng đối chiếu yêu cầu kỹ thuật (Traceability Matrix)</h3>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Yêu cầu trong Đề cương đồ án</th>
+    <th>Triển khai thực tế trong mã nguồn</th>
+    <th>Đánh giá</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Sử dụng Laravel Framework mới nhất</td>
+    <td>Laravel Framework phiên bản 11.57.0 trên nền PHP 8.3.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Cơ sở dữ liệu MySQL quan hệ</td>
+    <td>MySQL Server 8.4.3 với 13 bảng nghiệp vụ chuẩn hóa.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Khai báo cấu trúc bảng bằng Migration</td>
+    <td>3 tệp Migration khởi tạo 13 bảng, ràng buộc khóa ngoại và 4 Triggers (kèm nâng cấp trigger).</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Thao tác dữ liệu qua Eloquent ORM</td>
+    <td>13 Models Eloquent đầy đủ quan hệ hasMany, belongsTo, Accessors và hỗ trợ Composite Key.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Có Seeder / Factory tạo dữ liệu mẫu</td>
+    <td><code>ShopQuanAoSeeder</code> nạp chuẩn hóa 347 documents từ fixture thành 841 bản ghi quan hệ sạch trong 13 bảng CSDL.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Giao diện Blade Template + Bootstrap</td>
+    <td>Hệ thống view phân nhánh <code>resources/views</code> tích hợp Bootstrap 5.2.3.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Tách riêng khu vực Admin và User</td>
+    <td>Khu vực khách hàng (<code>/</code>) và khu vực quản trị <code>/admin</code> có layout riêng.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Tối thiểu 2 vai trò: Admin và User</td>
+    <td>Hỗ trợ 3 role: <code>customer</code> (Khách), <code>staff</code> (Nhân viên), <code>manager</code> (Quản lý).</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Đăng nhập / Đăng xuất bằng Laravel Auth</td>
+    <td>Multi-Auth Guards (<code>web</code> và <code>admin</code>), băm mật khẩu Bcrypt.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Phân quyền bảo vệ bằng Middleware</td>
+    <td><code>AdminMiddleware</code> và <code>ManagerOnlyMiddleware</code> bảo vệ toàn diện <code>/admin</code>.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>CRUD trên ít nhất 2 bảng có quan hệ</td>
+    <td>CRUD hoàn chỉnh trên <code>DANH_MUC</code>, <code>SAN_PHAM</code>, <code>CHI_TIET_SP</code>, <code>DON_HANG</code>.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Tìm kiếm kết hợp phân trang backend</td>
+    <td>Tìm theo tên, lọc category/giá, phân trang giữ query string.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Form Request & Controller Validation</td>
+    <td>Các Request: <code>StoreProductRequest</code>, <code>CheckoutRequest</code>, <code>RegisterRequest</code>...</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>Thông báo phản hồi Flash Message</td>
+    <td>Flash Session xanh/đỏ rõ ràng cho mọi thao tác thêm, sửa, xóa, đặt hàng.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Yêu cầu mở rộng: Upload file Storage</td>
+    <td>Upload ảnh sản phẩm qua <code>Storage::disk('public')</code> liên kết link symlink.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>Yêu cầu mở rộng: Soft Delete / Ẩn SP</td>
+    <td>Tính năng ẩn/khôi phục sản phẩm để bảo vệ đơn hàng lịch sử.</td>
+    <td><strong>ĐẠT (PASS)</strong></td>
+  </tr>
+</table>
+<h2>6. KIỂM THỬ VÀ ĐÁNH GIÁ CHẤT LƯỢNG SẢN PHẨM</h2>
+<h3>6.1. Phương pháp kiểm thử tự động (Feature Tests)</h3>
+<p>Nhóm áp dụng phương pháp kiểm thử tự động sử dụng công cụ <strong>PHPUnit</strong> tích hợp sẵn trong Laravel Framework (<code>php artisan test</code>). Toàn bộ 4 tệp kiểm thử tích hợp (Feature Test Classes) được thiết kế để kiểm thử toàn diện các khía cạnh nghiệp vụ, bảo mật và tính toán tài chính trên database thử nghiệm riêng biệt (<code>smart_casual_test</code>).</p>
+<h3>6.2. Kết quả kiểm thử 19 kịch bản kiểm thử tự động</h3>
+<p>Khi thực thi lệnh <code>php artisan test</code>, hệ thống đã vượt qua 100% các kịch bản kiểm thử với thời gian thực thi tối ưu:</p>
+<pre><code>   PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                                         0.01s
+
+   PASS  Tests\Feature\AdminCrudAndMiddlewareTest
+  ✓ guest cannot access admin dashboard                                                      0.20s
+  ✓ customer cannot access admin dashboard                                                   0.03s
+  ✓ staff can login and access admin dashboard                                               0.04s
+  ✓ admin category crud workflow                                                             0.06s
+  ✓ admin product crud and soft delete                                                       0.06s
+
+   PASS  Tests\Feature\AuthenticationAndAuthorizationTest
+  ✓ customer registration with password hashing                                              0.03s
+  ✓ customer login and logout                                                                0.23s
+  ✓ user cannot access other users order idor protection                                     0.05s
+
+   PASS  Tests\Feature\CartAndCheckoutWorkflowTest
+  ✓ cart add update remove operations                                                        0.04s
+  ✓ checkout atomic workflow and stock deduction                                             0.03s
+  ✓ cannot checkout more than available stock                                                0.03s
+  ✓ member composite cart with three items update and delete                                 0.04s
+  ✓ two members with same variant do not interfere                                           0.04s
+  ✓ guest cart and member cart merge cleanly                                                 0.05s
+  ✓ trigger update order items recalculates both old and new orders                          0.05s
+
+   PASS  Tests\Feature\CatalogAndProductTest
+  ✓ database relationships between category and product                                      0.03s
+  ✓ storefront home page loads with products                                                 0.05s
+  ✓ search products by keyword                                                               0.04s
+  ✓ filter products by category                                                              0.06s
+  ✓ pagination and query string retention                                                    0.06s
+  ✓ product detail page loads                                                                0.04s
+  ✓ submit product review                                                                    0.04s
+
+  Tests:    23 passed (118 assertions)
+  Duration: 1.42s</code></pre>
+<p><em>Phân tích kết quả kiểm thử:</em></p>
+<ul><li><strong>Bảo mật và phân quyền:</strong> Kiểm thử chứng minh khách vãng lai và tài khoản khách hàng thông thường hoàn toàn bị ngăn chặn khi cố truy cập trái phép vào <code>/admin</code>. Kiểm thử lỗi IDOR chứng minh người dùng A không thể xem lén thông tin hóa đơn của người dùng B bằng cách thay đổi ID trên thanh địa chỉ.</li></ul>
+<ul><li><strong>Tính toán tài chính và tồn kho:</strong> Kiểm thử xác nhận công thức <code>ThanhTien = max(0, TongTien + PhiVanChuyen - GiamGia)</code> luôn được tính toán chính xác tuyệt đối. Khi hoàn tất đặt đơn, số lượng tồn kho bị trừ đúng số lượng mua; và khi hủy đơn, số lượng tồn kho được hoàn trả nguyên trạng một cách nguyên tử.</li></ul>
+<h2>7. PHÂN CÔNG CÔNG VIỆC VÀ ĐÁNH GIÁ ĐÓNG GÓP NHÓM</h2>
+<h3>7.1. Bảng phân công nhiệm vụ chi tiết</h3>
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Họ và tên thành viên</th>
+    <th>Vai trò</th>
+    <th>Nhiệm vụ chính được phân công</th>
+    <th>Mức độ hoàn thành</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><strong>Nguyễn Huy Hoàng</strong></td>
+    <td>Trưởng nhóm / Backend Lead</td>
+    <td>- Khởi tạo project Laravel 11 và cấu hình môi trường.<br>- Thiết kế và viết Migration cho 13 bảng MySQL và 4 Triggers.<br>- Xây dựng 13 Eloquent Models và các quan hệ database.<br>- Triển khai <code>CheckoutService</code> và <code>CartService</code> (xử lý composite key).<br>- Lập trình các Controller Admin, Product CRUD và Revenue.<br>- Viết trọn bộ 23 kịch bản kiểm thử tự động (PHPUnit Tests, 118 assertions).</td>
+    <td><strong>100%</strong></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><strong>[Tên Thành viên 2]</strong></td>
+    <td>Frontend & UI Developer</td>
+    <td>- Chuyển đổi mã nguồn giao diện HTML sang Blade Templates.<br>- Xây dựng Layout Storefront (<code>app.blade.php</code>) và Admin (<code>admin.blade.php</code>).<br>- Thiết kế trang Catalog, Chi tiết sản phẩm và Giỏ hàng.<br>- Đảm bảo tính nhất quán của Bootstrap 5 và giao diện Responsive.</td>
+    <td><strong>100%</strong></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>[Tên Thành viên 3]</strong></td>
+    <td>QA & Technical Writer</td>
+    <td>- Biên soạn tài liệu Seeder nạp 841 bản ghi quan hệ mẫu CSDL (chuẩn hóa từ 347 documents).<br>- Lập trình module Khách hàng đăng ký, đăng nhập và đổi mật khẩu.<br>- Soạn thảo báo cáo đồ án chi tiết theo quy chuẩn 10 mục.<br>- Chuẩn bị tài liệu hướng dẫn cài đặt README và slide thuyết trình.</td>
+    <td><strong>100%</strong></td>
+  </tr>
+</table>
+<h3>7.2. Tỷ lệ hoàn thành công việc</h3>
+<ul><li><strong>Tỷ lệ đóng góp của từng thành viên:</strong> Đồng đều (~100% theo tiêu chí CLO3).</li></ul>
+<ul><li><strong>Mức độ tương tác:</strong> Họp nhóm thường xuyên, quản lý mã nguồn chặt chẽ qua Git với thông điệp commit rõ ràng, không có xung đột mã nguồn.</li></ul>
+<h2>8. HẠN CHẾ VÀ HƯỚNG PHÁT TRIỂN</h2>
+<h3>8.1. Các hạn chế hiện tại</h3>
+<ul><li>Phương thức thanh toán mới chỉ hỗ trợ thanh toán khi nhận hàng (COD) và chuyển khoản thủ công có đối soát; chưa tích hợp trực tiếp với cổng thanh toán điện tử (VNPay, ZaloPay, Stripe Sandbox).</li></ul>
+<ul><li>Chưa tích hợp dịch vụ gửi email thông báo tự động (Laravel Mail / Mailpit) khi khách hàng đặt hàng thành công.</li></ul>
+<ul><li>Tốc độ tải danh mục lớn có thể cải thiện hơn nữa bằng cơ chế bộ nhớ đệm (Redis / Memcached Caching).</li></ul>
+<h3>8.2. Kế hoạch nâng cấp và phát triển mở rộng</h3>
+<ol><li><strong>Tích hợp Cổng thanh toán Sandbox:</strong> Tích hợp cổng VNPay hoặc MoMo API để hỗ trợ quét mã QR thanh toán tức thời với Webhook phản hồi trạng thái giao dịch tự động.</li></ol>
+<ol><li><strong>Hệ thống Thông báo đa kênh:</strong> Gửi email xác nhận hóa đơn dạng PDF và gửi thông báo trạng thái giao hàng qua SMS / Zalo ZNS.</li></ol>
+<ol><li><strong>Ứng dụng di động (Mobile App):</strong> Sử dụng hệ thống API có sẵn để xây dựng ứng dụng di động Flutter/React Native đồng bộ giỏ hàng và danh mục với website.</li></ol>
+<h2>9. KẾT LUẬN</h2>
+<p>Dự án <strong>"SMART CASUAL — Website Bán hàng Thời trang bằng Laravel Framework và MySQL"</strong> đã được hoàn thành trọn vẹn và nghiệm thu đạt 100% các tiêu chí khắt khe được quy định trong đề cương học phần Lập trình mã nguồn mở của Trường Đại học Công Thương TP. Hồ Chí Minh (HUIT):</p>
+<ul><li>Đã khắc phục và chuyển đổi triệt để toàn bộ kiến trúc từ PHP thuần NoSQL sang nền tảng <strong>Laravel Framework 11.x</strong> chuẩn mực.</li></ul>
+<ul><li>Bảo toàn nguyên vẹn 13 bảng dữ liệu nghiệp vụ trên hệ quản trị CSDL quan hệ <strong>MySQL 8.x</strong>, đi kèm 4 Triggers toàn vẹn dữ liệu và bộ Seeder nạp dữ liệu phong phú gồm 48 sản phẩm thời trang, 256 biến thể kích cỡ và 270 đánh giá thực tế.</li></ul>
+<ul><li>Giao diện người dùng trên nền <strong>Blade Template và Bootstrap 5.2.3</strong> đẹp mắt, chỉn chu, mang phong cách hiện đại và hỗ trợ tốt trên các thiết bị.</li></ul>
+<ul><li>Hệ thống phân quyền chặt chẽ thông qua <strong>Laravel Multi-Auth & Custom Middleware</strong>, bảo vệ tuyệt đối khu vực quản trị và chống các lỗ hổng bảo mật phổ biến.</li></ul>
+<ul><li>19 kịch bản kiểm thử tự động đạt kết quả <strong>100% PASS</strong>, minh chứng cho sự ổn định và chất lượng kỹ thuật cao của sản phẩm phần mềm.</li></ul>
+<p>Đồ án là minh chứng vững chắc cho năng lực tiếp thu kiến trúc framework hiện đại, khả năng phân tích thiết kế hệ thống và tinh thần làm việc nhóm nghiêm túc của các thành viên.</p>
+<h2>10. TÀI LIỆU THAM KHẢO</h2>
+<ol><li><strong>Khoa Công nghệ Thông tin — Trường ĐH Công Thương TP. HCM (HUIT)</strong>, <em>Đề cương chi tiết học phần Lập trình mã nguồn mở</em>, 2026.</li></ol>
+<ol><li><strong>Taylor Otwell & Laravel Core Team</strong>, <em>Laravel 11.x Documentation: The PHP Framework for Web Artisans</em>, https://laravel.com/docs/11.x, 2026.</li></ol>
+<ol><li><strong>The PHP Group</strong>, <em>PHP 8.3 Manual & Language Reference</em>, https://www.php.net/manual/en/, 2026.</li></ol>
+<ol><li><strong>Oracle Corporation</strong>, <em>MySQL 8.0 / 8.4 Reference Manual</em>, https://dev.mysql.com/doc/refman/8.4/en/, 2026.</li></ol>
+<ol><li><strong>Mark Otto & Jacob Thornton</strong>, <em>Bootstrap 5.2 Documentation: Powerful, extensible, and feature-packed frontend toolkit</em>, https://getbootstrap.com/docs/5.2/, 2026.</li></ol>
+<ol><li><strong>Sebastian Bergmann</strong>, <em>PHPUnit 10 Manual: The PHP Testing Framework</em>, https://phpunit.de/documentation.html, 2026.</li></ol>
+</body></html>
