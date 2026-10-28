@@ -1,0 +1,261 @@
+<mxfile host="app.diagrams.net" modified="2026-10-26T23:05:00.000Z" agent="Antigravity" version="24.7.5" type="device">
+  <diagram id="Checkout_Service_Triggers_Seq" name="Hinh 2.3 - CheckoutService & Triggers Sequence">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Tiêu đề sơ đồ -->
+        <mxCell id="title_box" value="&lt;b&gt;HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ SMART CASUAL&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 15px; font-weight: normal; color: #555555;&quot;&gt;HÌNH 2.3: BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM) PHỐI HỢP GIỮA SERVICE LAYER VÀ DATABASE TRIGGERS&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontColor=#14221D;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="800" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== PARTICIPANTS (LIFELINES) ==================== -->
+
+        <!-- 1. Khách hàng (Client) -->
+        <mxCell id="p_client" value="&lt;b&gt;Khách hàng&lt;/b&gt;&lt;br&gt;(Trình duyệt / Client)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=45;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=1.8;fontColor=#BF360C;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="150" height="1180" as="geometry" />
+        </mxCell>
+
+        <!-- 2. CheckoutController -->
+        <mxCell id="p_controller" value="&lt;b&gt;CheckoutController&lt;/b&gt;&lt;br&gt;(Tầng Controller)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=45;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=1.8;fontColor=#0E6251;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="90" width="160" height="1180" as="geometry" />
+        </mxCell>
+
+        <!-- 3. CheckoutService -->
+        <mxCell id="p_service" value="&lt;b&gt;CheckoutService&lt;/b&gt;&lt;br&gt;(Tầng Dịch Vụ - App Core)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=45;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontColor=#1B4F72;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="180" height="1180" as="geometry" />
+        </mxCell>
+
+        <!-- 4. MySQL Engine & Triggers -->
+        <mxCell id="p_triggers" value="&lt;b&gt;MySQL 8.4 Engine&lt;/b&gt;&lt;br&gt;(4 Triggers CSDL)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=45;fillColor=#FDEDEC;strokeColor=#CB4335;strokeWidth=2;fontColor=#78281F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="90" width="170" height="1180" as="geometry" />
+        </mxCell>
+
+        <!-- 5. Bảng CSDL (InnoDB Tables) -->
+        <mxCell id="p_tables" value="&lt;b&gt;InnoDB Tables&lt;/b&gt;&lt;br&gt;(DON_HANG, CHI_TIET...)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;size=45;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=1.8;fontColor=#7D6608;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="90" width="170" height="1180" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CÁC BƯỚC TUẦN TỰ (MESSAGES) ==================== -->
+
+        <!-- Bước 1: Client gửi đơn -->
+        <mxCell id="msg_1" value="1. POST /checkout (form data, idempotency_key)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#E65100;strokeWidth=1.8;fontColor=#BF360C;fontSize=11;" edge="1" parent="1" source="p_client" target="p_controller">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="250" y="170" />
+              <mxPoint x="250" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 2: Controller validate -->
+        <mxCell id="msg_2" value="2. Form Request Validation (CSRF, phone, address)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#16A085;strokeWidth=1.4;fontColor=#0E6251;fontSize=10;" edge="1" parent="1" source="p_controller" target="p_controller">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="195" />
+              <mxPoint x="500" y="195" />
+              <mxPoint x="500" y="215" />
+              <mxPoint x="455" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 3: Controller gọi Service -->
+        <mxCell id="msg_3" value="3. placeOrder($validatedData, $idempotencyKey)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#16A085;strokeWidth=1.8;fontColor=#0E6251;fontSize=11;" edge="1" parent="1" source="p_controller" target="p_service">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="240" />
+              <mxPoint x="600" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 4: Kiểm tra Idempotency -->
+        <mxCell id="msg_4" value="4. Check idempotency_key trong CHECKOUT_IDEMPOTENCY" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.5;fontColor=#1B4F72;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="275" />
+              <mxPoint x="1100" y="275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 5: Bắt đầu DB::transaction() -->
+        <mxCell id="box_trans" value="&lt;b&gt;DB::transaction() BEGIN&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#2980B9;strokeWidth=1.5;fillColor=#EBF5FB;fontColor=#1B4F72;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="715" y="305" width="110" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Bước 6: lockForUpdate tồn kho -->
+        <mxCell id="msg_6" value="5. lockForUpdate() biến thể CHI_TIET_SP (kiểm tra SoLuong >= item.qty)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.8;fontColor=#1B4F72;fontSize=11;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="360" />
+              <mxPoint x="1100" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Note chống Race Condition -->
+        <mxCell id="note_lock" value="&lt;b&gt;Bảo vệ tồn kho:&lt;/b&gt;&lt;br&gt;Khóa bi quan ngăn 2 khách cùng mua chiếc áo/size cuối cùng" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingLeft=5;fillColor=#FFFDE7;strokeColor=#FBC02D;strokeWidth=1.2;fontSize=10;fontColor=#685B00;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="335" width="200" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Bước 7: Khóa voucher -->
+        <mxCell id="msg_7" value="6. lockForUpdate() MA_GIAM_GIA &amp; tính discount, decrement SoLuong" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.5;fontColor=#1B4F72;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="420" />
+              <mxPoint x="1100" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 8: DonHang::create -->
+        <mxCell id="msg_8" value="7. INSERT INTO DON_HANG (MaDonHang, MaKH, MaPTVC, TongTien, ...)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#CB4335;strokeWidth=2;fontColor=#78281F;fontSize=11;" edge="1" parent="1" source="p_service" target="p_triggers">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="475" />
+              <mxPoint x="940" y="475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- TRIGGER 1: BEFORE INSERT -->
+        <mxCell id="trg_1" value="&lt;b&gt;TRIGGER 1: BEFORE INSERT ON DON_HANG&lt;/b&gt;&lt;br&gt;&lt;i&gt;trg_tudong_lay_phiship_insert&lt;/i&gt;&lt;br&gt;• Tra cứu GiaVanChuyen từ PHUONG_THUC_VAN_CHUYEN nếu rỗng&lt;br&gt;• Gán ThanhTien = max(0, TongTien + PhiVanChuyen - GiamGia)" style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#CB4335;strokeWidth=1.8;fillColor=#FDEDEC;fontColor=#78281F;fontSize=10;align=left;spacingLeft=8;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="505" width="370" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Lưu vào bảng DON_HANG -->
+        <mxCell id="msg_trg1_write" value="Ghi bản ghi đơn hàng đã chuẩn hóa phí ship" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#CB4335;strokeWidth=1.5;fontColor=#78281F;fontSize=10;" edge="1" parent="1" source="p_triggers" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1270" y="595" />
+              <mxPoint x="1270" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- KHUNG VÒNG LẶP (LOOP) CHO ORDER ITEMS -->
+        <mxCell id="frame_loop" value="&lt;b&gt;LOOP [Mỗi sản phẩm trong giỏ hàng]&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#2980B9;strokeWidth=1.6;fillColor=#F4F9FD;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;rounded=1;fontColor=#1B4F72;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="660" y="625" width="880" height="255" as="geometry" />
+        </mxCell>
+
+        <!-- Bước 9a: Trừ kho -->
+        <mxCell id="msg_9a" value="8a. CHI_TIET_SP->decrement('SoLuong', $qty)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.6;fontColor=#1B4F72;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="660" />
+              <mxPoint x="1100" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 9b: ChiTietDonHang::create -->
+        <mxCell id="msg_9b" value="8b. INSERT INTO CHI_TIET_DON_HANG (MaDonHang, MaCTSP, SoLuong, DonGia)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#CB4335;strokeWidth=1.8;fontColor=#78281F;fontSize=10;" edge="1" parent="1" source="p_service" target="p_triggers">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="700" />
+              <mxPoint x="940" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- TRIGGER 2: AFTER INSERT -->
+        <mxCell id="trg_2" value="&lt;b&gt;TRIGGER 2: AFTER INSERT ON CHI_TIET_DON_HANG&lt;/b&gt;&lt;br&gt;&lt;i&gt;trg_capnhat_tong_donhang_after_insert&lt;/i&gt;&lt;br&gt;• SELECT SUM(SoLuong) &amp; SELECT SUM(SoLuong * DonGia)&lt;br&gt;• &lt;b&gt;UPDATE DON_HANG:&lt;/b&gt; TongSoLuong, TongTien, ThanhTien bất biến" style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#CB4335;strokeWidth=1.8;fillColor=#FDEDEC;fontColor=#78281F;fontSize=10;align=left;spacingLeft=8;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="730" width="370" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Đồng bộ lại DON_HANG -->
+        <mxCell id="msg_trg2_update" value="Tự động UPDATE bảng DON_HANG (Tạo Snapshot tài chính)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#CB4335;strokeWidth=1.5;fontColor=#78281F;fontSize=10;" edge="1" parent="1" source="p_triggers" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1270" y="820" />
+              <mxPoint x="1270" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Note về Snapshot -->
+        <mxCell id="note_snapshot" value="&lt;b&gt;Đặc sản kỹ thuật:&lt;/b&gt;&lt;br&gt;Trigger tự động tính tổng tiền ngay ở nhân CSDL, đảm bảo toàn vẹn ngay cả khi thao tác ngoài Laravel." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingLeft=5;fillColor=#FFFDE7;strokeColor=#FBC02D;strokeWidth=1.2;fontSize=10;fontColor=#685B00;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="735" width="200" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Bước 10: Xóa giỏ hàng -->
+        <mxCell id="msg_10" value="9. CartService::clear() (Xóa giỏ hàng session / CSDL GIO_HANG)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.5;fontColor=#1B4F72;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="905" />
+              <mxPoint x="1100" y="905" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 11: DB::transaction COMMIT -->
+        <mxCell id="box_commit" value="&lt;b&gt;DB::transaction() COMMIT&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#16A085;strokeWidth=1.5;fillColor=#E8F8F5;fontColor=#0E6251;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="715" y="940" width="110" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Bước 12: Đánh dấu idempotency completed -->
+        <mxCell id="msg_12" value="10. UPDATE CHECKOUT_IDEMPOTENCY status = 'completed', order_id = $order->id" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#2980B9;strokeWidth=1.4;fontColor=#1B4F72;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="990" />
+              <mxPoint x="1100" y="990" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 13: Service trả về Order -->
+        <mxCell id="msg_13" value="11. Return $order (Đối tượng DonHang hoàn tất)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=orthogonalEdgeStyle;strokeColor=#16A085;strokeWidth=1.8;fontColor=#0E6251;fontSize=11;" edge="1" parent="1" source="p_service" target="p_controller">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="1035" />
+              <mxPoint x="600" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bước 14: Redirect thành công -->
+        <mxCell id="msg_14" value="12. 302 Redirect /checkout/success/{orderId} (Kèm flash message)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=orthogonalEdgeStyle;strokeColor=#E65100;strokeWidth=1.8;fontColor=#BF360C;fontSize=11;" edge="1" parent="1" source="p_controller" target="p_client">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="1080" />
+              <mxPoint x="250" y="1080" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== LUỒNG NGOẠI LỆ / ROLLBACK ==================== -->
+        <mxCell id="frame_alt" value="&lt;b&gt;ALT [Ngoại lệ: Hết tồn kho HOẶC Voucher hết lượt sử dụng]&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#C0392B;strokeWidth=1.5;fillColor=#FDEDEC;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;rounded=1;fontColor=#922B21;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="1120" width="1180" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="msg_rollback" value="throw Exception -> DB::transaction() TỰ ĐỘNG ROLLBACK TOÀN BỘ (Dữ liệu trả về trạng thái nguyên vẹn)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=orthogonalEdgeStyle;strokeColor=#C0392B;strokeWidth=1.6;fontColor=#922B21;fontSize=10;" edge="1" parent="1" source="p_service" target="p_tables">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="1160" />
+              <mxPoint x="1100" y="1160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg_error_res" value="Redirect back() kèm error flash (Hiển thị thông báo đỏ cho khách)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=orthogonalEdgeStyle;strokeColor=#C0392B;strokeWidth=1.5;fontColor=#922B21;fontSize=10;" edge="1" parent="1" source="p_controller" target="p_client">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="1190" />
+              <mxPoint x="250" y="1190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bảng chú thích (Legend) -->
+        <mxCell id="legend_box" value="&lt;b&gt;Ý NGHĨA PHÂN TẦNG VÀ PHỐI HỢP TRONG SƠ ĐỒ:&lt;/b&gt;&lt;br&gt;• &lt;b&gt;Tầng Service (CheckoutService):&lt;/b&gt; Chịu trách nhiệm quy tắc nghiệp vụ cao (Business Rules), điều phối Transaction, khóa dòng bi quan lockForUpdate() và chống Race Condition.&lt;br&gt;• &lt;b&gt;Tầng Database Triggers (MySQL Engine):&lt;/b&gt; Chịu trách nhiệm toàn vẹn tài chính ở mức nhân CSDL (Database Engine Level), tự động tính cước vận chuyển (BEFORE INSERT) và tái tính toán TongSoLuong, TongTien, ThanhTien (AFTER INSERT/UPDATE/DELETE).&lt;br&gt;• &lt;b&gt;Tính năng chống đặt trùng (Idempotency):&lt;/b&gt; Khóa chặn việc gửi nhiều yêu cầu liên tiếp nhờ bảng kỹ thuật CHECKOUT_IDEMPOTENCY." style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#BDC3C7;strokeWidth=1.2;fillColor=#FFFFFF;verticalAlign=middle;align=left;spacingLeft=15;rounded=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1285" width="1440" height="75" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

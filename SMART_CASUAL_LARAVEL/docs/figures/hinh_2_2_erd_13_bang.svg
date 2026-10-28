@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1780 1280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFB"/>
+    </linearGradient>
+
+    <!-- Zone Gradients -->
+    <linearGradient id="zoneUsers" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2FAF7"/>
+      <stop offset="100%" stop-color="#E8F8F5"/>
+    </linearGradient>
+
+    <linearGradient id="zoneCatalog" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F4F9FD"/>
+      <stop offset="100%" stop-color="#EBF5FB"/>
+    </linearGradient>
+
+    <linearGradient id="zoneOrders" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEFDF4"/>
+      <stop offset="100%" stop-color="#FEF9E7"/>
+    </linearGradient>
+
+    <!-- Table Header Gradients -->
+    <linearGradient id="hdrUsers" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#16A085"/>
+      <stop offset="100%" stop-color="#1ABC9C"/>
+    </linearGradient>
+
+    <linearGradient id="hdrCatalog" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2980B9"/>
+      <stop offset="100%" stop-color="#3498DB"/>
+    </linearGradient>
+
+    <linearGradient id="hdrOrders" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4AC0D"/>
+      <stop offset="100%" stop-color="#F1C40F"/>
+    </linearGradient>
+
+    <linearGradient id="hdrSpecial" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CB4335"/>
+      <stop offset="100%" stop-color="#E74C3C"/>
+    </linearGradient>
+
+    <!-- Markers for Cardinality (Crow's foot) -->
+    <marker id="crowMany" viewBox="0 0 14 14" refX="10" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 7 L 0 14 M 0 7 L 10 7" fill="none" stroke="#2C3E50" stroke-width="1.8"/>
+    </marker>
+
+    <marker id="oneOne" viewBox="0 0 10 14" refX="2" refY="7" markerWidth="8" markerHeight="10" orient="auto">
+      <path d="M 2 0 L 2 14 M 6 0 L 6 14" fill="none" stroke="#2C3E50" stroke-width="1.8"/>
+    </marker>
+
+    <marker id="zeroMany" viewBox="0 0 18 14" refX="14" refY="7" markerWidth="12" markerHeight="10" orient="auto">
+      <circle cx="4" cy="7" r="3" fill="#FFFFFF" stroke="#2C3E50" stroke-width="1.6"/>
+      <path d="M 8 0 L 16 7 L 8 14 M 8 7 L 16 7" fill="none" stroke="#2C3E50" stroke-width="1.8"/>
+    </marker>
+
+    <!-- Box Shadow -->
+    <filter id="tableShadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <style>
+    .erd-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #14221D; }
+    .erd-subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13.5px; fill: #555555; }
+    .zone-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; letter-spacing: 0.5px; }
+    .tbl-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
+    .tbl-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9.5px; fill: rgba(255,255,255,0.85); font-style: italic; }
+    .attr-pk { font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; fill: #B03A2E; }
+    .attr-fk { font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; fill: #1F618D; }
+    .attr-name { font-family: 'Consolas', monospace; font-size: 11px; fill: #2C3E50; }
+    .attr-type { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #7F8C8D; font-style: italic; }
+    .attr-note { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9px; fill: #27AE60; font-weight: 600; }
+    .rel-line { fill: none; stroke: #34495E; stroke-width: 1.8; }
+    .rel-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; font-weight: bold; fill: #2C3E50; background: #FFFFFF; }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- Main Header -->
+  <text x="890" y="38" text-anchor="middle" class="erd-title">HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ SMART CASUAL</text>
+  <text x="890" y="60" text-anchor="middle" class="erd-subtitle">SƠ ĐỒ THỰC THỂ LIÊN KẾT (ERD) CHI TIẾT 13 BẢNG NGHIỆP VỤ &amp; RÀNG BUỘC TOÀN VẸN 3NF</text>
+
+  <!-- ==================== 3 SUB-SYSTEM ZONES ==================== -->
+  <!-- Zone 1: Users -->
+  <rect x="40" y="80" width="460" height="610" rx="12" fill="url(#zoneUsers)" stroke="#16A085" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <text x="55" y="104" class="zone-title" fill="#0E6251">I. PHÂN HỆ TÀI KHOẢN &amp; NGƯỜI DÙNG</text>
+
+  <!-- Zone 2: Catalog -->
+  <rect x="530" y="80" width="1210" height="490" rx="12" fill="url(#zoneCatalog)" stroke="#2980B9" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <text x="545" y="104" class="zone-title" fill="#1B4F72">II. PHÂN HỆ SẢN PHẨM &amp; BIẾN THỂ KÍCH CỠ</text>
+
+  <!-- Zone 3: Orders -->
+  <rect x="40" y="600" width="1700" height="610" rx="12" fill="url(#zoneOrders)" stroke="#D4AC0D" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <text x="55" y="624" class="zone-title" fill="#7D6608">III. PHÂN HỆ GIỎ HÀNG, ĐƠN HÀNG, VOUCHER &amp; ĐÁNH GIÁ (GIAO DỊCH)</text>
+
+
+  <!-- ==================== TABLES ==================== -->
+
+  <!-- 1. NGUOI_DUNG -->
+  <g transform="translate(130, 125)" filter="url(#tableShadow)">
+    <rect width="270" height="205" rx="6" fill="#FFFFFF" stroke="#16A085" stroke-width="1.8"/>
+    <rect width="270" height="34" rx="6" fill="url(#hdrUsers)"/>
+    <rect y="24" width="270" height="10" fill="url(#hdrUsers)"/>
+    <text x="135" y="18" text-anchor="middle" class="tbl-title">NGUOI_DUNG</text>
+    <text x="135" y="29" text-anchor="middle" class="tbl-sub">Tài khoản định danh cơ sở</text>
+    <line x1="0" y1="34" x2="270" y2="34" stroke="#16A085" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="12" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaNguoiDung</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="72"><tspan class="attr-name">   TenDangNhap </tspan> <tspan class="attr-type">: varchar(100) </tspan><tspan class="attr-note">[UK]</tspan></text>
+    <text x="12" y="92"><tspan class="attr-name">   MatKhau     </tspan> <tspan class="attr-type">: varchar(255) [Bcrypt]</tspan></text>
+    <text x="12" y="112"><tspan class="attr-name">   Email       </tspan> <tspan class="attr-type">: varchar(100) </tspan><tspan class="attr-note">[UK]</tspan></text>
+    <text x="12" y="132"><tspan class="attr-name">   SoDienThoai </tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="152"><tspan class="attr-name">   VaiTro      </tspan> <tspan class="attr-type">: varchar(50)</tspan></text>
+    <text x="12" y="172"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+    <text x="12" y="192"><tspan class="attr-name">   created_at, updated_at</tspan></text>
+  </g>
+
+  <!-- 2. KHACH_HANG -->
+  <g transform="translate(60, 395)" filter="url(#tableShadow)">
+    <rect width="210" height="195" rx="6" fill="#FFFFFF" stroke="#16A085" stroke-width="1.8"/>
+    <rect width="210" height="34" rx="6" fill="url(#hdrUsers)"/>
+    <rect y="24" width="210" height="10" fill="url(#hdrUsers)"/>
+    <text x="105" y="18" text-anchor="middle" class="tbl-title">KHACH_HANG</text>
+    <text x="105" y="29" text-anchor="middle" class="tbl-sub">Khách hàng [guard: web]</text>
+    <line x1="0" y1="34" x2="210" y2="34" stroke="#16A085" stroke-width="1"/>
+    <text x="12" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaKH</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="72"><tspan class="attr-name">   TenDangNhap </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="12" y="92"><tspan class="attr-name">   HoTen       </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="12" y="112"><tspan class="attr-name">   SoDienThoai </tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="132"><tspan class="attr-name">   Email       </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="12" y="152"><tspan class="attr-name">   DiaChi      </tspan> <tspan class="attr-type">: varchar(255)</tspan></text>
+    <text x="12" y="172"><tspan class="attr-name">   DiemTichLuy </tspan> <tspan class="attr-type">: int = 0</tspan></text>
+    <text x="12" y="188"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 3. NHAN_VIEN -->
+  <g transform="translate(290, 395)" filter="url(#tableShadow)">
+    <rect width="190" height="175" rx="6" fill="#FFFFFF" stroke="#16A085" stroke-width="1.8"/>
+    <rect width="190" height="34" rx="6" fill="url(#hdrUsers)"/>
+    <rect y="24" width="190" height="10" fill="url(#hdrUsers)"/>
+    <text x="95" y="18" text-anchor="middle" class="tbl-title">NHAN_VIEN</text>
+    <text x="95" y="29" text-anchor="middle" class="tbl-sub">Nhân sự [guard: admin]</text>
+    <line x1="0" y1="34" x2="190" y2="34" stroke="#16A085" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaNV</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="72"><tspan class="attr-name">   TenDangNhap </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="10" y="92"><tspan class="attr-name">   HoTen       </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="10" y="112"><tspan class="attr-name">   ChucVu      </tspan> <tspan class="attr-type">: varchar(50)</tspan></text>
+    <text x="10" y="132"><tspan class="attr-note">   ['staff' / 'manager']</tspan></text>
+    <text x="10" y="152"><tspan class="attr-name">   Luong       </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="168"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 4. DANH_MUC -->
+  <g transform="translate(560, 130)" filter="url(#tableShadow)">
+    <rect width="210" height="135" rx="6" fill="#FFFFFF" stroke="#2980B9" stroke-width="1.8"/>
+    <rect width="210" height="34" rx="6" fill="url(#hdrCatalog)"/>
+    <rect y="24" width="210" height="10" fill="url(#hdrCatalog)"/>
+    <text x="105" y="18" text-anchor="middle" class="tbl-title">DANH_MUC</text>
+    <text x="105" y="29" text-anchor="middle" class="tbl-sub">Phân loại thời trang</text>
+    <line x1="0" y1="34" x2="210" y2="34" stroke="#2980B9" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaDanhMuc</tspan> <tspan class="attr-type">: varchar(10)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-name">   TenDanhMuc </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   MoTa       </tspan> <tspan class="attr-type">: text</tspan></text>
+    <text x="10" y="118"><tspan class="attr-name">   TrangThai  </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 5. KICH_THUOC -->
+  <g transform="translate(1480, 130)" filter="url(#tableShadow)">
+    <rect width="200" height="120" rx="6" fill="#FFFFFF" stroke="#2980B9" stroke-width="1.8"/>
+    <rect width="200" height="34" rx="6" fill="url(#hdrCatalog)"/>
+    <rect y="24" width="200" height="10" fill="url(#hdrCatalog)"/>
+    <text x="100" y="18" text-anchor="middle" class="tbl-title">KICH_THUOC</text>
+    <text x="100" y="29" text-anchor="middle" class="tbl-sub">Bảng size chuẩn (S, M, L...)</text>
+    <line x1="0" y1="34" x2="200" y2="34" stroke="#2980B9" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaKichThuoc</tspan> <tspan class="attr-type">: varchar(10)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-name">   TenKichThuoc </tspan> <tspan class="attr-type">: varchar(50)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   TrangThai    </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 6. SAN_PHAM -->
+  <g transform="translate(560, 320)" filter="url(#tableShadow)">
+    <rect width="230" height="215" rx="6" fill="#FFFFFF" stroke="#2980B9" stroke-width="2"/>
+    <rect width="230" height="34" rx="6" fill="url(#hdrCatalog)"/>
+    <rect y="24" width="230" height="10" fill="url(#hdrCatalog)"/>
+    <text x="115" y="18" text-anchor="middle" class="tbl-title">SAN_PHAM</text>
+    <text x="115" y="29" text-anchor="middle" class="tbl-sub">Thông tin sản phẩm chính</text>
+    <line x1="0" y1="34" x2="230" y2="34" stroke="#2980B9" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaSP</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="72"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaDanhMuc</tspan> <tspan class="attr-type">: varchar(10)</tspan></text>
+    <text x="10" y="92"><tspan class="attr-name">   TenSanPham   </tspan> <tspan class="attr-type">: varchar(200)</tspan></text>
+    <text x="10" y="112"><tspan class="attr-name">   GiaGoc       </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="132"><tspan class="attr-name">   GiaKhuyenMai </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="152"><tspan class="attr-name">   ChatLieu     </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="10" y="172"><tspan class="attr-name">   MoTa         </tspan> <tspan class="attr-type">: text</tspan></text>
+    <text x="10" y="192"><tspan class="attr-name">   TrangThai    </tspan> <tspan class="attr-type">: boolean </tspan><tspan class="attr-note">[Ẩn SP]</tspan></text>
+  </g>
+
+  <!-- 7. CHI_TIET_SP -->
+  <g transform="translate(870, 320)" filter="url(#tableShadow)">
+    <rect width="250" height="195" rx="6" fill="#FFFFFF" stroke="#2980B9" stroke-width="2"/>
+    <rect width="250" height="34" rx="6" fill="url(#hdrCatalog)"/>
+    <rect y="24" width="250" height="10" fill="url(#hdrCatalog)"/>
+    <text x="125" y="18" text-anchor="middle" class="tbl-title">CHI_TIET_SP</text>
+    <text x="125" y="29" text-anchor="middle" class="tbl-sub">Biến thể SKU &amp; Tồn kho</text>
+    <line x1="0" y1="34" x2="250" y2="34" stroke="#2980B9" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaCTSP</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="10" y="72"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaSP</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="92"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaKichThuoc</tspan> <tspan class="attr-type">: varchar(10)</tspan></text>
+    <text x="10" y="112"><tspan class="attr-name">   GiaBan      </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="132"><tspan class="attr-name">   SoLuong     </tspan> <tspan class="attr-type">: int </tspan><tspan class="attr-note">[lockForUpdate]</tspan></text>
+    <text x="10" y="152"><tspan class="attr-name">   SKU         </tspan> <tspan class="attr-type">: varchar(50) [UK]</tspan></text>
+    <text x="10" y="172"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 8. HINH_ANH_SP -->
+  <g transform="translate(1200, 335)" filter="url(#tableShadow)">
+    <rect width="220" height="165" rx="6" fill="#FFFFFF" stroke="#2980B9" stroke-width="1.8"/>
+    <rect width="220" height="34" rx="6" fill="url(#hdrCatalog)"/>
+    <rect y="24" width="220" height="10" fill="url(#hdrCatalog)"/>
+    <text x="110" y="18" text-anchor="middle" class="tbl-title">HINH_ANH_SP</text>
+    <text x="110" y="29" text-anchor="middle" class="tbl-sub">Ảnh sản phẩm [Storage]</text>
+    <line x1="0" y1="34" x2="220" y2="34" stroke="#2980B9" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaHinhAnh</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaSP</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   DuongDan    </tspan> <tspan class="attr-type">: varchar(255)</tspan></text>
+    <text x="10" y="118"><tspan class="attr-name">   LaAnhChinh  </tspan> <tspan class="attr-type">: boolean</tspan></text>
+    <text x="10" y="140"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 9. GIO_HANG -->
+  <g transform="translate(60, 680)" filter="url(#tableShadow)">
+    <rect width="220" height="145" rx="6" fill="#FFFFFF" stroke="#D4AC0D" stroke-width="1.8"/>
+    <rect width="220" height="34" rx="6" fill="url(#hdrOrders)"/>
+    <rect y="24" width="220" height="10" fill="url(#hdrOrders)"/>
+    <text x="110" y="18" text-anchor="middle" class="tbl-title">GIO_HANG</text>
+    <text x="110" y="29" text-anchor="middle" class="tbl-sub">Khóa chính phức hợp kép</text>
+    <line x1="0" y1="34" x2="220" y2="34" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaKH</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaCTSP</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   SoLuong    </tspan> <tspan class="attr-type">: int = 1</tspan></text>
+    <text x="10" y="118"><tspan class="attr-name">   created_at, updated_at</tspan></text>
+  </g>
+
+  <!-- 10. MA_GIAM_GIA -->
+  <g transform="translate(350, 680)" filter="url(#tableShadow)">
+    <rect width="230" height="175" rx="6" fill="#FFFFFF" stroke="#D4AC0D" stroke-width="1.8"/>
+    <rect width="230" height="34" rx="6" fill="url(#hdrOrders)"/>
+    <rect y="24" width="230" height="10" fill="url(#hdrOrders)"/>
+    <text x="115" y="18" text-anchor="middle" class="tbl-title">MA_GIAM_GIA</text>
+    <text x="115" y="29" text-anchor="middle" class="tbl-sub">Vouchers khuyến mãi</text>
+    <line x1="0" y1="34" x2="230" y2="34" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaCode</tspan> <tspan class="attr-type">: varchar(50)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-name">   LoaiGiamGia </tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   GiaTri      </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="118"><tspan class="attr-name">   DonHangToiThieu : dec(18,2)</tspan></text>
+    <text x="10" y="140"><tspan class="attr-name">   SoLuong     </tspan> <tspan class="attr-type">: int </tspan><tspan class="attr-note">[Hoàn khi hủy]</tspan></text>
+    <text x="10" y="160"><tspan class="attr-name">   TrangThai   </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 11. PHUONG_THUC_VAN_CHUYEN -->
+  <g transform="translate(350, 895)" filter="url(#tableShadow)">
+    <rect width="230" height="140" rx="6" fill="#FFFFFF" stroke="#D4AC0D" stroke-width="1.8"/>
+    <rect width="230" height="34" rx="6" fill="url(#hdrOrders)"/>
+    <rect y="24" width="230" height="10" fill="url(#hdrOrders)"/>
+    <text x="115" y="18" text-anchor="middle" class="tbl-title">PHUONG_THUC_VAN_CHUYEN</text>
+    <text x="115" y="29" text-anchor="middle" class="tbl-sub">Hình thức giao hàng</text>
+    <line x1="0" y1="34" x2="230" y2="34" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="10" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaPTVC</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="10" y="74"><tspan class="attr-name">   TenPTVC      </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="10" y="96"><tspan class="attr-name">   GiaVanChuyen </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="10" y="118"><tspan class="attr-name">   TrangThai    </tspan> <tspan class="attr-type">: boolean</tspan></text>
+  </g>
+
+  <!-- 12. DON_HANG -->
+  <g transform="translate(680, 680)" filter="url(#tableShadow)">
+    <rect width="360" height="420" rx="6" fill="#FFFFFF" stroke="#CB4335" stroke-width="2.2"/>
+    <rect width="360" height="36" rx="6" fill="url(#hdrSpecial)"/>
+    <rect y="26" width="360" height="10" fill="url(#hdrSpecial)"/>
+    <text x="180" y="19" text-anchor="middle" class="tbl-title">DON_HANG</text>
+    <text x="180" y="31" text-anchor="middle" class="tbl-sub">Snapshot tài chính - Phi chuẩn hóa có chủ đích</text>
+    <line x1="0" y1="36" x2="360" y2="36" stroke="#CB4335" stroke-width="1"/>
+    <text x="12" y="56"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaDonHang</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="12" y="76"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaKH</tspan> <tspan class="attr-type">: varchar(20) </tspan><tspan class="attr-note">[nullable - khách vãng lai]</tspan></text>
+    <text x="12" y="96"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaNV</tspan> <tspan class="attr-type">: varchar(20) </tspan><tspan class="attr-note">[nullable - nhân viên tiếp nhận]</tspan></text>
+    <text x="12" y="116"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaPTVC</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="136"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaCode</tspan> <tspan class="attr-type">: varchar(50) </tspan><tspan class="attr-note">[nullable]</tspan></text>
+    <text x="12" y="156"><tspan class="attr-name">   TenNguoiNhan    </tspan> <tspan class="attr-type">: varchar(100)</tspan></text>
+    <text x="12" y="176"><tspan class="attr-name">   SoDienThoai     </tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="196"><tspan class="attr-name">   DiaChiGiao      </tspan> <tspan class="attr-type">: varchar(255)</tspan></text>
+    <text x="12" y="216"><tspan class="attr-name">   NgayDat         </tspan> <tspan class="attr-type">: datetime</tspan></text>
+    <text x="12" y="236"><tspan class="attr-name">   TongSoLuong     </tspan> <tspan class="attr-type">: int </tspan><tspan class="attr-note">[Trigger CSDL]</tspan></text>
+    <text x="12" y="256"><tspan class="attr-name">   TongTien        </tspan> <tspan class="attr-type">: decimal(18,2) </tspan><tspan class="attr-note">[Trigger CSDL]</tspan></text>
+    <text x="12" y="276"><tspan class="attr-name">   GiamGia         </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="12" y="296"><tspan class="attr-name">   PhiVanChuyen    </tspan> <tspan class="attr-type">: decimal(18,2) </tspan><tspan class="attr-note">[Trigger BEFORE]</tspan></text>
+    <text x="12" y="316"><tspan class="attr-name">   ThanhTien       </tspan> <tspan class="attr-type">: decimal(18,2) </tspan><tspan class="attr-note">[Trigger CSDL]</tspan></text>
+    <text x="12" y="336"><tspan class="attr-name">   TrangThaiDonHang</tspan> <tspan class="attr-type">: varchar(30) </tspan><tspan class="attr-note">[ALLOWED_TRANSITIONS]</tspan></text>
+    <text x="12" y="356"><tspan class="attr-name">   PhuongThucTT    </tspan> <tspan class="attr-type">: varchar(30) ['COD' / 'Bank']</tspan></text>
+    <text x="12" y="376"><tspan class="attr-name">   DaThanhToan     </tspan> <tspan class="attr-type">: boolean</tspan></text>
+    <text x="12" y="396"><tspan class="attr-name">   created_at, updated_at</tspan></text>
+  </g>
+
+  <!-- 13. CHI_TIET_DON_HANG -->
+  <g transform="translate(1130, 680)" filter="url(#tableShadow)">
+    <rect width="280" height="205" rx="6" fill="#FFFFFF" stroke="#D4AC0D" stroke-width="2"/>
+    <rect width="280" height="34" rx="6" fill="url(#hdrOrders)"/>
+    <rect y="24" width="280" height="10" fill="url(#hdrOrders)"/>
+    <text x="140" y="18" text-anchor="middle" class="tbl-title">CHI_TIET_DON_HANG</text>
+    <text x="140" y="29" text-anchor="middle" class="tbl-sub">Dòng xuất kho - Khóa chính kép</text>
+    <line x1="0" y1="34" x2="280" y2="34" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="12" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaDonHang</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="12" y="74"><tspan class="attr-pk">PK </tspan><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaCTSP</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="12" y="96"><tspan class="attr-name">   SoLuong   </tspan> <tspan class="attr-type">: int = 1</tspan></text>
+    <text x="12" y="118"><tspan class="attr-name">   DonGia    </tspan> <tspan class="attr-type">: decimal(18,2)</tspan></text>
+    <text x="12" y="140"><tspan class="attr-name">   ThanhTien </tspan> <tspan class="attr-type">: decimal(18,2) </tspan><tspan class="attr-note">[SoLuong*DonGia]</tspan></text>
+    <text x="12" y="162"><tspan class="attr-name">   TrangThai </tspan> <tspan class="attr-type">: boolean</tspan></text>
+    <text x="12" y="184"><tspan class="attr-name">   created_at, updated_at</tspan></text>
+  </g>
+
+  <!-- 14. DANH_GIA -->
+  <g transform="translate(1130, 930)" filter="url(#tableShadow)">
+    <rect width="280" height="205" rx="6" fill="#FFFFFF" stroke="#D4AC0D" stroke-width="1.8"/>
+    <rect width="280" height="34" rx="6" fill="url(#hdrOrders)"/>
+    <rect y="24" width="280" height="10" fill="url(#hdrOrders)"/>
+    <text x="140" y="18" text-anchor="middle" class="tbl-title">DANH_GIA</text>
+    <text x="140" y="29" text-anchor="middle" class="tbl-sub">Nhận xét &amp; Điểm sao sản phẩm</text>
+    <line x1="0" y1="34" x2="280" y2="34" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="12" y="52"><tspan class="attr-pk">PK </tspan><tspan class="attr-name">MaDanhGia</tspan> <tspan class="attr-type">: varchar(30)</tspan></text>
+    <text x="12" y="74"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaSP</tspan> <tspan class="attr-type">: varchar(20)</tspan></text>
+    <text x="12" y="96"><tspan class="attr-fk">FK </tspan><tspan class="attr-name">MaKH</tspan> <tspan class="attr-type">: varchar(20) </tspan><tspan class="attr-note">[nullable - vãng lai]</tspan></text>
+    <text x="12" y="118"><tspan class="attr-name">   TenKhachHang </tspan> <tspan class="attr-type">: varchar(100) </tspan><tspan class="attr-note">[Phi chuẩn]</tspan></text>
+    <text x="12" y="140"><tspan class="attr-name">   SoSao        </tspan> <tspan class="attr-type">: tinyint [1..5 sao]</tspan></text>
+    <text x="12" y="162"><tspan class="attr-name">   NoiDung      </tspan> <tspan class="attr-type">: text</tspan></text>
+    <text x="12" y="184"><tspan class="attr-name">   TrangThai    </tspan> <tspan class="attr-type">: boolean [Kiểm duyệt]</tspan></text>
+  </g>
+
+
+  <!-- ==================== RELATIONSHIP CONNECTIONS ==================== -->
+  
+  <!-- NGUOI_DUNG -> KHACH_HANG (1:1) -->
+  <path d="M 200 330 L 200 395" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#oneOne)"/>
+  <text x="215" y="365" class="rel-label">1 : 1</text>
+
+  <!-- NGUOI_DUNG -> NHAN_VIEN (1:1) -->
+  <path d="M 350 330 L 350 395" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#oneOne)"/>
+  <text x="365" y="365" class="rel-label">1 : 1</text>
+
+  <!-- DANH_MUC -> SAN_PHAM (1:N) -->
+  <path d="M 665 265 L 665 320" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="680" y="295" class="rel-label">1 : N</text>
+
+  <!-- SAN_PHAM -> CHI_TIET_SP (1:N) -->
+  <path d="M 790 415 L 870 415" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="815" y="405" class="rel-label">1 : N</text>
+
+  <!-- KICH_THUOC -> CHI_TIET_SP (1:N) -->
+  <path d="M 1480 190 L 1020 190 L 1020 320" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="1035" y="250" class="rel-label">1 : N</text>
+
+  <!-- SAN_PHAM -> HINH_ANH_SP (1:N) -->
+  <path d="M 730 535 L 730 560 L 1310 560 L 1310 500" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="1230" y="550" class="rel-label">1 : N (CASCADE)</text>
+
+  <!-- KHACH_HANG -> GIO_HANG (1:N) -->
+  <path d="M 165 590 L 165 680" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="180" y="640" class="rel-label">1 : N</text>
+
+  <!-- CHI_TIET_SP -> GIO_HANG (1:N) -->
+  <path d="M 960 515 L 960 640 L 260 640 L 260 680" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="300" y="632" class="rel-label">1 : N</text>
+
+  <!-- KHACH_HANG -> DON_HANG (0..1:N) -->
+  <path d="M 230 590 L 230 660 L 720 660 L 720 680" class="rel-line" marker-start="url(#zeroMany)" marker-end="url(#crowMany)"/>
+  <text x="450" y="652" class="rel-label">0..1 : N (Khách vãng lai NULL)</text>
+
+  <!-- NHAN_VIEN -> DON_HANG (0..1:N) -->
+  <path d="M 430 570 L 430 670 L 780 670 L 780 680" class="rel-line" marker-start="url(#zeroMany)" marker-end="url(#crowMany)"/>
+  <text x="500" y="665" class="rel-label">0..1 : N (Duyệt đơn)</text>
+
+  <!-- MA_GIAM_GIA -> DON_HANG (0..1:N) -->
+  <path d="M 580 760 L 680 760" class="rel-line" marker-start="url(#zeroMany)" marker-end="url(#crowMany)"/>
+  <text x="600" y="750" class="rel-label">0..1 : N</text>
+
+  <!-- PHUONG_THUC_VAN_CHUYEN -> DON_HANG (1:N) -->
+  <path d="M 580 965 L 680 965" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="605" y="955" class="rel-label">1 : N</text>
+
+  <!-- DON_HANG -> CHI_TIET_DON_HANG (1:N) -->
+  <path d="M 1040 780 L 1130 780" class="rel-line" stroke="#CB4335" stroke-width="2.2" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="1055" y="770" class="rel-label" fill="#CB4335">1 : N (CASCADE)</text>
+
+  <!-- CHI_TIET_SP -> CHI_TIET_DON_HANG (1:N) -->
+  <path d="M 1100 515 L 1100 660 L 1250 660 L 1250 680" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="1115" y="630" class="rel-label">1 : N (Xuất kho)</text>
+
+  <!-- SAN_PHAM -> DANH_GIA (1:N) -->
+  <path d="M 680 535 L 680 580 L 1440 580 L 1440 1020 L 1410 1020" class="rel-line" marker-start="url(#oneOne)" marker-end="url(#crowMany)"/>
+  <text x="1340" y="575" class="rel-label">1 : N</text>
+
+  <!-- KHACH_HANG -> DANH_GIA (0..1:N) -->
+  <path d="M 100 590 L 100 660 L 50 660 L 50 1140 L 1130 1140" class="rel-line" marker-start="url(#zeroMany)" marker-end="url(#crowMany)"/>
+  <text x="250" y="1132" class="rel-label">0..1 : N (Khách vãng lai NULL)</text>
+
+
+  <!-- ==================== LEGEND FOOTER ==================== -->
+  <rect x="40" y="1215" width="1700" height="45" rx="6" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1.2"/>
+  <text x="890" y="1235" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5px" fill="#2C3E50">
+    <tspan font-weight="bold">QUY ƯỚC KÝ HIỆU ERD:</tspan> PK = Primary Key (Khóa chính) | FK = Foreign Key (Khóa ngoại) | UK = Unique Key (Duy nhất) | ──|| 1:1 (Bắt buộc) | ──&lt; 1:N (Một - Nhiều) | ──o&lt; 0..1:N (Tùy chọn)
+  </text>
+  <text x="890" y="1250" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5px" fill="#7F8C8D">
+    Ghi chú: Bảng DON_HANG lưu trữ trực tiếp snapshot TongSoLuong, TongTien, ThanhTien (kích hoạt qua Trigger CSDL). Bảng DANH_GIA lưu TenKhachHang cho khách vãng lai.
+  </text>
+</svg>

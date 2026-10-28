@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1780 1380" width="1780" height="1380" style="background:#ffffff; font-family:'Segoe UI', Arial, sans-serif;">
+  <defs>
+    <style>
+      .title {{ font-size: 20px; font-weight: bold; fill: #14221D; text-anchor: middle; }}
+      .subtitle {{ font-size: 14px; fill: #555555; text-anchor: middle; }}
+      .p-head {{ font-weight: bold; font-size: 13px; text-anchor: middle; }}
+      .p-sub {{ font-size: 11px; text-anchor: middle; }}
+      .line {{ stroke-dasharray: 6,4; stroke-width: 1.5; }}
+      .msg-text {{ font-size: 12px; font-weight: 500; }}
+      .msg-num {{ font-weight: bold; }}
+      .box-tag {{ font-size: 11px; font-weight: bold; }}
+      .note-text {{ font-size: 11px; fill: #5D4037; }}
+    </style>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#E65100" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16A085" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2980B9" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#CB4335" />
+    </marker>
+  </defs>
+
+  <!-- TIÊU ĐỀ -->
+  <text x="890" y="38" class="title">HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ SMART CASUAL</text>
+  <text x="890" y="62" class="subtitle">HÌNH 2.3: BIỂU ĐỒ TUẦN TỰ (SEQUENCE DIAGRAM) PHỐI HỢP GIỮA SERVICE LAYER VÀ DATABASE TRIGGERS</text>
+
+  <!-- ==================== LIFELINES ==================== -->
+  <!-- 1. Client -->
+  <g transform="translate(80, 90)">
+    <rect width="160" height="50" rx="8" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+    <text x="80" y="22" class="p-head" fill="#BF360C">Khách hàng</text>
+    <text x="80" y="38" class="p-sub" fill="#E65100">(Trình duyệt / Client)</text>
+    <line x1="80" y1="50" x2="80" y2="1160" stroke="#E65100" class="line"/>
+  </g>
+
+  <!-- 2. Controller -->
+  <g transform="translate(370, 90)">
+    <rect width="180" height="50" rx="8" fill="#E8F8F5" stroke="#16A085" stroke-width="2"/>
+    <text x="90" y="22" class="p-head" fill="#0E6251">CheckoutController</text>
+    <text x="90" y="38" class="p-sub" fill="#16A085">(Tầng Controller / HTTP)</text>
+    <line x1="90" y1="50" x2="90" y2="1160" stroke="#16A085" class="line"/>
+  </g>
+
+  <!-- 3. CheckoutService -->
+  <g transform="translate(690, 90)">
+    <rect width="200" height="50" rx="8" fill="#EBF5FB" stroke="#2980B9" stroke-width="2.2"/>
+    <text x="100" y="22" class="p-head" fill="#1B4F72">CheckoutService</text>
+    <text x="100" y="38" class="p-sub" fill="#2980B9">(Tầng Dịch Vụ - App Core)</text>
+    <line x1="100" y1="50" x2="100" y2="1160" stroke="#2980B9" class="line"/>
+  </g>
+
+  <!-- 4. MySQL Engine & Triggers -->
+  <g transform="translate(1040, 90)">
+    <rect width="190" height="50" rx="8" fill="#FDEDEC" stroke="#CB4335" stroke-width="2.2"/>
+    <text x="95" y="22" class="p-head" fill="#78281F">MySQL 8.4 Engine</text>
+    <text x="95" y="38" class="p-sub" fill="#CB4335">(4 Triggers CSDL)</text>
+    <line x1="95" y1="50" x2="95" y2="1160" stroke="#CB4335" class="line"/>
+  </g>
+
+  <!-- 5. InnoDB Tables -->
+  <g transform="translate(1380, 90)">
+    <rect width="180" height="50" rx="8" fill="#FEF9E7" stroke="#D4AC0D" stroke-width="2"/>
+    <text x="90" y="22" class="p-head" fill="#7D6608">InnoDB Tables</text>
+    <text x="90" y="38" class="p-sub" fill="#B7950B">(DON_HANG, CHI_TIET...)</text>
+    <line x1="90" y1="50" x2="90" y2="1160" stroke="#D4AC0D" class="line"/>
+  </g>
+
+  <!-- ==================== MESSAGES & INTERACTIONS ==================== -->
+
+  <!-- Bước 1: POST /checkout -->
+  <g transform="translate(0, 180)">
+    <line x1="160" y1="0" x2="455" y2="0" stroke="#E65100" stroke-width="1.8" marker-end="url(#arrow-orange)"/>
+    <text x="175" y="-8" class="msg-text" fill="#BF360C"><tspan class="msg-num">1.</tspan> POST /checkout (form data, idempotency_key)</text>
+  </g>
+
+  <!-- Bước 2: Validation nội bộ -->
+  <g transform="translate(460, 215)">
+    <path d="M 0 0 L 35 0 L 35 22 L 5 22" fill="none" stroke="#16A085" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+    <text x="45" y="16" class="msg-text" fill="#0E6251" font-size="11"><tspan class="msg-num">2.</tspan> Form Request Validation (CSRF, phone, address)</text>
+  </g>
+
+  <!-- Bước 3: Gọi placeOrder() -->
+  <g transform="translate(0, 260)">
+    <line x1="460" y1="0" x2="785" y2="0" stroke="#16A085" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="480" y="-8" class="msg-text" fill="#0E6251"><tspan class="msg-num">3.</tspan> placeOrder($validatedData, $idempotencyKey)</text>
+  </g>
+
+  <!-- Bước 4: Check Idempotency -->
+  <g transform="translate(0, 300)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="1.6" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">4.</tspan> Check idempotency_key trong CHECKOUT_IDEMPOTENCY</text>
+  </g>
+
+  <!-- Tag DB::transaction BEGIN -->
+  <g transform="translate(725, 325)">
+    <rect width="130" height="26" rx="4" fill="#EBF5FB" stroke="#2980B9" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="65" y="17" class="box-tag" fill="#1B4F72" text-anchor="middle">DB::transaction() BEGIN</text>
+  </g>
+
+  <!-- Bước 5: lockForUpdate tồn kho -->
+  <g transform="translate(0, 385)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">5.</tspan> lockForUpdate() tồn kho CHI_TIET_SP (kiểm tra SoLuong >= item.qty)</text>
+  </g>
+
+  <!-- Note chống Race Condition -->
+  <g transform="translate(1485, 360)">
+    <rect width="250" height="50" rx="4" fill="#FFFDE7" stroke="#FBC02D" stroke-width="1.2"/>
+    <text x="10" y="18" class="note-text" font-weight="bold">Bảo vệ tồn kho (Chống Race Condition):</text>
+    <text x="10" y="34" class="note-text">Khóa bi quan ngăn 2 khách mua cùng lúc</text>
+  </g>
+
+  <!-- Bước 6: Khóa voucher -->
+  <g transform="translate(0, 440)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="1.6" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">6.</tspan> lockForUpdate() MA_GIAM_GIA &amp; tính discount, decrement SoLuong</text>
+  </g>
+
+  <!-- Bước 7: INSERT DON_HANG -->
+  <g transform="translate(0, 495)">
+    <line x1="790" y1="0" x2="1130" y2="0" stroke="#CB4335" stroke-width="2.2" marker-end="url(#arrow-red)"/>
+    <text x="810" y="-8" class="msg-text" fill="#78281F"><tspan class="msg-num">7.</tspan> INSERT INTO DON_HANG (MaDonHang, MaKH, MaPTVC, TongTien, ...)</text>
+  </g>
+
+  <!-- TRIGGER 1: BEFORE INSERT BOX -->
+  <g transform="translate(1050, 520)">
+    <rect width="400" height="68" rx="6" fill="#FDEDEC" stroke="#CB4335" stroke-width="1.8"/>
+    <text x="15" y="20" class="msg-text" font-weight="bold" fill="#78281F">TRIGGER 1: BEFORE INSERT ON DON_HANG</text>
+    <text x="15" y="36" class="msg-text" font-style="italic" fill="#922B21">trg_tudong_lay_phiship_insert</text>
+    <text x="15" y="52" class="msg-text" font-size="11" fill="#78281F">• Tra cứu GiaVanChuyen từ PTVC &amp; tính ThanhTien tạm thời</text>
+  </g>
+
+  <!-- Ghi DON_HANG xuống bảng -->
+  <g transform="translate(0, 610)">
+    <line x1="1135" y1="0" x2="1465" y2="0" stroke="#CB4335" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="1150" y="-8" class="msg-text" fill="#78281F" font-size="11">Ghi bản ghi DON_HANG đã chuẩn hóa cước phí ship</text>
+  </g>
+
+  <!-- KHUNG LOOP ORDER ITEMS -->
+  <g transform="translate(670, 635)">
+    <rect width="890" height="240" rx="8" fill="#F4F9FD" stroke="#2980B9" stroke-width="1.8" stroke-dasharray="6,3"/>
+    <rect x="0" y="0" width="280" height="24" rx="4" fill="#2980B9"/>
+    <text x="12" y="16" fill="#ffffff" font-size="11" font-weight="bold">LOOP [Mỗi sản phẩm trong giỏ hàng]</text>
+  </g>
+
+  <!-- Bước 8a: Trừ kho -->
+  <g transform="translate(0, 675)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">8a.</tspan> CHI_TIET_SP->decrement('SoLuong', $qty)</text>
+  </g>
+
+  <!-- Bước 8b: INSERT CHI_TIET_DON_HANG -->
+  <g transform="translate(0, 715)">
+    <line x1="790" y1="0" x2="1130" y2="0" stroke="#CB4335" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="810" y="-8" class="msg-text" fill="#78281F"><tspan class="msg-num">8b.</tspan> INSERT INTO CHI_TIET_DON_HANG (MaDonHang, MaCTSP, SoLuong, DonGia)</text>
+  </g>
+
+  <!-- TRIGGER 2: AFTER INSERT BOX -->
+  <g transform="translate(1050, 740)">
+    <rect width="400" height="72" rx="6" fill="#FDEDEC" stroke="#CB4335" stroke-width="1.8"/>
+    <text x="15" y="20" class="msg-text" font-weight="bold" fill="#78281F">TRIGGER 2: AFTER INSERT ON CHI_TIET_DON_HANG</text>
+    <text x="15" y="36" class="msg-text" font-style="italic" fill="#922B21">trg_capnhat_tong_donhang_after_insert</text>
+    <text x="15" y="52" class="msg-text" font-size="11" fill="#78281F">• SELECT SUM(SoLuong) &amp; SUM(SoLuong * DonGia)</text>
+    <text x="15" y="66" class="msg-text" font-size="11" font-weight="bold" fill="#78281F">• UPDATE DON_HANG: TongSoLuong, TongTien, ThanhTien</text>
+  </g>
+
+  <!-- Đồng bộ lại DON_HANG -->
+  <g transform="translate(0, 835)">
+    <line x1="1135" y1="0" x2="1465" y2="0" stroke="#CB4335" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1150" y="-8" class="msg-text" fill="#78281F" font-size="11">Tự động UPDATE DON_HANG (Tạo Snapshot tài chính bất biến)</text>
+  </g>
+
+  <!-- Note Snapshot -->
+  <g transform="translate(1485, 740)">
+    <rect width="250" height="72" rx="4" fill="#FFFDE7" stroke="#FBC02D" stroke-width="1.2"/>
+    <text x="10" y="18" class="note-text" font-weight="bold">Snapshot tài chính bất biến:</text>
+    <text x="10" y="34" class="note-text">Trigger tính toán trực tiếp ở nhân</text>
+    <text x="10" y="48" class="note-text">CSDL, không phụ thuộc code PHP,</text>
+    <text x="10" y="62" class="note-text">tránh sai lệch khi giá SP đổi sau này.</text>
+  </g>
+
+  <!-- Bước 9: Xóa giỏ hàng -->
+  <g transform="translate(0, 905)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="1.6" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">9.</tspan> CartService::clear() (Xóa giỏ hàng session / CSDL GIO_HANG)</text>
+  </g>
+
+  <!-- Tag DB::transaction COMMIT -->
+  <g transform="translate(725, 930)">
+    <rect width="130" height="26" rx="4" fill="#E8F8F5" stroke="#16A085" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="65" y="17" class="box-tag" fill="#0E6251" text-anchor="middle">DB::transaction() COMMIT</text>
+  </g>
+
+  <!-- Bước 10: Update Idempotency completed -->
+  <g transform="translate(0, 985)">
+    <line x1="790" y1="0" x2="1465" y2="0" stroke="#2980B9" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+    <text x="810" y="-8" class="msg-text" fill="#1B4F72"><tspan class="msg-num">10.</tspan> UPDATE CHECKOUT_IDEMPOTENCY status = 'completed', order_id = $order->id</text>
+  </g>
+
+  <!-- Bước 11: Return $order -->
+  <g transform="translate(0, 1030)">
+    <line x1="785" y1="0" x2="465" y2="0" stroke="#16A085" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-green)"/>
+    <text x="500" y="-8" class="msg-text" fill="#0E6251"><tspan class="msg-num">11.</tspan> Return $order (Đối tượng DonHang đã hoàn tất)</text>
+  </g>
+
+  <!-- Bước 12: Redirect client -->
+  <g transform="translate(0, 1075)">
+    <line x1="455" y1="0" x2="165" y2="0" stroke="#E65100" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-orange)"/>
+    <text x="180" y="-8" class="msg-text" fill="#BF360C"><tspan class="msg-num">12.</tspan> 302 Redirect /checkout/success/{orderId} (Kèm flash message)</text>
+  </g>
+
+  <!-- ==================== LUỒNG NGOẠI LỆ (ALT BOX) ==================== -->
+  <g transform="translate(80, 1115)">
+    <rect width="1480" height="85" rx="6" fill="#FDEDEC" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="15" y="20" font-size="11" font-weight="bold" fill="#922B21">ALT [Ngoại lệ: Hết số lượng tồn kho HOẶC Mã giảm giá hết lượt sử dụng]</text>
+    
+    <line x1="710" y1="42" x2="1390" y2="42" stroke="#C0392B" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+    <text x="730" y="36" font-size="11" fill="#922B21">throw Exception -> DB::transaction() TỰ ĐỘNG ROLLBACK TOÀN BỘ (Dữ liệu hoàn nguyên 100%)</text>
+    
+    <line x1="380" y1="65" x2="85" y2="65" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-red)"/>
+    <text x="100" y="59" font-size="11" fill="#922B21">Redirect back() withErrors (Hiển thị flash thông báo lỗi cho người dùng)</text>
+  </g>
+
+  <!-- BẢNG CHÚ THÍCH (LEGEND) -->
+  <g transform="translate(80, 1225)">
+    <rect width="1480" height="95" rx="6" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1.2"/>
+    <text x="15" y="22" font-size="12" font-weight="bold" fill="#2C3E50">Ý NGHĨA PHÂN TẦNG VÀ PHỐI HỢP TRONG SƠ ĐỒ:</text>
+    <text x="15" y="42" font-size="11" fill="#333333">• <tspan font-weight="bold">Tầng Service (CheckoutService):</tspan> Điều phối toàn bộ quy tắc nghiệp vụ (Business Rules), bọc phiên giao dịch DB::transaction(), áp dụng khóa bi quan lockForUpdate() chống Race Condition.</text>
+    <text x="15" y="62" font-size="11" fill="#333333">• <tspan font-weight="bold">Tầng Database Triggers (MySQL Engine):</tspan> Đảm bảo tính toàn vẹn tài chính ở cấp CSDL, tự tính cước vận chuyển (BEFORE INSERT) và tự động tính tổng tiền TongSoLuong, TongTien, ThanhTien (AFTER INSERT/UPDATE/DELETE).</text>
+    <text x="15" y="82" font-size="11" fill="#333333">• <tspan font-weight="bold">Cơ chế Idempotency:</tspan> Ngăn chặn hoàn toàn lỗi tạo trùng đơn hàng khi người dùng bấm nút Đặt hàng nhiều lần liên tiếp thông qua bảng kỹ thuật CHECKOUT_IDEMPOTENCY.</text>
+  </g>
+
+</svg>

@@ -1,0 +1,71 @@
+{
+  "checked_at": "2026-10-28 Asia/Saigon",
+  "method": "Read-only ID/type comparison; authenticated CouchDB GET; no DB writes.",
+  "seed": {
+    "source": "scripts/seed_phase06_demo.php deterministic IDs",
+    "total": 58
+  },
+  "backups": [
+    {
+      "source": "var/backups/nosql-demo-20261010.json",
+      "total": 60
+    },
+    {
+      "source": "var/backups/nosql-demo-20261013.json",
+      "total": 60
+    },
+    {
+      "source": "var/backups/nosql-demo-20261013-2.json",
+      "total": 60
+    }
+  ],
+  "live_databases": [
+    {
+      "database": "shopquan_ao_phase06_demo_test",
+      "http_status": 200,
+      "total": 61
+    },
+    {
+      "database": "nosql_report_restore_check_test",
+      "http_status": 200,
+      "total": 60
+    },
+    {
+      "database": "nosql_report_restore_photo_20261013223526_test",
+      "http_status": 200,
+      "total": 60
+    }
+  ],
+  "backup_snapshots_same_id_set": true,
+  "diff_rows": [
+    {
+      "comparison": "backup_20261010_vs_seed",
+      "id": "cart:P06-001",
+      "type": "cart",
+      "classification": "absent_in_left_present_in_right"
+    },
+    {
+      "comparison": "backup_20261010_vs_seed",
+      "id": "product:P1B7B31E107F1",
+      "type": "product",
+      "classification": "absent_in_left_present_in_right"
+    },
+    {
+      "comparison": "demo_live_vs_backup_20261010",
+      "id": "_design/order_statistics",
+      "type": "design",
+      "classification": "absent_in_left_present_in_right"
+    }
+  ],
+  "source_evidence": [
+    "database/couchdb/design-docs/domain_validation.json",
+    "scripts/seed_phase06_demo.php",
+    "var/backups/nosql-demo-20261010.json",
+    "var/backups/nosql-demo-20261013.json",
+    "var/backups/nosql-demo-20261013-2.json",
+    "CouchDB GET /shopquan_ao_phase06_demo_test/_all_docs?include_docs=true",
+    "CouchDB GET /nosql_report_restore_check_test/_all_docs?include_docs=true",
+    "CouchDB GET /nosql_report_restore_photo_20261013223526_test/_all_docs?include_docs=true"
+  ],
+  "writes_attempted": false
+}

@@ -1,0 +1,51 @@
+{
+  "checked_at_local": "2026-10-28",
+  "scope": "read-only source and local artifact preflight",
+  "docker_context": "desktop-linux",
+  "docker_ps": "BLOCKED",
+  "docker_error": "permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine",
+  "couchdb_live": "NOT CHECKED after first blocker",
+  "app_database_touched": false,
+  "demo_database_touched": false,
+  "test_database_written": false,
+  "seed_script_counts": {
+    "products": 18,
+    "customers": 6,
+    "staff": 2,
+    "shipping_methods": 2,
+    "vouchers": 1,
+    "orders": 27,
+    "business_documents": 56,
+    "design_documents": 2,
+    "total_documents": 58
+  },
+  "seed_script": "scripts/seed_phase06_demo.php",
+  "backup_file": "var/backups/nosql-demo-20261010.json",
+  "backup_file_bytes": 84910,
+  "backup_metadata": {
+    "source_database": "shopquan_ao_phase06_demo_test",
+    "created_at": "2026-10-10T01:12:19+07:00",
+    "document_count": 60,
+    "documents_array_count": 60,
+    "business_documents": 58,
+    "design_documents": 2
+  },
+  "backup_verification_history": "docs/BACKUP_VERIFICATION.md and docs/RESTORE_VERIFICATION.md (dated 2026-10-10; historical evidence, not a Phase 3 rerun)",
+  "phase02b_demo_observation": {
+    "database": "shopquan_ao_phase06_demo_test",
+    "doc_count": 61,
+    "source": "docs/phase02_fauxton/PHASE02B_HANDOFF_FOR_WORD.md",
+    "classification": "historical Fauxton observation, not rechecked in Phase 3"
+  },
+  "phase03_tests": {
+    "validator_http_403": "NOT RUN",
+    "mango_index_before_after": "NOT RUN",
+    "live_backup_restore_reconciliation": "BLOCKED"
+  },
+  "permission_retry": "REJECTED_BY_PLATFORM_POLICY_BEFORE_COMMAND",
+  "permission_retry_detail": "require_escalated unavailable under granular policy; docker ps was not run outside sandbox",
+  "prepared_read_only_preflight_scripts": [
+    "phase03_preflight.ps1",
+    "phase03_couchdb_preflight.php"
+  ]
+}

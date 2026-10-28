@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-28 Asia/Saigon",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5984/_session",
+      "http_status": 200,
+      "userCtx": { "name": "webthoitrang_dev", "roles": ["_admin"] },
+      "interpretation": "CouchDB accepted the credentials for a session."
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5984/phase03_validator_index_backup_test/_design%2Fdomain_validation",
+      "http_status": 401,
+      "response_body": { "error": "unauthorized", "reason": "You are not authorized to access this db." },
+      "writes_attempted": false
+    }
+  ],
+  "separate_transport_attempt": { "http_status": 502, "response_body": "upstream failure", "meaning": "The .env Docker-internal hostname did not produce a CouchDB response; this is not treated as the database authorization result." },
+  "conclusion": "The session endpoint authenticated the configured user, but CouchDB returned 401 for reading the test database design document. The exact policy/configuration reason is not established. No credential, ACL, or database security change was attempted."
+}

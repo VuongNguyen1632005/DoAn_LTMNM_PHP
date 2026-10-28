@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 1120" width="1680" height="1120" style="background:#ffffff; font-family:'Segoe UI', Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: bold; fill: #14221D; text-anchor: middle; }
+      .subtitle { font-size: 14px; fill: #555555; text-anchor: middle; }
+      .zone-title { font-size: 12px; font-weight: bold; }
+      .st-title { font-size: 14px; font-weight: bold; }
+      .st-sub { font-size: 11px; }
+      .st-body { font-size: 11px; fill: #333333; }
+      .arr-text { font-size: 11px; font-weight: 500; }
+      .legend-text { font-size: 11px; fill: #333333; }
+    </style>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16A085" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2980B9" />
+    </marker>
+    <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#B7950B" />
+    </marker>
+    <marker id="arrow-darkgreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#229954" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#CB4335" />
+    </marker>
+  </defs>
+
+  <!-- TIÊU ĐỀ -->
+  <text x="840" y="38" class="title">HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ SMART CASUAL</text>
+  <text x="840" y="62" class="subtitle">HÌNH 2.4: SƠ ĐỒ CHUYỂN ĐỔI TRẠNG THÁI ĐƠN HÀNG (STATE MACHINE DIAGRAM) - ALLOWED_TRANSITIONS</text>
+
+  <!-- ==================== KHU VỰC I: LUỒNG CHUẨN ==================== -->
+  <g transform="translate(40, 90)">
+    <rect width="1600" height="420" rx="10" fill="#F2FAF7" stroke="#16A085" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <text x="20" y="26" class="zone-title" fill="#0E6251">I. LUỒNG THỰC HIỆN ĐƠN HÀNG CHUẨN (HAPPY PATH: PENDING ➔ CONFIRMED ➔ PACKING ➔ SHIPPING ➔ DELIVERED)</text>
+  </g>
+
+  <!-- Start Node -->
+  <g transform="translate(75, 235)">
+    <circle cx="15" cy="15" r="14" fill="#14221D"/>
+    <text x="15" y="48" font-size="11" fill="#555555" text-anchor="middle">Khách đặt hàng</text>
+    <text x="15" y="62" font-size="10" fill="#777777" text-anchor="middle">POST /checkout</text>
+  </g>
+
+  <!-- Mũi tên Start -> Pending -->
+  <line x1="105" y1="250" x2="165" y2="250" stroke="#16A085" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="135" y="242" font-size="11" font-weight="bold" fill="#0E6251" text-anchor="middle">placeOrder()</text>
+
+  <!-- 1. State: PENDING -->
+  <g transform="translate(170, 190)">
+    <rect width="210" height="120" rx="8" fill="#FEF9E7" stroke="#D4AC0D" stroke-width="2"/>
+    <rect width="210" height="38" rx="8" fill="#F9E79F"/>
+    <text x="105" y="24" class="st-title" fill="#7D6608" text-anchor="middle">pending</text>
+    <text x="105" y="48" class="st-sub" fill="#B7950B" text-anchor="middle">(Chờ xác nhận)</text>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#D4AC0D" stroke-width="1"/>
+    <text x="12" y="74" class="st-body">• <tspan font-weight="bold">entry /</tspan> Trừ tồn kho tạm thời</text>
+    <text x="12" y="92" class="st-body">• <tspan font-weight="bold">entry /</tspan> Trừ 1 lượt voucher</text>
+    <text x="12" y="110" class="st-body">• <tspan font-weight="bold">entry /</tspan> Khởi tạo MaDonHang</text>
+  </g>
+
+  <!-- Mũi tên Pending -> Confirmed -->
+  <line x1="380" y1="250" x2="475" y2="250" stroke="#2980B9" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="430" y="235" class="arr-text" fill="#1B4F72" text-anchor="middle">[NV duyệt]</text>
+  <text x="430" y="270" font-size="10" fill="#2980B9" text-anchor="middle">updateStatus('confirmed')</text>
+
+  <!-- 2. State: CONFIRMED -->
+  <g transform="translate(480, 190)">
+    <rect width="220" height="120" rx="8" fill="#EBF5FB" stroke="#2980B9" stroke-width="2"/>
+    <rect width="220" height="38" rx="8" fill="#D4E6F1"/>
+    <text x="110" y="24" class="st-title" fill="#1B4F72" text-anchor="middle">confirmed</text>
+    <text x="110" y="48" class="st-sub" fill="#2980B9" text-anchor="middle">(Đã xác nhận)</text>
+    <line x1="0" y1="55" x2="220" y2="55" stroke="#2980B9" stroke-width="1"/>
+    <text x="12" y="74" class="st-body">• <tspan font-weight="bold">entry /</tspan> Gán MaNV xác nhận</text>
+    <text x="12" y="92" class="st-body">• Kiểm tra SĐT, địa chỉ giao</text>
+    <text x="12" y="110" class="st-body">• Khóa thay đổi dòng mặt hàng</text>
+  </g>
+
+  <!-- Mũi tên Confirmed -> Packing -->
+  <line x1="700" y1="250" x2="785" y2="250" stroke="#2980B9" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="742" y="235" class="arr-text" fill="#1B4F72" text-anchor="middle">[Kho xuất hàng]</text>
+  <text x="742" y="270" font-size="10" fill="#2980B9" text-anchor="middle">updateStatus('packing')</text>
+
+  <!-- 3. State: PACKING -->
+  <g transform="translate(790, 190)">
+    <rect width="210" height="120" rx="8" fill="#EBF5FB" stroke="#2980B9" stroke-width="2"/>
+    <rect width="210" height="38" rx="8" fill="#D4E6F1"/>
+    <text x="105" y="24" class="st-title" fill="#1B4F72" text-anchor="middle">packing</text>
+    <text x="105" y="48" class="st-sub" fill="#2980B9" text-anchor="middle">(Đang đóng gói)</text>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#2980B9" stroke-width="1"/>
+    <text x="12" y="74" class="st-body">• <tspan font-weight="bold">entry /</tspan> In phiếu xuất kho</text>
+    <text x="12" y="92" class="st-body">• So khớp đúng SKU &amp; Size</text>
+    <text x="12" y="110" class="st-body">• Niêm phong kiện hàng</text>
+  </g>
+
+  <!-- Mũi tên Packing -> Shipping -->
+  <line x1="1000" y1="250" x2="1085" y2="250" stroke="#B7950B" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <text x="1042" y="235" class="arr-text" fill="#7D6608" text-anchor="middle">[Giao bưu tá]</text>
+  <text x="1042" y="270" font-size="10" fill="#B7950B" text-anchor="middle">updateStatus('shipping')</text>
+
+  <!-- 4. State: SHIPPING -->
+  <g transform="translate(1090, 190)">
+    <rect width="230" height="120" rx="8" fill="#FCF3CF" stroke="#B7950B" stroke-width="2"/>
+    <rect width="230" height="38" rx="8" fill="#F9E79F"/>
+    <text x="115" y="24" class="st-title" fill="#7D6608" text-anchor="middle">shipping</text>
+    <text x="115" y="48" class="st-sub" fill="#B7950B" text-anchor="middle">(Đang giao hàng)</text>
+    <line x1="0" y1="55" x2="230" y2="55" stroke="#B7950B" stroke-width="1"/>
+    <text x="12" y="74" class="st-body">• <tspan font-weight="bold">entry /</tspan> Bàn giao Shipper / PTVC</text>
+    <text x="12" y="92" class="st-body" fill="#C0392B" font-weight="bold">• RÀNG BUỘC: KHÔNG THỂ HỦY</text>
+    <text x="12" y="110" class="st-body">• Theo dõi lộ trình vận đơn</text>
+  </g>
+
+  <!-- Mũi tên Shipping -> Delivered -->
+  <line x1="1320" y1="250" x2="1395" y2="250" stroke="#229954" stroke-width="2.2" marker-end="url(#arrow-darkgreen)"/>
+  <text x="1358" y="235" class="arr-text" fill="#145A32" text-anchor="middle">[Khách nhận hàng]</text>
+  <text x="1358" y="270" font-size="10" fill="#229954" text-anchor="middle">updateStatus('delivered')</text>
+
+  <!-- 5. State: DELIVERED (Terminal) -->
+  <g transform="translate(1400, 190)">
+    <rect width="220" height="130" rx="8" fill="#D4EFDF" stroke="#229954" stroke-width="2.2"/>
+    <rect width="220" height="38" rx="8" fill="#A9DFBF"/>
+    <text x="110" y="24" class="st-title" fill="#145A32" text-anchor="middle">delivered</text>
+    <text x="110" y="48" class="st-sub" fill="#196F3D" text-anchor="middle">(Đã giao hàng - Hoàn tất)</text>
+    <line x1="0" y1="55" x2="220" y2="55" stroke="#229954" stroke-width="1"/>
+    <text x="12" y="74" class="st-body">• <tspan font-weight="bold">entry /</tspan> Nếu COD: DaThanhToan=1</text>
+    <text x="12" y="92" class="st-body">• <tspan font-weight="bold">entry /</tspan> Tích điểm thành viên</text>
+    <text x="12" y="110" class="st-body">• Cho phép viết Đánh giá sao</text>
+    <text x="12" y="125" class="st-body" font-style="italic" fill="#229954">✓ Trạng thái đích thành công</text>
+  </g>
+
+  <!-- End Node Delivered -->
+  <g transform="translate(1495, 360)">
+    <circle cx="15" cy="15" r="14" fill="#145A32" stroke="#229954" stroke-width="3"/>
+    <circle cx="15" cy="15" r="8" fill="#ffffff"/>
+    <text x="15" y="45" font-size="10" fill="#145A32" text-anchor="middle">Giao dịch thành công</text>
+  </g>
+  <line x1="1510" y1="320" x2="1510" y2="355" stroke="#229954" stroke-width="1.8" marker-end="url(#arrow-darkgreen)"/>
+
+
+  <!-- ==================== KHU VỰC II: LUỒNG HỦY ==================== -->
+  <g transform="translate(40, 540)">
+    <rect width="1600" height="420" rx="10" fill="#FDEDEC" stroke="#CB4335" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <text x="20" y="26" class="zone-title" fill="#78281F">II. LUỒNG HỦY ĐƠN HÀNG &amp; HOÀN NGUYÊN TỒN KHO ATOMIC RESTOCKING (CHẤP NHẬN TỪ PENDING, CONFIRMED, PACKING)</text>
+  </g>
+
+  <!-- 6. State: CANCELLED (Terminal) -->
+  <g transform="translate(520, 650)">
+    <rect width="480" height="165" rx="8" fill="#FADBD8" stroke="#CB4335" stroke-width="2.2"/>
+    <rect width="480" height="40" rx="8" fill="#F5B7B1"/>
+    <text x="240" y="26" class="st-title" fill="#78281F" text-anchor="middle">cancelled (Đã hủy đơn hàng)</text>
+    <line x1="0" y1="50" x2="480" y2="50" stroke="#CB4335" stroke-width="1.2"/>
+    <text x="15" y="72" class="st-body" font-weight="bold" fill="#78281F">TÁC VỤ TỰ ĐỘNG KHI HỦY (cancelOrder trong CheckoutService):</text>
+    <text x="25" y="94" class="st-body">1. <tspan font-weight="bold">Hoàn tồn kho SKU:</tspan> CHI_TIET_SP::where('MaCTSP', $item-&gt;MaCTSP)-&gt;increment('SoLuong', $item-&gt;SoLuong);</text>
+    <text x="25" y="116" class="st-body">2. <tspan font-weight="bold">Hoàn lượt voucher:</tspan> MaGiamGia::where('MaCode', $order-&gt;MaCode)-&gt;increment('SoLuong', 1); (nếu có)</text>
+    <text x="25" y="138" class="st-body">3. <tspan font-weight="bold">Ghi nhận vết lý do:</tspan> Cập nhật cột GhiChu: 'Lý do hủy: ...'</text>
+    <text x="25" y="156" class="st-body">4. <tspan font-weight="bold">Bọc trong DB::transaction():</tspan> Cam kết bảo toàn tính nhất quán tuyệt đối</text>
+  </g>
+
+  <!-- Mũi tên Hủy 1: Pending -> Cancelled -->
+  <path d="M 275 310 L 275 730 L 515 730" fill="none" stroke="#CB4335" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="290" y="580" class="arr-text" fill="#922B21">[Khách hủy / NV hủy]</text>
+  <text x="290" y="598" font-size="10" fill="#CB4335">cancelOrder('Khách đổi ý')</text>
+
+  <!-- Mũi tên Hủy 2: Confirmed -> Cancelled -->
+  <path d="M 590 310 L 590 645" fill="none" stroke="#CB4335" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="605" y="470" class="arr-text" fill="#922B21">[Hủy trước đóng gói]</text>
+  <text x="605" y="488" font-size="10" fill="#CB4335">cancelOrder('Hết hàng')</text>
+
+  <!-- Mũi tên Hủy 3: Packing -> Cancelled -->
+  <path d="M 895 310 L 895 645" fill="none" stroke="#CB4335" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="910" y="470" class="arr-text" fill="#922B21">[Hủy trước khi giao shipper]</text>
+  <text x="910" y="488" font-size="10" fill="#CB4335">cancelOrder('Khách gọi hủy')</text>
+
+  <!-- End Node Cancelled -->
+  <g transform="translate(745, 850)">
+    <circle cx="15" cy="15" r="14" fill="#78281F" stroke="#CB4335" stroke-width="3"/>
+    <circle cx="15" cy="15" r="8" fill="#ffffff"/>
+    <text x="15" y="45" font-size="10" fill="#78281F" text-anchor="middle">Đơn hàng kết thúc (Đã hủy)</text>
+  </g>
+  <line x1="760" y1="815" x2="760" y2="845" stroke="#CB4335" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+
+  <!-- BOX CẢNH BÁO CHẶN HỦY -->
+  <g transform="translate(1080, 670)">
+    <rect width="530" height="120" rx="8" fill="#FDEDEC" stroke="#E74C3C" stroke-width="1.8"/>
+    <text x="15" y="24" font-size="12" font-weight="bold" fill="#78281F">QUY TẮC BẢO VỆ CHẶN HỦY (GUARD CONDITION):</text>
+    <text x="15" y="48" font-size="11" fill="#333333">• <tspan font-weight="bold">shipping ➔ cancelled:</tspan> <tspan font-weight="bold" fill="#C0392B">BỊ CHẶN TUYỆT ĐỐI</tspan></text>
+    <text x="25" y="66" font-size="10.5" fill="#555555">(Hàng đã bàn giao bưu tá xuất bến, không thể hủy ngang để bảo vệ cước vận chuyển)</text>
+    <text x="15" y="88" font-size="11" fill="#333333">• <tspan font-weight="bold">delivered ➔ cancelled:</tspan> <tspan font-weight="bold" fill="#C0392B">BỊ CHẶN TUYỆT ĐỐI</tspan></text>
+    <text x="25" y="106" font-size="10.5" fill="#555555">(Đơn hàng đã hoàn tất giao dịch; khiếu nại xử lý qua quy trình Đổi trả riêng)</text>
+  </g>
+
+  <!-- BẢNG CHÚ THÍCH (LEGEND) -->
+  <g transform="translate(40, 980)">
+    <rect width="1600" height="85" rx="6" fill="#FFFFFF" stroke="#BDC3C7" stroke-width="1.2"/>
+    <text x="15" y="22" font-size="12" font-weight="bold" fill="#2C3E50">MA TRẬN HỢP LỆ (ALLOWED_TRANSITIONS) TRONG CHECKOUTSERVICE:</text>
+    <text x="15" y="42" class="legend-text">• <tspan font-weight="bold">pending</tspan> ➔ ['confirmed', 'cancelled'] | <tspan font-weight="bold">confirmed</tspan> ➔ ['packing', 'cancelled'] | <tspan font-weight="bold">packing</tspan> ➔ ['shipping', 'cancelled']</text>
+    <text x="15" y="60" class="legend-text">• <tspan font-weight="bold">shipping</tspan> ➔ ['delivered'] | <tspan font-weight="bold">delivered</tspan> ➔ [] (Trạng thái đích thành công) | <tspan font-weight="bold">cancelled</tspan> ➔ [] (Trạng thái đích hủy)</text>
+    <text x="15" y="76" class="legend-text">• <tspan font-weight="bold">Phân quyền tác nhân:</tspan> Khách hàng thành viên chỉ được hủy khi đơn ở trạng thái 'pending'. Quản trị viên và Nhân viên có quyền hủy từ 'pending', 'confirmed' và 'packing'.</text>
+  </g>
+
+</svg>

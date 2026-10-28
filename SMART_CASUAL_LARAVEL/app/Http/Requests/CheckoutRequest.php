@@ -15,7 +15,7 @@ class CheckoutRequest extends FormRequest
     {
         return [
             'receiver_name' => 'required|string|max:100',
-            'receiver_phone' => 'required|string|max:20',
+            'receiver_phone' => ['required', 'string', 'regex:/^[0-9]{10,11}$/'],
             'receiver_email' => 'nullable|email|max:100',
             'shipping_address' => 'required|string|max:255',
             'shipping_code' => 'required|string|exists:PHUONG_THUC_VAN_CHUYEN,MaPTVC',
@@ -32,6 +32,7 @@ class CheckoutRequest extends FormRequest
             'receiver_name.required' => 'Vui lòng nhập họ tên người nhận.',
             'receiver_name.max' => 'Họ tên người nhận không được vượt quá 100 ký tự.',
             'receiver_phone.required' => 'Vui lòng nhập số điện thoại người nhận.',
+            'receiver_phone.regex' => 'Số điện thoại không hợp lệ (phải gồm 10-11 chữ số).',
             'receiver_phone.max' => 'Số điện thoại không hợp lệ.',
             'receiver_email.email' => 'Email không đúng định dạng.',
             'shipping_address.required' => 'Vui lòng nhập địa chỉ nhận hàng chi tiết.',

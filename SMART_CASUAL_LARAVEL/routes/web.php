@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\AdminReviewController;
 
 // Public storefront routes
 Route::get('/', [CatalogController::class, 'index'])->name('home');
+Route::get('/products', [CatalogController::class, 'index'])->name('products');
 Route::get('/about', [CatalogController::class, 'about'])->name('about');
 Route::get('/products/{id}', [CatalogController::class, 'show'])->name('products.detail');
 Route::post('/products/{id}/reviews', [CatalogController::class, 'submitReview'])->name('products.reviews.submit');

@@ -1,0 +1,4 @@
+"comparison","id","type","classification"
+"backup_20261010_vs_seed","cart:P06-001","cart","absent_in_left_present_in_right"
+"backup_20261010_vs_seed","product:P1B7B31E107F1","product","absent_in_left_present_in_right"
+"demo_live_vs_backup_20261010","_design/order_statistics","design","absent_in_left_present_in_right"

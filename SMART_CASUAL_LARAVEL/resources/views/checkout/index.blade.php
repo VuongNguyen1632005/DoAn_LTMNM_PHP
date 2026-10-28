@@ -165,11 +165,9 @@
 <script>
 document.getElementById('checkoutForm')?.addEventListener('submit', function (e) {
     const btn = document.getElementById('btnSubmitOrder');
-    if (btn && !btn.disabled) {
+    if (btn) {
         btn.disabled = true;
         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Đang xử lý đơn hàng...';
-        // Allow the native submit event to proceed
-        this.submit();
     }
 });
 

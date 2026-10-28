@@ -4,7 +4,7 @@
 - Toán tử: `$not, $and, fields, limit, skip`.
 - Index theo `_explain`: `admin_orders`.
 - Kết quả kỳ vọng và kiểm chứng độc lập: 40 document(s); PHP filter=40.
-- docs_examined: 68; execution_time_ms: 31.538.
+- docs_examined: 68; execution_time_ms: 38.677.
 - Trạng thái: **PASS**.
 
 Payload đầy đủ nằm trong `ADVANCED_QUERIES.md` và JSON tương ứng dưới `database/couchdb/demo_queries/19_not_and_projection.json`.

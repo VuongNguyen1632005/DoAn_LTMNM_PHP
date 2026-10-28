@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" modified="2026-10-26T23:15:00.000Z" agent="Antigravity" version="24.7.5" type="device">
+  <diagram id="Order_State_Machine" name="Hinh 2.4 - Sơ đồ chuyển đổi trạng thái đơn hàng">
+    <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Tiêu đề sơ đồ -->
+        <mxCell id="title_box" value="&lt;b&gt;HỆ THỐNG THƯƠNG MẠI ĐIỆN TỬ SMART CASUAL&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 15px; font-weight: normal; color: #555555;&quot;&gt;HÌNH 2.4: SƠ ĐỒ CHUYỂN ĐỔI TRẠNG THÁI ĐƠN HÀNG (STATE MACHINE DIAGRAM) - ALLOWED_TRANSITIONS&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontColor=#14221D;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="450" y="25" width="800" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== KHU VỰC LUỒNG CHUẨN ==================== -->
+        <mxCell id="zone_standard" value="&lt;b&gt;I. LUỒNG THỰC HIỆN ĐƠN HÀNG CHUẨN (HAPPY PATH: PENDING ➔ CONFIRMED ➔ PACKING ➔ SHIPPING ➔ DELIVERED)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#16A085;strokeWidth=1.8;fillColor=#F2FAF7;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#0E6251;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="90" width="1600" height="420" as="geometry" />
+        </mxCell>
+
+        <!-- Start Node -->
+        <mxCell id="node_start" value="" style="ellipse;fillColor=#14221D;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="90" y="240" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl_start" value="Khách đặt hàng&lt;br&gt;POST /checkout" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Start -> pending -->
+        <mxCell id="arr_start_pending" value="placeOrder()" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#16A085;strokeWidth=2;fontColor=#0E6251;fontSize=11;" edge="1" parent="1" source="node_start" target="st_pending">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 1. Trạng thái PENDING -->
+        <mxCell id="st_pending" value="&lt;b&gt;pending&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Chờ xác nhận)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 10px; padding-left: 4px;&quot;&gt;• &lt;b&gt;entry /&lt;/b&gt; Trừ tồn kho tạm thời&lt;br&gt;• &lt;b&gt;entry /&lt;/b&gt; Trừ 1 lượt voucher&lt;br&gt;• &lt;b&gt;entry /&lt;/b&gt; Khởi tạo MaDonHang&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=2;fontColor=#7D6608;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="190" y="200" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 2. Trạng thái CONFIRMED -->
+        <mxCell id="st_confirmed" value="&lt;b&gt;confirmed&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Đã xác nhận)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 10px; padding-left: 4px;&quot;&gt;• &lt;b&gt;entry /&lt;/b&gt; Gán MaNV xác nhận&lt;br&gt;• Kiểm tra thông tin SĐT, địa chỉ&lt;br&gt;• Khóa chỉnh sửa dòng hàng&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontColor=#1B4F72;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="490" y="200" width="210" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: pending -> confirmed -->
+        <mxCell id="arr_p_c" value="[NV duyệt]&lt;br&gt;updateStatus('confirmed')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#2980B9;strokeWidth=2;fontColor=#1B4F72;fontSize=11;align=center;" edge="1" parent="1" source="st_pending" target="st_confirmed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 3. Trạng thái PACKING -->
+        <mxCell id="st_packing" value="&lt;b&gt;packing&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Đang đóng gói)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 10px; padding-left: 4px;&quot;&gt;• &lt;b&gt;entry /&lt;/b&gt; In phiếu xuất kho&lt;br&gt;• Nhân viên kho lấy đúng SKU&lt;br&gt;• Đóng kiện niêm phong&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontColor=#1B4F72;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: confirmed -> packing -->
+        <mxCell id="arr_c_pk" value="[Kho xuất hàng]&lt;br&gt;updateStatus('packing')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#2980B9;strokeWidth=2;fontColor=#1B4F72;fontSize=11;align=center;" edge="1" parent="1" source="st_confirmed" target="st_packing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 4. Trạng thái SHIPPING -->
+        <mxCell id="st_shipping" value="&lt;b&gt;shipping&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Đang giao hàng)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 10px; padding-left: 4px;&quot;&gt;• &lt;b&gt;entry /&lt;/b&gt; Bàn giao Shipper / PTVC&lt;br&gt;• &lt;b&gt;RÀNG BUỘC:&lt;/b&gt; &lt;font color=&quot;#C0392B&quot;&gt;&lt;b&gt;KHÔNG THỂ HỦY&lt;/b&gt;&lt;/font&gt;&lt;br&gt;• Theo dõi hành trình bưu kiện&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#FCF3CF;strokeColor=#B7950B;strokeWidth=2;fontColor=#7D6608;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="200" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: packing -> shipping -->
+        <mxCell id="arr_pk_s" value="[Giao vận chuyển]&lt;br&gt;updateStatus('shipping')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#B7950B;strokeWidth=2;fontColor=#7D6608;fontSize=11;align=center;" edge="1" parent="1" source="st_packing" target="st_shipping">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 5. Trạng thái DELIVERED (Terminal) -->
+        <mxCell id="st_delivered" value="&lt;b&gt;delivered&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Đã giao hàng - Hoàn tất)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 10px; padding-left: 4px;&quot;&gt;• &lt;b&gt;entry /&lt;/b&gt; Nếu COD: DaThanhToan=1&lt;br&gt;• &lt;b&gt;entry /&lt;/b&gt; Ghi nhận tích điểm KH&lt;br&gt;• Mở quyền viết đánh giá sao&lt;br&gt;• &lt;i&gt;Trạng thái kết thúc thành công&lt;/i&gt;&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#D4EFDF;strokeColor=#229954;strokeWidth=2.2;fontColor=#145A32;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="200" width="210" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: shipping -> delivered -->
+        <mxCell id="arr_s_d" value="[Khách nhận hàng]&lt;br&gt;updateStatus('delivered')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#229954;strokeWidth=2.2;fontColor=#145A32;fontSize=11;align=center;" edge="1" parent="1" source="st_shipping" target="st_delivered">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- End Node cho Delivered -->
+        <mxCell id="node_end_delivered" value="" style="ellipse;shape=doubleEllipse;fillColor=#145A32;strokeColor=#229954;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="370" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arr_d_end" value="Giao dịch kết thúc" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#229954;strokeWidth=1.8;fontColor=#145A32;fontSize=10;" edge="1" parent="1" source="st_delivered" target="node_end_delivered">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+
+        <!-- ==================== KHU VỰC LUỒNG HỦY ĐƠN HÀNG ==================== -->
+        <mxCell id="zone_cancelled" value="&lt;b&gt;II. LUỒNG HỦY ĐƠN HÀNG &amp;amp; HOÀN NGUYÊN TỒN KHO ATOMIC RESTOCKING (CHẤP NHẬN TỪ PENDING, CONFIRMED, PACKING)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#CB4335;strokeWidth=1.8;fillColor=#FDEDEC;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#78281F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="540" width="1600" height="420" as="geometry" />
+        </mxCell>
+
+        <!-- 6. Trạng thái CANCELLED -->
+        <mxCell id="st_cancelled" value="&lt;b&gt;cancelled&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px; font-weight: normal;&quot;&gt;(Đã hủy đơn hàng)&lt;/font&gt;&lt;hr size=&quot;1&quot;&gt;&lt;div style=&quot;text-align: left; font-size: 11px; padding-left: 6px;&quot;&gt;&lt;b&gt;TÁC VỤ TỰ ĐỘNG KHI HỦY (cancelOrder):&lt;/b&gt;&lt;br&gt;1. &lt;b&gt;Hoàn tồn kho:&lt;/b&gt; &lt;font color=&quot;#1B4F72&quot;&gt;CHI_TIET_SP::increment('SoLuong', $item-&gt;qty)&lt;/font&gt;&lt;br&gt;2. &lt;b&gt;Hoàn voucher:&lt;/b&gt; &lt;font color=&quot;#7D6608&quot;&gt;MA_GIAM_GIA::increment('SoLuong', 1)&lt;/font&gt; (nếu có MaCode)&lt;br&gt;3. &lt;b&gt;Ghi vết lý do:&lt;/b&gt; Cập nhật cột GhiChu: &lt;i&gt;'Lý do hủy: ...'&lt;/i&gt;&lt;br&gt;4. &lt;b&gt;Bọc trong DB::transaction():&lt;/b&gt; Bảo đảm tính Atomic toàn diện&lt;/div&gt;" style="shape=swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;fillColor=#FADBD8;strokeColor=#CB4335;strokeWidth=2.2;fontColor=#78281F;fontSize=13;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="660" width="460" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Mũi tên Hủy 1: pending -> cancelled -->
+        <mxCell id="arr_cancel_1" value="[Khách hủy / NV hủy]&lt;br&gt;cancelOrder('Khách đổi ý')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#CB4335;strokeWidth=2;fontColor=#922B21;fontSize=11;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="st_pending" target="st_cancelled">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mũi tên Hủy 2: confirmed -> cancelled -->
+        <mxCell id="arr_cancel_2" value="[Hủy trước khi đóng gói]&lt;br&gt;cancelOrder('Hết hàng / Hủy')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#CB4335;strokeWidth=2;fontColor=#922B21;fontSize=11;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="st_confirmed" target="st_cancelled">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="580" />
+              <mxPoint x="660" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mũi tên Hủy 3: packing -> cancelled -->
+        <mxCell id="arr_cancel_3" value="[Hủy trước khi giao shipper]&lt;br&gt;cancelOrder('Khách yêu cầu hủy')" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#CB4335;strokeWidth=2;fontColor=#922B21;fontSize=11;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="st_packing" target="st_cancelled">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="580" />
+              <mxPoint x="830" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- End Node cho Cancelled -->
+        <mxCell id="node_end_cancelled" value="" style="ellipse;shape=doubleEllipse;fillColor=#78281F;strokeColor=#CB4335;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="745" y="870" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arr_c_end" value="Đơn hàng kết thúc (Đã hủy)" style="html=1;verticalAlign=bottom;endArrow=block;strokeColor=#CB4335;strokeWidth=1.8;fontColor=#78281F;fontSize=10;" edge="1" parent="1" source="st_cancelled" target="node_end_cancelled">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Box cảnh báo: Cấm hủy từ shipping & delivered -->
+        <mxCell id="box_blocked" value="&lt;b&gt;QUY TẮC BẢO VỆ CHẶN HỦY (GUARD CONDITION):&lt;/b&gt;&lt;br&gt;• &lt;b&gt;shipping ➔ cancelled:&lt;/b&gt; &lt;font color=&quot;#C0392B&quot;&gt;&lt;b&gt;BỊ CHẶN&lt;/b&gt;&lt;/font&gt; (Hàng đã rời kho, không thể hủy ngang để bảo vệ chi phí vận chuyển)&lt;br&gt;• &lt;b&gt;delivered ➔ cancelled:&lt;/b&gt; &lt;font color=&quot;#C0392B&quot;&gt;&lt;b&gt;BỊ CHẶN&lt;/b&gt;&lt;/font&gt; (Đơn đã thành công, chỉ xử lý đổi trả qua nghiệp vụ riêng)&lt;br&gt;• &lt;i&gt;Mọi hành vi vi phạm đều ném ra ngoại lệ: Exception(&quot;Không thể hủy đơn hàng ở trạng thái...&quot;)&lt;/i&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#E74C3C;strokeWidth=1.5;fillColor=#FDEDEC;fontColor=#78281F;fontSize=11;align=left;spacingLeft=12;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="680" width="510" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Bảng chú thích (Legend) -->
+        <mxCell id="legend_box" value="&lt;b&gt;MA TRẬN HỢP LỆ (ALLOWED_TRANSITIONS) TRONG CHECKOUTSERVICE:&lt;/b&gt;&lt;br&gt;• pending ➔ ['confirmed', 'cancelled'] | confirmed ➔ ['packing', 'cancelled'] | packing ➔ ['shipping', 'cancelled']&lt;br&gt;• shipping ➔ ['delivered'] | delivered ➔ [] (Trạng thái đích) | cancelled ➔ [] (Trạng thái đích)&lt;br&gt;• &lt;b&gt;Phân quyền tác nhân:&lt;/b&gt; Khách hàng chỉ có quyền hủy khi đơn ở trạng thái 'pending'. Quản trị viên/Nhân viên có quyền hủy từ 'pending', 'confirmed' và 'packing'." style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#BDC3C7;strokeWidth=1.2;fillColor=#FFFFFF;verticalAlign=middle;align=left;spacingLeft=15;rounded=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="50" y="980" width="1600" height="75" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

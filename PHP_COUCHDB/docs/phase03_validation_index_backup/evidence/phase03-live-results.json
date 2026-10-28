@@ -1,0 +1,132 @@
+{
+  "checked_date": "2026-10-28",
+  "couchdb_version": "3.5.0",
+  "docker_host_preflight": {
+    "source": "user-run PowerShell output",
+    "context": "desktop-linux",
+    "containers": "app and couchdb both healthy",
+    "docker_ps": "PASS",
+    "couchdb_auth_get_all_dbs_http": 200,
+    "database_count_before_phase03": 6
+  },
+  "database_scope": {
+    "application": {
+      "name": "shopquan_ao_sql_migration_test",
+      "doc_count": 354,
+      "access": "GET only"
+    },
+    "demo": {
+      "name": "shopquan_ao_phase06_demo_test",
+      "doc_count": 61,
+      "access": "GET only"
+    },
+    "restore_historical": {
+      "name": "nosql_report_restore_check_test",
+      "doc_count": 60,
+      "access": "GET only"
+    },
+    "restore_photo": {
+      "name": "nosql_report_restore_photo_20261013223526_test",
+      "doc_count": 60,
+      "access": "GET only"
+    },
+    "phase03_test": {
+      "name": "phase03_validator_index_backup_test",
+      "doc_count": 4,
+      "initially_absent": true,
+      "writes_only_here": "yes"
+    }
+  },
+  "validator": {
+    "status": "BLOCKED_HTTP403_NOT_CONFIRMED",
+    "test_database": "phase03_validator_index_backup_test",
+    "validator_doc": "GUI-installed reduced validator containing the Order status branch copied from project logic",
+    "valid_order_id": "order:phase03-validator-001",
+    "valid_order_saved_in_fauxton": true,
+    "invalid_update_attempted_in_fauxton": true,
+    "requested_change": "status only: pending -> invalid_status",
+    "fauxton_error": "Save failed: order requires a valid status, receiver, and non-empty items",
+    "stored_status_after_rejection": "pending",
+    "stored_revision_after_rejection": "1-114358edbd21e8a150d4af8fed21c146",
+    "revision_unchanged": true,
+    "http_status": "NOT CAPTURED FOR INVALID UPDATE",
+    "source_validator_replacement": "BLOCKED: direct GET of test design document returned HTTP 401 unauthorized; full validator comparison unavailable",
+    "pass_403": false
+  },
+  "mango_index": {
+    "status": "PASS_GUI",
+    "database": "phase03_validator_index_backup_test",
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "delivery_tracking.status": {
+        "$eq": "failed_delivery"
+      }
+    },
+    "before": {
+      "selected_index": "special _all_docs",
+      "full_scan": true,
+      "keys_examined": 3,
+      "documents_examined": 3,
+      "results_returned": 1,
+      "execution_time_ms": 2,
+      "matching_index_warning": true
+    },
+    "created_index": {
+      "name": "phase03_delivery_failed",
+      "type": "json",
+      "fields": [
+        "type",
+        "delivery_tracking.status"
+      ],
+      "design_doc": "_design/9038904b639dc8ce2d429a1dba4c004cbb816981",
+      "database_scope": "test database only"
+    },
+    "after": {
+      "selected_index": "phase03_delivery_failed",
+      "keys_examined": 1,
+      "documents_examined": 1,
+      "results_returned": 1,
+      "execution_time_ms": 1
+    },
+    "limitations": [
+      "tiny test dataset, so timing comparison is illustrative only",
+      "query and Explain were executed in Fauxton; no API performance claim beyond visible GUI stats"
+    ]
+  },
+  "backup_restore": {
+    "status": "PASS_READ_ONLY_ID_SET_RECONCILIATION",
+    "seed_baseline_from_source_total_docs": 58,
+    "seed_baseline_business_docs": 56,
+    "seed_baseline_design_docs": 2,
+    "historical_backup_file_docs": 60,
+    "historical_backup_business_docs": 58,
+    "historical_backup_design_docs": 2,
+    "historical_demo_hand_off_docs": 61,
+    "live_demo_get_doc_count": 61,
+    "restore_check_current_doc_count": 60,
+    "restore_photo_current_doc_count": 60,
+    "reason": "stop at first authenticated document-access blocker",
+    "exact_id_diff": "See backup_restore_id_diff.csv and backup_restore_id_reconciliation.json",
+    "historical_demo_snapshot": "No earlier ID snapshot available; compared to live read on 2026-10-28",
+    "seed_missing_from_backup": [],
+    "backup_extra_vs_seed": [
+      "cart:P06-001",
+      "product:P1B7B31E107F1"
+    ],
+    "demo_extra_vs_backup": [
+      "_design/order_statistics"
+    ],
+    "restore_photo_matches_backup": true,
+    "restore_check_matches_backup": true
+  },
+  "protection": {
+    "application_written": false,
+    "demo_written": false,
+    "word_modified": false,
+    "git_commit_or_push": false,
+    "security_configuration_modified": false
+  },
+  "blocker": "Validator test DB GET returned HTTP 401 unauthorized while GET /_session confirmed userCtx webthoitrang_dev with _admin role; no security changes made"
+}

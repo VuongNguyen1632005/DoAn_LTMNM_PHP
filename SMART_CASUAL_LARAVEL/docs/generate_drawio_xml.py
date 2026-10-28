@@ -1,0 +1,253 @@
+"""
+Tệp: generate_drawio_xml.py
+Chức năng: Sinh tệp XML chuẩn draw.io (diagrams.net) cho Sơ đồ UML Use Case Smart Casual
+"""
+
+import xml.etree.ElementTree as ET
+from pathlib import Path
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+def build_drawio():
+    xml_content = """<mxfile host="app.diagrams.net" modified="2026-10-26T22:35:00.000Z" agent="Antigravity" version="24.7.5" type="device">
+  <diagram id="SmartCasual_UseCase" name="Sơ đồ UML Use Case Tổng quan">
+    <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Tiêu đề sơ đồ -->
+        <mxCell id="title_1" value="&lt;b&gt;HỆ THỐNG WEBSITE THỜI TRANG NAM &quot;SMART CASUAL&quot;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 13px; font-weight: normal; color: #555555;&quot;&gt;SƠ ĐỒ UML USE CASE TỔNG QUAN — 4 TÁC NHÂN &amp;amp; 17 CA SỬ DỤNG PHÂN QUYỀN&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontColor=#14221D;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="750" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- System Boundary Box -->
+        <mxCell id="boundary" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Ranh giới Hệ thống (Smart Casual E-Commerce Boundary)&lt;/font&gt;&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=0;strokeColor=#14221D;strokeWidth=2.5;fillColor=#FFFFFF;verticalAlign=top;align=center;spacingTop=12;rounded=1;shadow=1;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="1080" height="960" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== GÓI PHÂN HỆ ==================== -->
+        <!-- Gói 1: Storefront Public -->
+        <mxCell id="pkg_public" value="&lt;b&gt;1. Phân hệ Cửa hàng Công khai (Storefront Public - Khách vãng lai)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#2980B9;strokeWidth=1.5;fillColor=#F4F9FD;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#1B4F72;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="125" width="520" height="425" as="geometry" />
+        </mxCell>
+
+        <!-- Gói 2: Customer Authenticated -->
+        <mxCell id="pkg_customer" value="&lt;b&gt;2. Phân hệ Khách hàng Đã xác thực (Storefront Authenticated - guard: web)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#16A085;strokeWidth=1.5;fillColor=#F2FAF7;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#0E6251;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="260" y="570" width="520" height="445" as="geometry" />
+        </mxCell>
+
+        <!-- Gói 3: Admin Staff -->
+        <mxCell id="pkg_staff" value="&lt;b&gt;3. Phân hệ Quản trị Nhân viên (Admin Staff Portal - guard: admin)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#D4AC0D;strokeWidth=1.5;fillColor=#FEFDF4;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#7D6608;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="125" width="490" height="505" as="geometry" />
+        </mxCell>
+
+        <!-- Gói 4: Admin Manager -->
+        <mxCell id="pkg_manager" value="&lt;b&gt;4. Phân hệ Quản trị Cấp cao (Manager Only - ManagerOnlyMiddleware)&lt;/b&gt;" style="shape=rect;html=1;whiteSpace=wrap;dashed=1;strokeColor=#CB4335;strokeWidth=1.5;fillColor=#FDF6F5;verticalAlign=top;align=left;spacingLeft=15;spacingTop=10;rounded=1;fontColor=#78281F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="810" y="650" width="490" height="365" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 4 TÁC NHÂN (ACTORS) ==================== -->
+        <!-- Actor 1: Khách vãng lai -->
+        <mxCell id="actor_guest" value="&lt;b&gt;Khách vãng lai&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Guest)&lt;/i&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=13;fontColor=#1A5276;" vertex="1" parent="1">
+          <mxGeometry x="90" y="270" width="55" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- Actor 2: Khách thành viên -->
+        <mxCell id="actor_customer" value="&lt;b&gt;Khách thành viên&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Customer)&lt;/i&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #16A085;&quot;&gt;[guard: web]&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=2.2;fontSize=13;fontColor=#0E6251;" vertex="1" parent="1">
+          <mxGeometry x="90" y="730" width="55" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- Kế thừa: Customer kế thừa Guest -->
+        <mxCell id="inherit_customer" value="&lt;b&gt;&amp;lt;&amp;lt;kế thừa quyền&amp;gt;&amp;gt;&lt;/b&gt;" style="endArrow=block;endSize=14;endFill=0;dashed=1;strokeWidth=2;strokeColor=#14221D;html=1;edgeStyle=orthogonalEdgeStyle;fontColor=#14221D;fontSize=10;align=center;verticalAlign=middle;" edge="1" parent="1" source="actor_customer" target="actor_guest">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="117.5" y="680" as="sourcePoint" />
+            <mxPoint x="117.5" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Actor 3: Nhân viên bán hàng -->
+        <mxCell id="actor_staff" value="&lt;b&gt;Nhân viên bán hàng&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Staff)&lt;/i&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #B7950B;&quot;&gt;[guard: admin]&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=2;fontSize=13;fontColor=#7D6608;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="280" width="55" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- Actor 4: Quản lý cửa hàng -->
+        <mxCell id="actor_manager" value="&lt;b&gt;Quản lý cửa hàng&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Manager)&lt;/i&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #CB4335;&quot;&gt;[ChucVu: QuanLy]&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#FDEDEC;strokeColor=#CB4335;strokeWidth=2.4;fontSize=13;fontColor=#78281F;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="740" width="55" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- Kế thừa: Manager kế thừa Staff -->
+        <mxCell id="inherit_manager" value="&lt;b&gt;&amp;lt;&amp;lt;kế thừa quyền&amp;gt;&amp;gt;&lt;/b&gt;" style="endArrow=block;endSize=14;endFill=0;dashed=1;strokeWidth=2;strokeColor=#CB4335;html=1;edgeStyle=orthogonalEdgeStyle;fontColor=#CB4335;fontSize=10;align=center;verticalAlign=middle;" edge="1" parent="1" source="actor_manager" target="actor_staff">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1447.5" y="700" as="sourcePoint" />
+            <mxPoint x="1447.5" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== 17 USE CASES (ELLIPSES) ==================== -->
+        <!-- UC-01 -->
+        <mxCell id="uc_01" value="&lt;b&gt;UC-01: Xem danh mục &amp;amp; Catalog&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/products&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="165" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-02 -->
+        <mxCell id="uc_02" value="&lt;b&gt;UC-02: Xem chi tiết SP &amp;amp; Chọn size&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/products/{id} (Tồn kho CHI_TIET_SP)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="225" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-03 -->
+        <mxCell id="uc_03" value="&lt;b&gt;UC-03: Tìm kiếm &amp;amp; Lọc sản phẩm&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Phân trang 16 sp/trang (withQueryString)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="285" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-04 -->
+        <mxCell id="uc_04" value="&lt;b&gt;UC-04: Quản lý giỏ hàng Session&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/cart (Thêm, sửa số lượng, xóa)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="345" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-05 -->
+        <mxCell id="uc_05" value="&lt;b&gt;UC-05: Đặt hàng thanh toán COD / Bank&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #2980B9;&quot;&gt;CheckoutService (lockForUpdate, Triggers)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=2;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="405" width="300" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- UC-06 -->
+        <mxCell id="uc_06" value="&lt;b&gt;UC-06: Gửi đánh giá &amp;amp; Chấm điểm sao&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/products/{id}/reviews (TenKhachHang)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF5FB;strokeColor=#2980B9;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="470" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-07 -->
+        <mxCell id="uc_07" value="&lt;b&gt;UC-07: Đăng ký &amp;amp; Đăng nhập thành viên&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/login, /register (Bcrypt, guard: web)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="615" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-08 -->
+        <mxCell id="uc_08" value="&lt;b&gt;UC-08: Xem lịch sử &amp;amp; Chi tiết đơn cá nhân&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/account/orders (Kiểm tra chống IDOR)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="680" width="300" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-09 -->
+        <mxCell id="uc_09" value="&lt;b&gt;UC-09: Tự hủy đơn hàng &amp;amp; Hoàn tồn kho&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #16A085;&quot;&gt;Khi pending, confirmed, packing (Hoàn voucher)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=2;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="365" y="745" width="310" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- UC-10 -->
+        <mxCell id="uc_10" value="&lt;b&gt;UC-10: Tự động đồng bộ giỏ hàng vào CSDL&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;CartService::syncSessionToDb() (Khóa kép GIO_HANG)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#16A085;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="815" width="320" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- UC-11 -->
+        <mxCell id="uc_11" value="&lt;b&gt;UC-11: Đăng nhập Cổng quản trị Admin&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/admin/login (guard: admin, AdminMiddleware)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="905" y="170" width="300" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-12 -->
+        <mxCell id="uc_12" value="&lt;b&gt;UC-12: Quản lý Sản phẩm &amp;amp; Biến thể SKU&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;CRUD SAN_PHAM, CHI_TIET_SP, Storage, TrangThai&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="895" y="240" width="320" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- UC-13 -->
+        <mxCell id="uc_13" value="&lt;b&gt;UC-13: Quản lý Danh mục hàng hóa&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/admin/categories (CRUD DANH_MUC)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="905" y="315" width="300" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-14 -->
+        <mxCell id="uc_14" value="&lt;b&gt;UC-14: Xử lý Đơn hàng &amp;amp; Đổi trạng thái&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #D4AC0D;&quot;&gt;Máy trạng thái ALLOWED_TRANSITIONS, DaThanhToan&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=2;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="895" y="385" width="320" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- UC-15 -->
+        <mxCell id="uc_15" value="&lt;b&gt;UC-15: Kiểm duyệt Đánh giá khách hàng&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;/admin/reviews (Duyệt ẩn/hiện, xóa spam)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FEF9E7;strokeColor=#D4AC0D;strokeWidth=1.5;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="460" width="310" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- UC-16 -->
+        <mxCell id="uc_16" value="&lt;b&gt;UC-16: Báo cáo Thống kê Doanh thu &amp;amp; AOV&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #CB4335;&quot;&gt;/admin/revenue (Chỉ Quản lý: ManagerOnlyMiddleware)&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#CB4335;strokeWidth=2.2;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="895" y="720" width="320" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- UC-17 -->
+        <mxCell id="uc_17" value="&lt;b&gt;UC-17: Quản lý Mã giảm giá &amp;amp; Nhân sự&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px; color: #555555;&quot;&gt;Cấu hình MA_GIAM_GIA &amp;amp; Tài khoản NHAN_VIEN&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FDEDEC;strokeColor=#CB4335;strokeWidth=1.8;fontSize=11.5;fontColor=#1C2833;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="805" width="310" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LIÊN KẾT TÁC NHÂN (ASSOCIATION LINES) ==================== -->
+        <!-- Guest associations -->
+        <mxCell id="assoc_g_01" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_g_02" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_g_03" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_g_04" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_g_05" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_g_06" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#2980B9;" edge="1" parent="1" source="actor_guest" target="uc_06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Customer associations -->
+        <mxCell id="assoc_c_07" style="endArrow=none;html=1;strokeWidth=1.6;strokeColor=#16A085;" edge="1" parent="1" source="actor_customer" target="uc_07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_c_08" style="endArrow=none;html=1;strokeWidth=1.6;strokeColor=#16A085;" edge="1" parent="1" source="actor_customer" target="uc_08">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_c_09" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#16A085;" edge="1" parent="1" source="actor_customer" target="uc_09">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_c_10" style="endArrow=none;html=1;strokeWidth=1.6;strokeColor=#16A085;" edge="1" parent="1" source="actor_customer" target="uc_10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Staff associations -->
+        <mxCell id="assoc_s_11" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#D4AC0D;" edge="1" parent="1" source="actor_staff" target="uc_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_s_12" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#D4AC0D;" edge="1" parent="1" source="actor_staff" target="uc_12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_s_13" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#D4AC0D;" edge="1" parent="1" source="actor_staff" target="uc_13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_s_14" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#D4AC0D;" edge="1" parent="1" source="actor_staff" target="uc_14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_s_15" style="endArrow=none;html=1;strokeWidth=1.4;strokeColor=#D4AC0D;" edge="1" parent="1" source="actor_staff" target="uc_15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Manager associations -->
+        <mxCell id="assoc_m_16" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#CB4335;" edge="1" parent="1" source="actor_manager" target="uc_16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_m_17" style="endArrow=none;html=1;strokeWidth=1.8;strokeColor=#CB4335;" edge="1" parent="1" source="actor_manager" target="uc_17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Ghi chú chân trang -->
+        <mxCell id="note_footer" value="&lt;i&gt;Ghi chú: Đường nét đứt có mũi tên tam giác rỗng (──▷) biểu diễn quan hệ Kế thừa (Generalization). Đường liền (──) biểu diễn quan hệ Tham gia (Association).&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#7F8C8D;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1050" width="800" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>"""
+
+    out1 = Path(r"D:\PHP_NOSQL\hinh_2_1_uml_use_case.drawio")
+    out1.write_text(xml_content, encoding="utf-8")
+    
+    out2 = Path(r"D:\PHP_NOSQL\SMART_CASUAL_LARAVEL\docs\figures\hinh_2_1_uml_use_case.drawio")
+    out2.write_text(xml_content, encoding="utf-8")
+    
+    print(f"Đã tạo tệp Draw.io thành công tại: {out1} và {out2}")
+
+if __name__ == "__main__":
+    build_drawio()

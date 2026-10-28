@@ -1,0 +1,119 @@
+{
+  "captured_at_local": "2026-10-28; latest Fauxton execution shown at 1:31:27 AM; timezone not independently verified",
+  "couchdb_version": "3.5.0",
+  "test_database": "shopquan_ao_phase06_demo_test",
+  "application_database": "shopquan_ao_sql_migration_test",
+  "application_database_access": "not queried or written during these checks",
+  "evidence_method": "Direct Fauxton GUI, authenticated session",
+  "database_document_count": 61,
+  "mapreduce": {
+    "design_document": "_design/order_statistics",
+    "count_view_group_true": {
+      "cancelled": 2,
+      "confirmed": 4,
+      "delivered": 6,
+      "packing": 4,
+      "pending": 5,
+      "shipping": 6,
+      "total": 27
+    },
+    "sum_view_group_true_vnd": {
+      "cancelled": 1430000,
+      "confirmed": 2870000,
+      "delivered": 4170000,
+      "packing": 1840000,
+      "pending": 2820000,
+      "shipping": 3380000
+    },
+    "source_crosscheck": "27 order documents viewed across two Fauxton pages; manual status counts and sum of totals.grand_total reproduced grouped view values"
+  },
+  "indexes": [
+    "account_usernames",
+    "active_products",
+    "active_reviews",
+    "admin_orders",
+    "admin_orders_by_date",
+    "admin_products",
+    "admin_reviews",
+    "customer_orders",
+    "delivery_tracking_code"
+  ],
+  "gui_queries": {
+    "01_pending": {
+      "results": 5,
+      "keys_examined": 61,
+      "docs_examined": 61,
+      "execution_ms": 7,
+      "index": "none matched; Fauxton warned about scan",
+      "status": "PASS with scan note"
+    },
+    "02_shipping": {
+      "results": 6,
+      "keys_examined": 6,
+      "docs_examined": 6,
+      "execution_ms": 12,
+      "index": "admin_orders",
+      "status": "PASS"
+    },
+    "05_customer_P06-001": {
+      "results": 5,
+      "keys_examined": 5,
+      "docs_examined": 5,
+      "execution_ms": 4,
+      "index": "customer_orders",
+      "status": "PASS"
+    },
+    "06_date_range_2026-09-01_inclusive_2026-11-01_exclusive": {
+      "results": 21,
+      "keys_examined": 22,
+      "docs_examined": 22,
+      "execution_ms": 9,
+      "index": "admin_orders_by_date",
+      "status": "PASS"
+    },
+    "07_unpaid_COD_pending": {
+      "results": 5,
+      "keys_examined": 5,
+      "docs_examined": 5,
+      "execution_ms": 3,
+      "index": "admin_orders",
+      "status": "PASS"
+    }
+  },
+  "explain_gui": {
+    "query": "07_unpaid_COD_pending",
+    "selected_index": "_design/catalog_indexes/admin_orders",
+    "fields": [
+      "type",
+      "status",
+      "ordered_at"
+    ],
+    "other_suitable_indexes": "none",
+    "status": "PASS"
+  },
+  "historical_api_suite": {
+    "results": "12/12 PASS in prior record",
+    "rerun": false
+  },
+  "images": [
+    "127.0.0.1_5984__utils_.png",
+    "manage-indexes-1.png",
+    "manage-indexes-2.png",
+    "manage-indexes-3.png",
+    "mango-query-01-pending.png",
+    "mango-query-02-shipping.png",
+    "mango-query-05-customer.png",
+    "mango-query-06-date-range.png",
+    "mango-query-07-cod-pending-unpaid.png",
+    "mango-query-07-explain-admin-orders.png",
+    "mapreduce-count-by-status.png",
+    "mapreduce-sum-by-status.png",
+    "order-source-crosscheck.png"
+  ],
+  "not_run": [
+    "Fresh GUI runs for Query 11 and 12",
+    "Word report update"
+  ],
+  "safety": "No database reset, seed, document/design-document write, index change, application PHP change, commit, push, or deploy.",
+  "docker_status": "BLOCKED: read-only docker ps failed with permission denied connecting to npipe Docker Desktop Linux Engine."
+}
