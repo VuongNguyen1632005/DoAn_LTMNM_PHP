@@ -27,6 +27,10 @@ $indexes = [
     ['name' => 'account_usernames', 'fields' => ['type', 'auth.username'], 'partial' => ['type' => ['$in' => ['customer', 'staff']]]],
     ['name' => 'customer_orders', 'fields' => ['type', 'customer.customer_id', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'guest_orders', 'fields' => ['type', 'guest_order', 'ordered_at'], 'partial' => ['type' => 'order']],
+    ['name' => 'customer_orders_status', 'fields' => ['type', 'customer.customer_id']],
+    ['name' => 'orders_by_total', 'fields' => ['type', 'totals.grand_total', 'ordered_at'], 'partial' => ['type' => 'order']],
+    ['name' => 'orders_by_receiver', 'fields' => ['type', 'receiver.name'], 'partial' => ['type' => 'order']],
+    ['name' => 'orders_type_scan', 'fields' => ['type']],
     ['name' => 'admin_orders', 'fields' => ['type', 'status', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'admin_orders_by_date', 'fields' => ['type', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'delivery_tracking_code', 'fields' => ['type', 'delivery_tracking.tracking_code'], 'partial' => ['type' => 'order']],
@@ -60,8 +64,10 @@ foreach ($indexes as $index) {
             exit(1);
         }
     }
+    $indexDefinition = ['fields' => $index['fields']];
+    if (isset($index['partial'])) $indexDefinition['partial_filter_selector'] = $index['partial'];
     $response = $client->request('POST', $database . '/_index', [
-        'index' => ['fields' => $index['fields'], 'partial_filter_selector' => $index['partial']],
+        'index' => $indexDefinition,
         'ddoc' => '_design/catalog_indexes',
         'name' => $index['name'],
         'type' => 'json',

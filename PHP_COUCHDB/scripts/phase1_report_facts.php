@@ -53,6 +53,7 @@ $designCount = $info['doc_count'] - $businessCount;
 $queryRows = [];
 $queryDetails = [];
 $queryFiles = glob(dirname(__DIR__) . '/database/couchdb/demo_queries/[0-9][0-9]_*.json') ?: [];
+$queryFiles = array_values(array_filter($queryFiles, static fn (string $file): bool => (int) substr(basename($file), 0, 2) >= 1 && (int) substr(basename($file), 0, 2) <= 12));
 sort($queryFiles, SORT_STRING);
 foreach ($queryFiles as $queryFile) {
     $query = json_decode((string) file_get_contents($queryFile), true, 512, JSON_THROW_ON_ERROR);

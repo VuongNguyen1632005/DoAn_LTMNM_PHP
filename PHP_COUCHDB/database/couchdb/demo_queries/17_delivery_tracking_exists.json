@@ -1,0 +1,10 @@
+{
+  "selector": {
+    "type": {"$eq": "order"},
+    "delivery_tracking": {"$exists": true}
+  },
+  "use_index": ["_design/catalog_indexes", "orders_type_scan"],
+  "fields": ["_id", "status", "delivery_tracking.tracking_code", "delivery_tracking.status"],
+  "limit": 25,
+  "execution_stats": true
+}

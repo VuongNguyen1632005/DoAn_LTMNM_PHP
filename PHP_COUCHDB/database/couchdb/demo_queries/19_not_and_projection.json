@@ -1,0 +1,15 @@
+{
+  "selector": {
+    "$and": [
+      {"type": {"$eq": "order"}},
+      {"$not": {"status": {"$eq": "cancelled"}}},
+      {"payment.method": {"$eq": "cod"}}
+    ]
+  },
+  "use_index": ["_design/catalog_indexes", "admin_orders"],
+  "sort": [{"status": "asc"}, {"ordered_at": "asc"}],
+  "fields": ["_id", "status", "payment.method", "totals.grand_total"],
+  "limit": 10,
+  "skip": 0,
+  "execution_stats": true
+}

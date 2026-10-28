@@ -2,8 +2,8 @@
 
 - Database demo: `retail_order_delivery_demo`
 - Tổng documents: 150 (business: 147, design: 3)
-- Mango indexes trong `_design/catalog_indexes`: 11
-- Tạo lúc (UTC): 2026-10-28T01:19:03Z
+- Mango indexes trong `_design/catalog_indexes`: 15
+- Tạo lúc (UTC): 2026-10-28T01:24:28Z
 
 ## Bảng 4.3 – Số lượng document theo type
 
@@ -43,18 +43,18 @@
 
 | Mã | Selector tóm tắt | Index theo `_explain` | Kết quả API | Trang | docs_examined | execution_time_ms | Trạng thái | Ghi chú |
 |---:|---|---|---:|---:|---:|---:|---|---|
-| 01 | `{"type":{"$eq":"order"},"status":{"$eq":"pending"}}` | `_design/catalog_indexes/admin_orders` | 11 | 3 | 12 | 9.349 | PASS |  |
-| 02 | `{"type":{"$eq":"order"},"status":{"$eq":"shipping"}}` | `_design/catalog_indexes/admin_orders` | 15 | 2 | 15 | 10.611 | PASS |  |
-| 03 | `{"type":{"$eq":"order"},"status":{"$eq":"delivered"}}` | `_design/catalog_indexes/admin_orders` | 10 | 2 | 10 | 9.946 | PASS |  |
-| 04 | `{"type":{"$eq":"order"},"status":{"$eq":"cancelled"}}` | `_design/catalog_indexes/admin_orders` | 7 | 2 | 7 | 7.348 | PASS |  |
-| 05 | `{"type":{"$eq":"order"},"customer.customer_id":{"$eq":"DEMO-C001"}}` | `_design/catalog_indexes/customer_orders` | 4 | 2 | 4 | 5.573 | PASS |  |
-| 06 | `{"type":{"$eq":"order"},"ordered_at":{"$gte":"2026-06-01T00:00:00Z","$lt":"2027-01-01T00:00:00Z"}}` | `_design/catalog_indexes/admin_orders_by_date` | 65 | 4 | 67 | 33.535 | PASS |  |
-| 07 | `{"type":{"$eq":"order"},"status":{"$eq":"pending"},"payment.method":{"$eq":"cod"},"payment.paid":{"$eq":false}}` | `_design/catalog_indexes/admin_orders` | 8 | 2 | 11 | 7.803 | PASS |  |
-| 08 | `{"type":{"$eq":"order"},"guest_order":{"$eq":true}}` | `_design/catalog_indexes/guest_orders` | 15 | 2 | 15 | 8.12 | PASS |  |
-| 09 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"in_transit"}}` | `_design/catalog_indexes/delivery_status` | 5 | 2 | 5 | 5.11 | PASS |  |
-| 10 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"out_for_delivery"}}` | `_design/catalog_indexes/delivery_status` | 2 | 2 | 2 | 4.424 | PASS |  |
-| 11 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"failed_delivery"}}` | `_design/catalog_indexes/delivery_status` | 3 | 2 | 3 | 5.302 | PASS |  |
-| 12 | `{"type":{"$eq":"order"},"delivery_tracking.tracking_code":{"$eq":"DEMO-TRK-035"}}` | `_design/catalog_indexes/delivery_tracking_code` | 1 | 2 | 1 | 3.605 | PASS |  |
+| 01 | `{"type":{"$eq":"order"},"status":{"$eq":"pending"}}` | `_design/catalog_indexes/admin_orders` | 11 | 3 | 12 | 10.138 | PASS |  |
+| 02 | `{"type":{"$eq":"order"},"status":{"$eq":"shipping"}}` | `_design/catalog_indexes/admin_orders` | 15 | 2 | 15 | 9.89 | PASS |  |
+| 03 | `{"type":{"$eq":"order"},"status":{"$eq":"delivered"}}` | `_design/catalog_indexes/admin_orders` | 10 | 2 | 10 | 8.396 | PASS |  |
+| 04 | `{"type":{"$eq":"order"},"status":{"$eq":"cancelled"}}` | `_design/catalog_indexes/admin_orders` | 7 | 2 | 7 | 8.158 | PASS |  |
+| 05 | `{"type":{"$eq":"order"},"customer.customer_id":{"$eq":"DEMO-C001"}}` | `_design/catalog_indexes/customer_orders` | 4 | 2 | 4 | 4.313 | PASS |  |
+| 06 | `{"type":{"$eq":"order"},"ordered_at":{"$gte":"2026-06-01T00:00:00Z","$lt":"2027-01-01T00:00:00Z"}}` | `_design/catalog_indexes/admin_orders_by_date` | 65 | 4 | 67 | 30.222 | PASS |  |
+| 07 | `{"type":{"$eq":"order"},"status":{"$eq":"pending"},"payment.method":{"$eq":"cod"},"payment.paid":{"$eq":false}}` | `_design/catalog_indexes/admin_orders` | 8 | 2 | 11 | 7.414 | PASS |  |
+| 08 | `{"type":{"$eq":"order"},"guest_order":{"$eq":true}}` | `_design/catalog_indexes/guest_orders` | 15 | 2 | 15 | 8.873 | PASS |  |
+| 09 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"in_transit"}}` | `_design/catalog_indexes/delivery_status` | 5 | 2 | 5 | 5.393 | PASS |  |
+| 10 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"out_for_delivery"}}` | `_design/catalog_indexes/delivery_status` | 2 | 2 | 2 | 4.062 | PASS |  |
+| 11 | `{"type":{"$eq":"order"},"delivery_tracking.status":{"$eq":"failed_delivery"}}` | `_design/catalog_indexes/delivery_status` | 3 | 2 | 3 | 4.77 | PASS |  |
+| 12 | `{"type":{"$eq":"order"},"delivery_tracking.tracking_code":{"$eq":"DEMO-TRK-035"}}` | `_design/catalog_indexes/delivery_tracking_code` | 1 | 2 | 1 | 3.655 | PASS |  |
 
 Kết quả là tổng qua mọi trang bookmark; docs_examined và execution_time_ms là tổng từ các response của mọi trang đã đọc.
 
@@ -62,16 +62,16 @@ Kết quả là tổng qua mọi trang bookmark; docs_examined và execution_tim
 
 | Trạng thái | Index | docs_examined | Kết quả |
 |---|---|---:|---:|
-| Trước | `_all_docs` | 150 | 15 |
+| Trước | `orders_type_scan` | 65 | 15 |
 | Sau | `guest_orders` | 15 | 15 |
 
 ## Bảng 3.3 / 3.5 / 3.6 – Đối chiếu delivery index
 
 | Query | Index trước | docs_examined trước | Index sau | docs_examined sau | Kết quả trước/sau |
 |---:|---|---:|---|---:|---|
-| 09 | `_all_docs` | 150 | `_design/catalog_indexes/delivery_status` | 5 | 5 / 5 |
-| 10 | `_all_docs` | 150 | `_design/catalog_indexes/delivery_status` | 2 | 2 / 2 |
-| 11 | `_all_docs` | 150 | `_design/catalog_indexes/delivery_status` | 3 | 3 / 3 |
+| 09 | `orders_type_scan` | 65 | `_design/catalog_indexes/delivery_status` | 5 | 5 / 5 |
+| 10 | `orders_type_scan` | 65 | `_design/catalog_indexes/delivery_status` | 2 | 2 / 2 |
+| 11 | `orders_type_scan` | 65 | `_design/catalog_indexes/delivery_status` | 3 | 3 / 3 |
 
 ## Tái lập
 

@@ -1,0 +1,11 @@
+{
+  "selector": {
+    "type": {"$eq": "order"},
+    "receiver.name": {"$eq": "Khách vãng lai Demo"}
+  },
+  "use_index": ["_design/catalog_indexes", "orders_by_receiver"],
+  "sort": [{"receiver.name": "asc"}],
+  "fields": ["_id", "receiver.name", "status", "ordered_at"],
+  "limit": 25,
+  "execution_stats": true
+}

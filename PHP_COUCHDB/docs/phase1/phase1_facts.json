@@ -1,10 +1,10 @@
 {
-    "generated_at_utc": "2026-10-28T01:19:03Z",
+    "generated_at_utc": "2026-10-28T01:24:28Z",
     "database": "retail_order_delivery_demo",
     "total_documents": 150,
     "design_documents": 3,
     "business_documents": 147,
-    "catalog_mango_indexes": 11,
+    "catalog_mango_indexes": 15,
     "documents_by_type": {
         "cart": 8,
         "customer": 15,
@@ -144,6 +144,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -243,6 +337,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -558,7 +680,7 @@
                 "total_docs_examined": 12,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 9.349
+                "execution_time_ms": 10.138
             },
             "warning": ""
         },
@@ -681,6 +803,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -780,6 +996,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -1095,7 +1339,7 @@
                 "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 10.611
+                "execution_time_ms": 9.89
             },
             "warning": ""
         },
@@ -1212,6 +1456,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -1311,6 +1649,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -1626,7 +1992,7 @@
                 "total_docs_examined": 10,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 9.946
+                "execution_time_ms": 8.396
             },
             "warning": ""
         },
@@ -1740,6 +2106,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -1839,6 +2299,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -2154,7 +2642,7 @@
                 "total_docs_examined": 7,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 7,
-                "execution_time_ms": 7.348000000000001
+                "execution_time_ms": 8.158
             },
             "warning": ""
         },
@@ -2268,6 +2756,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -2367,6 +2949,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -2682,7 +3292,7 @@
                 "total_docs_examined": 4,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 4,
-                "execution_time_ms": 5.573
+                "execution_time_ms": 4.313
             },
             "warning": ""
         },
@@ -2800,6 +3410,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -2899,6 +3603,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -3217,7 +3949,7 @@
                 "total_docs_examined": 67,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 25,
-                "execution_time_ms": 33.535000000000004
+                "execution_time_ms": 30.222
             },
             "warning": ""
         },
@@ -3347,6 +4079,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -3446,6 +4272,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -3763,7 +4617,7 @@
                 "total_docs_examined": 11,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 8,
-                "execution_time_ms": 7.802999999999999
+                "execution_time_ms": 7.414
             },
             "warning": ""
         },
@@ -3880,6 +4734,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "delivery_tracking_code",
                             "type": "json",
                             "partitioned": false,
@@ -3943,6 +4891,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -4294,7 +5270,7 @@
                 "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 8.12
+                "execution_time_ms": 8.873
             },
             "warning": ""
         },
@@ -4411,6 +5387,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -4474,6 +5544,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -4825,7 +5923,7 @@
                 "total_docs_examined": 5,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 5,
-                "execution_time_ms": 5.109999999999999
+                "execution_time_ms": 5.393
             },
             "warning": ""
         },
@@ -4942,6 +6040,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -5005,6 +6197,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -5356,7 +6576,7 @@
                 "total_docs_examined": 2,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 2,
-                "execution_time_ms": 4.4239999999999995
+                "execution_time_ms": 4.062
             },
             "warning": ""
         },
@@ -5473,6 +6693,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "sort_order_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -5536,6 +6850,34 @@
                                 }
                             ],
                             "ranking": 2,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
                             "covering": false
                         }
                     },
@@ -5887,7 +7229,7 @@
                 "total_docs_examined": 3,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 3,
-                "execution_time_ms": 5.302
+                "execution_time_ms": 4.77
             },
             "warning": ""
         },
@@ -5994,6 +7336,100 @@
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
+                            "name": "orders_type_scan",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": true,
+                            "reasons": [
+                                {
+                                    "name": "excluded_by_user"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_total",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "totals.grand_total": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 3,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "orders_by_receiver",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "receiver.name": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 3,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
                             "name": "guest_orders",
                             "type": "json",
                             "partitioned": false,
@@ -6023,7 +7459,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6057,6 +7493,34 @@
                             "reasons": [
                                 {
                                     "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 3,
+                            "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "customer_orders_status",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "customer.customer_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
                                 }
                             ],
                             "ranking": 2,
@@ -6095,7 +7559,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6125,7 +7589,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6155,7 +7619,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6188,7 +7652,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6224,7 +7688,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6266,7 +7730,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6308,7 +7772,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6344,7 +7808,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 2,
+                            "ranking": 3,
                             "covering": false
                         }
                     },
@@ -6411,15 +7875,15 @@
                 "total_docs_examined": 1,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 1,
-                "execution_time_ms": 3.6050000000000004
+                "execution_time_ms": 3.6550000000000002
             },
             "warning": ""
         }
     },
     "guest_index_before_after": {
         "before": {
-            "index": "_all_docs",
-            "docs_examined": 150,
+            "index": "orders_type_scan",
+            "docs_examined": 65,
             "results": 15
         },
         "after": {
@@ -6431,8 +7895,8 @@
     "delivery_index_before_after": [
         {
             "query": "09",
-            "before_index": "_all_docs",
-            "before_docs_examined": 150,
+            "before_index": "orders_type_scan",
+            "before_docs_examined": 65,
             "after_index": "_design/catalog_indexes/delivery_status",
             "after_docs_examined": 5,
             "before_results": 5,
@@ -6440,8 +7904,8 @@
         },
         {
             "query": "10",
-            "before_index": "_all_docs",
-            "before_docs_examined": 150,
+            "before_index": "orders_type_scan",
+            "before_docs_examined": 65,
             "after_index": "_design/catalog_indexes/delivery_status",
             "after_docs_examined": 2,
             "before_results": 2,
@@ -6449,8 +7913,8 @@
         },
         {
             "query": "11",
-            "before_index": "_all_docs",
-            "before_docs_examined": 150,
+            "before_index": "orders_type_scan",
+            "before_docs_examined": 65,
             "after_index": "_design/catalog_indexes/delivery_status",
             "after_docs_examined": 3,
             "before_results": 3,
@@ -6500,7 +7964,7 @@
                         "total_docs_examined": 5,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 3.248
+                        "execution_time_ms": 5.566
                     },
                     "warning": null
                 },
@@ -6533,7 +7997,7 @@
                         "total_docs_examined": 61,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 8.824
+                        "execution_time_ms": 8.951
                     },
                     "warning": "No matching index found, create an index to optimize query time.\nThe number of documents examined is high in proportion to the number of results returned. Consider adding a more specific index to improve this."
                 }
@@ -6579,7 +8043,7 @@
                         "total_docs_examined": 6,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 6,
-                        "execution_time_ms": 3.462
+                        "execution_time_ms": 4.427
                     },
                     "warning": null
                 }
@@ -6622,7 +8086,7 @@
                         "total_docs_examined": 26,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 25,
-                        "execution_time_ms": 9.903
+                        "execution_time_ms": 8.536
                     },
                     "warning": null
                 },
@@ -6663,7 +8127,7 @@
                         "total_docs_examined": 26,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 25,
-                        "execution_time_ms": 9.604
+                        "execution_time_ms": 10.29
                     },
                     "warning": null
                 }
