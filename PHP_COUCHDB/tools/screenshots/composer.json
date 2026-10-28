@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "capture:copy": "php manual.php copy",
+    "capture:backup": "php manual.php backup",
+    "capture:restore": "php manual.php restore",
+    "capture:restore-verify": "php manual.php restore-verify",
+    "capture:ui-cleanup": "php manual.php ui-cleanup",
+    "capture:parity": "php manual.php parity",
+    "capture:replication": "php manual.php replication",
+    "capture:csv-prepare": "php manual.php csv-prepare",
+    "capture:revision": "php manual.php revision",
+    "capture:validator": "php manual.php validator",
+    "capture:invalid": "php manual.php invalid",
+    "capture:http": "php manual.php http",
+    "capture:cleanup": "php manual.php cleanup"
+  }
+}
