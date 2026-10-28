@@ -140,6 +140,10 @@ function backupDatabase(): never
         $database,
         $before['doc_count'],
     );
+    $securityResponse = $client->request('GET', $sourcePath . '/_security');
+    if ($securityResponse->statusCode === 200) $security = backupJson($securityResponse, 'Reading database security');
+    elseif ($securityResponse->statusCode === 404) $security = null;
+    else throw new RuntimeException('Could not read source database security (HTTP ' . $securityResponse->statusCode . ').');
     $after = backupJson($client->request('GET', $sourcePath), 'Rechecking source database');
     if (($after['doc_count'] ?? null) !== $before['doc_count']
         || ($after['update_seq'] ?? null) !== $before['update_seq']) {
@@ -151,6 +155,7 @@ function backupDatabase(): never
         'created_at' => gmdate(DATE_ATOM),
         'document_count' => count($documents),
         'documents' => $documents,
+        'security' => $security,
     ];
     $encoded = json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . PHP_EOL;
     $bytes = publishBackupFile($directory, $name, $encoded);
@@ -163,7 +168,7 @@ function backupDatabase(): never
     exit(0);
 }
 
-/** @return array{source:string, documents:list<array<string, mixed>>} */
+/** @return array{source:string, documents:list<array<string, mixed>>, security:?array} */
 function validateRestorePayload(array $payload, string $target): array
 {
     $source = $payload['source_database'] ?? null;
@@ -187,7 +192,9 @@ function validateRestorePayload(array $payload, string $target): array
         }
         $seen[$id] = true;
     }
-    return ['source' => $source, 'documents' => $documents];
+    $security = $payload['security'] ?? null;
+    if ($security !== null && !is_array($security)) throw new RuntimeException('Backup security object is invalid.');
+    return ['source' => $source, 'documents' => $documents, 'security' => $security];
 }
 
 /** @param array<string, mixed> $document @return array<string, mixed> */
@@ -260,6 +267,9 @@ function restoreDatabase(): never
                 $response = $client->request('POST', $databasePath . '/_bulk_docs', ['docs' => $batch]);
                 $imported += checkRestoreBulkResult($response, $batch);
             }
+        }
+        if ($validated['security'] !== null) {
+            backupJson($client->request('PUT', $databasePath . '/_security', $validated['security']), 'Restoring database security');
         }
         $info = backupJson($client->request('GET', $databasePath), 'Verifying restored database');
         if (($info['doc_count'] ?? null) !== count($documents)) {

@@ -1,0 +1,44 @@
+{
+    "feature": "backup_replication",
+    "source": "retail_order_delivery_demo",
+    "target": "retail_order_delivery_backup_scratch",
+    "cleanup": true,
+    "replication_filter": {
+        "_id": {
+            "$ne": "_design/domain_validation"
+        }
+    },
+    "replication": {
+        "ok": true,
+        "session_id": "13515f6c8769315036a9d3c77c35a17d",
+        "source_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
+        "replication_id_version": 4,
+        "history": [
+            {
+                "session_id": "13515f6c8769315036a9d3c77c35a17d",
+                "start_time": "Wed, 28 Oct 2026 01:37:29 GMT",
+                "end_time": "Wed, 28 Oct 2026 01:37:33 GMT",
+                "start_last_seq": 0,
+                "end_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
+                "recorded_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
+                "missing_checked": 149,
+                "missing_found": 149,
+                "docs_read": 149,
+                "docs_written": 149,
+                "doc_write_failures": 0,
+                "bulk_get_docs": 147,
+                "bulk_get_attempts": 147
+            }
+        ]
+    },
+    "source_doc_count": 150,
+    "target_doc_count": 150,
+    "source_document_count_including_design": 150,
+    "target_document_count_including_design": 150,
+    "missing_ids": [],
+    "extra_ids": [],
+    "different_content_ids": [],
+    "security_matches": true,
+    "status": "PASS",
+    "generated_at_utc": "2026-10-28T01:37:34Z"
+}

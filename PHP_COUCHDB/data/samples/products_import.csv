@@ -1,0 +1,5 @@
+sku,name,category,price,stock
+CSV-P001,Sản phẩm CSV 01,áo,199000,12
+CSV-P002,Sản phẩm CSV 02,quần,249000,8
+CSV-P003,Sản phẩm CSV 03,phụ kiện,99000,5
+CSV-BAD01,Sản phẩm CSV lỗi,giày,129000,-2

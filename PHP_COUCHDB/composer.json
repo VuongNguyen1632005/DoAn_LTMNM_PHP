@@ -28,6 +28,8 @@
     "checkout:http-smoke": "php scripts/http_smoke_checkout.php",
     "catalog:admin-smoke": "php scripts/smoke_product_admin.php",
     "db:backup": "php scripts/database_backup.php backup",
+    "import:products-csv": "php scripts/import_products_csv.php",
+    "export:orders-csv": "php scripts/export_orders_csv.php",
     "db:backup-smoke": "php scripts/smoke_database_backup.php",
     "db:backup-verify": "php scripts/verify_database_backup.php",
     "db:restore": "php scripts/database_backup.php restore",

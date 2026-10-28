@@ -33,18 +33,23 @@ function comparableRestoreDocument(array $document): string
     return json_encode(canonicalRestoreValue($document), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
 }
 
-/** @param list<array<string, mixed>> $expected @param list<array<string, mixed>> $actual */
-function assertDocumentParity(array $expected, array $actual, string $label): void
+/** @param list<array<string, mixed>> $expected @param list<array<string, mixed>> $actual @return array{missing:list<string>, extra:list<string>, different:list<string>, expected_count:int, actual_count:int, pass:bool} */
+function documentParityReport(array $expected, array $actual): array
 {
     $byId = [];
     foreach ($actual as $document) $byId[$document['_id']] = $document;
-    restoreAssert(count($expected) === count($actual) && count($byId) === count($actual), $label . ' document count or IDs differ.');
+    $expectedById = [];
+    foreach ($expected as $document) $expectedById[$document['_id']] = $document;
+    $missing = array_values(array_diff(array_keys($expectedById), array_keys($byId)));
+    $extra = array_values(array_diff(array_keys($byId), array_keys($expectedById)));
+    $different = [];
     foreach ($expected as $document) {
         $id = $document['_id'];
-        restoreAssert(isset($byId[$id]), $label . ' is missing document ' . $id . '.');
-        restoreAssert(comparableRestoreDocument($document) === comparableRestoreDocument($byId[$id]),
-            $label . ' content differs for ' . $id . '.');
+        if (isset($byId[$id]) && hash('sha256', comparableRestoreDocument($document)) !== hash('sha256', comparableRestoreDocument($byId[$id]))) $different[] = $id;
     }
+    sort($missing, SORT_STRING); sort($extra, SORT_STRING); sort($different, SORT_STRING);
+    $pass = $missing === [] && $extra === [] && $different === [] && count($byId) === count($actual);
+    return ['missing' => $missing, 'extra' => $extra, 'different' => $different, 'expected_count' => count($expected), 'actual_count' => count($actual), 'pass' => $pass];
 }
 
 /** @return array<string, string> */
@@ -107,8 +112,10 @@ try {
     $reader = static fn (string $path): CouchDbResponse => $client->request('GET', $path);
     $sourceDocuments = collectBackupDocuments($reader, $source, count($expected));
     $targetDocuments = collectBackupDocuments($reader, $target, count($expected));
-    assertDocumentParity($expected, $sourceDocuments, 'Source');
-    assertDocumentParity($expected, $targetDocuments, 'Target');
+    $sourceParity = documentParityReport($expected, $sourceDocuments);
+    $targetParity = documentParityReport($expected, $targetDocuments);
+    restoreAssert($sourceParity['pass'], 'Source document hash parity failed: ' . json_encode($sourceParity, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    restoreAssert($targetParity['pass'], 'Target document hash parity failed: ' . json_encode($targetParity, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     foreach ($targetDocuments as $document) {
         restoreAssert(is_string($document['_rev'] ?? null) && str_starts_with($document['_rev'], '1-'),
             'Target document does not have a new first-generation revision: ' . $document['_id'] . '.');
@@ -123,6 +130,12 @@ try {
     $sourceIndexes = indexSignatures($client, $source);
     $targetIndexes = indexSignatures($client, $target);
     restoreAssert($sourceIndexes === $targetIndexes, 'Source and target Mango indexes differ.');
+    $sourceSecurity = backupJson($client->request('GET', rawurlencode($source) . '/_security'), 'Reading source security');
+    $targetSecurity = backupJson($client->request('GET', rawurlencode($target) . '/_security'), 'Reading target security');
+    $securityExpected = $validated['security'] ?? null;
+    $securityPass = $securityExpected === null || json_encode(canonicalRestoreValue($sourceSecurity), JSON_THROW_ON_ERROR) === json_encode(canonicalRestoreValue($securityExpected), JSON_THROW_ON_ERROR);
+    $securityPass = $securityPass && json_encode(canonicalRestoreValue($targetSecurity), JSON_THROW_ON_ERROR) === json_encode(canonicalRestoreValue($securityExpected ?? $sourceSecurity), JSON_THROW_ON_ERROR);
+    restoreAssert($securityPass, 'Source, backup, and target _security objects differ.');
 
     $orders = array_values(array_filter($expected, static fn (array $document): bool => ($document['type'] ?? null) === 'order'));
     restoreAssert($orders !== [], 'Backup contains no order for Mango verification.');
@@ -180,7 +193,9 @@ try {
     fwrite(STDOUT, 'Mango indexes: ' . count($targetIndexes) . ', source/target parity PASS' . PHP_EOL);
     fwrite(STDOUT, 'Validator rejection: HTTP 403 PASS' . PHP_EOL);
     fwrite(STDOUT, 'Document count parity: PASS' . PHP_EOL);
-    fwrite(STDOUT, 'Data parity: PASS' . PHP_EOL);
+    fwrite(STDOUT, 'Content SHA-256 parity (normalized JSON, _rev excluded): PASS' . PHP_EOL);
+    fwrite(STDOUT, 'Missing/extra/different documents: ' . json_encode(['source' => $sourceParity, 'target' => $targetParity], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL);
+    fwrite(STDOUT, 'Database _security parity: PASS' . PHP_EOL);
     fwrite(STDOUT, 'New target revisions: PASS' . PHP_EOL);
     fwrite(STDOUT, 'Source content parity: PASS' . PHP_EOL);
     fwrite(STDOUT, 'Restore verification: PASS' . PHP_EOL);

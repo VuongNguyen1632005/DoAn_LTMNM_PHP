@@ -23,6 +23,7 @@ try {
     $documents = $backup['documents'] ?? null;
     if (($backup['format_version'] ?? null) !== 1 || ($backup['source_database'] ?? null) !== $database
         || !is_string($backup['created_at'] ?? null)
+        || !array_key_exists('security', $backup) || ($backup['security'] !== null && !is_array($backup['security']))
         || !is_array($documents) || !array_is_list($documents)
         || !is_int($backup['document_count'] ?? null)
         || count($documents) !== $backup['document_count']) {
@@ -55,6 +56,12 @@ try {
     if (!in_array($design->statusCode, [200, 404], true)) {
         throw new RuntimeException('Could not check source design document (HTTP ' . $design->statusCode . ').');
     }
+    $sourceSecurity = backupJson($client->request('GET', $databasePath . '/_security'), 'Reading source security');
+    if ($backup['security'] !== $sourceSecurity) throw new RuntimeException('Backup _security does not match the source database.');
+    $designDocuments = array_values(array_filter($documents, static fn (array $document): bool => str_starts_with((string) ($document['_id'] ?? ''), '_design/')));
+    foreach (['_design/catalog_indexes', '_design/domain_validation', '_design/order_statistics'] as $designId) {
+        if (!isset($ids[$designId])) throw new RuntimeException('Backup is missing full design document ' . $designId . '.');
+    }
     ksort($types, SORT_STRING);
     fwrite(STDOUT, 'Source database: ' . $database . PHP_EOL);
     fwrite(STDOUT, 'Backup file: var/backups/' . $name . PHP_EOL);
@@ -63,6 +70,8 @@ try {
     fwrite(STDOUT, 'Documents in backup: ' . count($documents) . PHP_EOL);
     fwrite(STDOUT, 'Business types: ' . implode(', ', array_keys($types)) . PHP_EOL);
     fwrite(STDOUT, 'Design document included: ' . (isset($ids['_design/domain_validation']) ? 'YES' : 'NO') . PHP_EOL);
+    fwrite(STDOUT, 'Full design documents: ' . count($designDocuments) . ' (' . implode(', ', array_column($designDocuments, '_id')) . ')' . PHP_EOL);
+    fwrite(STDOUT, '_security included and matches source: PASS' . PHP_EOL);
     fwrite(STDOUT, 'JSON validation: PASS' . PHP_EOL);
     fwrite(STDOUT, 'Document count parity: PASS' . PHP_EOL);
     fwrite(STDOUT, 'Backup verification: PASS' . PHP_EOL);

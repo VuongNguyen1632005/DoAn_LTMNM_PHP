@@ -1,0 +1,55 @@
+{
+    "feature": "csv_exchange",
+    "import_database": "retail_csv_import_scratch",
+    "cleanup": true,
+    "import_command": "composer import:products-csv -- data/samples/products_import.csv",
+    "import": {
+        "database": "retail_csv_import_scratch",
+        "source_file": "products_import.csv",
+        "rows_submitted_to_bulk_docs": 4,
+        "imported_count": 3,
+        "errors": [
+            {
+                "line": 5,
+                "id": "product:CSV-CSV-BAD01",
+                "error": "forbidden",
+                "reason": "product variant has invalid id, size, price, stock, or active flag"
+            }
+        ],
+        "successes": [
+            {
+                "line": 2,
+                "id": "product:CSV-CSV-P001",
+                "rev": "1-c617adc13bad187edf56947c996499d7"
+            },
+            {
+                "line": 3,
+                "id": "product:CSV-CSV-P002",
+                "rev": "1-37fcff9f1d2ceec5b332864e8109dac2"
+            },
+            {
+                "line": 4,
+                "id": "product:CSV-CSV-P003",
+                "rev": "1-c5f183d3df9fb9b864f9baa222cdca9e"
+            }
+        ],
+        "status": "PASS_WITH_ROW_ERRORS"
+    },
+    "imported_products_in_db": 3,
+    "export_command": "composer export:orders-csv -- orders_phase3_20261028.csv",
+    "export": {
+        "database": "retail_order_delivery_demo",
+        "output": "docs/phase3/exports/orders_phase3_20261028.csv",
+        "query_count": 65,
+        "rows_exported": 65,
+        "docs_examined": 65,
+        "created_now": true
+    },
+    "export_query_index": "admin_orders",
+    "exported_row_count_matches_query": true,
+    "export_query_count": 65,
+    "csv_data_rows": 65,
+    "export_docs_examined": 65,
+    "status": "PASS",
+    "generated_at_utc": "2026-10-28T01:39:43Z"
+}

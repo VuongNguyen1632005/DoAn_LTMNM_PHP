@@ -1,0 +1,18 @@
+{
+    "feature": "json_backup_restore",
+    "backup": "var/backups/phase3-evidence-20261028.json",
+    "target": "retail_phase3_restore_test",
+    "cleanup": true,
+    "restore_command": {
+        "exit_code": 0,
+        "stdout": "Restore source: var/backups/phase3-evidence-20261028.json\nTarget database: retail_phase3_restore_test\nBackup documents: 150\nImported: 150\nFailed: 0\nDocument count parity: PASS\nRestore import: PASS",
+        "stderr": ""
+    },
+    "restore_verification": {
+        "exit_code": 0,
+        "stdout": "Source database: retail_order_delivery_demo\nTarget database: retail_phase3_restore_test\nBackup documents: 150\nRestored documents: 150\nDesign documents: 3 (_design/catalog_indexes, _design/domain_validation, _design/order_statistics)\nBusiness types: cart, customer, order, product, review, shipping_method, staff, voucher\nSample IDs: product:DEMO-P001, order:DEMO-O001, order:DEMO-O034\nMango order status/customer/tracking: 11/4/1 result(s), expected IDs found\nMango indexes: 16, source/target parity PASS\nValidator rejection: HTTP 403 PASS\nDocument count parity: PASS\nContent SHA-256 parity (normalized JSON, _rev excluded): PASS\nMissing/extra/different documents: {\"source\":{\"missing\":[],\"extra\":[],\"different\":[],\"expected_count\":150,\"actual_count\":150,\"pass\":true},\"target\":{\"missing\":[],\"extra\":[],\"different\":[],\"expected_count\":150,\"actual_count\":150,\"pass\":true}}\nDatabase _security parity: PASS\nNew target revisions: PASS\nSource content parity: PASS\nRestore verification: PASS",
+        "stderr": ""
+    },
+    "status": "PASS",
+    "generated_at_utc": "2026-10-28T01:38:14Z"
+}
