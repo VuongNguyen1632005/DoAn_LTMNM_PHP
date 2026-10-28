@@ -1,5 +1,44 @@
 # WEBTHOITRANG PHP + CouchDB
 
+## Quickstart nộp đồ án NoSQL
+
+Ứng dụng minh họa được viết bằng PHP và lưu dữ liệu nghiệp vụ trong CouchDB 3.5. Trên Windows, mở PowerShell tại thư mục repo và thực hiện:
+
+```powershell
+Copy-Item .env.example .env
+# Mở .env, đặt COUCHDB_USER, COUCHDB_PASSWORD và JWT_SECRET riêng trên máy này.
+docker compose up --build -d
+Invoke-WebRequest http://127.0.0.1:8081/health/ready
+docker compose exec -T app composer db:seed-demo -- --recreate
+docker compose exec -T app composer seed:verify
+docker compose exec -T app composer phase1:report
+docker compose exec -T app php scripts/verify_views.php
+docker compose exec -T app php scripts/verify_advanced_queries.php
+```
+
+Mở ứng dụng tại `http://127.0.0.1:8081`; mở Fauxton tại `http://127.0.0.1:5984/_utils/` và đăng nhập bằng `COUCHDB_USER`/`COUCHDB_PASSWORD` trong `.env`. Tên database demo là `retail_order_delivery_demo`. Tài khoản demo ứng dụng: `[NHÓM ĐIỀN username/password đã xác nhận]`; không dùng credential CouchDB làm tài khoản PHP. Có thể cấp mật khẩu staff cục bộ bằng `docker compose exec -it app composer account:provision-staff -- <username>`.
+
+Chạy bộ smoke checks chính:
+
+```powershell
+docker compose exec -T app composer checkout:smoke
+docker compose exec -T app composer checkout:http-smoke
+docker compose exec -T app composer catalog:admin-smoke
+docker compose exec -T app composer users:admin-smoke
+```
+
+Backup/restore và replication demo:
+
+```powershell
+docker compose exec -T -e COUCHDB_DATABASE=retail_order_delivery_demo app composer db:backup -- phase-demo.json
+docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer db:restore -- phase-demo.json retail_restore_check_test
+docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer db:restore-verify -- phase-demo.json retail_restore_check_test
+docker compose exec -T app php scripts/demo_replication.php
+docker compose exec -T app php scripts/demo_replication_conflict.php
+```
+
+Các thao tác restore tạo database đích kiểm tra; xóa scratch database sau khi xác nhận nội dung cần giữ. Báo cáo V2, QA và checklist hình nằm trong `docs/report/`; số liệu runtime nằm trong `docs/phase1/`, `docs/phase3/` và `docs/phase4/`.
+
 Ứng dụng PHP 8.3 chạy bằng Apache/Docker, dùng CouchDB cho catalog và dữ liệu tài khoản/giỏ thành viên. Module catalog có danh sách, trang chi tiết, trang giới thiệu, ảnh, biến thể size, đánh giá chỉ đọc, tìm kiếm, lọc, sắp xếp và phân trang. Giỏ khách lưu trong PHP session; giỏ thành viên được lưu thành một cart document và nhận các dòng guest khi khách đăng nhập.
 
 ## Chạy local
