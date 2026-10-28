@@ -26,6 +26,7 @@ $indexes = [
     ['name' => 'admin_reviews', 'fields' => ['type'], 'partial' => ['type' => 'review']],
     ['name' => 'account_usernames', 'fields' => ['type', 'auth.username'], 'partial' => ['type' => ['$in' => ['customer', 'staff']]]],
     ['name' => 'customer_orders', 'fields' => ['type', 'customer.customer_id', 'ordered_at'], 'partial' => ['type' => 'order']],
+    ['name' => 'guest_orders', 'fields' => ['type', 'guest_order', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'admin_orders', 'fields' => ['type', 'status', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'admin_orders_by_date', 'fields' => ['type', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'delivery_tracking_code', 'fields' => ['type', 'delivery_tracking.tracking_code'], 'partial' => ['type' => 'order']],

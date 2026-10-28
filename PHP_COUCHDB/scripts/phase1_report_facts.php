@@ -62,14 +62,33 @@ foreach ($queryFiles as $queryFile) {
     try {
         $explain = factsRequest($client, 'POST', $db . '/_explain', $query);
         $result = factsRequest($client, 'POST', $db . '/_find', $query);
+        $pageCount = 1;
+        $totalResults = count($result['docs'] ?? []);
         $stats = $result['execution_stats'] ?? [];
+        $bookmark = $result['bookmark'] ?? null;
+        $seenBookmarks = [];
+        while (is_string($bookmark) && $bookmark !== '' && !isset($seenBookmarks[$bookmark])) {
+            $seenBookmarks[$bookmark] = true;
+            $nextQuery = $query;
+            $nextQuery['bookmark'] = $bookmark;
+            $next = factsRequest($client, 'POST', $db . '/_find', $nextQuery);
+            ++$pageCount;
+            $totalResults += count($next['docs'] ?? []);
+            $nextStats = $next['execution_stats'] ?? [];
+            foreach (['total_docs_examined', 'total_keys_examined', 'total_quorum_docs_examined', 'execution_time_ms'] as $stat) {
+                if (isset($nextStats[$stat])) $stats[$stat] = ($stats[$stat] ?? 0) + $nextStats[$stat];
+            }
+            $bookmark = $next['bookmark'] ?? null;
+            if (($next['docs'] ?? []) === []) break;
+            if ($pageCount > 1000) throw new RuntimeException('Query pagination exceeded 1000 pages.');
+        }
         $index = $explain['index'] ?? [];
         $indexLabel = trim((string) ($index['ddoc'] ?? '_all_docs') . '/' . (string) ($index['name'] ?? 'all_docs'), '/');
         $note = $result['warning'] ?? $explain['warning'] ?? '';
-        $queryRows[] = ['code' => $code, 'query' => $label, 'selector' => $selector, 'index' => $indexLabel, 'results' => count($result['docs'] ?? []), 'docs_examined' => $stats['total_docs_examined'] ?? null, 'execution_time_ms' => $stats['execution_time_ms'] ?? null, 'note' => (string) $note];
-        $queryDetails[$label] = ['payload' => $query, 'explain' => $explain, 'results_returned' => count($result['docs'] ?? []), 'execution_stats' => $stats, 'warning' => $note];
+        $queryRows[] = ['code' => $code, 'query' => $label, 'selector' => $selector, 'index' => $indexLabel, 'results' => $totalResults, 'pages' => $pageCount, 'docs_examined' => $stats['total_docs_examined'] ?? null, 'execution_time_ms' => $stats['execution_time_ms'] ?? null, 'note' => (string) $note];
+        $queryDetails[$label] = ['payload' => $query, 'explain' => $explain, 'results_returned' => $totalResults, 'pages' => $pageCount, 'execution_stats' => $stats, 'warning' => $note];
     } catch (Throwable $exception) {
-        $queryRows[] = ['code' => $code, 'query' => $label, 'selector' => $selector, 'index' => 'ERROR', 'results' => null, 'docs_examined' => null, 'execution_time_ms' => null, 'note' => $exception->getMessage()];
+        $queryRows[] = ['code' => $code, 'query' => $label, 'selector' => $selector, 'index' => 'ERROR', 'results' => null, 'pages' => null, 'docs_examined' => null, 'execution_time_ms' => null, 'note' => $exception->getMessage()];
         $queryDetails[$label] = ['payload' => $query, 'error' => $exception->getMessage()];
     }
 }
@@ -120,7 +139,15 @@ $commands = [
     'docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer db:restore -- phase1-demo.json retail_restore_check_test',
     'docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer db:restore-verify -- phase1-demo.json retail_restore_check_test',
 ];
-$facts = ['generated_at_utc' => gmdate('Y-m-d\TH:i:s\Z'), 'database' => $database, 'total_documents' => $info['doc_count'] ?? null, 'design_documents' => $designCount, 'business_documents' => $businessCount, 'catalog_mango_indexes' => $indexCount, 'documents_by_type' => $typeCounts, 'orders_by_status' => $orderStatusCounts, 'delivery_tracking_by_status' => $deliveryStatusCounts, 'queries' => $queryDetails, 'delivery_index_before_after' => $deliveryBeforeAfter, 'legacy_database_comparison' => $legacyComparison, 'query_06_root_cause' => 'In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical GUI payload/bookmark/database was not captured, so exact cause remains unverified.', 'query_01_root_cause' => 'The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). This identifies a fallback-producing payload difference, but the original Fauxton request was not captured, so it cannot prove which fields Fauxton omitted.', 'reproduction_commands' => $commands];
+$guestQuery = json_decode((string) file_get_contents(dirname(__DIR__) . '/database/couchdb/demo_queries/08_guest_orders.json'), true, 512, JSON_THROW_ON_ERROR);
+$guestFallback = $guestQuery;
+unset($guestFallback['use_index'], $guestFallback['sort']);
+$guestBeforeExplain = factsRequest($client, 'POST', $db . '/_explain', $guestFallback);
+$guestBeforeResult = factsRequest($client, 'POST', $db . '/_find', $guestFallback);
+$guestAfterExplain = factsRequest($client, 'POST', $db . '/_explain', $guestQuery);
+$guestAfterResult = factsRequest($client, 'POST', $db . '/_find', $guestQuery);
+$guestBeforeAfter = ['before' => ['index' => $guestBeforeExplain['index']['name'] ?? null, 'docs_examined' => $guestBeforeResult['execution_stats']['total_docs_examined'] ?? null, 'results' => count($guestBeforeResult['docs'] ?? [])], 'after' => ['index' => $guestAfterExplain['index']['name'] ?? null, 'docs_examined' => $guestAfterResult['execution_stats']['total_docs_examined'] ?? null, 'results' => count($guestAfterResult['docs'] ?? [])]];
+$facts = ['generated_at_utc' => gmdate('Y-m-d\TH:i:s\Z'), 'database' => $database, 'total_documents' => $info['doc_count'] ?? null, 'design_documents' => $designCount, 'business_documents' => $businessCount, 'catalog_mango_indexes' => $indexCount, 'documents_by_type' => $typeCounts, 'orders_by_status' => $orderStatusCounts, 'delivery_tracking_by_status' => $deliveryStatusCounts, 'queries' => $queryDetails, 'guest_index_before_after' => $guestBeforeAfter, 'delivery_index_before_after' => $deliveryBeforeAfter, 'legacy_database_comparison' => $legacyComparison, 'query_06_root_cause' => 'In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical Fauxton Request Payload was not supplied, so exact cause remains unverified.', 'query_01_root_cause' => 'The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). The historical Fauxton Request Payload was not supplied, so this probe cannot prove which fields Fauxton omitted.', 'reproduction_commands' => $commands];
 $directory = dirname(__DIR__) . '/docs/phase1';
 if (!is_dir($directory) && !mkdir($directory, 0770, true) && !is_dir($directory)) throw new RuntimeException('Could not create docs/phase1.');
 file_put_contents($directory . '/phase1_facts.json', json_encode($facts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL, LOCK_EX);
@@ -150,9 +177,21 @@ foreach ($deliveryStatusCounts as $status => $count) $md[] = '| ' . $status . ' 
 $md[] = '';
 $md[] = '## Bảng 4.8 – Kết quả 12 truy vấn Mango';
 $md[] = '';
-$md[] = '| Mã | Selector tóm tắt | Index theo `_explain` | Kết quả API | docs_examined | execution_time_ms | Ghi chú |';
-$md[] = '|---:|---|---|---:|---:|---:|---|';
-foreach ($queryRows as $row) $md[] = '| ' . $row['code'] . ' | `' . $row['selector'] . '` | `' . $row['index'] . '` | ' . ($row['results'] ?? 'N/A') . ' | ' . ($row['docs_examined'] ?? 'N/A') . ' | ' . ($row['execution_time_ms'] ?? 'N/A') . ' | ' . str_replace('|', '\\|', $row['note']) . ' |';
+$md[] = '| Mã | Selector tóm tắt | Index theo `_explain` | Kết quả API | Trang | docs_examined | execution_time_ms | Trạng thái | Ghi chú |';
+$md[] = '|---:|---|---|---:|---:|---:|---:|---|---|';
+foreach ($queryRows as $row) {
+    $status = $row['index'] !== 'ERROR' && !str_contains($row['index'], '_all_docs') ? 'PASS' : 'FAIL';
+    $md[] = '| ' . $row['code'] . ' | `' . $row['selector'] . '` | `' . $row['index'] . '` | ' . ($row['results'] ?? 'N/A') . ' | ' . ($row['pages'] ?? 'N/A') . ' | ' . ($row['docs_examined'] ?? 'N/A') . ' | ' . ($row['execution_time_ms'] ?? 'N/A') . ' | ' . $status . ' | ' . str_replace('|', '\\|', $row['note']) . ' |';
+}
+$md[] = '';
+$md[] = 'Kết quả là tổng qua mọi trang bookmark; docs_examined và execution_time_ms là tổng từ các response của mọi trang đã đọc.';
+$md[] = '';
+$md[] = '### Guest index trước/sau';
+$md[] = '';
+$md[] = '| Trạng thái | Index | docs_examined | Kết quả |';
+$md[] = '|---|---|---:|---:|';
+$md[] = '| Trước | `' . ($guestBeforeAfter['before']['index'] ?? 'N/A') . '` | ' . ($guestBeforeAfter['before']['docs_examined'] ?? 'N/A') . ' | ' . ($guestBeforeAfter['before']['results'] ?? 'N/A') . ' |';
+$md[] = '| Sau | `' . ($guestBeforeAfter['after']['index'] ?? 'N/A') . '` | ' . ($guestBeforeAfter['after']['docs_examined'] ?? 'N/A') . ' | ' . ($guestBeforeAfter['after']['results'] ?? 'N/A') . ' |';
 $md[] = '';
 $md[] = '## Bảng 3.3 / 3.5 / 3.6 – Đối chiếu delivery index';
 $md[] = '';

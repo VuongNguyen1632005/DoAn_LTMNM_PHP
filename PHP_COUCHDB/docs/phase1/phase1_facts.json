@@ -1,10 +1,10 @@
 {
-    "generated_at_utc": "2026-10-28T00:49:55Z",
+    "generated_at_utc": "2026-10-28T01:19:03Z",
     "database": "retail_order_delivery_demo",
     "total_documents": 150,
     "design_documents": 3,
     "business_documents": 147,
-    "catalog_mango_indexes": 10,
+    "catalog_mango_indexes": 11,
     "documents_by_type": {
         "cart": 8,
         "customer": 15,
@@ -141,6 +141,42 @@
                     "payment"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -515,13 +551,14 @@
                 },
                 "covering": false
             },
-            "results_returned": 10,
+            "results_returned": 11,
+            "pages": 3,
             "execution_stats": {
-                "total_keys_examined": 11,
-                "total_docs_examined": 11,
+                "total_keys_examined": 12,
+                "total_docs_examined": 12,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 5.624
+                "execution_time_ms": 9.349
             },
             "warning": ""
         },
@@ -641,6 +678,42 @@
                     "totals"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -1016,12 +1089,13 @@
                 "covering": false
             },
             "results_returned": 15,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 15,
                 "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 6.337
+                "execution_time_ms": 10.611
             },
             "warning": ""
         },
@@ -1135,6 +1209,42 @@
                     "status_history"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -1510,12 +1620,13 @@
                 "covering": false
             },
             "results_returned": 10,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 10,
                 "total_docs_examined": 10,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 6.447
+                "execution_time_ms": 9.946
             },
             "warning": ""
         },
@@ -1626,6 +1737,42 @@
                     "totals"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -2001,12 +2148,13 @@
                 "covering": false
             },
             "results_returned": 7,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 7,
                 "total_docs_examined": 7,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 7,
-                "execution_time_ms": 4.011
+                "execution_time_ms": 7.348000000000001
             },
             "warning": ""
         },
@@ -2117,6 +2265,42 @@
                     "payment"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -2492,12 +2676,13 @@
                 "covering": false
             },
             "results_returned": 4,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 4,
                 "total_docs_examined": 4,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 4,
-                "execution_time_ms": 2.985
+                "execution_time_ms": 5.573
             },
             "warning": ""
         },
@@ -2508,8 +2693,8 @@
                         "$eq": "order"
                     },
                     "ordered_at": {
-                        "$gte": "2026-09-01T00:00:00Z",
-                        "$lt": "2026-11-01T00:00:00Z"
+                        "$gte": "2026-06-01T00:00:00Z",
+                        "$lt": "2027-01-01T00:00:00Z"
                     }
                 },
                 "use_index": [
@@ -2527,7 +2712,7 @@
                     "ordered_at",
                     "totals"
                 ],
-                "limit": 50,
+                "limit": 25,
                 "execution_stats": true
             },
             "explain": {
@@ -2565,12 +2750,12 @@
                             "$and": [
                                 {
                                     "ordered_at": {
-                                        "$gte": "2026-09-01T00:00:00Z"
+                                        "$gte": "2026-06-01T00:00:00Z"
                                     }
                                 },
                                 {
                                     "ordered_at": {
-                                        "$lt": "2026-11-01T00:00:00Z"
+                                        "$lt": "2027-01-01T00:00:00Z"
                                     }
                                 }
                             ]
@@ -2583,7 +2768,7 @@
                         "admin_orders_by_date"
                     ],
                     "bookmark": "nil",
-                    "limit": 50,
+                    "limit": 25,
                     "skip": 0,
                     "sort": {
                         "ordered_at": "asc"
@@ -2603,7 +2788,7 @@
                     "execution_stats": true,
                     "allow_fallback": true
                 },
-                "limit": 50,
+                "limit": 25,
                 "skip": 0,
                 "fields": [
                     "_id",
@@ -2612,6 +2797,42 @@
                     "totals"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -2975,11 +3196,11 @@
                     "partition": null,
                     "start_key": [
                         "order",
-                        "2026-09-01T00:00:00Z"
+                        "2026-06-01T00:00:00Z"
                     ],
                     "end_key": [
                         "order",
-                        "2026-11-01T00:00:00Z",
+                        "2027-01-01T00:00:00Z",
                         "<MAX>"
                     ],
                     "direction": "fwd",
@@ -2989,13 +3210,14 @@
                 },
                 "covering": false
             },
-            "results_returned": 24,
+            "results_returned": 65,
+            "pages": 4,
             "execution_stats": {
-                "total_keys_examined": 24,
-                "total_docs_examined": 24,
+                "total_keys_examined": 67,
+                "total_docs_examined": 67,
                 "total_quorum_docs_examined": 0,
-                "results_returned": 24,
-                "execution_time_ms": 10.034
+                "results_returned": 25,
+                "execution_time_ms": 33.535000000000004
             },
             "warning": ""
         },
@@ -3122,6 +3344,42 @@
                     "totals"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -3499,12 +3757,13 @@
                 "covering": false
             },
             "results_returned": 8,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 11,
                 "total_docs_examined": 11,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 8,
-                "execution_time_ms": 5.808
+                "execution_time_ms": 7.802999999999999
             },
             "warning": ""
         },
@@ -3518,6 +3777,15 @@
                         "$eq": true
                     }
                 },
+                "use_index": [
+                    "_design/catalog_indexes",
+                    "guest_orders"
+                ],
+                "sort": [
+                    {
+                        "ordered_at": "asc"
+                    }
+                ],
                 "fields": [
                     "_id",
                     "status",
@@ -3532,15 +3800,27 @@
             "explain": {
                 "dbname": "retail_order_delivery_demo",
                 "index": {
-                    "ddoc": null,
-                    "name": "_all_docs",
-                    "type": "special",
+                    "ddoc": "_design/catalog_indexes",
+                    "name": "guest_orders",
+                    "type": "json",
+                    "partitioned": false,
                     "def": {
                         "fields": [
                             {
-                                "_id": "asc"
+                                "type": "asc"
+                            },
+                            {
+                                "guest_order": "asc"
+                            },
+                            {
+                                "ordered_at": "asc"
                             }
-                        ]
+                        ],
+                        "partial_filter_selector": {
+                            "type": {
+                                "$eq": "order"
+                            }
+                        }
                     }
                 },
                 "partitioned": false,
@@ -3559,11 +3839,16 @@
                     ]
                 },
                 "opts": {
-                    "use_index": [],
+                    "use_index": [
+                        "_design/catalog_indexes",
+                        "guest_orders"
+                    ],
                     "bookmark": "nil",
                     "limit": 20,
                     "skip": 0,
-                    "sort": [],
+                    "sort": {
+                        "ordered_at": "asc"
+                    },
                     "fields": [
                         "_id",
                         "status",
@@ -3621,7 +3906,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3657,7 +3942,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3693,7 +3978,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3723,7 +4008,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3753,7 +4038,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3786,7 +4071,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3822,7 +4107,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3864,7 +4149,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3906,7 +4191,7 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
                         }
                     },
@@ -3942,8 +4227,32 @@
                                     "name": "is_partial"
                                 }
                             ],
-                            "ranking": 1,
+                            "ranking": 2,
                             "covering": false
+                        }
+                    },
+                    {
+                        "index": {
+                            "ddoc": null,
+                            "name": "_all_docs",
+                            "type": "special",
+                            "def": {
+                                "fields": [
+                                    {
+                                        "_id": "asc"
+                                    }
+                                ]
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "field_mismatch"
+                                }
+                            ],
+                            "ranking": 1,
+                            "covering": null
                         }
                     }
                 ],
@@ -3962,8 +4271,15 @@
                     "view_type": "map",
                     "reduce": false,
                     "partition": null,
-                    "start_key": null,
-                    "end_key": "<MAX>",
+                    "start_key": [
+                        "order",
+                        true
+                    ],
+                    "end_key": [
+                        "order",
+                        true,
+                        "<MAX>"
+                    ],
                     "direction": "fwd",
                     "stable": false,
                     "update": true,
@@ -3972,14 +4288,15 @@
                 "covering": false
             },
             "results_returned": 15,
+            "pages": 2,
             "execution_stats": {
-                "total_keys_examined": 150,
-                "total_docs_examined": 150,
+                "total_keys_examined": 15,
+                "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 18.093
+                "execution_time_ms": 8.12
             },
-            "warning": "No matching index found, create an index to optimize query time."
+            "warning": ""
         },
         "09_delivery_in_transit": {
             "payload": {
@@ -4091,6 +4408,42 @@
                     "delivery_tracking.history"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -4466,12 +4819,13 @@
                 "covering": false
             },
             "results_returned": 5,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 5,
                 "total_docs_examined": 5,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 5,
-                "execution_time_ms": 3.767
+                "execution_time_ms": 5.109999999999999
             },
             "warning": ""
         },
@@ -4585,6 +4939,42 @@
                     "delivery_tracking.history"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -4960,12 +5350,13 @@
                 "covering": false
             },
             "results_returned": 2,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 2,
                 "total_docs_examined": 2,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 2,
-                "execution_time_ms": 2.24
+                "execution_time_ms": 4.4239999999999995
             },
             "warning": ""
         },
@@ -5079,6 +5470,42 @@
                     "delivery_tracking.history"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -5454,12 +5881,13 @@
                 "covering": false
             },
             "results_returned": 3,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 3,
                 "total_docs_examined": 3,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 3,
-                "execution_time_ms": 2.509
+                "execution_time_ms": 5.302
             },
             "warning": ""
         },
@@ -5563,6 +5991,42 @@
                     "delivery_tracking"
                 ],
                 "index_candidates": [
+                    {
+                        "index": {
+                            "ddoc": "_design/catalog_indexes",
+                            "name": "guest_orders",
+                            "type": "json",
+                            "partitioned": false,
+                            "def": {
+                                "fields": [
+                                    {
+                                        "type": "asc"
+                                    },
+                                    {
+                                        "guest_order": "asc"
+                                    },
+                                    {
+                                        "ordered_at": "asc"
+                                    }
+                                ],
+                                "partial_filter_selector": {
+                                    "type": {
+                                        "$eq": "order"
+                                    }
+                                }
+                            }
+                        },
+                        "analysis": {
+                            "usable": false,
+                            "reasons": [
+                                {
+                                    "name": "is_partial"
+                                }
+                            ],
+                            "ranking": 2,
+                            "covering": false
+                        }
+                    },
                     {
                         "index": {
                             "ddoc": "_design/catalog_indexes",
@@ -5941,14 +6405,27 @@
                 "covering": false
             },
             "results_returned": 1,
+            "pages": 2,
             "execution_stats": {
                 "total_keys_examined": 1,
                 "total_docs_examined": 1,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 1,
-                "execution_time_ms": 2.128
+                "execution_time_ms": 3.6050000000000004
             },
             "warning": ""
+        }
+    },
+    "guest_index_before_after": {
+        "before": {
+            "index": "_all_docs",
+            "docs_examined": 150,
+            "results": 15
+        },
+        "after": {
+            "index": "guest_orders",
+            "docs_examined": 15,
+            "results": 15
         }
     },
     "delivery_index_before_after": [
@@ -6023,7 +6500,7 @@
                         "total_docs_examined": 5,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 4.827
+                        "execution_time_ms": 3.248
                     },
                     "warning": null
                 },
@@ -6056,7 +6533,7 @@
                         "total_docs_examined": 61,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 9.397
+                        "execution_time_ms": 8.824
                     },
                     "warning": "No matching index found, create an index to optimize query time.\nThe number of documents examined is high in proportion to the number of results returned. Consider adding a more specific index to improve this."
                 }
@@ -6102,7 +6579,7 @@
                         "total_docs_examined": 6,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 6,
-                        "execution_time_ms": 4.022
+                        "execution_time_ms": 3.462
                     },
                     "warning": null
                 }
@@ -6115,49 +6592,8 @@
                                 "$eq": "order"
                             },
                             "ordered_at": {
-                                "$gte": "2026-09-01T00:00:00Z",
-                                "$lt": "2026-11-01T00:00:00Z"
-                            }
-                        },
-                        "use_index": [
-                            "_design/catalog_indexes",
-                            "admin_orders_by_date"
-                        ],
-                        "sort": [
-                            {
-                                "ordered_at": "asc"
-                            }
-                        ],
-                        "fields": [
-                            "_id",
-                            "status",
-                            "ordered_at",
-                            "totals"
-                        ],
-                        "limit": 50,
-                        "execution_stats": true
-                    },
-                    "index": "admin_orders_by_date",
-                    "explain_warning": null,
-                    "results_returned": 27,
-                    "execution_stats": {
-                        "total_keys_examined": 27,
-                        "total_docs_examined": 27,
-                        "total_quorum_docs_examined": 0,
-                        "results_returned": 27,
-                        "execution_time_ms": 9.484
-                    },
-                    "warning": null
-                },
-                "limit_25": {
-                    "payload": {
-                        "selector": {
-                            "type": {
-                                "$eq": "order"
-                            },
-                            "ordered_at": {
-                                "$gte": "2026-09-01T00:00:00Z",
-                                "$lt": "2026-11-01T00:00:00Z"
+                                "$gte": "2026-06-01T00:00:00Z",
+                                "$lt": "2027-01-01T00:00:00Z"
                             }
                         },
                         "use_index": [
@@ -6186,15 +6622,56 @@
                         "total_docs_examined": 26,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 25,
-                        "execution_time_ms": 10.474
+                        "execution_time_ms": 9.903
+                    },
+                    "warning": null
+                },
+                "limit_25": {
+                    "payload": {
+                        "selector": {
+                            "type": {
+                                "$eq": "order"
+                            },
+                            "ordered_at": {
+                                "$gte": "2026-06-01T00:00:00Z",
+                                "$lt": "2027-01-01T00:00:00Z"
+                            }
+                        },
+                        "use_index": [
+                            "_design/catalog_indexes",
+                            "admin_orders_by_date"
+                        ],
+                        "sort": [
+                            {
+                                "ordered_at": "asc"
+                            }
+                        ],
+                        "fields": [
+                            "_id",
+                            "status",
+                            "ordered_at",
+                            "totals"
+                        ],
+                        "limit": 25,
+                        "execution_stats": true
+                    },
+                    "index": "admin_orders_by_date",
+                    "explain_warning": null,
+                    "results_returned": 25,
+                    "execution_stats": {
+                        "total_keys_examined": 26,
+                        "total_docs_examined": 26,
+                        "total_quorum_docs_examined": 0,
+                        "results_returned": 25,
+                        "execution_time_ms": 9.604
                     },
                     "warning": null
                 }
             }
         }
     },
-    "query_06_root_cause": "In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical GUI payload/bookmark/database was not captured, so exact cause remains unverified.",
-    "query_01_root_cause": "The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). This identifies a fallback-producing payload difference, but the original Fauxton request was not captured, so it cannot prove which fields Fauxton omitted.",
+    "query_06_root_cause": "In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical Fauxton Request Payload was not supplied, so exact cause remains unverified.",
+    "query_01_root_cause": "The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). The historical Fauxton Request Payload was not supplied, so this probe cannot prove which fields Fauxton omitted.",
     "reproduction_commands": [
         "docker compose up --build -d",
         "Invoke-WebRequest http://127.0.0.1:8081/health/ready",

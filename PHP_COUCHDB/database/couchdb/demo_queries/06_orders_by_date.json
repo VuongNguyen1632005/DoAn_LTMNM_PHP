@@ -2,13 +2,13 @@
   "selector": {
     "type": {"$eq": "order"},
     "ordered_at": {
-      "$gte": "2026-09-01T00:00:00Z",
-      "$lt": "2026-11-01T00:00:00Z"
+      "$gte": "2026-06-01T00:00:00Z",
+      "$lt": "2027-01-01T00:00:00Z"
     }
   },
   "use_index": ["_design/catalog_indexes", "admin_orders_by_date"],
   "sort": [{"ordered_at": "asc"}],
   "fields": ["_id", "status", "ordered_at", "totals"],
-  "limit": 50,
+  "limit": 25,
   "execution_stats": true
 }
