@@ -1,0 +1,107 @@
+{
+    "database": "retail_admin_http_39f25e78_test",
+    "checks": [
+        {
+            "name": "manager can log in over HTTP",
+            "result": "PASS"
+        },
+        {
+            "name": "manager search and customer filter return matching account only",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can view safe account detail",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can edit profile with current CouchDB revision",
+            "result": "PASS"
+        },
+        {
+            "name": "profile edit was persisted",
+            "result": "PASS"
+        },
+        {
+            "name": "stale revision returns HTTP 409 with conflict message",
+            "result": "PASS"
+        },
+        {
+            "name": "stale edit does not overwrite latest profile",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can lock account",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can unlock account",
+            "result": "PASS"
+        },
+        {
+            "name": "missing CSRF token does not change account status",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can create active Staff account",
+            "result": "PASS"
+        },
+        {
+            "name": "backup creation rejects missing CSRF token",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can create a uniquely named backup",
+            "result": "PASS"
+        },
+        {
+            "name": "manager can securely download generated backup JSON",
+            "result": "PASS"
+        },
+        {
+            "name": "backup download rejects a traversal-style filename",
+            "result": "PASS"
+        },
+        {
+            "name": "staff can log in over HTTP",
+            "result": "PASS"
+        },
+        {
+            "name": "staff is denied /admin/users",
+            "result": "PASS"
+        },
+        {
+            "name": "staff is denied /admin/backup",
+            "result": "PASS"
+        },
+        {
+            "name": "staff cannot create backup",
+            "result": "PASS"
+        },
+        {
+            "name": "staff cannot download backup",
+            "result": "PASS"
+        },
+        {
+            "name": "customer can log in over HTTP",
+            "result": "PASS"
+        },
+        {
+            "name": "customer is denied /admin/users",
+            "result": "PASS"
+        },
+        {
+            "name": "customer is denied /admin/backup",
+            "result": "PASS"
+        },
+        {
+            "name": "customer cannot create backup",
+            "result": "PASS"
+        },
+        {
+            "name": "customer cannot download backup",
+            "result": "PASS"
+        }
+    ],
+    "check_count": 25,
+    "status": "PASS"
+}

@@ -27,6 +27,7 @@
     "checkout:smoke": "php scripts/smoke_checkout.php",
     "checkout:http-smoke": "php scripts/http_smoke_checkout.php",
     "catalog:admin-smoke": "php scripts/smoke_product_admin.php",
+    "users:admin-smoke": "php scripts/smoke_user_administration.php",
     "db:backup": "php scripts/database_backup.php backup",
     "import:products-csv": "php scripts/import_products_csv.php",
     "export:orders-csv": "php scripts/export_orders_csv.php",

@@ -1,0 +1,15 @@
+<?php ob_start(); ?>
+<section class="container py-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4"><div><a href="/admin/users" class="small text-decoration-none">← Danh sách tài khoản</a><h1 class="h2 mt-2 mb-1">Chi tiết tài khoản</h1><p class="text-muted mb-0">Thông tin định danh và trạng thái hiện tại.</p></div><div class="d-flex gap-2"><a class="btn btn-primary" href="/admin/users/<?= rawurlencode($user['id']) ?>/edit">Chỉnh sửa thông tin</a><a class="btn btn-outline-secondary" href="/admin/users">Quay lại danh sách</a></div></div>
+    <?php if (is_array($flash)): ?><div class="alert alert-<?= h($flash['type'] ?? 'info') ?>" role="status"><?= h($flash['message'] ?? '') ?></div><?php endif; ?>
+    <div class="card"><div class="card-body"><div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4"><div><h2 class="h4 mb-1"><?= h($user['name'] !== '' ? $user['name'] : 'Chưa cập nhật tên') ?></h2><div class="text-muted"><?= h($user['legacy_id']) ?></div></div><span class="badge text-bg-<?= $user['active'] ? 'success' : 'secondary' ?> fs-6"><?= $user['active'] ? 'Đang hoạt động' : 'Đã khóa' ?></span></div>
+        <dl class="row mb-0"><dt class="col-sm-3">Loại tài khoản</dt><dd class="col-sm-9"><?= $user['type'] === 'customer' ? 'Khách hàng' : 'Nhân viên' ?></dd>
+        <?php if ($user['role'] !== ''): ?><dt class="col-sm-3">Vai trò</dt><dd class="col-sm-9"><?= $user['role'] === 'manager' ? 'Manager' : ($user['role'] === 'staff' ? 'Staff' : 'Customer') ?></dd><?php endif; ?>
+        <dt class="col-sm-3">Email / tên đăng nhập</dt><dd class="col-sm-9"><?= h($user['email'] ?: 'Chưa có') ?></dd><dt class="col-sm-3">Số điện thoại</dt><dd class="col-sm-9"><?= h($user['phone'] ?: 'Chưa có') ?></dd>
+        <?php if ($user['created_at'] !== ''): ?><dt class="col-sm-3">Ngày tạo</dt><dd class="col-sm-9"><?= h($user['created_at']) ?></dd><?php endif; ?></dl>
+    </div><div class="card-footer bg-white d-flex flex-wrap align-items-center justify-content-between gap-3"><span class="small text-muted">Thao tác được ghi nhận và kiểm soát bằng revision của CouchDB.</span>
+        <?php if ($user['role'] === 'manager' && $user['active']): ?><button class="btn btn-outline-secondary" type="button" disabled title="Manager luôn được giữ hoạt động">Không thể khóa manager</button>
+        <?php else: ?><form method="post" action="/admin/users/<?= rawurlencode($user['id']) ?>/status" onsubmit="return confirm('Xác nhận <?= $user['active'] ? 'khóa' : 'mở khóa' ?> tài khoản này?')"><input type="hidden" name="csrf_token" value="<?= h(csrfToken()) ?>"><input type="hidden" name="active" value="<?= $user['active'] ? '0' : '1' ?>"><button class="btn btn-<?= $user['active'] ? 'danger' : 'success' ?>" type="submit"><?= $user['active'] ? 'Khóa tài khoản' : 'Mở khóa tài khoản' ?></button></form><?php endif; ?>
+    </div></div><p class="small text-muted mt-3">Mật khẩu và password hash không được hiển thị trong khu vực quản trị.</p>
+</section>
+<?php $content = (string) ob_get_clean(); require dirname(__DIR__, 2) . '/layout.php';

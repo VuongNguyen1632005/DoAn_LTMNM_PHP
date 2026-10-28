@@ -103,3 +103,9 @@ docker compose exec -T app composer phase1:report
 - Index lookup username dùng `_design/catalog_indexes/account_usernames`; đăng ký chuẩn hóa email và dùng document ID xác định để xử lý xung đột đăng ký cùng email.
 - Index lịch sử đơn dùng `_design/catalog_indexes/customer_orders`; admin dùng `admin_orders` khi lọc trạng thái và `admin_orders_by_date` khi xem tất cả; `delivery_tracking_code` kiểm tra mã vận đơn trùng khi tạo. Không có index delivery status vì hiện không lọc danh sách theo trạng thái này. Sau khi cập nhật, chạy `docker compose exec -T app composer catalog:indexes` để tạo/cập nhật index.
 - Cấp/reset mật khẩu customer qua terminal nhập ẩn, chỉ cho database `_test`: `docker compose exec -it app composer account:provision-customer -- <email>`; nhân viên chuyển mật khẩu tạm cho khách qua kênh đã xác minh.
+
+
+
+## Quản trị người dùng
+
+Manager có thể tìm kiếm/lọc, xem chi tiết, tạo tài khoản Staff, sửa tên/số điện thoại và khóa/mở khóa customer/staff tại /admin/users. Tài khoản mới luôn nhận role staff; giao diện không sửa username hoặc role hiện hữu. Phạm vi, bảo vệ, kiểm thử cô lập và kịch bản demo: [docs/USER_ADMINISTRATION.md](docs/USER_ADMINISTRATION.md).

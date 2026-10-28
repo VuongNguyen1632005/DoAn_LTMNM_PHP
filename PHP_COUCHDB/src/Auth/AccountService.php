@@ -56,6 +56,58 @@ final class AccountService
     }
 
     /** @return array<string, mixed> */
+    public function createStaff(string $fullName, string $email, string $phone, string $password, string $confirmation, string $createdBy): array
+    {
+        $fullName = trim($fullName);
+        $email = self::normalizeEmail($email);
+        $phone = trim($phone);
+        if ($fullName === '' || mb_strlen($fullName) > 100 || preg_match('/[\x00-\x1F\x7F]/u', $fullName) === 1) {
+            throw new AuthException('Họ tên phải có từ 1 đến 100 ký tự hợp lệ.');
+        }
+        if (filter_var($email, FILTER_VALIDATE_EMAIL) === false || strlen($email) > 254) {
+            throw new AuthException('Username phải là địa chỉ email hợp lệ.');
+        }
+        if (mb_strlen($phone) > 30 || preg_match('/[\x00-\x1F\x7F]/u', $phone) === 1) {
+            throw new AuthException('Số điện thoại không hợp lệ (tối đa 30 ký tự).');
+        }
+        if (!hash_equals($password, $confirmation)) {
+            throw new AuthException('Mật khẩu xác nhận không khớp.');
+        }
+        if (strlen($password) < 12 || strlen($password) > 128
+            || preg_match('/[a-z]/', $password) !== 1
+            || preg_match('/[A-Z]/', $password) !== 1
+            || preg_match('/\d/', $password) !== 1
+            || preg_match('/[^a-zA-Z0-9]/', $password) !== 1) {
+            throw new AuthException('Mật khẩu cần 12-128 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt.');
+        }
+        if ($this->matchesUsername($email)) {
+            throw new AuthException('Username này đã được sử dụng.');
+        }
+
+        $emailHash = hash('sha256', $email);
+        $account = [
+            '_id' => 'staff:ADM:' . $emailHash,
+            'type' => 'staff',
+            'schema_version' => 2,
+            'legacy_id' => 'ADM' . strtoupper($emailHash),
+            'auth' => [
+                'username' => $email,
+                'password_hash' => password_hash($password, PASSWORD_DEFAULT),
+                'requires_password_reset' => false,
+            ],
+            'profile' => ['name' => $fullName, 'phone' => $phone, 'email' => $email],
+            'role' => 'staff',
+            'active' => true,
+            'meta' => [
+                'source' => 'PHP manager administration',
+                'created_at' => gmdate('c'),
+                'created_by' => $createdBy,
+            ],
+        ];
+        $this->accounts->create($account);
+        return $account;
+    }
+    /** @return array<string, mixed> */
     public function authenticate(string $email, string $password): array
     {
         $email = self::normalizeEmail($email);

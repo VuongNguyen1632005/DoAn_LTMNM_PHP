@@ -65,6 +65,52 @@ final class AccountRepository
         return is_array($account) && ($account['type'] ?? null) === $expectedType ? $account : null;
     }
 
+    /** @return list<array<string, mixed>> */
+    public function allForAdministration(): array
+    {
+        $response = $this->client->request('POST', rawurlencode($this->database) . '/_find', [
+            'selector' => ['type' => ['$in' => ['customer', 'staff']]],
+            'use_index' => ['_design/catalog_indexes', 'account_usernames'],
+            'limit' => 5000,
+            'fields' => ['_id', '_rev', 'type', 'legacy_id', 'auth', 'profile', 'role', 'active', 'meta'],
+        ]);
+        if ($response->statusCode < 200 || $response->statusCode >= 300) {
+            throw new RuntimeException('CouchDB could not load accounts (' . $response->statusCode . ').');
+        }
+        $documents = $response->json()['docs'] ?? null;
+        if (!is_array($documents)) throw new RuntimeException('CouchDB account list is invalid.');
+        return array_values(array_filter($documents, 'is_array'));
+    }
+
+    /** @return array<string, mixed>|null */
+    public function accountById(string $documentId): ?array
+    {
+        if (preg_match('/^(customer|staff):[A-Za-z0-9:_-]{1,220}$/', $documentId) !== 1) return null;
+        $response = $this->client->request('GET', rawurlencode($this->database) . '/' . rawurlencode($documentId));
+        if ($response->statusCode === 404) return null;
+        if ($response->statusCode < 200 || $response->statusCode >= 300) {
+            throw new RuntimeException('CouchDB account lookup failed (' . $response->statusCode . ').');
+        }
+        $account = $response->json();
+        return is_array($account) && in_array($account['type'] ?? null, ['customer', 'staff'], true) ? $account : null;
+    }
+
+    /** @param array<string, mixed> $account */
+    public function saveAdministrationChange(array $account): void
+    {
+        $response = $this->client->request(
+            'PUT',
+            rawurlencode($this->database) . '/' . rawurlencode((string) ($account['_id'] ?? '')),
+            $account,
+        );
+        if ($response->statusCode === 409) {
+            throw new AccountRevisionConflictException();
+        }
+        if ($response->statusCode < 200 || $response->statusCode >= 300) {
+            throw new RuntimeException('Không thể cập nhật tài khoản (HTTP ' . $response->statusCode . ').');
+        }
+    }
+
     /** @param array<string, mixed> $account */
     public function create(array $account): void
     {

@@ -14,6 +14,9 @@ use App\Catalog\ProductImageStorage;
 use App\Catalog\ProductMediaController;
 use App\Auth\AccountRepository;
 use App\Auth\AccountService;
+use App\Auth\UserAdministrationService;
+use App\Auth\UserAdministrationController;
+use App\Auth\BackupController;
 use App\Auth\AuthController;
 use App\Auth\CustomerPasswordController;
 use App\Auth\JwtApiController;
@@ -98,6 +101,8 @@ try {
     $memberCarts = new MemberCartRepository($client, $database);
     $accountRepository = new AccountRepository($client, $database);
     $accountService = new AccountService($accountRepository);
+    $adminUsers = new UserAdministrationController(new UserAdministrationService($accountRepository), $accountRepository, $accountService);
+    $adminBackup = new BackupController($accountRepository, $database, dirname(__DIR__));
     $jwtTokens = new JwtTokenService(
         getenv('JWT_SECRET') ?: '',
         getenv('JWT_ISSUER') ?: '',
@@ -164,6 +169,16 @@ try {
     $router->get('/media/{file}', [$productMedia, 'show']);
     $router->post('/products/{id}/reviews', [$reviews, 'submit']);
     $router->get('/admin/reviews', [$adminReviews, 'index']);
+    $router->get('/admin/users', [$adminUsers, 'index']);
+    $router->get('/admin/users/new', [$adminUsers, 'newStaffForm']);
+    $router->post('/admin/users/new', [$adminUsers, 'createStaff']);
+    $router->get('/admin/users/{id}/edit', [$adminUsers, 'editForm']);
+    $router->post('/admin/users/{id}/edit', [$adminUsers, 'updateProfile']);
+    $router->get('/admin/users/{id}', [$adminUsers, 'detail']);
+    $router->post('/admin/users/{id}/status', [$adminUsers, 'setActive']);
+    $router->get('/admin/backup', [$adminBackup, 'index']);
+    $router->post('/admin/backup/create', [$adminBackup, 'create']);
+    $router->get('/admin/backup/download/{name}', [$adminBackup, 'download']);
     $router->post('/admin/reviews/{id}/visibility', [$adminReviews, 'setVisibility']);
     $router->post('/admin/reviews/{id}/reply', [$adminReviews, 'reply']);
     $router->get('/cart', [$cart, 'index']);
@@ -288,6 +303,16 @@ try {
     $router->post('/admin/orders/{id}/payment/verify', $unavailable);
     $router->get('/admin/revenue', $unavailable);
     $router->get('/admin/revenue/stats', $unavailable);
+    $router->get('/admin/users', $unavailable);
+    $router->get('/admin/users/new', $unavailable);
+    $router->post('/admin/users/new', $unavailable);
+    $router->get('/admin/users/{id}/edit', $unavailable);
+    $router->post('/admin/users/{id}/edit', $unavailable);
+    $router->get('/admin/users/{id}', $unavailable);
+    $router->post('/admin/users/{id}/status', $unavailable);
+    $router->get('/admin/backup', $unavailable);
+    $router->post('/admin/backup/create', $unavailable);
+    $router->get('/admin/backup/download/{name}', $unavailable);
     $router->get('/admin/products', $unavailable);
     $router->get('/admin/products/new', $unavailable);
     $router->post('/admin/products/new', $unavailable);
@@ -299,6 +324,38 @@ try {
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $requestPath = is_string($requestPath) ? $requestPath : '/';
 $currentUser = currentUser();
+if ($currentUser !== null && isset($accountRepository)
+    && !in_array($requestPath, ['/logout', '/health', '/health/ready'], true)) {
+    try {
+        $liveAccount = $accountRepository->byTokenSubject((string) ($currentUser['document_id'] ?? ''));
+        if ($liveAccount === null || ($liveAccount['active'] ?? false) !== true) {
+            unset($_SESSION['auth_user'], $_SESSION['_cart_line_count']);
+            $currentUser = null;
+            session_regenerate_id(true);
+            $_SESSION['auth_flash'] = ['type' => 'danger', 'message' => 'Tài khoản đã bị khóa hoặc không còn tồn tại. Vui lòng đăng nhập lại.'];
+            if (!in_array($requestPath, ['/login', '/register'], true)) {
+                header('Location: /login', true, 303);
+                exit;
+            }
+        }
+        $_SESSION['auth_user']['type'] = (string) ($liveAccount['type'] ?? '');
+        $_SESSION['auth_user']['role'] = ($liveAccount['type'] ?? null) === 'staff' ? (string) ($liveAccount['role'] ?? '') : 'customer';
+        $_SESSION['auth_user']['name'] = (string) ($liveAccount['profile']['name'] ?? '');
+        $_SESSION['auth_user']['phone'] = (string) ($liveAccount['profile']['phone'] ?? '');
+        $_SESSION['auth_user']['email'] = (string) ($liveAccount['profile']['email'] ?? $liveAccount['auth']['username'] ?? '');
+        $_SESSION['auth_user']['username'] = (string) ($liveAccount['auth']['username'] ?? '');
+        $_SESSION['auth_user']['password_reset_required'] = ($liveAccount['type'] ?? null) === 'customer'
+            && (($liveAccount['auth']['requires_password_reset'] ?? false) === true);
+        $currentUser = currentUser();
+    } catch (Throwable $exception) {
+        error_log('Could not validate the current web account: ' . $exception->getMessage());
+        http_response_code(503);
+        header('Content-Type: text/html; charset=utf-8');
+        header('Cache-Control: no-store, private');
+        echo '<h1>Dịch vụ tài khoản tạm thời chưa sẵn sàng</h1><p>Vui lòng thử lại sau.</p>';
+        exit;
+    }
+}
 if (($currentUser['password_reset_required'] ?? false) === true
     && !str_starts_with($requestPath, '/api/')
     && !in_array($requestPath, ['/account/password', '/logout', '/health', '/health/ready'], true)) {

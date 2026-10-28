@@ -1,0 +1,388 @@
+{
+    "database": "retail_full_validator_2ab24524_test",
+    "validator_file": "database/couchdb/design-docs/domain_validation.json",
+    "validator_bytes": 11649,
+    "cases": [
+        {
+            "case": "invalid order status",
+            "expected_http": 403,
+            "actual_http": 403,
+            "expected_reason": "order requires a valid status, receiver, and non-empty items",
+            "response_body": "{\"error\":\"forbidden\",\"reason\":\"order requires a valid status, receiver, and non-empty items\"}\n",
+            "request": {
+                "_id": "order:validator-status",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-STATUS",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "invalid_status",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "cod",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "pending",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ],
+                "_rev": "1-346bcdc91e2909b581abfd60f0945c87"
+            },
+            "result": "PASS"
+        },
+        {
+            "case": "delivery history cannot be shortened",
+            "expected_http": 403,
+            "actual_http": 403,
+            "expected_reason": "delivery history is append-only",
+            "response_body": "{\"error\":\"forbidden\",\"reason\":\"delivery history is append-only\"}\n",
+            "request": {
+                "_id": "order:validator-history",
+                "_rev": "2-add1e95aaed4b42c6af85b462aeb70be",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-HISTORY",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "shipping",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "cod",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "shipping",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ],
+                "delivery_tracking": {
+                    "tracking_code": "VAL-TRACK-01",
+                    "status": "created",
+                    "estimated_delivery_date": "2026-10-31",
+                    "delivered_at": null,
+                    "history": [
+                        {
+                            "status": "created",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        }
+                    ]
+                }
+            },
+            "result": "PASS"
+        },
+        {
+            "case": "paid order cannot revert to unpaid",
+            "expected_http": 403,
+            "actual_http": 403,
+            "expected_reason": "paid orders cannot be marked unpaid",
+            "response_body": "{\"error\":\"forbidden\",\"reason\":\"paid orders cannot be marked unpaid\"}\n",
+            "request": {
+                "_id": "order:validator-paid",
+                "_rev": "1-5440f31be2683aecb2fc1c78a9cebb13",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-PAID",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "delivered",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "bank_transfer",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "delivered",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ]
+            },
+            "result": "PASS"
+        },
+        {
+            "case": "invalid delivery transition",
+            "expected_http": 403,
+            "actual_http": 403,
+            "expected_reason": "delivery status transition is not allowed",
+            "response_body": "{\"error\":\"forbidden\",\"reason\":\"delivery status transition is not allowed\"}\n",
+            "request": {
+                "_id": "order:validator-transition",
+                "_rev": "1-431762175160be4246ef4274ece94f5b",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-TRANSITION",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "shipping",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "cod",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "shipping",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ],
+                "delivery_tracking": {
+                    "tracking_code": "VAL-TRACK-01",
+                    "status": "in_transit",
+                    "estimated_delivery_date": "2026-10-31",
+                    "delivered_at": null,
+                    "history": [
+                        {
+                            "status": "created",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        },
+                        {
+                            "status": "in_transit",
+                            "at": "2026-10-28T01:49:03+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        }
+                    ]
+                }
+            },
+            "result": "PASS"
+        },
+        {
+            "case": "valid initial tracked order",
+            "expected_http": 201,
+            "actual_http": 201,
+            "expected_reason": null,
+            "response_body": "{\"ok\":true,\"id\":\"order:validator-valid\",\"rev\":\"1-b9b67911434dc4cf0924b5a5c6cbdefa\"}\n",
+            "request": {
+                "_id": "order:validator-valid",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-VALID",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "shipping",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "cod",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "shipping",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ],
+                "delivery_tracking": {
+                    "tracking_code": "VAL-TRACK-01",
+                    "status": "created",
+                    "estimated_delivery_date": "2026-10-31",
+                    "delivered_at": null,
+                    "history": [
+                        {
+                            "status": "created",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        }
+                    ]
+                }
+            },
+            "result": "PASS"
+        },
+        {
+            "case": "valid delivery transition",
+            "expected_http": 201,
+            "actual_http": 201,
+            "expected_reason": null,
+            "response_body": "{\"ok\":true,\"id\":\"order:validator-valid\",\"rev\":\"2-7577e4c1a16358e7bdae283618f39dba\"}\n",
+            "request": {
+                "_id": "order:validator-valid",
+                "_rev": "1-b9b67911434dc4cf0924b5a5c6cbdefa",
+                "type": "order",
+                "schema_version": 2,
+                "legacy_id": "ORDER-VALIDATOR-VALID",
+                "ordered_at": "2026-10-28T01:49:02+00:00",
+                "status": "shipping",
+                "customer": null,
+                "guest_order": true,
+                "receiver": {
+                    "name": "Validator Fixture",
+                    "phone": "0900000000",
+                    "address": "Runtime test"
+                },
+                "items": [
+                    {
+                        "product_id": "product:fixture",
+                        "variant_id": "FIXTURE-M",
+                        "quantity": 1,
+                        "unit_price": 100,
+                        "line_total": 100
+                    }
+                ],
+                "totals": {
+                    "total_quantity": 1,
+                    "subtotal": 100,
+                    "shipping_fee": 0,
+                    "discount_amount": 0,
+                    "grand_total": 100
+                },
+                "payment": {
+                    "method": "cod",
+                    "status": "unpaid",
+                    "paid": false
+                },
+                "status_history": [
+                    {
+                        "status": "shipping",
+                        "at": "2026-10-28T01:49:02+00:00",
+                        "source": "validator-test"
+                    }
+                ],
+                "delivery_tracking": {
+                    "tracking_code": "VAL-TRACK-01",
+                    "status": "picked_up",
+                    "estimated_delivery_date": "2026-10-31",
+                    "delivered_at": null,
+                    "history": [
+                        {
+                            "status": "created",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        },
+                        {
+                            "status": "picked_up",
+                            "at": "2026-10-28T01:49:03+00:00",
+                            "note": "Validator verification",
+                            "updated_by": "validator-test"
+                        }
+                    ]
+                }
+            },
+            "result": "PASS"
+        }
+    ],
+    "check_count": 6,
+    "status": "PASS"
+}
