@@ -1,0 +1,175 @@
+# Kiểm kê báo cáo gốc
+
+- Nguồn chỉ đọc: C:\Users\VuongNguyen\Downloads\BAOCAO_NOSQL_PHASE05_VAN_PHONG_HOC_THUAT.docx
+- 467 đoạn, 23 bảng, 3 section, 29 ảnh inline và 1 ảnh neo.
+- Số trang render không lấy được: LibreOffice không có, Word automation bị từ chối. TOC in sẵn kết thúc khoảng trang 57; đó không phải pagination đã xác nhận.
+
+## Heading
+- đoạn 99, Heading 1: CHƯƠNG 1 – MỞ ĐẦU
+- đoạn 100, Heading 2: 1.1 Lý do chọn đề tài
+- đoạn 103, Heading 2: 1.2 Mục tiêu của đề tài
+- đoạn 105, Heading 2: 1.3 Đối tượng và phạm vi nghiên cứu
+- đoạn 107, Heading 2: 1.4 Phương pháp thực hiện
+- đoạn 109, Heading 2: 1.5 Ý nghĩa của đề tài
+- đoạn 111, Heading 2: 1.6 Bố cục báo cáo
+- đoạn 113, Heading 2: 1.7 Phân công công việc
+- đoạn 117, Heading 1: CHƯƠNG 2 – CƠ SỞ LÝ THUYẾT VỀ NOSQL, COUCHDB VÀ FAUXTON
+- đoạn 118, Heading 2: 2.1 Tổng quan về cơ sở dữ liệu NoSQL
+- đoạn 119, Heading 3: 2.1.1 Khái niệm và đặc điểm
+- đoạn 121, Heading 3: 2.1.2 Phân loại cơ sở dữ liệu NoSQL
+- đoạn 124, Heading 3: 2.1.3 Cơ sở dữ liệu hướng tài liệu
+- đoạn 127, Heading 3: 2.1.4 So sánh mô hình quan hệ và mô hình document
+- đoạn 129, Heading 2: 2.2 Tổng quan về Apache CouchDB
+- đoạn 130, Heading 3: 2.2.1 Giới thiệu CouchDB
+- đoạn 133, Heading 3: 2.2.2 Các thành phần quan trọng của CouchDB
+- đoạn 136, Heading 3: 2.2.3 Ưu điểm, hạn chế và lý do lựa chọn CouchDB
+- đoạn 139, Heading 2: 2.3 Tổng quan về Fauxton
+- đoạn 140, Heading 3: 2.3.1 Fauxton là gì và vai trò trong CouchDB
+- đoạn 142, Heading 3: 2.3.2 So sánh Fauxton với MongoDB Compass
+- đoạn 145, Heading 3: 2.3.3 Phạm vi sử dụng và giới hạn của Fauxton
+- đoạn 147, Heading 1: CHƯƠNG 3 – TÌM HIỂU VÀ SỬ DỤNG CÔNG CỤ FAUXTON
+- đoạn 148, Heading 2: 3.1 Cài đặt và cấu hình môi trường
+- đoạn 149, Heading 3: 3.1.1 Cài đặt CouchDB theo cấu hình đồ án
+- đoạn 155, Heading 3: 3.1.2 Truy cập Fauxton và tài khoản quản trị
+- đoạn 157, Heading 3: 3.1.3 Giao diện Fauxton
+- đoạn 163, Heading 3: 3.1.4 Tạo database bằng Fauxton
+- đoạn 167, Heading 2: 3.2 Các chức năng quản trị đã tìm hiểu và sử dụng trong Fauxton
+- đoạn 172, Heading 2: 3.3 Đánh giá mức độ sử dụng Fauxton trong đồ án
+- đoạn 174, Heading 2: 3.4 Truy vấn dữ liệu bằng Mango Query
+- đoạn 178, Heading 3: 3.4.1 Tìm đơn pending
+- đoạn 183, Heading 3: 3.4.2 Tìm đơn shipping
+- đoạn 189, Heading 3: 3.4.3 Tìm order của customer
+- đoạn 195, Heading 3: 3.4.4 Tìm order theo khoảng thời gian
+- đoạn 201, Heading 3: 3.4.5 COD pending chưa thanh toán
+- đoạn 207, Heading 3: 3.4.6 Các truy vấn còn lại (03, 04, 08–12)
+- đoạn 212, Heading 3: 3.4.7 Thống kê bằng MapReduce View trên Fauxton
+- đoạn 218, Heading 2: 3.5 Mango Index và tối ưu truy vấn
+- đoạn 219, Heading 3: 3.5.1 Vì sao cần index
+- đoạn 221, Heading 3: 3.5.2 Index hiện có
+- đoạn 226, Heading 3: 3.5.3 Index theo trạng thái order
+- đoạn 228, Heading 3: 3.5.4 Customer Order index
+- đoạn 230, Heading 3: 3.5.5 Tracking code index
+- đoạn 232, Heading 3: 3.5.6 _explain và execution statistics
+- đoạn 247, Heading 1: CHƯƠNG 4 – PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+- đoạn 248, Heading 2: 4.1 Phân tích bài toán
+- đoạn 249, Heading 3: 4.1.1 Đối tượng sử dụng
+- đoạn 252, Heading 3: 4.1.2 Luồng mua hàng
+- đoạn 259, Heading 3: 4.1.3 Luồng Order
+- đoạn 262, Heading 3: 4.1.4 Luồng Delivery
+- đoạn 265, Heading 3: 4.1.5 Payment
+- đoạn 268, Heading 2: 4.2 Thiết kế cơ sở dữ liệu CouchDB
+- đoạn 269, Heading 3: 4.2.1 Các database sử dụng trong đồ án
+- đoạn 272, Heading 3: 4.2.2 Các loại document
+- đoạn 275, Heading 3: 4.2.3 Product Document
+- đoạn 278, Heading 3: 4.2.4 Order Document
+- đoạn 281, Heading 3: 4.2.5 Snapshot, embedding và denormalization trong order
+- đoạn 284, Heading 3: 4.2.6 Delivery Tracking
+- đoạn 287, Heading 3: 4.2.7 Đánh đổi trong thiết kế dữ liệu
+- đoạn 290, Heading 2: 4.3 Tạo và nhập dữ liệu
+- đoạn 291, Heading 3: 4.3.1 Tạo database
+- đoạn 293, Heading 3: 4.3.2 Tạo document
+- đoạn 295, Heading 3: 4.3.3 Import dữ liệu mẫu
+- đoạn 297, Heading 3: 4.3.4 Số lượng dữ liệu
+- đoạn 300, Heading 3: 4.3.5 Các trạng thái order trong dataset
+- đoạn 303, Heading 3: 4.3.6 Các tình huống delivery
+- đoạn 306, Heading 3: 4.3.7 Kiểm tra dữ liệu trong Fauxton
+- đoạn 314, Heading 2: 4.4 Import, Export, Backup và Restore
+- đoạn 315, Heading 3: 4.4.1 Export database
+- đoạn 318, Heading 3: 4.4.2 Import database
+- đoạn 320, Heading 3: 4.4.3 Backup
+- đoạn 327, Heading 3: 4.4.4 Restore
+- đoạn 338, Heading 1: CHƯƠNG 5 – XÂY DỰNG VÀ KIỂM THỬ ỨNG DỤNG MINH HỌA
+- đoạn 339, Heading 2: 5.1 Ứng dụng PHP kết nối CouchDB
+- đoạn 340, Heading 3: 5.1.1 Kiến trúc
+- đoạn 345, Heading 3: 5.1.2 PHP kết nối CouchDB
+- đoạn 350, Heading 3: 5.1.3 Các module nghiệp vụ và document liên quan
+- đoạn 354, Heading 2: 5.2 Demo ứng dụng
+- đoạn 355, Heading 3: 5.2.1 Tài khoản và quyền người dùng
+- đoạn 359, Heading 3: 5.2.2 CRUD sản phẩm
+- đoạn 366, Heading 3: 5.2.3 Order Management
+- đoạn 376, Heading 3: 5.2.4 Delivery Tracking
+- đoạn 380, Heading 3: 5.2.5 Các chức năng hỗ trợ
+- đoạn 383, Heading 2: 5.3 Realtime và _changes
+- đoạn 384, Heading 3: 5.3.1 Luồng hiện có
+- đoạn 386, Heading 3: 5.3.2 Cơ chế duy trì kết nối và tự động kết nối lại (Reconnect)
+- đoạn 388, Heading 3: 5.3.3 Dữ liệu và quyền
+- đoạn 390, Heading 3: 5.3.4 Kết quả và giới hạn
+- đoạn 393, Heading 2: 5.4 Revision và xử lý Conflict
+- đoạn 394, Heading 3: 5.4.1 Cập nhật document theo revision
+- đoạn 401, Heading 3: 5.4.2 Kiểm thử stale revision trả HTTP 409
+- đoạn 406, Heading 3: 5.4.3 Cách PHP xử lý HTTP 409
+- đoạn 411, Heading 2: 5.5 Validation và Design Document
+- đoạn 412, Heading 3: 5.5.1 Design Document
+- đoạn 416, Heading 3: 5.5.2 Validator
+- đoạn 419, Heading 3: 5.5.3 Validation Order status
+- đoạn 423, Heading 3: 5.5.4 Validation Delivery status
+- đoạn 426, Heading 3: 5.5.5 Quy tắc bảo toàn lịch sử trạng thái đơn hàng (Append-only History)
+- đoạn 429, Heading 3: 5.5.6 Demo dữ liệu sai bị từ chối
+- đoạn 433, Heading 2: 5.6 Kiểm thử hệ thống
+- đoạn 434, Heading 3: 5.6.1 Cơ sở tổng hợp
+- đoạn 437, Heading 3: 5.6.2 Đánh giá phạm vi và môi trường kiểm thử
+- đoạn 442, Heading 1: CHƯƠNG 6 – KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+- đoạn 443, Heading 2: 6.1 Kết quả đạt được
+- đoạn 446, Heading 2: 6.2 Đánh giá và giới hạn
+- đoạn 449, Heading 2: 6.3 Hướng phát triển
+- đoạn 452, Heading 2: 6.4 Kết luận
+
+## Caption hình
+- Hình 3.1. Danh sách database	15 (đoạn 44)
+- Hình 3.2. All Documents của database	15 (đoạn 45)
+- Hình 3.3. Truy vấn Mango Query 02 trên Fauxton, kết quả shipping trên Fauxton	22 (đoạn 46)
+- Hình 3.4. Kết quả View order_count_by_status với group=true trên Fauxton (28/10/2026)	23 (đoạn 47)
+- Hình 3.5. Giao diện Manage Indexes trên Fauxton 	24 (đoạn 48)
+- Hình 3.6. Explain của Query 07 chọn index admin_orders trên Fauxton	26 (đoạn 49)
+- Hình 3.7. Mango Query 01 lọc đơn pending; giao diện cảnh báo quét 61 document 	27 (đoạn 50)
+- Hình 3.8. Mango Query 06 theo khoảng ngày trên Fauxton (21 kết quả) 	27 (đoạn 51)
+- Hình 3.9. View order_total_by_status với group=true trên Fauxton 	28 (đoạn 52)
+- Hình 4.1. Sơ đồ luồng mua hàng, order và delivery của hệ thống	30 (đoạn 53)
+- Hình 4.2. Product document tổng hợp với variants và images	36 (đoạn 54)
+- Hình 4.3. Order document tổng hợp với item/shipping/payment snapshot (1)	37 (đoạn 55)
+- Hình 4.4. delivery_tracking của order:P06-0020	37 (đoạn 56)
+- Hình 4.5. Kết quả thực thi lệnh sao lưu cơ sở dữ liệu trên Terminal	38 (đoạn 57)
+- Hình 4.6. Kết quả lệnh restore trên Terminal và dữ liệu phục hồi trong Fauxton	39 (đoạn 58)
+- Hình 5.1. Sơ đồ kiến trúc PHP–CouchDB và vai trò Fauxton	41 (đoạn 59)
+- Hình 5.2. Giao diện đăng nhập của ứng dụng PHP	43 (đoạn 60)
+- Hình 5.3. Biểu mẫu thêm sản phẩm dành cho manager	44 (đoạn 61)
+- Hình 5.4. Danh sách sản phẩm trong trang quản trị	44 (đoạn 62)
+- Hình 5.5. Checkout với COD, shipping và totals	45 (đoạn 63)
+- Hình 5.6. Chi tiết đơn hàng và thông tin thanh toán	45 (đoạn 64)
+- Hình 5.7. Admin Order List có filter/payment/delivery	45 (đoạn 65)
+- Hình 5.8. Biểu mẫu cập nhật trạng thái giao hàng của manager	46 (đoạn 66)
+- Hình 5.9. Customer Delivery Timeline có failed event và retry	47 (đoạn 67)
+- Hình 5.10. Revision trước cập nhật trên dữ liệu kiểm thử độc lập	49 (đoạn 68)
+- Hình 5.11. Revision sau cập nhật trên dữ liệu kiểm thử độc lập	49 (đoạn 69)
+- Hình 5.12. Kết quả kiểm thử stale revision (HTTP 409)	50 (đoạn 70)
+- Hình 5.13. Design document domain_validation trong Fauxton	51 (đoạn 71)
+- Hình 5.14. Minh chứng từ chối document không hợp lệ trong kiểm thử lịch sử; chưa phân lập rule status	54 (đoạn 72)
+- Hình 3.1. Danh sách database (đoạn 160)
+- Hình 3.2. All Documents của database (đoạn 162)
+- Hình 3.3. Truy vấn Mango Query 02 trên Fauxton với trạng thái shipping (đoạn 210)
+- Hình 3.4. Kết quả View order_count_by_status với group=true trên Fauxton (28/10/2026) (đoạn 217)
+- Hình 3.5. Danh sách Mango Index trong Manage Indexes của Fauxton (đoạn 225)
+- Hình 3.6. Explain của Query 07 chọn index admin_orders trên Fauxton (đoạn 238)
+- Hình 3.7. Truy vấn Mango Query 01 lọc đơn pending và cảnh báo quét 61 document (đoạn 241)
+- Hình 3.8. Truy vấn Mango Query 06 theo khoảng thời gian trên Fauxton (21 kết quả) (đoạn 243)
+- Hình 3.9. Kết quả View order_total_by_status với group=true trên Fauxton (đoạn 245)
+- Hình 4.1. Sơ đồ luồng mua hàng, order và delivery của hệ thống (đoạn 258)
+- Hình 4.2. Product document tổng hợp với variants và images (đoạn 310)
+- Hình 4.3. Order document tổng hợp với item/shipping/payment snapshot (1) (đoạn 312)
+- Hình 4.4. delivery_tracking của order:P06-0020 (đoạn 313)
+- Hình 4.5. Kết quả thực thi lệnh sao lưu cơ sở dữ liệu trên Terminal (đoạn 326)
+- Hình 4.6. Kết quả lệnh restore trên Terminal và dữ liệu phục hồi trong Fauxton (đoạn 334)
+- Hình 5.1. Sơ đồ kiến trúc PHP–CouchDB và vai trò Fauxton (đoạn 344)
+- Hình 5.2. Giao diện đăng nhập của ứng dụng PHP (đoạn 358)
+- Hình 5.3. Biểu mẫu thêm sản phẩm dành cho manager (đoạn 363)
+- Hình 5.4. Danh sách sản phẩm trong trang quản trị (đoạn 365)
+- Hình 5.5. Checkout với COD, shipping và totals (đoạn 369)
+- Hình 5.6. Chi tiết đơn hàng và thông tin thanh toán (đoạn 371)
+- Hình 5.7. Admin Order List có filter/payment/delivery (đoạn 372)
+- Hình 5.8. Biểu mẫu cập nhật trạng thái giao hàng của manager (đoạn 375)
+- Hình 5.9. Customer Delivery Timeline có failed event và retry (đoạn 379)
+- Hình 5.10. Revision trước cập nhật trên dữ liệu kiểm thử độc lập (đoạn 398)
+- Hình 5.11. Revision sau cập nhật trên dữ liệu kiểm thử độc lập (đoạn 400)
+- Hình 5.12. Kết quả kiểm thử stale revision (HTTP 409) (đoạn 405)
+- Hình 5.13. Design document domain_validation trong Fauxton (đoạn 415)
+- Hình 5.14. Kết quả từ chối cập nhật Order có dữ liệu không hợp lệ (đoạn 432)
