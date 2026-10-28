@@ -1,5 +1,5 @@
 {
-    "generated_at_utc": "2026-10-28T01:57:02Z",
+    "generated_at_utc": "2026-10-28T02:09:26Z",
     "database": "retail_order_delivery_demo",
     "phase1": {
         "total_documents": 150,
@@ -47,8 +47,8 @@
                 "after_results": 3
             }
         ],
-        "query_01_root_cause": "The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). The historical Fauxton Request Payload was not supplied, so this probe cannot prove which fields Fauxton omitted.",
-        "query_06_root_cause": "In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical Fauxton Request Payload was not supplied, so exact cause remains unverified."
+        "query_01_root_cause": "Historical cause for Fauxton _all_docs fallback was not verified because the original request payload was unavailable. Per user decision on 2026-10-28, investigation is closed and will not continue. Current runtime evidence is independent and does not claim to explain the historical result.",
+        "query_06_root_cause": "Historical cause for 27 versus 21 was not verified because the original Fauxton request payload was unavailable. Per user decision on 2026-10-28, investigation is closed and will not continue. Current runtime evidence is independent and does not claim to explain the historical result."
     },
     "queries": {
         "01": {

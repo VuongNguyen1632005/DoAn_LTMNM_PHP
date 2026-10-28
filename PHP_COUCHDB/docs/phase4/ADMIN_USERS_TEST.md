@@ -37,4 +37,4 @@ Khi cập nhật hồ sơ, form trước đó không gửi `_rev` và service kh
 
 ## Giới hạn bằng chứng
 
-Các payload lịch sử Fauxton của query 01 và 06 người dùng chưa lấy được. Việc đó không cản trở kiểm thử HTTP quản trị; sai lệch lịch sử hai query vẫn được ghi riêng là chưa xác minh, không suy diễn từ runtime mới.
+Các payload lịch sử Fauxton của query 01 và 06 chưa lấy được. Theo quyết định của người dùng ngày 2026-10-28, điều tra hai sai lệch đã đóng và không làm tiếp; việc này không ảnh hưởng đến kết quả kiểm thử HTTP quản trị.

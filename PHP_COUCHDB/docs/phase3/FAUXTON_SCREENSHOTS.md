@@ -24,7 +24,7 @@ No screenshots were taken during this task. Capture these manually in Fauxton at
 | `16-order-statistics-views.png` | `retail_order_delivery_demo` | Design Documents → `_design/order_statistics` → run `order_count_by_status`, `order_total_by_status`, `orders_by_month` with `group=true&group_level=2`, `top_products?group=true`, `revenue_delivered_by_month?group=true&group_level=2`, and `orders_by_customer?reduce=false&include_docs=true` | View keys and aggregate values match `docs/phase3/VIEWS.md` |
 | `17-full-domain-validator.png` | `retail_order_delivery_demo` | Design Documents → `_design/domain_validation`; open source/document view without editing | Full `validate_doc_update` function is visible; do not save edits |
 
-For a later investigation of the legacy discrepancies, open browser DevTools → Network while running the original query 01 and query 06 in the exact historical Fauxton database. Select each `/_find` request and capture Request Payload, including `use_index`, `sort`, `limit`, and `bookmark`. Those historical payloads were not available during this work, so the original two discrepancies remain unverified.
+The historical query 01/06 discrepancies were not verified because the original Fauxton payloads were unavailable. Per user decision on 2026-10-28, that investigation is closed and no further payload capture is required.
 
 ## Scratch feature demonstrations
 

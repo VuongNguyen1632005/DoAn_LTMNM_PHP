@@ -66,13 +66,12 @@ Không ghi hoặc xóa database có sẵn nào khác ngoài target demo mới; `
 
 Metadata Git nằm ở thư mục cha `D:\PHP_NOSQL\.git`, ngoài writable root; Git chỉ hoạt động khi dùng quyền elevated. Working tree hiện có nhiều thay đổi không thuộc Phase 1; sẽ không gom chúng vào commit.
 
-## Chưa xác minh
+## Mục chưa xác minh và quyết định đóng
 
 - Database hiện có trên CouchDB và số document theo `type` (runtime chưa lên).
-- Nguyên nhân gốc 27/21 của query 06; payload thực tế và database Fauxton đang dùng chưa thu được. File query hiện hành đã đặt `limit: 50`, cao hơn CouchDB mặc định 25, nên riêng mặc định 25 không giải thích được query file hiện tại trả thiếu 6 kết quả.
-- Nguyên nhân query 01 fallback; cần `_explain` thực tế của đúng payload Fauxton và cùng database.
+- Nguyên nhân lịch sử của query 06 (27 so với 21) và query 01 (`_all_docs` fallback): chưa xác minh do thiếu payload cũ; theo quyết định người dùng ngày 2026-10-28, đóng điều tra và không làm tiếp.
 - Số liệu explain/execution_stats trước/sau delivery index.
 
-Tài liệu lịch sử xác nhận giới hạn của chứng cứ: `docs/PHASE_07_NOSQL_FAUXTON_REPORT.md` ghi query 06 API trả 27 và Fauxton GUI chưa xác minh; cùng tài liệu ghi `_explain` của query 01 chọn `admin_orders`. Đây không phải bằng chứng cho payload/database đang báo fallback hiện nay.
+Tài liệu lịch sử ghi query 06 API trả 27 và Fauxton GUI chưa xác minh; cùng tài liệu ghi `_explain` của query 01 chọn `admin_orders`. Đây không xác định nguyên nhân của kết quả lịch sử; điều tra đã được đóng theo quyết định người dùng.
 
 Không suy diễn các mục này từ fixture hay tài liệu cũ.

@@ -90,6 +90,5 @@ Payload query và toàn bộ response `_explain`/`_find` được lưu theo từ
 
 ## Nguyên nhân gốc các sai lệch cũ
 
-- Query 06 (27 so với 21): **chưa xác định** nếu thiếu payload Fauxton cũ và tên database mà Fauxton dùng. File hiện tại đặt `limit: 50`, nên mặc định CouchDB 25 không giải thích được con số 21.
-- Query 01 (fallback): **chưa xác định** nếu thiếu response `_explain` từ đúng payload Fauxton. Báo cáo có `_explain` API của database mới nhưng không xem đó là bằng chứng về request cũ.
+- Query 06 (27 so với 21) và query 01 (fallback): nguyên nhân lịch sử **không được xác minh** vì thiếu payload/request của Fauxton cũ. Theo quyết định của người dùng ngày 2026-10-28, đóng điều tra và không làm tiếp; kết quả runtime hiện tại vẫn được giữ làm bằng chứng độc lập.
 - Probe read-only trên `shopquan_ao_phase06_demo_test`: query 06 file trả 27; cùng selector/payload nhưng chỉ đặt `limit: 25` trả 25. Query 01 đầy đủ trả 5 bằng `admin_orders`; bỏ `use_index` và `sort` tái hiện `_all_docs`, 61 docs examined. Bỏ riêng `use_index` nhưng giữ `sort` trả HTTP 400 vì không có index cho sort. Xem payload/response đầy đủ trong `legacy_database_comparison` của JSON.

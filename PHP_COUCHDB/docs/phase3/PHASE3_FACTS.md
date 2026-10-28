@@ -1,6 +1,6 @@
 # Phase 3 – Tổng hợp bằng chứng cho báo cáo
 
-- Database: `retail_order_delivery_demo`; generated UTC: 2026-10-28T01:57:02Z
+- Database: `retail_order_delivery_demo`; generated UTC: 2026-10-28T02:09:26Z
 - Runtime: CouchDB 3.5; 150 documents (147 business + 3 design), 65 orders, 15 guest orders.
 
 ## Bảng query 01–20
@@ -78,6 +78,6 @@
 | HTTP admin users + manager backup | 25 | PASS |
 | Full domain validator | 6 | PASS |
 
-Payload lịch sử Fauxton cho query 01 và query 06 chưa được cung cấp. Nguyên nhân của sai lệch lịch sử được đánh dấu **chưa xác minh**; kết quả runtime ở trên được lấy từ lần chạy hiện tại và không thay thế payload lịch sử.
+Payload lịch sử Fauxton cho query 01 và query 06 chưa được cung cấp nên nguyên nhân không được xác minh. Theo quyết định người dùng ngày 2026-10-28, điều tra đã **đóng, không làm tiếp**. Kết quả runtime hiện tại được giữ làm bằng chứng riêng.
 
 Evidence chi tiết: `phase1/phase1_facts.json`, `advanced_query_facts.json`, `views_facts.json`, `feature_evidence/*.json`, `backup_restore_evidence.json`, `csv_exchange_evidence.json`, và `phase4/*_evidence.json`.

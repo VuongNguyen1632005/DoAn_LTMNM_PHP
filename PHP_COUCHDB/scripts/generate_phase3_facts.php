@@ -174,7 +174,7 @@ $md = array_merge($md, ['', '## Quản trị và validator', '', '| Hạng mục
 $md[] = '| HTTP admin users + manager backup | ' . ($admin['check_count'] ?? 'N/A') . ' | ' . ($admin['status'] ?? 'UNKNOWN') . ' |';
 $md[] = '| Full domain validator | ' . ($validator['check_count'] ?? 'N/A') . ' | ' . ($validator['status'] ?? 'UNKNOWN') . ' |';
 $md[] = '';
-$md[] = 'Payload lịch sử Fauxton cho query 01 và query 06 chưa được cung cấp. Nguyên nhân của sai lệch lịch sử được đánh dấu **chưa xác minh**; kết quả runtime ở trên được lấy từ lần chạy hiện tại và không thay thế payload lịch sử.';
+$md[] = 'Payload lịch sử Fauxton cho query 01 và query 06 chưa được cung cấp nên nguyên nhân không được xác minh. Theo quyết định người dùng ngày 2026-10-28, điều tra đã **đóng, không làm tiếp**. Kết quả runtime hiện tại được giữ làm bằng chứng riêng.';
 $md[] = '';
 $md[] = 'Evidence chi tiết: `phase1/phase1_facts.json`, `advanced_query_facts.json`, `views_facts.json`, `feature_evidence/*.json`, `backup_restore_evidence.json`, `csv_exchange_evidence.json`, và `phase4/*_evidence.json`.';
 file_put_contents($root . '/docs/phase3/PHASE3_FACTS.md', implode(PHP_EOL, $md) . PHP_EOL, LOCK_EX);
