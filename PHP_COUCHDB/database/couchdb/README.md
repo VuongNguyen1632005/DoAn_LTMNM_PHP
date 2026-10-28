@@ -16,7 +16,7 @@ Bộ sinh đọc các fixture trong `WEBTHOITRANG`, kiểm tra các hàng sản 
 
 Importer `PHP_COUCHDB/scripts/import_seed.php` chỉ cho phép target kết thúc bằng `_test`. Nó tạo database test nếu còn thiếu, cài validator riêng trước business documents, so khớp document đã có, từ chối khác biệt hoặc dữ liệu ngoài fixture, kiểm tra từng kết quả `_bulk_docs` và kiểm tra lại toàn bộ fixture. Nếu CouchDB ngắt giữa các batch, chạy lại importer để tiếp tục; document giống seed sẽ được bỏ qua. `--verify-only` chỉ đối chiếu dữ liệu hiện có và không ghi.
 
-Khi chỉ cập nhật validator của database test đã có, chạy `docker compose exec -T app composer db:validator:update`. Script giữ nguyên business documents, chỉ ghi `_design/domain_validation` vào database có tên kết thúc bằng `_test`, rồi đọc lại để xác minh. File chuẩn là `design-docs/domain_validation.json`; validator yêu cầu các event `payment_history` hợp lệ, không cho xóa/sửa event cũ và chặn đơn đã paid quay về unpaid. Sau khi cập nhật, chạy `composer seed:verify` để kiểm tra fixture.
+Khi chỉ cập nhật validator của database test đã có, chạy `docker compose exec -T app composer db:validator:update`. Script giữ nguyên business documents, chỉ ghi `_design/domain_validation` vào database có tên kết thúc bằng `_test`, rồi đọc lại để xác minh. File chuẩn là `design-docs/domain_validation.json`; validator yêu cầu các event `payment_history` hợp lệ, không cho xóa/sửa event cũ và chặn đơn đã paid quay về unpaid. Sau khi cập nhật, chạy `composer seed:verify-fixture` để kiểm tra fixture.
 
 Không đổi `COUCHDB_DATABASE` sang database khác `_test` hoặc import vào database có dữ liệu nghiệp vụ. Password hash demo cần được provision riêng bằng PHP trước khi bật đăng nhập.
 
@@ -29,7 +29,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 # Sửa COUCHDB_PASSWORD trong .env thành một secret local ngẫu nhiên.
 docker compose up --build -d
 docker compose run --rm app composer seed:import
-docker compose run --rm app composer seed:verify
+docker compose run --rm app composer seed:verify-fixture
 docker compose exec -T app composer catalog:indexes
 ```
 
@@ -54,7 +54,7 @@ Khởi động lại riêng CouchDB bằng `docker compose restart couchdb`. D�
 
 ## Backup và phục hồi thử nghiệm
 
-Các lệnh dưới đây chỉ cho phép database có hậu tố `_test`. Tạo backup JSON trong `var/backups` (bao gồm design documents và CouchDB attachments):
+Backup/restore chấp nhận database có hậu tố `_test` hoặc `_demo`. Restore chỉ tạo database đích mới. Tạo backup JSON trong `var/backups` (bao gồm design documents và CouchDB attachments):
 
 ```powershell
 docker compose exec -T app composer db:backup -- retail_order_delivery-20261007.json
@@ -68,7 +68,7 @@ Phục hồi luôn tạo một database `_test` mới và từ chối target đ�
 
 ```powershell
 docker compose exec -T app composer db:restore -- retail_order_delivery-20261007.json retail_restore_check_test
-docker compose exec -T -e COUCHDB_DATABASE=retail_restore_check_test app composer seed:verify
+docker compose exec -T app composer db:restore-verify -- retail_order_delivery-20261007.json retail_restore_check_test
 ```
 
 Với backup demo `nosql-demo-20261010.json`, quy trình kiểm thử thật đã tạo `nosql_report_restore_check_test` bằng `composer db:restore -- nosql-demo-20261010.json nosql_report_restore_check_test`. Chạy `composer db:restore-verify -- nosql-demo-20261010.json nosql_report_restore_check_test` để so sánh toàn bộ nội dung với backup, kiểm tra Mango/index và thử validator chỉ trên đích; `composer db:restore-smoke -- nosql-demo-20261010.json nosql_report_restore_check_test` kiểm tra các trường hợp lỗi và từ chối ghi đè. Xem [Restore Verification](../../docs/RESTORE_VERIFICATION.md). Database đích được giữ lại cho ảnh Fauxton; chạy lại cùng tên sẽ bị từ chối an toàn.
@@ -116,13 +116,14 @@ Preflight dừng khi có khóa trùng, tham chiếu mồ côi, tiền VND lẻ, 
 - `design-docs/domain_validation.json`: design document CouchDB cho document version 2.
 - `seeds/retail_order_delivery.json`: 347 document fixture: 48 product, 270 review, 3 cart, 3 customer, 2 staff, 13 order, 5 voucher, 2 phương thức ship và 1 validator.
 - `tools/build_fixture_seed.py`: builder tái lập fixture từ script SQL mẫu và seed document v1.
-- `indexes/catalog_indexes.json`: Mango index phục vụ sản phẩm (partial filter theo type/active), đánh giá, username, lịch sử đơn theo customer/ngày, admin đơn theo trạng thái/ngày hoặc ngày, và màn hình quản trị sản phẩm/đánh giá.
+- `indexes/catalog_indexes.json`: Mango index phục vụ sản phẩm (partial filter theo type/active), đánh giá, username, lịch sử đơn theo customer/ngày, admin đơn theo trạng thái/ngày hoặc ngày, tìm tracking code, trạng thái delivery/ngày và màn hình quản trị sản phẩm/đánh giá.
+- `design-docs/order_statistics.json`: MapReduce views tổng doanh thu theo trạng thái order và theo tháng (emit `grand_total`, reduce `_sum`). Seeder demo Phase 1 cài cùng validator và catalog indexes.
 - `queries/*.json`: query `_find` mẫu cho sản phẩm active, đơn pending và review active; mỗi file ghim `use_index` để có thể chạy lại và đối chiếu `_explain`.
 - `../../scripts/import_seed.php`: importer PHP chỉ ghi vào database `_test`.
 - `../../scripts/create_catalog_indexes.php`: tạo index catalog trong database đang cấu hình; chạy sau seed.
 - `../../scripts/couchdb_query_diagnostics.php`: chạy `_explain` và `_find` read-only cho các query mẫu; chỉ chấp nhận database `_test` và báo index được chọn cùng số document trả về.
 - `../../scripts/compact_order_markers.php`: dry-run mặc định để kiểm tra marker của journal đã terminal; apply chỉ trong database `_test` sau xác nhận tương tác.
-- `../../scripts/database_backup.php`: backup/restore local, chỉ `_test`; restore chỉ tạo database mới.
+- `../../scripts/database_backup.php`: backup/restore local cho `_test` và `_demo`; restore chỉ tạo database mới.
 - `migrations/export_sql_server_snapshot.sql` và `../../scripts/export_sql_server_snapshot.ps1`: truy vấn snapshot đọc-only của 13 bảng nghiệp vụ, bỏ qua mật khẩu cũ.
 - `tools/validate_sql_snapshot.py`: kiểm tra cấu trúc và đối soát snapshot trước khi transform/import; không in dữ liệu cá nhân.
 - `tools/transform_sql_snapshot.py`: transform snapshot đã preflight thành artifact schema v2 offline; chưa ghi CouchDB.

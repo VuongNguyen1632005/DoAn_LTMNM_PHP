@@ -37,8 +37,8 @@ function backupJson(CouchDbResponse $response, string $operation): array
 
 function safeDatabaseName(string $database): void
 {
-    if (!preg_match('/^[a-z][a-z0-9_$()+\/-]*_test$/', $database)) {
-        failBackup('Backup and restore are restricted to database names ending in _test.');
+    if (!preg_match('/^[a-z][a-z0-9_$()+\/-]*_(test|demo)$/', $database)) {
+        failBackup('Backup and restore are restricted to database names ending in _test or _demo.');
     }
 }
 
@@ -169,7 +169,7 @@ function validateRestorePayload(array $payload, string $target): array
     $source = $payload['source_database'] ?? null;
     $documents = $payload['documents'] ?? null;
     if (($payload['format_version'] ?? null) !== 1 || !is_string($source)
-        || !preg_match('/^[a-z][a-z0-9_$()+\/-]*_test$/', $source)
+        || !preg_match('/^[a-z][a-z0-9_$()+\/-]*_(test|demo)$/', $source)
         || $source === $target || !is_string($payload['created_at'] ?? null)
         || !is_array($documents) || !array_is_list($documents) || $documents === []
         || !is_int($payload['document_count'] ?? null)
@@ -223,7 +223,7 @@ function restoreDatabase(): never
     global $argv;
     $name = $argv[2] ?? '';
     $target = $argv[3] ?? '';
-    if (!preg_match('/^[A-Za-z0-9][A-Za-z0-9._-]*\.json$/', $name)) failBackup('Usage: composer db:restore -- <backup.json> <target_test_database>');
+    if (!preg_match('/^[A-Za-z0-9][A-Za-z0-9._-]*\.json$/', $name)) failBackup('Usage: composer db:restore -- <backup.json> <target_test_or_demo_database>');
     safeDatabaseName($target);
     $path = dirname(__DIR__) . '/var/backups/' . $name;
     if (!is_file($path) || is_link($path)) failBackup('Backup file was not found in var/backups.');
@@ -284,7 +284,7 @@ if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
         $action = $argv[1] ?? '';
         if ($action === 'backup') backupDatabase();
         if ($action === 'restore') restoreDatabase();
-        failBackup('Usage: php scripts/database_backup.php backup [filename.json] | restore <backup.json> <target_test_database>');
+        failBackup('Usage: php scripts/database_backup.php backup [filename.json] | restore <backup.json> <target_test_or_demo_database>');
     } catch (Throwable $exception) {
         failBackup(($action === 'restore' ? 'Restore' : 'Backup') . ' command failed: ' . $exception->getMessage());
     }

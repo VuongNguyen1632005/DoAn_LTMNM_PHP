@@ -29,6 +29,7 @@ $indexes = [
     ['name' => 'admin_orders', 'fields' => ['type', 'status', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'admin_orders_by_date', 'fields' => ['type', 'ordered_at'], 'partial' => ['type' => 'order']],
     ['name' => 'delivery_tracking_code', 'fields' => ['type', 'delivery_tracking.tracking_code'], 'partial' => ['type' => 'order']],
+    ['name' => 'delivery_status', 'fields' => ['type', 'delivery_tracking.status', 'ordered_at'], 'partial' => ['type' => 'order']],
 ];
 $indexesResponse = $client->request('GET', $database . '/_index');
 if ($indexesResponse->statusCode < 200 || $indexesResponse->statusCode >= 300) {

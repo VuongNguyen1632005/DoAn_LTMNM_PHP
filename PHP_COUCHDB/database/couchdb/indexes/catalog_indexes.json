@@ -58,6 +58,14 @@
       "reduce": "_count",
       "options": {"def": {"fields": ["type", "delivery_tracking.tracking_code"], "partial_filter_selector": {"type": "order"}}}
     },
+    "delivery_status": {
+      "map": {
+        "fields": {"type": "asc", "delivery_tracking.status": "asc", "ordered_at": "asc"},
+        "partial_filter_selector": {"type": {"$eq": "order"}}
+      },
+      "reduce": "_count",
+      "options": {"def": {"fields": ["type", "delivery_tracking.status", "ordered_at"], "partial_filter_selector": {"type": "order"}}}
+    },
     "admin_products": {
       "map": {
         "fields": {"type": "asc"},

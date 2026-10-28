@@ -1,0 +1,14 @@
+{
+  "_id": "_design/order_statistics",
+  "language": "javascript",
+  "views": {
+    "orders_by_status": {
+      "map": "function (doc) { if (doc.type === 'order' && typeof doc.status === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit(doc.status, doc.totals.grand_total); } }",
+      "reduce": "_sum"
+    },
+    "orders_by_month": {
+      "map": "function (doc) { if (doc.type === 'order' && typeof doc.ordered_at === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit(doc.ordered_at.substring(0, 7), doc.totals.grand_total); } }",
+      "reduce": "_sum"
+    }
+  }
+}

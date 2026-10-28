@@ -30,7 +30,7 @@ Xác minh seed trên database `_test` ngẫu nhiên, cô lập và tự xóa:
 docker compose exec -T app composer seed:verify-isolated
 ```
 
-Lệnh `composer seed:verify` chỉ kiểm tra database hiện tại trong `COUCHDB_DATABASE`; nó không tạo seed và sẽ từ chối database có document ngoài bộ fixture. `composer seed:verify-isolated` tạo database dùng một lần, chạy import và verify, rồi xóa chính database đó trong cả trường hợp thành công hoặc thất bại.
+Lệnh `composer seed:verify` kiểm tra bộ demo Phase 1 trong `DEMO_DATABASE`; `composer seed:verify-fixture` chỉ kiểm tra fixture cũ trong `COUCHDB_DATABASE`. `composer seed:verify-isolated` vẫn tạo database dùng một lần cho fixture cũ, chạy import và verify, rồi xóa chính database đó trong cả trường hợp thành công hoặc thất bại.
 
 Kiểm tra đường lỗi khi CouchDB không kết nối được mà không tác động database:
 
@@ -38,7 +38,7 @@ Kiểm tra đường lỗi khi CouchDB không kết nối được mà không t�
 docker compose exec -T app composer couchdb:failure-smoke
 ```
 
-`COUCHDB_DATABASE` trong `.env.example` trùng với giá trị fallback trong Docker Compose (`retail_order_delivery_test`). Có thể đặt tên `_test` riêng trong `.env`; mọi importer/smoke command vẫn kiểm tra hậu tố test trước khi chạy.
+`COUCHDB_DATABASE` trong `.env.example` trùng với giá trị fallback trong Docker Compose (`retail_order_delivery_test`). Có thể đặt tên `_test` riêng trong `.env`; các importer/smoke command của fixture vẫn kiểm tra hậu tố test trước khi chạy.
 
 Kiểm tra query Mango mẫu và index mà CouchDB chọn bằng `_explain` trên database `_test` đang cấu hình:
 
@@ -46,7 +46,7 @@ Kiểm tra query Mango mẫu và index mà CouchDB chọn bằng `_explain` trê
 docker compose exec -T app composer couchdb:diagnostics
 ```
 
-Backup/restore JSON thử nghiệm chỉ chạy trên database `_test`; lệnh restore yêu cầu database đích chưa tồn tại. Xem [hướng dẫn backup và phục hồi](database/couchdb/README.md). Ảnh upload thuộc volume riêng và cần backup riêng.
+Backup/restore JSON thử nghiệm nhận source `_test` hoặc `_demo`; lệnh restore yêu cầu database đích `_test`/`_demo` chưa tồn tại. Xem [hướng dẫn backup và phục hồi](database/couchdb/README.md). Ảnh upload thuộc volume riêng và cần backup riêng.
 
 ## Database demo Phase 6
 
@@ -61,6 +61,18 @@ docker compose exec -T app composer demo:reset
 `demo:seed` chỉ tạo database đích nếu database chưa tồn tại. `demo:reset` chỉ xóa database có tên hậu tố `_phase06_demo_test` sau khi xác nhận mọi business document là demo-owned; script từ chối database hiện tại, document không nhận diện và design document lạ. Có thể chỉ định `PHASE06_DEMO_DATABASE` để dùng một tên riêng đúng hậu tố. Mật khẩu được tạo ngẫu nhiên và lưu cục bộ trong `var/phase06_demo_credentials.txt`; file đã được ignore bởi Git. Đặt `PHASE06_DEMO_PASSWORD` cho một lượt seed nếu cần dùng credential do người vận hành chọn.
 
 Bộ dữ liệu gồm 6 khách hàng tổng hợp, 2 tài khoản staff/manager, 18 sản phẩm, 1 voucher, 2 phương thức giao hàng và 27 đơn. Không dùng thông tin khách hàng thật. Xem [báo cáo Phase 6](docs/PHASE_06_FINAL_TEST_DEMO_DATA_REPORT.md) để biết status distribution, kịch bản tracking và kết quả kiểm thử.
+
+## Database demo Phase 1
+
+Phase 1 dùng database riêng `retail_order_delivery_demo`, không đổi `COUCHDB_DATABASE` và không ghi đè database đang có. Seeder tạo bộ dữ liệu xác định gồm 15 customer, 3 staff, 30 product, 65 order, 3 voucher, 3 shipping method, 20 review, 8 cart và 3 design document. Chạy và xác minh:
+
+```powershell
+docker compose exec -T app composer db:seed-demo
+docker compose exec -T app composer seed:verify
+docker compose exec -T app composer phase1:report
+```
+
+`DEMO_DATABASE` mặc định là `retail_order_delivery_demo`; chỉ chấp nhận tên kết thúc `_demo`. Seeder từ chối database đã tồn tại. `--recreate` chỉ xóa database `_demo` khi mọi business document thuộc dataset Phase 1 và không có design document lạ. Báo cáo tái lập được ghi ở `docs/phase1/PHASE1_FACTS.md` và `phase1_facts.json`. Backup chấp nhận nguồn `_demo`; restore vẫn chỉ tạo database đích mới.
 
 Để chuyển snapshot SQL Server, xem [pipeline xuất, preflight, transform và import](database/couchdb/README.md). Importer yêu cầu database CouchDB `_test` riêng, cài validator trước business documents, xác minh từng document và hỗ trợ resume an toàn; không dùng seed fixture làm snapshot database live.
 

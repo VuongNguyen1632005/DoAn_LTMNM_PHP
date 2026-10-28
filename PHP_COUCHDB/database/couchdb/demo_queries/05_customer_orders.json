@@ -1,7 +1,7 @@
 {
   "selector": {
     "type": {"$eq": "order"},
-    "customer.customer_id": {"$eq": "P06-001"}
+    "customer.customer_id": {"$eq": "DEMO-C001"}
   },
   "use_index": ["_design/catalog_indexes", "customer_orders"],
   "sort": [{"ordered_at": "desc"}],
