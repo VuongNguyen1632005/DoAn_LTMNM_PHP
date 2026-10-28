@@ -1,0 +1,7 @@
+{
+    "database": "retail_order_delivery_demo",
+    "output": "docs/phase3/exports/orders_capture.csv",
+    "query_count": 65,
+    "rows_exported": 65,
+    "docs_examined": 65
+}

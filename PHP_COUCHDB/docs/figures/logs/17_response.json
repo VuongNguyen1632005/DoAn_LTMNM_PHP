@@ -1,0 +1,134 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O034",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-034",
+          "status": "created"
+        }
+      },
+      {
+        "_id": "order:DEMO-O035",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-035",
+          "status": "picked_up"
+        }
+      },
+      {
+        "_id": "order:DEMO-O036",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-036",
+          "status": "picked_up"
+        }
+      },
+      {
+        "_id": "order:DEMO-O037",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-037",
+          "status": "in_transit"
+        }
+      },
+      {
+        "_id": "order:DEMO-O038",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-038",
+          "status": "in_transit"
+        }
+      },
+      {
+        "_id": "order:DEMO-O039",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-039",
+          "status": "in_transit"
+        }
+      },
+      {
+        "_id": "order:DEMO-O040",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-040",
+          "status": "out_for_delivery"
+        }
+      },
+      {
+        "_id": "order:DEMO-O041",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-041",
+          "status": "out_for_delivery"
+        }
+      },
+      {
+        "_id": "order:DEMO-O042",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-042",
+          "status": "failed_delivery"
+        }
+      },
+      {
+        "_id": "order:DEMO-O043",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-043",
+          "status": "failed_delivery"
+        }
+      },
+      {
+        "_id": "order:DEMO-O044",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-044",
+          "status": "failed_delivery"
+        }
+      },
+      {
+        "_id": "order:DEMO-O045",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-045",
+          "status": "in_transit"
+        }
+      },
+      {
+        "_id": "order:DEMO-O046",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-046",
+          "status": "in_transit"
+        }
+      },
+      {
+        "_id": "order:DEMO-O047",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-047",
+          "status": "created"
+        }
+      },
+      {
+        "_id": "order:DEMO-O048",
+        "status": "shipping",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-048",
+          "status": "picked_up"
+        }
+      }
+    ],
+    "bookmark": "g1AAAABKeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5hYgJRxwJTlABUwglSxglVlZQEA8TUUTw",
+    "execution_stats": {
+      "total_keys_examined": 65,
+      "total_docs_examined": 65,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 15,
+      "execution_time_ms": 34.176
+    }
+  }
+]

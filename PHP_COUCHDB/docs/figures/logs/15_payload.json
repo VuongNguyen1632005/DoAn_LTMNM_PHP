@@ -1,0 +1,32 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "items": {
+        "$elemMatch": {
+          "quantity": {
+            "$gte": 2
+          },
+          "unit_price": {
+            "$gt": 200000
+          }
+        }
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "orders_type_scan"
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "items",
+      "totals.grand_total"
+    ],
+    "limit": 50,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

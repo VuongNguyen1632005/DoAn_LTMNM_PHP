@@ -1,0 +1,158 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O011",
+        "status": "pending",
+        "ordered_at": "2026-06-23T02:23:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1477000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 1512000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O009",
+        "status": "pending",
+        "ordered_at": "2026-06-19T01:57:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 1,
+          "subtotal": 193000,
+          "shipping_fee": 25000,
+          "discount_amount": 0,
+          "grand_total": 218000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O008",
+        "status": "pending",
+        "ordered_at": "2026-06-16T01:44:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 9,
+          "subtotal": 2310000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 2345000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O006",
+        "status": "pending",
+        "ordered_at": "2026-06-12T01:18:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 3,
+          "subtotal": 604000,
+          "shipping_fee": 25000,
+          "discount_amount": 20000,
+          "grand_total": 609000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O004",
+        "status": "pending",
+        "ordered_at": "2026-06-07T00:52:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 8,
+          "subtotal": 1773000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1793000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O003",
+        "status": "pending",
+        "ordered_at": "2026-06-05T00:39:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1278000,
+          "shipping_fee": 25000,
+          "discount_amount": 0,
+          "grand_total": 1303000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O002",
+        "status": "pending",
+        "ordered_at": "2026-06-03T00:26:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 4,
+          "subtotal": 595000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 630000,
+          "currency": "VND"
+        }
+      },
+      {
+        "_id": "order:DEMO-O001",
+        "status": "pending",
+        "ordered_at": "2026-06-01T00:13:00Z",
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        },
+        "totals": {
+          "total_quantity": 2,
+          "subtotal": 274000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 294000,
+          "currency": "VND"
+        }
+      }
+    ],
+    "bookmark": "g1AAAABveJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxgYgpRxwJTlABUwg1SxglWBWOwFqXkpmXnpILaIkYGRma4BEBmGGBhYGRpbGRhEZWUBAGrhHFE",
+    "execution_stats": {
+      "total_keys_examined": 11,
+      "total_docs_examined": 11,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 8,
+      "execution_time_ms": 7.335
+    }
+  }
+]

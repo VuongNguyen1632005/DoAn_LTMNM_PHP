@@ -1,0 +1,5620 @@
+{
+  "count": 50,
+  "response": {
+    "total_rows": 50,
+    "offset": 0,
+    "rows": [
+      {
+        "id": "order:DEMO-O016",
+        "key": "DEMO-C001",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-04T03:28:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O016",
+          "_rev": "1-7f588fda32922264373556af6f7c7372",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O016",
+          "customer": {
+            "customer_id": "DEMO-C001",
+            "name": "Khách Demo 01"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 01",
+            "phone": "0000000001",
+            "address": "Địa chỉ tổng hợp 016, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P016",
+              "product_name": "Sản phẩm Demo 16",
+              "variant_id": "DEMO-P016-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 232000,
+              "line_total": 464000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P030",
+              "product_name": "Sản phẩm Demo 30",
+              "variant_id": "DEMO-P030-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 330000,
+              "line_total": 330000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P007",
+              "product_name": "Sản phẩm Demo 07",
+              "variant_id": "DEMO-P007-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 179000,
+              "line_total": 358000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 8,
+            "subtotal": 2025000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 2045000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-04T03:28:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-04T03:58:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-04T03:28:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O031",
+        "key": "DEMO-C001",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-07T06:43:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O031",
+          "_rev": "1-99b77d02556a54d92b3d70f27de8217b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O031",
+          "customer": {
+            "customer_id": "DEMO-C001",
+            "name": "Khách Demo 01"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 01",
+            "phone": "0000000001",
+            "address": "Địa chỉ tổng hợp 031, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P008",
+              "product_name": "Sản phẩm Demo 08",
+              "variant_id": "DEMO-P008-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 176000,
+              "line_total": 528000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P015",
+              "product_name": "Sản phẩm Demo 15",
+              "variant_id": "DEMO-P015-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 235000,
+              "line_total": 235000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1037000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1057000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-07T06:43:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-07T07:13:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-07T07:43:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-07T06:43:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O046",
+        "key": "DEMO-C001",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-10T09:58:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O046",
+          "_rev": "3-00a1a99a349d255eae2c0cd18beb669b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O046",
+          "customer": {
+            "customer_id": "DEMO-C001",
+            "name": "Khách Demo 01"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 01",
+            "phone": "0000000001",
+            "address": "Địa chỉ tổng hợp 046, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P016",
+              "product_name": "Sản phẩm Demo 16",
+              "variant_id": "DEMO-P016-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 232000,
+              "line_total": 464000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 5,
+            "subtotal": 1337000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1357000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-10T09:58:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-10T10:28:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-10T10:58:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-10T11:28:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-10T09:58:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-046",
+            "status": "in_transit",
+            "estimated_delivery_date": "2026-09-15",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-10T12:58:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-10T13:58:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-10T14:58:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O061",
+        "key": "DEMO-C001",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-14T13:13:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O061",
+          "_rev": "1-58275cd57212739093a74660267e72c5",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O061",
+          "customer": {
+            "customer_id": "DEMO-C001",
+            "name": "Khách Demo 01"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 01",
+            "phone": "0000000001",
+            "address": "Địa chỉ tổng hợp 061, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 2,
+            "subtotal": 274000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 294000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-14T13:13:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-14T13:43:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-14T13:13:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O017",
+        "key": "DEMO-C002",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-07T03:41:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O017",
+          "_rev": "1-7a40b5b516e2d9795977caad4f28b9d6",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O017",
+          "customer": {
+            "customer_id": "DEMO-C002",
+            "name": "Khách Demo 02"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 02",
+            "phone": "0000000002",
+            "address": "Địa chỉ tổng hợp 017, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P017",
+              "product_name": "Sản phẩm Demo 17",
+              "variant_id": "DEMO-P017-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 249000,
+              "line_total": 747000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 747000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 782000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-07T03:41:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-07T04:11:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-07T03:41:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O032",
+        "key": "DEMO-C002",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-10T06:56:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O032",
+          "_rev": "1-6f65dc1b18b31d1a126f87921a10f1d5",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O032",
+          "customer": {
+            "customer_id": "DEMO-C002",
+            "name": "Khách Demo 02"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 02",
+            "phone": "0000000002",
+            "address": "Địa chỉ tổng hợp 032, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P002",
+              "product_name": "Sản phẩm Demo 02",
+              "variant_id": "DEMO-P002-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 134000,
+              "line_total": 402000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P009",
+              "product_name": "Sản phẩm Demo 09",
+              "variant_id": "DEMO-P009-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 193000,
+              "line_total": 193000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P016",
+              "product_name": "Sản phẩm Demo 16",
+              "variant_id": "DEMO-P016-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 232000,
+              "line_total": 464000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 9,
+            "subtotal": 1932000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1967000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-10T06:56:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-10T07:26:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-10T07:56:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-10T06:56:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O047",
+        "key": "DEMO-C002",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-13T10:11:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O047",
+          "_rev": "1-8eb891514fcd95935dc84ec3b6d4ebe8",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O047",
+          "customer": {
+            "customer_id": "DEMO-C002",
+            "name": "Khách Demo 02"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 02",
+            "phone": "0000000002",
+            "address": "Địa chỉ tổng hợp 047, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P017",
+              "product_name": "Sản phẩm Demo 17",
+              "variant_id": "DEMO-P017-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 249000,
+              "line_total": 747000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P024",
+              "product_name": "Sản phẩm Demo 24",
+              "variant_id": "DEMO-P024-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 288000,
+              "line_total": 288000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1309000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1344000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-13T10:11:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-13T10:41:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-13T11:11:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-13T11:41:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-13T10:11:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-047",
+            "status": "created",
+            "estimated_delivery_date": "2026-09-18",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-13T13:11:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O062",
+        "key": "DEMO-C002",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-17T13:26:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O062",
+          "_rev": "1-96a696d18f00f215cd3061085f96b15e",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O062",
+          "customer": {
+            "customer_id": "DEMO-C002",
+            "name": "Khách Demo 02"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 02",
+            "phone": "0000000002",
+            "address": "Địa chỉ tổng hợp 062, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P002",
+              "product_name": "Sản phẩm Demo 02",
+              "variant_id": "DEMO-P002-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 134000,
+              "line_total": 402000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P009",
+              "product_name": "Sản phẩm Demo 09",
+              "variant_id": "DEMO-P009-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 193000,
+              "line_total": 193000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 4,
+            "subtotal": 595000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 630000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-17T13:26:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-17T13:56:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-17T13:26:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O018",
+        "key": "DEMO-C003",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-09T03:54:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O018",
+          "_rev": "1-dc1dec0457e839c5563f89aae0f6be9a",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O018",
+          "customer": {
+            "customer_id": "DEMO-C003",
+            "name": "Khách Demo 03"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 03",
+            "phone": "0000000003",
+            "address": "Địa chỉ tổng hợp 018, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P018",
+              "product_name": "Sản phẩm Demo 18",
+              "variant_id": "DEMO-P018-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 246000,
+              "line_total": 246000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P025",
+              "product_name": "Sản phẩm Demo 25",
+              "variant_id": "DEMO-P025-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 305000,
+              "line_total": 610000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 856000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 861000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-09T03:54:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-09T04:24:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-09T03:54:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O033",
+        "key": "DEMO-C003",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-12T07:09:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O033",
+          "_rev": "1-2c01a458d80fdbdc7e142b1180d19203",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O033",
+          "customer": {
+            "customer_id": "DEMO-C003",
+            "name": "Khách Demo 03"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 03",
+            "phone": "0000000003",
+            "address": "Địa chỉ tổng hợp 033, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P003",
+              "product_name": "Sản phẩm Demo 03",
+              "variant_id": "DEMO-P003-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 151000,
+              "line_total": 151000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 1,
+            "subtotal": 151000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 176000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-12T07:09:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-12T07:39:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-12T08:09:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-12T07:09:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O048",
+        "key": "DEMO-C003",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-15T10:24:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O048",
+          "_rev": "2-93f305f55a0a17c27085b4d0464c1141",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O048",
+          "customer": {
+            "customer_id": "DEMO-C003",
+            "name": "Khách Demo 03"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 03",
+            "phone": "0000000003",
+            "address": "Địa chỉ tổng hợp 048, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P018",
+              "product_name": "Sản phẩm Demo 18",
+              "variant_id": "DEMO-P018-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 246000,
+              "line_total": 246000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P025",
+              "product_name": "Sản phẩm Demo 25",
+              "variant_id": "DEMO-P025-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 305000,
+              "line_total": 610000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P002",
+              "product_name": "Sản phẩm Demo 02",
+              "variant_id": "DEMO-P002-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 134000,
+              "line_total": 402000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P009",
+              "product_name": "Sản phẩm Demo 09",
+              "variant_id": "DEMO-P009-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 193000,
+              "line_total": 193000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 7,
+            "subtotal": 1451000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 1456000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-15T10:24:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-15T10:54:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-15T11:24:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-15T11:54:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-15T10:24:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-048",
+            "status": "picked_up",
+            "estimated_delivery_date": "2026-09-20",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-15T13:24:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-15T14:24:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O063",
+        "key": "DEMO-C003",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-19T13:39:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O063",
+          "_rev": "1-46a0904e1ffcf628fcd04ba96ae8069a",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O063",
+          "customer": {
+            "customer_id": "DEMO-C003",
+            "name": "Khách Demo 03"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 03",
+            "phone": "0000000003",
+            "address": "Địa chỉ tổng hợp 063, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P003",
+              "product_name": "Sản phẩm Demo 03",
+              "variant_id": "DEMO-P003-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 151000,
+              "line_total": 151000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P010",
+              "product_name": "Sản phẩm Demo 10",
+              "variant_id": "DEMO-P010-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 190000,
+              "line_total": 380000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P017",
+              "product_name": "Sản phẩm Demo 17",
+              "variant_id": "DEMO-P017-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 249000,
+              "line_total": 747000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "card",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1278000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 1303000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-19T13:39:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-19T14:09:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-19T13:39:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O019",
+        "key": "DEMO-C004",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-11T04:07:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O019",
+          "_rev": "1-9c1cf13c32eff717bc75dd4f198b78c4",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O019",
+          "customer": {
+            "customer_id": "DEMO-C004",
+            "name": "Khách Demo 04"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 04",
+            "phone": "0000000004",
+            "address": "Địa chỉ tổng hợp 019, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P019",
+              "product_name": "Sản phẩm Demo 19",
+              "variant_id": "DEMO-P019-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 263000,
+              "line_total": 526000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P026",
+              "product_name": "Sản phẩm Demo 26",
+              "variant_id": "DEMO-P026-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 302000,
+              "line_total": 906000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P003",
+              "product_name": "Sản phẩm Demo 03",
+              "variant_id": "DEMO-P003-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 151000,
+              "line_total": 151000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1583000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1603000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-11T04:07:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-11T04:37:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-11T04:07:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O034",
+        "key": "DEMO-C004",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-14T07:22:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O034",
+          "_rev": "1-abfa06f596d7475530ce7d679c54c316",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O034",
+          "customer": {
+            "customer_id": "DEMO-C004",
+            "name": "Khách Demo 04"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 04",
+            "phone": "0000000004",
+            "address": "Địa chỉ tổng hợp 034, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P004",
+              "product_name": "Sản phẩm Demo 04",
+              "variant_id": "DEMO-P004-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 148000,
+              "line_total": 296000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P011",
+              "product_name": "Sản phẩm Demo 11",
+              "variant_id": "DEMO-P011-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 207000,
+              "line_total": 621000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 5,
+            "subtotal": 917000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 937000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-14T07:22:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-14T07:52:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-14T08:22:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-14T08:52:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-14T07:22:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-034",
+            "status": "created",
+            "estimated_delivery_date": "2026-08-19",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-14T10:22:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O049",
+        "key": "DEMO-C004",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-17T10:37:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O049",
+          "_rev": "1-664d26bbe4ec2c228ea77d367aaa8d30",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O049",
+          "customer": {
+            "customer_id": "DEMO-C004",
+            "name": "Khách Demo 04"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 04",
+            "phone": "0000000004",
+            "address": "Địa chỉ tổng hợp 049, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P019",
+              "product_name": "Sản phẩm Demo 19",
+              "variant_id": "DEMO-P019-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 263000,
+              "line_total": 526000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "card",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-17T11:37:00Z"
+          },
+          "totals": {
+            "total_quantity": 2,
+            "subtotal": 526000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 546000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-17T10:37:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-17T11:07:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-17T11:37:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-17T12:07:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-17T12:37:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-17T10:37:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-17T11:37:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "card"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O064",
+        "key": "DEMO-C004",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-21T13:52:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O064",
+          "_rev": "1-d95f039a9c158b1752f0e1da805bad1d",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O064",
+          "customer": {
+            "customer_id": "DEMO-C004",
+            "name": "Khách Demo 04"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 04",
+            "phone": "0000000004",
+            "address": "Địa chỉ tổng hợp 064, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P004",
+              "product_name": "Sản phẩm Demo 04",
+              "variant_id": "DEMO-P004-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 148000,
+              "line_total": 296000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P011",
+              "product_name": "Sản phẩm Demo 11",
+              "variant_id": "DEMO-P011-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 207000,
+              "line_total": 621000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P018",
+              "product_name": "Sản phẩm Demo 18",
+              "variant_id": "DEMO-P018-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 246000,
+              "line_total": 246000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P025",
+              "product_name": "Sản phẩm Demo 25",
+              "variant_id": "DEMO-P025-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 305000,
+              "line_total": 610000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 8,
+            "subtotal": 1773000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1793000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-21T13:52:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-21T14:22:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-21T13:52:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O020",
+        "key": "DEMO-C005",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-14T04:20:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O020",
+          "_rev": "1-ebad1bee0931973b8ec108bbe3430d06",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O020",
+          "customer": {
+            "customer_id": "DEMO-C005",
+            "name": "Khách Demo 05"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 05",
+            "phone": "0000000005",
+            "address": "Địa chỉ tổng hợp 020, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P020",
+              "product_name": "Sản phẩm Demo 20",
+              "variant_id": "DEMO-P020-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 260000,
+              "line_total": 780000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P004",
+              "product_name": "Sản phẩm Demo 04",
+              "variant_id": "DEMO-P004-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 148000,
+              "line_total": 296000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P011",
+              "product_name": "Sản phẩm Demo 11",
+              "variant_id": "DEMO-P011-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 207000,
+              "line_total": 621000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 9,
+            "subtotal": 2016000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 2051000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-14T04:20:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-14T04:50:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-14T04:20:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O035",
+        "key": "DEMO-C005",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-17T07:35:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O035",
+          "_rev": "2-693a597db2fc4efc78aff6490906b9e5",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O035",
+          "customer": {
+            "customer_id": "DEMO-C005",
+            "name": "Khách Demo 05"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 05",
+            "phone": "0000000005",
+            "address": "Địa chỉ tổng hợp 035, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P012",
+              "product_name": "Sản phẩm Demo 12",
+              "variant_id": "DEMO-P012-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 204000,
+              "line_total": 204000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P019",
+              "product_name": "Sản phẩm Demo 19",
+              "variant_id": "DEMO-P019-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 263000,
+              "line_total": 526000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1225000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1260000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-17T07:35:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-17T08:05:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-17T08:35:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-17T09:05:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-17T07:35:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-035",
+            "status": "picked_up",
+            "estimated_delivery_date": "2026-08-22",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-17T10:35:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-17T11:35:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O050",
+        "key": "DEMO-C005",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-20T10:50:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O050",
+          "_rev": "1-2e4521edd7e86edf4d476aad5e75e61a",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O050",
+          "customer": {
+            "customer_id": "DEMO-C005",
+            "name": "Khách Demo 05"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 05",
+            "phone": "0000000005",
+            "address": "Địa chỉ tổng hợp 050, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P020",
+              "product_name": "Sản phẩm Demo 20",
+              "variant_id": "DEMO-P020-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 260000,
+              "line_total": 780000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-20T11:50:00Z"
+          },
+          "totals": {
+            "total_quantity": 4,
+            "subtotal": 1099000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1134000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-20T10:50:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-20T11:20:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-20T11:50:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-20T12:20:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-20T12:50:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-20T10:50:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-20T11:50:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "bank_transfer"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O065",
+        "key": "DEMO-C005",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-24T14:05:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O065",
+          "_rev": "1-bf60ad3943c4ce965b88673dd61d8ee7",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O065",
+          "customer": {
+            "customer_id": "DEMO-C005",
+            "name": "Khách Demo 05"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 05",
+            "phone": "0000000005",
+            "address": "Địa chỉ tổng hợp 065, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 495000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 530000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-24T14:05:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-24T14:35:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-24T14:05:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O021",
+        "key": "DEMO-C006",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-16T04:33:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O021",
+          "_rev": "1-fb65cf12ee231fc6840f472eebc2bf17",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O021",
+          "customer": {
+            "customer_id": "DEMO-C006",
+            "name": "Khách Demo 06"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 06",
+            "phone": "0000000006",
+            "address": "Địa chỉ tổng hợp 021, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P021",
+              "product_name": "Sản phẩm Demo 21",
+              "variant_id": "DEMO-P021-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 277000,
+              "line_total": 277000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "card",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 1,
+            "subtotal": 277000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 302000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-16T04:33:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-16T05:03:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-16T04:33:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O036",
+        "key": "DEMO-C006",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-19T07:48:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O036",
+          "_rev": "2-b9c8aaf952824c2d4b13f0511361f1d8",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O036",
+          "customer": {
+            "customer_id": "DEMO-C006",
+            "name": "Khách Demo 06"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 06",
+            "phone": "0000000006",
+            "address": "Địa chỉ tổng hợp 036, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P006",
+              "product_name": "Sản phẩm Demo 06",
+              "variant_id": "DEMO-P006-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 162000,
+              "line_total": 162000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P013",
+              "product_name": "Sản phẩm Demo 13",
+              "variant_id": "DEMO-P013-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 221000,
+              "line_total": 442000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P020",
+              "product_name": "Sản phẩm Demo 20",
+              "variant_id": "DEMO-P020-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 260000,
+              "line_total": 780000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 7,
+            "subtotal": 1703000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 1708000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-19T07:48:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-19T08:18:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-19T08:48:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-19T09:18:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-19T07:48:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-036",
+            "status": "picked_up",
+            "estimated_delivery_date": "2026-08-24",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-19T10:48:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-19T11:48:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O051",
+        "key": "DEMO-C006",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-22T11:03:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O051",
+          "_rev": "1-2a69cf28be4ed8fe16f6261f31e484de",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O051",
+          "customer": {
+            "customer_id": "DEMO-C006",
+            "name": "Khách Demo 06"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 06",
+            "phone": "0000000006",
+            "address": "Địa chỉ tổng hợp 051, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P021",
+              "product_name": "Sản phẩm Demo 21",
+              "variant_id": "DEMO-P021-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 277000,
+              "line_total": 277000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P028",
+              "product_name": "Sản phẩm Demo 28",
+              "variant_id": "DEMO-P028-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 316000,
+              "line_total": 632000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-22T12:03:00Z"
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1404000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 1429000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-22T11:03:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-22T11:33:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-22T12:03:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-22T12:33:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-22T13:03:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-22T11:03:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-22T12:03:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O022",
+        "key": "DEMO-C007",
+        "value": {
+          "status": "confirmed",
+          "ordered_at": "2026-07-18T04:46:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O022",
+          "_rev": "1-60d70123ef84443a62fff8d3431c8f25",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O022",
+          "customer": {
+            "customer_id": "DEMO-C007",
+            "name": "Khách Demo 07"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 07",
+            "phone": "0000000007",
+            "address": "Địa chỉ tổng hợp 022, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P022",
+              "product_name": "Sản phẩm Demo 22",
+              "variant_id": "DEMO-P022-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 274000,
+              "line_total": 548000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P029",
+              "product_name": "Sản phẩm Demo 29",
+              "variant_id": "DEMO-P029-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 333000,
+              "line_total": 999000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 5,
+            "subtotal": 1547000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1567000,
+            "currency": "VND"
+          },
+          "status": "confirmed",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-18T04:46:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-18T05:16:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-18T04:46:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O037",
+        "key": "DEMO-C007",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-21T08:01:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O037",
+          "_rev": "3-2725e2fd77cab4bbbd9c304ac17e9bbf",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O037",
+          "customer": {
+            "customer_id": "DEMO-C007",
+            "name": "Khách Demo 07"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 07",
+            "phone": "0000000007",
+            "address": "Địa chỉ tổng hợp 037, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P007",
+              "product_name": "Sản phẩm Demo 07",
+              "variant_id": "DEMO-P007-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 179000,
+              "line_total": 358000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 2,
+            "subtotal": 358000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 378000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-21T08:01:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-21T08:31:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-21T09:01:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-21T09:31:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-21T08:01:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-037",
+            "status": "in_transit",
+            "estimated_delivery_date": "2026-08-26",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-21T11:01:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-21T12:01:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-08-21T13:01:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O052",
+        "key": "DEMO-C007",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-24T11:16:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O052",
+          "_rev": "1-48c2b644bf5de9502bfc46734a73c4bb",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O052",
+          "customer": {
+            "customer_id": "DEMO-C007",
+            "name": "Khách Demo 07"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 07",
+            "phone": "0000000007",
+            "address": "Địa chỉ tổng hợp 052, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P022",
+              "product_name": "Sản phẩm Demo 22",
+              "variant_id": "DEMO-P022-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 274000,
+              "line_total": 548000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P029",
+              "product_name": "Sản phẩm Demo 29",
+              "variant_id": "DEMO-P029-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 333000,
+              "line_total": 999000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P006",
+              "product_name": "Sản phẩm Demo 06",
+              "variant_id": "DEMO-P006-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 162000,
+              "line_total": 162000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P013",
+              "product_name": "Sản phẩm Demo 13",
+              "variant_id": "DEMO-P013-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 221000,
+              "line_total": 442000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-24T12:16:00Z"
+          },
+          "totals": {
+            "total_quantity": 8,
+            "subtotal": 2151000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 2171000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-24T11:16:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-24T11:46:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-24T12:16:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-24T12:46:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-24T13:16:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-24T11:16:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-24T12:16:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O023",
+        "key": "DEMO-C008",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-07-20T04:59:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O023",
+          "_rev": "1-0ffdf1334f500ab7bdadedab75693e47",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O023",
+          "customer": {
+            "customer_id": "DEMO-C008",
+            "name": "Khách Demo 08"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 08",
+            "phone": "0000000008",
+            "address": "Địa chỉ tổng hợp 023, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P030",
+              "product_name": "Sản phẩm Demo 30",
+              "variant_id": "DEMO-P030-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 330000,
+              "line_total": 330000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P007",
+              "product_name": "Sản phẩm Demo 07",
+              "variant_id": "DEMO-P007-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 179000,
+              "line_total": 358000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1561000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1596000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-20T04:59:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-20T05:29:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-07-20T05:59:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-20T04:59:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O038",
+        "key": "DEMO-C008",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-23T08:14:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O038",
+          "_rev": "3-57257f9fd691c1a9eb4fd10245005df2",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O038",
+          "customer": {
+            "customer_id": "DEMO-C008",
+            "name": "Khách Demo 08"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 08",
+            "phone": "0000000008",
+            "address": "Địa chỉ tổng hợp 038, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P008",
+              "product_name": "Sản phẩm Demo 08",
+              "variant_id": "DEMO-P008-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 176000,
+              "line_total": 528000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P015",
+              "product_name": "Sản phẩm Demo 15",
+              "variant_id": "DEMO-P015-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 235000,
+              "line_total": 235000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 4,
+            "subtotal": 763000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 798000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-23T08:14:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-23T08:44:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-23T09:14:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-23T09:44:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-23T08:14:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-038",
+            "status": "in_transit",
+            "estimated_delivery_date": "2026-08-28",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-23T11:14:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-23T12:14:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-08-23T13:14:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O053",
+        "key": "DEMO-C008",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-26T11:29:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O053",
+          "_rev": "1-ab3513233db06fefb09f8120662b1a95",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O053",
+          "customer": {
+            "customer_id": "DEMO-C008",
+            "name": "Khách Demo 08"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 08",
+            "phone": "0000000008",
+            "address": "Địa chỉ tổng hợp 053, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-26T12:29:00Z"
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 873000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 908000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-26T11:29:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-26T11:59:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-26T12:29:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-26T12:59:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-26T13:29:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-26T11:29:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-26T12:29:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O024",
+        "key": "DEMO-C009",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-07-23T05:12:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O024",
+          "_rev": "1-a7d127e38584f4422490a1ac88629193",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O024",
+          "customer": {
+            "customer_id": "DEMO-C009",
+            "name": "Khách Demo 09"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 09",
+            "phone": "0000000009",
+            "address": "Địa chỉ tổng hợp 024, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P024",
+              "product_name": "Sản phẩm Demo 24",
+              "variant_id": "DEMO-P024-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 288000,
+              "line_total": 288000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P008",
+              "product_name": "Sản phẩm Demo 08",
+              "variant_id": "DEMO-P008-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 176000,
+              "line_total": 528000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P015",
+              "product_name": "Sản phẩm Demo 15",
+              "variant_id": "DEMO-P015-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 235000,
+              "line_total": 235000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 7,
+            "subtotal": 1325000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 1330000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-23T05:12:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-23T05:42:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-07-23T06:12:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-23T05:12:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O039",
+        "key": "DEMO-C009",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-26T08:27:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O039",
+          "_rev": "3-4e931c2e22ebecd906a6b6a98c7bc0d3",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O039",
+          "customer": {
+            "customer_id": "DEMO-C009",
+            "name": "Khách Demo 09"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 09",
+            "phone": "0000000009",
+            "address": "Địa chỉ tổng hợp 039, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P009",
+              "product_name": "Sản phẩm Demo 09",
+              "variant_id": "DEMO-P009-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 193000,
+              "line_total": 193000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P016",
+              "product_name": "Sản phẩm Demo 16",
+              "variant_id": "DEMO-P016-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 232000,
+              "line_total": 464000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P023",
+              "product_name": "Sản phẩm Demo 23",
+              "variant_id": "DEMO-P023-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 291000,
+              "line_total": 873000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1530000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 1555000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-26T08:27:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-26T08:57:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-26T09:27:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-26T09:57:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-26T08:27:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-039",
+            "status": "in_transit",
+            "estimated_delivery_date": "2026-08-31",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-26T11:27:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-26T12:27:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-08-26T13:27:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O054",
+        "key": "DEMO-C009",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-09-29T11:42:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O054",
+          "_rev": "1-dd3ffb73d9d28e524fe9027829e255d8",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O054",
+          "customer": {
+            "customer_id": "DEMO-C009",
+            "name": "Khách Demo 09"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 09",
+            "phone": "0000000009",
+            "address": "Địa chỉ tổng hợp 054, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P024",
+              "product_name": "Sản phẩm Demo 24",
+              "variant_id": "DEMO-P024-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 288000,
+              "line_total": 288000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-09-29T12:42:00Z"
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 562000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 567000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-29T11:42:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-29T12:12:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-29T12:42:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-29T13:12:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-09-29T13:42:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-29T11:42:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-09-29T12:42:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O025",
+        "key": "DEMO-C010",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-07-25T05:25:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O025",
+          "_rev": "1-46c38093885e513caab872a5f9db1c1a",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O025",
+          "customer": {
+            "customer_id": "DEMO-C010",
+            "name": "Khách Demo 10"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 10",
+            "phone": "0000000010",
+            "address": "Địa chỉ tổng hợp 025, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P025",
+              "product_name": "Sản phẩm Demo 25",
+              "variant_id": "DEMO-P025-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 305000,
+              "line_total": 610000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 2,
+            "subtotal": 610000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 630000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-25T05:25:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-25T05:55:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-07-25T06:25:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-25T05:25:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O040",
+        "key": "DEMO-C010",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-28T08:40:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O040",
+          "_rev": "4-1867c430907cdfe31e2e4339369f698f",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O040",
+          "customer": {
+            "customer_id": "DEMO-C010",
+            "name": "Khách Demo 10"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 10",
+            "phone": "0000000010",
+            "address": "Địa chỉ tổng hợp 040, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P010",
+              "product_name": "Sản phẩm Demo 10",
+              "variant_id": "DEMO-P010-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 190000,
+              "line_total": 380000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P017",
+              "product_name": "Sản phẩm Demo 17",
+              "variant_id": "DEMO-P017-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 249000,
+              "line_total": 747000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P024",
+              "product_name": "Sản phẩm Demo 24",
+              "variant_id": "DEMO-P024-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 288000,
+              "line_total": 288000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P001",
+              "product_name": "Sản phẩm Demo 01",
+              "variant_id": "DEMO-P001-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 137000,
+              "line_total": 274000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 8,
+            "subtotal": 1689000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1709000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-28T08:40:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-28T09:10:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-28T09:40:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-28T10:10:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-28T08:40:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-040",
+            "status": "out_for_delivery",
+            "estimated_delivery_date": "2026-09-02",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-28T11:40:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-28T12:40:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-08-28T13:40:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "out_for_delivery",
+                "at": "2026-08-28T14:40:00Z",
+                "note": "Cập nhật delivery demo: out_for_delivery",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O055",
+        "key": "DEMO-C010",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-10-01T11:55:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O055",
+          "_rev": "1-aebd15fd5fed8c02e19c01918a964b7d",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O055",
+          "customer": {
+            "customer_id": "DEMO-C010",
+            "name": "Khách Demo 10"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 10",
+            "phone": "0000000010",
+            "address": "Địa chỉ tổng hợp 055, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P025",
+              "product_name": "Sản phẩm Demo 25",
+              "variant_id": "DEMO-P025-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 305000,
+              "line_total": 610000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P002",
+              "product_name": "Sản phẩm Demo 02",
+              "variant_id": "DEMO-P002-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 134000,
+              "line_total": 402000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P009",
+              "product_name": "Sản phẩm Demo 09",
+              "variant_id": "DEMO-P009-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 193000,
+              "line_total": 193000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-10-01T12:55:00Z"
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1205000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1225000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-01T11:55:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-10-01T12:25:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-10-01T12:55:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-10-01T13:25:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-10-01T13:55:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-01T11:55:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-10-01T12:55:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "bank_transfer"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O026",
+        "key": "DEMO-C011",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-07-27T05:38:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O026",
+          "_rev": "1-5ef9b4c53df92cf06b6e73bb4de9b33b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O026",
+          "customer": {
+            "customer_id": "DEMO-C011",
+            "name": "Khách Demo 11"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 11",
+            "phone": "0000000011",
+            "address": "Địa chỉ tổng hợp 026, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P026",
+              "product_name": "Sản phẩm Demo 26",
+              "variant_id": "DEMO-P026-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 302000,
+              "line_total": 906000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P003",
+              "product_name": "Sản phẩm Demo 03",
+              "variant_id": "DEMO-P003-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 151000,
+              "line_total": 151000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-07-27T06:38:00Z"
+          },
+          "totals": {
+            "total_quantity": 4,
+            "subtotal": 1057000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1092000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-27T05:38:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-27T06:08:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-07-27T06:38:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-27T05:38:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-07-27T06:38:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O041",
+        "key": "DEMO-C011",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-08-30T08:53:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O041",
+          "_rev": "4-ed601e90e523d27e14ccf1ef9a134881",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O041",
+          "customer": {
+            "customer_id": "DEMO-C011",
+            "name": "Khách Demo 11"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 11",
+            "phone": "0000000011",
+            "address": "Địa chỉ tổng hợp 041, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P011",
+              "product_name": "Sản phẩm Demo 11",
+              "variant_id": "DEMO-P011-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 207000,
+              "line_total": 621000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 621000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 656000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-30T08:53:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-30T09:23:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-30T09:53:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-08-30T10:23:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-30T08:53:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-041",
+            "status": "out_for_delivery",
+            "estimated_delivery_date": "2026-09-04",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-08-30T11:53:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-08-30T12:53:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-08-30T13:53:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "out_for_delivery",
+                "at": "2026-08-30T14:53:00Z",
+                "note": "Cập nhật delivery demo: out_for_delivery",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O056",
+        "key": "DEMO-C011",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-10-03T12:08:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O056",
+          "_rev": "1-09c753de3496dfed9a205c7405108edc",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O056",
+          "customer": {
+            "customer_id": "DEMO-C011",
+            "name": "Khách Demo 11"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 11",
+            "phone": "0000000011",
+            "address": "Địa chỉ tổng hợp 056, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P026",
+              "product_name": "Sản phẩm Demo 26",
+              "variant_id": "DEMO-P026-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 302000,
+              "line_total": 906000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P003",
+              "product_name": "Sản phẩm Demo 03",
+              "variant_id": "DEMO-P003-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 151000,
+              "line_total": 151000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P010",
+              "product_name": "Sản phẩm Demo 10",
+              "variant_id": "DEMO-P010-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 190000,
+              "line_total": 380000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P017",
+              "product_name": "Sản phẩm Demo 17",
+              "variant_id": "DEMO-P017-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 249000,
+              "line_total": 747000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "card",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-10-03T13:08:00Z"
+          },
+          "totals": {
+            "total_quantity": 9,
+            "subtotal": 2184000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 2219000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-03T12:08:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-10-03T12:38:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-10-03T13:08:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-10-03T13:38:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-10-03T14:08:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-03T12:08:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-10-03T13:08:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "card"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O027",
+        "key": "DEMO-C012",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-07-29T05:51:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O027",
+          "_rev": "1-f12efa6f5e2258198c024f5a3cc32e8c",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O027",
+          "customer": {
+            "customer_id": "DEMO-C012",
+            "name": "Khách Demo 12"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 12",
+            "phone": "0000000012",
+            "address": "Địa chỉ tổng hợp 027, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P004",
+              "product_name": "Sản phẩm Demo 04",
+              "variant_id": "DEMO-P004-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 148000,
+              "line_total": 296000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P011",
+              "product_name": "Sản phẩm Demo 11",
+              "variant_id": "DEMO-P011-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 207000,
+              "line_total": 621000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1236000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 1261000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-07-29T05:51:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-07-29T06:21:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-07-29T06:51:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-07-29T05:51:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O042",
+        "key": "DEMO-C012",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-01T09:06:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O042",
+          "_rev": "5-8d9b79a6fe263c0484843328591b224d",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O042",
+          "customer": {
+            "customer_id": "DEMO-C012",
+            "name": "Khách Demo 12"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 12",
+            "phone": "0000000012",
+            "address": "Địa chỉ tổng hợp 042, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P012",
+              "product_name": "Sản phẩm Demo 12",
+              "variant_id": "DEMO-P012-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 204000,
+              "line_total": 204000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P019",
+              "product_name": "Sản phẩm Demo 19",
+              "variant_id": "DEMO-P019-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 263000,
+              "line_total": 526000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "card",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 730000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 735000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-01T09:06:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-01T09:36:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-01T10:06:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-01T10:36:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-01T09:06:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-042",
+            "status": "failed_delivery",
+            "estimated_delivery_date": "2026-09-06",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-01T12:06:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-01T13:06:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-01T14:06:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "out_for_delivery",
+                "at": "2026-09-01T15:06:00Z",
+                "note": "Cập nhật delivery demo: out_for_delivery",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "failed_delivery",
+                "at": "2026-09-01T16:06:00Z",
+                "note": "Cập nhật delivery demo: failed_delivery",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O057",
+        "key": "DEMO-C012",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-10-05T12:21:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O057",
+          "_rev": "1-402a78818c9e8a9e855af4939b0a3714",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O057",
+          "customer": {
+            "customer_id": "DEMO-C012",
+            "name": "Khách Demo 12"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 12",
+            "phone": "0000000012",
+            "address": "Địa chỉ tổng hợp 057, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-10-05T13:21:00Z"
+          },
+          "totals": {
+            "total_quantity": 1,
+            "subtotal": 319000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 344000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-05T12:21:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-10-05T12:51:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-10-05T13:21:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-10-05T13:51:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-10-05T14:21:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-05T12:21:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-10-05T13:21:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O028",
+        "key": "DEMO-C013",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-01T06:04:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O028",
+          "_rev": "1-1aee9ee3296892198049d7ff0f50177e",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O028",
+          "customer": {
+            "customer_id": "DEMO-C013",
+            "name": "Khách Demo 13"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 13",
+            "phone": "0000000013",
+            "address": "Địa chỉ tổng hợp 028, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P028",
+              "product_name": "Sản phẩm Demo 28",
+              "variant_id": "DEMO-P028-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 316000,
+              "line_total": 632000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P012",
+              "product_name": "Sản phẩm Demo 12",
+              "variant_id": "DEMO-P012-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 204000,
+              "line_total": 204000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P019",
+              "product_name": "Sản phẩm Demo 19",
+              "variant_id": "DEMO-P019-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 263000,
+              "line_total": 526000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "card",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 8,
+            "subtotal": 1857000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1877000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-01T06:04:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-01T06:34:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-01T07:04:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-01T06:04:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O043",
+        "key": "DEMO-C013",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-04T09:19:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O043",
+          "_rev": "4-8a14aa26ca39b898b6b0f0b10577d7b1",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O043",
+          "customer": {
+            "customer_id": "DEMO-C013",
+            "name": "Khách Demo 13"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 13",
+            "phone": "0000000013",
+            "address": "Địa chỉ tổng hợp 043, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P013",
+              "product_name": "Sản phẩm Demo 13",
+              "variant_id": "DEMO-P013-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 221000,
+              "line_total": 442000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P020",
+              "product_name": "Sản phẩm Demo 20",
+              "variant_id": "DEMO-P020-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 260000,
+              "line_total": 780000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P027",
+              "product_name": "Sản phẩm Demo 27",
+              "variant_id": "DEMO-P027-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 319000,
+              "line_total": 319000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1541000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1561000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-04T09:19:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-04T09:49:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-04T10:19:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-04T10:49:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-04T09:19:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-043",
+            "status": "failed_delivery",
+            "estimated_delivery_date": "2026-09-09",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-04T12:19:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-04T13:19:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-04T14:19:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "failed_delivery",
+                "at": "2026-09-04T15:19:00Z",
+                "note": "Cập nhật delivery demo: failed_delivery",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O058",
+        "key": "DEMO-C013",
+        "value": {
+          "status": "delivered",
+          "ordered_at": "2026-10-08T12:34:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O058",
+          "_rev": "1-59ceddfe81272b9d60e7cdb7812cc8a7",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O058",
+          "customer": {
+            "customer_id": "DEMO-C013",
+            "name": "Khách Demo 13"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 13",
+            "phone": "0000000013",
+            "address": "Địa chỉ tổng hợp 058, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P028",
+              "product_name": "Sản phẩm Demo 28",
+              "variant_id": "DEMO-P028-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 316000,
+              "line_total": 632000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "BD",
+            "method_name": "Bưu điện",
+            "fee": 20000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "paid",
+            "paid": true,
+            "paid_at": "2026-10-08T13:34:00Z"
+          },
+          "totals": {
+            "total_quantity": 5,
+            "subtotal": 1127000,
+            "shipping_fee": 20000,
+            "discount_amount": 0,
+            "grand_total": 1147000,
+            "currency": "VND"
+          },
+          "status": "delivered",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-08T12:34:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-10-08T13:04:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-10-08T13:34:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-10-08T14:04:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "delivered",
+              "at": "2026-10-08T14:34:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-08T12:34:00Z",
+          "active": true,
+          "payment_history": [
+            {
+              "status": "paid",
+              "at": "2026-10-08T13:34:00Z",
+              "source": "phase1_demo",
+              "staff_id": "staff:DEMO-S002",
+              "method": "cod"
+            }
+          ]
+        }
+      },
+      {
+        "id": "order:DEMO-O029",
+        "key": "DEMO-C014",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-03T06:17:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O029",
+          "_rev": "1-ca02b241b5e0cf3a9736998b22c6216b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O029",
+          "customer": {
+            "customer_id": "DEMO-C014",
+            "name": "Khách Demo 14"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 14",
+            "phone": "0000000014",
+            "address": "Địa chỉ tổng hợp 029, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P029",
+              "product_name": "Sản phẩm Demo 29",
+              "variant_id": "DEMO-P029-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 333000,
+              "line_total": 999000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 999000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1034000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-03T06:17:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-03T06:47:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-03T07:17:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-03T06:17:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O044",
+        "key": "DEMO-C014",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-06T09:32:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O044",
+          "_rev": "4-6eac80c3eb4c6aacb1014e56545a072b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O044",
+          "customer": {
+            "customer_id": "DEMO-C014",
+            "name": "Khách Demo 14"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 14",
+            "phone": "0000000014",
+            "address": "Địa chỉ tổng hợp 044, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P014",
+              "product_name": "Sản phẩm Demo 14",
+              "variant_id": "DEMO-P014-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 218000,
+              "line_total": 654000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P021",
+              "product_name": "Sản phẩm Demo 21",
+              "variant_id": "DEMO-P021-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 277000,
+              "line_total": 277000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P028",
+              "product_name": "Sản phẩm Demo 28",
+              "variant_id": "DEMO-P028-A",
+              "size": "M",
+              "quantity": 2,
+              "unit_price": 316000,
+              "line_total": 632000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P005",
+              "product_name": "Sản phẩm Demo 05",
+              "variant_id": "DEMO-P005-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 165000,
+              "line_total": 495000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 9,
+            "subtotal": 2058000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 2093000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-06T09:32:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-06T10:02:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-06T10:32:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-06T11:02:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-06T09:32:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-044",
+            "status": "failed_delivery",
+            "estimated_delivery_date": "2026-09-11",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-06T12:32:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-06T13:32:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-06T14:32:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "failed_delivery",
+                "at": "2026-09-06T15:32:00Z",
+                "note": "Cập nhật delivery demo: failed_delivery",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O059",
+        "key": "DEMO-C014",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-10T12:47:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O059",
+          "_rev": "1-e8e8bd40dbfca65ce6b4a078a0bb8490",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O059",
+          "customer": {
+            "customer_id": "DEMO-C014",
+            "name": "Khách Demo 14"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 14",
+            "phone": "0000000014",
+            "address": "Địa chỉ tổng hợp 059, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P029",
+              "product_name": "Sản phẩm Demo 29",
+              "variant_id": "DEMO-P029-B",
+              "size": "L",
+              "quantity": 3,
+              "unit_price": 333000,
+              "line_total": 999000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P006",
+              "product_name": "Sản phẩm Demo 06",
+              "variant_id": "DEMO-P006-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 162000,
+              "line_total": 162000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P013",
+              "product_name": "Sản phẩm Demo 13",
+              "variant_id": "DEMO-P013-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 221000,
+              "line_total": 442000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "HT",
+            "method_name": "Hỏa tốc",
+            "fee": 35000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "cod",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 6,
+            "subtotal": 1603000,
+            "shipping_fee": 35000,
+            "discount_amount": 0,
+            "grand_total": 1638000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-10T12:47:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-10T13:17:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-10T12:47:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O030",
+        "key": "DEMO-C015",
+        "value": {
+          "status": "packing",
+          "ordered_at": "2026-08-05T06:30:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O030",
+          "_rev": "1-603c58b35fb5004b67b83653e208102b",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O030",
+          "customer": {
+            "customer_id": "DEMO-C015",
+            "name": "Khách Demo 15"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 15",
+            "phone": "0000000015",
+            "address": "Địa chỉ tổng hợp 030, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P030",
+              "product_name": "Sản phẩm Demo 30",
+              "variant_id": "DEMO-P030-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 330000,
+              "line_total": 330000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P007",
+              "product_name": "Sản phẩm Demo 07",
+              "variant_id": "DEMO-P007-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 179000,
+              "line_total": 358000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 3,
+            "subtotal": 688000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 693000,
+            "currency": "VND"
+          },
+          "status": "packing",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-08-05T06:30:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-08-05T07:00:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-08-05T07:30:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-08-05T06:30:00Z",
+          "active": true
+        }
+      },
+      {
+        "id": "order:DEMO-O045",
+        "key": "DEMO-C015",
+        "value": {
+          "status": "shipping",
+          "ordered_at": "2026-09-08T09:45:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O045",
+          "_rev": "5-b213e7711556c081ff5f810a9247c4ef",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O045",
+          "customer": {
+            "customer_id": "DEMO-C015",
+            "name": "Khách Demo 15"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 15",
+            "phone": "0000000015",
+            "address": "Địa chỉ tổng hợp 045, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P015",
+              "product_name": "Sản phẩm Demo 15",
+              "variant_id": "DEMO-P015-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 235000,
+              "line_total": 235000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 0
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 1,
+            "subtotal": 235000,
+            "shipping_fee": 25000,
+            "discount_amount": 0,
+            "grand_total": 260000,
+            "currency": "VND"
+          },
+          "status": "shipping",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-09-08T09:45:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "confirmed",
+              "at": "2026-09-08T10:15:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "packing",
+              "at": "2026-09-08T10:45:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "shipping",
+              "at": "2026-09-08T11:15:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-09-08T09:45:00Z",
+          "active": true,
+          "delivery_tracking": {
+            "tracking_code": "DEMO-TRK-045",
+            "status": "in_transit",
+            "estimated_delivery_date": "2026-09-13",
+            "delivered_at": null,
+            "history": [
+              {
+                "status": "created",
+                "at": "2026-09-08T12:45:00Z",
+                "note": "Tạo vận đơn demo",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "picked_up",
+                "at": "2026-09-08T13:45:00Z",
+                "note": "Cập nhật delivery demo: picked_up",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-08T14:45:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "failed_delivery",
+                "at": "2026-09-08T15:45:00Z",
+                "note": "Cập nhật delivery demo: failed_delivery",
+                "updated_by": "staff:DEMO-S002"
+              },
+              {
+                "status": "in_transit",
+                "at": "2026-09-08T16:45:00Z",
+                "note": "Cập nhật delivery demo: in_transit",
+                "updated_by": "staff:DEMO-S002"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "order:DEMO-O060",
+        "key": "DEMO-C015",
+        "value": {
+          "status": "cancelled",
+          "ordered_at": "2026-10-12T13:00:00Z"
+        },
+        "doc": {
+          "_id": "order:DEMO-O060",
+          "_rev": "1-aba133442907061c0206cc8f2ad7de1d",
+          "type": "order",
+          "schema_version": 2,
+          "meta": {
+            "phase1_demo": {
+              "dataset_version": 1
+            }
+          },
+          "legacy_id": "DEMO-O060",
+          "customer": {
+            "customer_id": "DEMO-C015",
+            "name": "Khách Demo 15"
+          },
+          "guest_order": false,
+          "assigned_staff_id": "staff:DEMO-S002",
+          "receiver": {
+            "name": "Khách Demo 15",
+            "phone": "0000000015",
+            "address": "Địa chỉ tổng hợp 060, TP Demo"
+          },
+          "items": [
+            {
+              "product_id": "product:DEMO-P030",
+              "product_name": "Sản phẩm Demo 30",
+              "variant_id": "DEMO-P030-A",
+              "size": "M",
+              "quantity": 1,
+              "unit_price": 330000,
+              "line_total": 330000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P007",
+              "product_name": "Sản phẩm Demo 07",
+              "variant_id": "DEMO-P007-B",
+              "size": "L",
+              "quantity": 2,
+              "unit_price": 179000,
+              "line_total": 358000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P014",
+              "product_name": "Sản phẩm Demo 14",
+              "variant_id": "DEMO-P014-A",
+              "size": "M",
+              "quantity": 3,
+              "unit_price": 218000,
+              "line_total": 654000,
+              "currency": "VND"
+            },
+            {
+              "product_id": "product:DEMO-P021",
+              "product_name": "Sản phẩm Demo 21",
+              "variant_id": "DEMO-P021-B",
+              "size": "L",
+              "quantity": 1,
+              "unit_price": 277000,
+              "line_total": 277000,
+              "currency": "VND"
+            }
+          ],
+          "shipping": {
+            "method_code": "GH",
+            "method_name": "Giao hàng Demo",
+            "fee": 25000
+          },
+          "discount": {
+            "amount": 20000
+          },
+          "payment": {
+            "method": "bank_transfer",
+            "status": "unpaid",
+            "paid": false
+          },
+          "totals": {
+            "total_quantity": 7,
+            "subtotal": 1619000,
+            "shipping_fee": 25000,
+            "discount_amount": 20000,
+            "grand_total": 1624000,
+            "currency": "VND"
+          },
+          "status": "cancelled",
+          "status_history": [
+            {
+              "status": "pending",
+              "at": "2026-10-12T13:00:00Z",
+              "source": "phase1_demo"
+            },
+            {
+              "status": "cancelled",
+              "at": "2026-10-12T13:30:00Z",
+              "source": "phase1_demo"
+            }
+          ],
+          "note": "",
+          "ordered_at": "2026-10-12T13:00:00Z",
+          "active": true
+        }
+      }
+    ]
+  }
+}

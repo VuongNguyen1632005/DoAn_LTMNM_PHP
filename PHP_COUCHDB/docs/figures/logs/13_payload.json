@@ -1,0 +1,38 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "customer.customer_id": {
+        "$eq": "DEMO-C001"
+      },
+      "$or": [
+        {
+          "status": {
+            "$eq": "pending"
+          }
+        },
+        {
+          "status": {
+            "$eq": "confirmed"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "customer_orders_status"
+    ],
+    "fields": [
+      "_id",
+      "customer",
+      "status",
+      "ordered_at",
+      "totals.grand_total"
+    ],
+    "limit": 25,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

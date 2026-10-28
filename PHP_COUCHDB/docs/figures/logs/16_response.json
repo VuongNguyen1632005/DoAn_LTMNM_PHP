@@ -1,0 +1,22 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O013",
+        "ordered_at": "2026-06-28T02:49:00Z",
+        "status": "confirmed",
+        "totals": {
+          "grand_total": 462000
+        }
+      }
+    ],
+    "bookmark": "g1AAAABoeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6Gxgag5RxwJTlABUwg1SxglUlMbDzbABxRYwMjMx0Dcx0jSxCDIysTCytDAyisrIAmo4aNA",
+    "execution_stats": {
+      "total_keys_examined": 2,
+      "total_docs_examined": 2,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 1,
+      "execution_time_ms": 3.219
+    }
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O041",
+        "status": "shipping",
+        "ordered_at": "2026-08-30T08:53:00Z",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-041",
+          "status": "out_for_delivery",
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-08-30T11:53:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-08-30T12:53:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "in_transit",
+              "at": "2026-08-30T13:53:00Z",
+              "note": "Cập nhật delivery demo: in_transit",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "out_for_delivery",
+              "at": "2026-08-30T14:53:00Z",
+              "note": "Cập nhật delivery demo: out_for_delivery",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      },
+      {
+        "_id": "order:DEMO-O040",
+        "status": "shipping",
+        "ordered_at": "2026-08-28T08:40:00Z",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-040",
+          "status": "out_for_delivery",
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-08-28T11:40:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-08-28T12:40:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "in_transit",
+              "at": "2026-08-28T13:40:00Z",
+              "note": "Cập nhật delivery demo: in_transit",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "out_for_delivery",
+              "at": "2026-08-28T14:40:00Z",
+              "note": "Cập nhật delivery demo: out_for_delivery",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      }
+    ],
+    "bookmark": "g1AAAAB4eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5gYgJRxwJTlABUwg1SxglWBWAL5pSXxaflF8SmpOZllqUWVIEERIwMjM10DC10jixADCysTAysDg6isLAC3IyBM",
+    "execution_stats": {
+      "total_keys_examined": 2,
+      "total_docs_examined": 2,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 2,
+      "execution_time_ms": 3.139
+    }
+  }
+]

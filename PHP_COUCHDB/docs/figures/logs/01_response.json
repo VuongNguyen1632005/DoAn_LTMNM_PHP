@@ -1,0 +1,235 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O011",
+        "legacy_id": "DEMO-O011",
+        "status": "pending",
+        "ordered_at": "2026-06-23T02:23:00Z",
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1477000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 1512000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O010",
+        "legacy_id": "DEMO-O010",
+        "status": "pending",
+        "ordered_at": "2026-06-21T02:10:00Z",
+        "totals": {
+          "total_quantity": 5,
+          "subtotal": 1127000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1147000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "bank_transfer",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O009",
+        "legacy_id": "DEMO-O009",
+        "status": "pending",
+        "ordered_at": "2026-06-19T01:57:00Z",
+        "totals": {
+          "total_quantity": 1,
+          "subtotal": 193000,
+          "shipping_fee": 25000,
+          "discount_amount": 0,
+          "grand_total": 218000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O008",
+        "legacy_id": "DEMO-O008",
+        "status": "pending",
+        "ordered_at": "2026-06-16T01:44:00Z",
+        "totals": {
+          "total_quantity": 9,
+          "subtotal": 2310000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 2345000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O007",
+        "legacy_id": "DEMO-O007",
+        "status": "pending",
+        "ordered_at": "2026-06-14T01:31:00Z",
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1289000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1309000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "card",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O006",
+        "legacy_id": "DEMO-O006",
+        "status": "pending",
+        "ordered_at": "2026-06-12T01:18:00Z",
+        "totals": {
+          "total_quantity": 3,
+          "subtotal": 604000,
+          "shipping_fee": 25000,
+          "discount_amount": 20000,
+          "grand_total": 609000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O005",
+        "legacy_id": "DEMO-O005",
+        "status": "pending",
+        "ordered_at": "2026-06-10T01:05:00Z",
+        "totals": {
+          "total_quantity": 3,
+          "subtotal": 495000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 530000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "bank_transfer",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O004",
+        "legacy_id": "DEMO-O004",
+        "status": "pending",
+        "ordered_at": "2026-06-07T00:52:00Z",
+        "totals": {
+          "total_quantity": 8,
+          "subtotal": 1773000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1793000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O003",
+        "legacy_id": "DEMO-O003",
+        "status": "pending",
+        "ordered_at": "2026-06-05T00:39:00Z",
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1278000,
+          "shipping_fee": 25000,
+          "discount_amount": 0,
+          "grand_total": 1303000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O002",
+        "legacy_id": "DEMO-O002",
+        "status": "pending",
+        "ordered_at": "2026-06-03T00:26:00Z",
+        "totals": {
+          "total_quantity": 4,
+          "subtotal": 595000,
+          "shipping_fee": 35000,
+          "discount_amount": 0,
+          "grand_total": 630000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      }
+    ],
+    "bookmark": "g1AAAABveJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxgYgZRxwJTlABUwg1SxglWBWOwFqXkpmXnpILaIkYGRma4BEBmHGBhYGZlZGRhEZWUBAGtcHFg",
+    "execution_stats": {
+      "total_keys_examined": 11,
+      "total_docs_examined": 11,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 10,
+      "execution_time_ms": 6.976
+    }
+  },
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O001",
+        "legacy_id": "DEMO-O001",
+        "status": "pending",
+        "ordered_at": "2026-06-01T00:13:00Z",
+        "totals": {
+          "total_quantity": 2,
+          "subtotal": 274000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 294000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      }
+    ],
+    "bookmark": "g1AAAABveJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxgYgpRxwJTlABUwg1SxglWBWOwFqXkpmXnpILaIkYGRma4BEBmGGBhYGRpbGRhEZWUBAGrhHFE",
+    "execution_stats": {
+      "total_keys_examined": 1,
+      "total_docs_examined": 1,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 1,
+      "execution_time_ms": 12.737
+    }
+  }
+]

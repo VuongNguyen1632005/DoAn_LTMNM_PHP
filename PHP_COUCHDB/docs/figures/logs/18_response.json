@@ -1,0 +1,119 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "product:DEMO-P001",
+        "name": "Sản phẩm Demo 01",
+        "category": "áo",
+        "variants": [
+          {
+            "variant_id": "DEMO-P001-A",
+            "size": "M",
+            "price": 127000,
+            "stock": 41,
+            "active": true
+          },
+          {
+            "variant_id": "DEMO-P001-B",
+            "size": "L",
+            "price": 137000,
+            "stock": 36,
+            "active": true
+          }
+        ]
+      },
+      {
+        "_id": "product:DEMO-P002",
+        "name": "Sản phẩm Demo 02",
+        "category": "quần",
+        "variants": [
+          {
+            "variant_id": "DEMO-P002-A",
+            "size": "M",
+            "price": 134000,
+            "stock": 42,
+            "active": true
+          },
+          {
+            "variant_id": "DEMO-P002-B",
+            "size": "L",
+            "price": 144000,
+            "stock": 37,
+            "active": true
+          }
+        ]
+      },
+      {
+        "_id": "product:DEMO-P003",
+        "name": "Sản phẩm Demo 03",
+        "category": "váy",
+        "variants": [
+          {
+            "variant_id": "DEMO-P003-A",
+            "size": "M",
+            "price": 141000,
+            "stock": 43,
+            "active": true
+          },
+          {
+            "variant_id": "DEMO-P003-B",
+            "size": "L",
+            "price": 151000,
+            "stock": 38,
+            "active": true
+          }
+        ]
+      },
+      {
+        "_id": "product:DEMO-P004",
+        "name": "Sản phẩm Demo 04",
+        "category": "phụ kiện",
+        "variants": [
+          {
+            "variant_id": "DEMO-P004-A",
+            "size": "M",
+            "price": 148000,
+            "stock": 44,
+            "active": true
+          },
+          {
+            "variant_id": "DEMO-P004-B",
+            "size": "L",
+            "price": 158000,
+            "stock": 39,
+            "active": true
+          }
+        ]
+      },
+      {
+        "_id": "product:DEMO-P005",
+        "name": "Sản phẩm Demo 05",
+        "category": "giày",
+        "variants": [
+          {
+            "variant_id": "DEMO-P005-A",
+            "size": "M",
+            "price": 155000,
+            "stock": 45,
+            "active": true
+          },
+          {
+            "variant_id": "DEMO-P005-B",
+            "size": "L",
+            "price": 165000,
+            "stock": 40,
+            "active": true
+          }
+        ]
+      }
+    ],
+    "bookmark": "g1AAAABVeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYoLFhTlp5Qml1i5uPr66wYYGJiCFHLAFOaAtILUsUPVpTCwlBSVpmZlAQD2ORhA",
+    "execution_stats": {
+      "total_keys_examined": 30,
+      "total_docs_examined": 30,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 5,
+      "execution_time_ms": 14.46
+    }
+  }
+]

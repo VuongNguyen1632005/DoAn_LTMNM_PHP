@@ -1,0 +1,1 @@
+PASS: 25 HTTP integration checks. Database: retail_ui_capture_demo

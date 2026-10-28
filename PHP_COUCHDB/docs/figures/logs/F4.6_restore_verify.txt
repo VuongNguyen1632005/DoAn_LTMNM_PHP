@@ -1,0 +1,17 @@
+Source database: retail_manual_capture_scratch
+Target database: retail_manual_restore_scratch
+Backup documents: 150
+Restored documents: 150
+Design documents: 3 (_design/catalog_indexes, _design/domain_validation, _design/order_statistics)
+Business types: cart, customer, order, product, review, shipping_method, staff, voucher
+Sample IDs: product:DEMO-P001, order:DEMO-O001, order:DEMO-O034
+Mango order status/customer/tracking: 11/4/1 result(s), expected IDs found
+Mango indexes: 16, source/target parity PASS
+Validator rejection: HTTP 403 PASS
+Document count parity: PASS
+Content SHA-256 parity (normalized JSON, _rev excluded): PASS
+Missing/extra/different documents: {"source":{"missing":[],"extra":[],"different":[],"expected_count":150,"actual_count":150,"pass":true},"target":{"missing":[],"extra":[],"different":[],"expected_count":150,"actual_count":150,"pass":true}}
+Database _security parity: PASS
+New target revisions: PASS
+Source content parity: PASS
+Restore verification: PASS

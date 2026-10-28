@@ -1,0 +1,76 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O035",
+        "status": "shipping",
+        "ordered_at": "2026-08-17T07:35:00Z",
+        "items": [
+          {
+            "product_id": "product:DEMO-P005",
+            "product_name": "Sản phẩm Demo 05",
+            "variant_id": "DEMO-P005-B",
+            "size": "L",
+            "quantity": 3,
+            "unit_price": 165000,
+            "line_total": 495000,
+            "currency": "VND"
+          },
+          {
+            "product_id": "product:DEMO-P012",
+            "product_name": "Sản phẩm Demo 12",
+            "variant_id": "DEMO-P012-A",
+            "size": "M",
+            "quantity": 1,
+            "unit_price": 204000,
+            "line_total": 204000,
+            "currency": "VND"
+          },
+          {
+            "product_id": "product:DEMO-P019",
+            "product_name": "Sản phẩm Demo 19",
+            "variant_id": "DEMO-P019-B",
+            "size": "L",
+            "quantity": 2,
+            "unit_price": 263000,
+            "line_total": 526000,
+            "currency": "VND"
+          }
+        ],
+        "payment": {
+          "method": "bank_transfer",
+          "status": "unpaid",
+          "paid": false
+        },
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-035",
+          "status": "picked_up",
+          "estimated_delivery_date": "2026-08-22",
+          "delivered_at": null,
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-08-17T10:35:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-08-17T11:35:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      }
+    ],
+    "bookmark": "g1AAAABbeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxibgpRxwJTlgDSCVLGCVYFYPGCVIUHeukDFWVkAX5wXzQ",
+    "execution_stats": {
+      "total_keys_examined": 1,
+      "total_docs_examined": 1,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 1,
+      "execution_time_ms": 2.961
+    }
+  }
+]

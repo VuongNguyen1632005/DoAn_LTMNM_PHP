@@ -1,0 +1,40 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "status": {
+        "$in": [
+          "pending",
+          "confirmed",
+          "shipping",
+          "cancelled"
+        ],
+        "$nin": [
+          "cancelled"
+        ]
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at"
+    ],
+    "limit": 50,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

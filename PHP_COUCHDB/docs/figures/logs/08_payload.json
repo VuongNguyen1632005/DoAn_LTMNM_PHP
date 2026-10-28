@@ -1,0 +1,32 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "guest_order": {
+        "$eq": true
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "guest_orders"
+    ],
+    "sort": [
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at",
+      "guest_order",
+      "delivery_tracking",
+      "totals"
+    ],
+    "limit": 20,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

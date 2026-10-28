@@ -1,0 +1,6 @@
+Backup database: retail_manual_capture_scratch
+Documents exported: 150
+Output: var/backups/capture_backup.json
+File size: 155368 bytes
+JSON validation: PASS
+Backup: PASS

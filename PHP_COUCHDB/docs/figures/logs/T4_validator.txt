@@ -1,0 +1,1 @@
+PASS: 6 full-validator cases. Database: retail_full_validator_954688fb_scratch

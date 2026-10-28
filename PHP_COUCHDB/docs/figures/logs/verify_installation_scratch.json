@@ -1,0 +1,79 @@
+{
+  "mapping": {
+    "verifytestdb": "retail_verify_capture_scratch",
+    "verifytestdb_replicate": "retail_verify_replica_scratch"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "GET",
+      "original": "verifytestdb_replicate",
+      "target": "retail_verify_replica_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "DELETE",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "PUT",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "GET",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    },
+    {
+      "method": "GET",
+      "original": "verifytestdb_replicate",
+      "target": "retail_verify_replica_scratch"
+    },
+    {
+      "method": "DELETE",
+      "original": "verifytestdb_replicate",
+      "target": "retail_verify_replica_scratch"
+    },
+    {
+      "method": "DELETE",
+      "original": "verifytestdb",
+      "target": "retail_verify_capture_scratch"
+    }
+  ],
+  "text": "Success! Your CouchDB installation is working. Time to Relax.\nNotifications\n×\nAll\n\nSuccess! Your CouchDB installation is working. Time to Relax.\n\na few seconds ago|Copy\n×\nClear All\nVerify CouchDB Installation\nVerify Installation\nTest\tStatus\nCreate Database\t✓ success\nCreate Document\t✓ success\nUpdate Document\t✓ success\nDelete Document\t✓ success\nCreate View\t✓ success\nReplication\t✓ success\nFauxton on  Apache CouchDB\nv. 3.5.0\nWhat's New?\nLog Out "
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O061",
+        "status": "cancelled",
+        "ordered_at": "2026-10-14T13:13:00Z",
+        "totals": {
+          "total_quantity": 2,
+          "subtotal": 274000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 294000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O046",
+        "status": "shipping",
+        "ordered_at": "2026-09-10T09:58:00Z",
+        "totals": {
+          "total_quantity": 5,
+          "subtotal": 1337000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1357000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O031",
+        "status": "packing",
+        "ordered_at": "2026-08-07T06:43:00Z",
+        "totals": {
+          "total_quantity": 6,
+          "subtotal": 1037000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 1057000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      },
+      {
+        "_id": "order:DEMO-O016",
+        "status": "confirmed",
+        "ordered_at": "2026-07-04T03:28:00Z",
+        "totals": {
+          "total_quantity": 8,
+          "subtotal": 2025000,
+          "shipping_fee": 20000,
+          "discount_amount": 0,
+          "grand_total": 2045000,
+          "currency": "VND"
+        },
+        "payment": {
+          "method": "cod",
+          "status": "unpaid",
+          "paid": false
+        }
+      }
+    ],
+    "bookmark": "g1AAAABxeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxiagZRxwJTlABUwg1SxglWBWJxglc4GBoYgnoiRgZGZroG5roFJiIGxlZGFlYFBVFYWAIDkG6c",
+    "execution_stats": {
+      "total_keys_examined": 4,
+      "total_docs_examined": 4,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 4,
+      "execution_time_ms": 3.134
+    }
+  }
+]

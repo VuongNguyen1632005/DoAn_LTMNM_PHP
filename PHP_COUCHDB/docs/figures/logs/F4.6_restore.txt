@@ -1,0 +1,7 @@
+Restore source: var/backups/capture_backup.json
+Target database: retail_manual_restore_scratch
+Backup documents: 150
+Imported: 150
+Failed: 0
+Document count parity: PASS
+Restore import: PASS

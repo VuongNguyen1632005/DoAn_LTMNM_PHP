@@ -1,0 +1,32 @@
+{
+    "database": "retail_csv_capture_scratch",
+    "source_file": "products_import.csv",
+    "rows_submitted_to_bulk_docs": 4,
+    "imported_count": 3,
+    "errors": [
+        {
+            "line": 5,
+            "id": "product:CSV-CSV-BAD01",
+            "error": "forbidden",
+            "reason": "product variant has invalid id, size, price, stock, or active flag"
+        }
+    ],
+    "successes": [
+        {
+            "line": 2,
+            "id": "product:CSV-CSV-P001",
+            "rev": "1-c617adc13bad187edf56947c996499d7"
+        },
+        {
+            "line": 3,
+            "id": "product:CSV-CSV-P002",
+            "rev": "1-37fcff9f1d2ceec5b332864e8109dac2"
+        },
+        {
+            "line": 4,
+            "id": "product:CSV-CSV-P003",
+            "rev": "1-c5f183d3df9fb9b864f9baa222cdca9e"
+        }
+    ],
+    "status": "PASS_WITH_ROW_ERRORS"
+}

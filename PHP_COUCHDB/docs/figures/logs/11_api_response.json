@@ -1,0 +1,125 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O044",
+        "status": "shipping",
+        "ordered_at": "2026-09-06T09:32:00Z",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-044",
+          "status": "failed_delivery",
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-09-06T12:32:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-09-06T13:32:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "in_transit",
+              "at": "2026-09-06T14:32:00Z",
+              "note": "Cập nhật delivery demo: in_transit",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "failed_delivery",
+              "at": "2026-09-06T15:32:00Z",
+              "note": "Cập nhật delivery demo: failed_delivery",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      },
+      {
+        "_id": "order:DEMO-O043",
+        "status": "shipping",
+        "ordered_at": "2026-09-04T09:19:00Z",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-043",
+          "status": "failed_delivery",
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-09-04T12:19:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-09-04T13:19:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "in_transit",
+              "at": "2026-09-04T14:19:00Z",
+              "note": "Cập nhật delivery demo: in_transit",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "failed_delivery",
+              "at": "2026-09-04T15:19:00Z",
+              "note": "Cập nhật delivery demo: failed_delivery",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      },
+      {
+        "_id": "order:DEMO-O042",
+        "status": "shipping",
+        "ordered_at": "2026-09-01T09:06:00Z",
+        "delivery_tracking": {
+          "tracking_code": "DEMO-TRK-042",
+          "status": "failed_delivery",
+          "history": [
+            {
+              "status": "created",
+              "at": "2026-09-01T12:06:00Z",
+              "note": "Tạo vận đơn demo",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "picked_up",
+              "at": "2026-09-01T13:06:00Z",
+              "note": "Cập nhật delivery demo: picked_up",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "in_transit",
+              "at": "2026-09-01T14:06:00Z",
+              "note": "Cập nhật delivery demo: in_transit",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "out_for_delivery",
+              "at": "2026-09-01T15:06:00Z",
+              "note": "Cập nhật delivery demo: out_for_delivery",
+              "updated_by": "staff:DEMO-S002"
+            },
+            {
+              "status": "failed_delivery",
+              "at": "2026-09-01T16:06:00Z",
+              "note": "Cập nhật delivery demo: failed_delivery",
+              "updated_by": "staff:DEMO-S002"
+            }
+          ]
+        }
+      }
+    ],
+    "bookmark": "g1AAAAB3eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5gYgZRxwJTlABUwg1SxglWB1aclZuakpsSnpOZklqUWVYLERIwMjMx0DSx1DQxDDCytDMysDAyisrIAih0frw",
+    "execution_stats": {
+      "total_keys_examined": 3,
+      "total_docs_examined": 3,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 3,
+      "execution_time_ms": 4.026
+    }
+  }
+]

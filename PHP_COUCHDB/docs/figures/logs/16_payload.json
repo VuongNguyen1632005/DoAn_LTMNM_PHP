@@ -1,0 +1,35 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "totals.grand_total": {
+        "$gt": 350000,
+        "$lte": 500000
+      },
+      "ordered_at": {
+        "$gte": "2026-06-01T00:00:00Z",
+        "$lt": "2026-08-01T00:00:00Z"
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "orders_by_total"
+    ],
+    "sort": [
+      {
+        "totals.grand_total": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "ordered_at",
+      "status",
+      "totals.grand_total"
+    ],
+    "limit": 50,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

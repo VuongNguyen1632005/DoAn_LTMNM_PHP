@@ -1,0 +1,28 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "product"
+      },
+      "active": {
+        "$eq": true
+      },
+      "name": {
+        "$regex": "^Sản phẩm Demo 0[1-5]$"
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "active_products"
+    ],
+    "fields": [
+      "_id",
+      "name",
+      "category",
+      "variants"
+    ],
+    "limit": 25,
+    "execution_stats": true,
+    "skip": 0
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "old": "Đang vận chuyển",
+  "target": "out_for_delivery",
+  "changed_without_reload": true,
+  "new": "Đang giao tới khách"
+}

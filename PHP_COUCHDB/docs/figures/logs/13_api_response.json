@@ -1,0 +1,26 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O016",
+        "customer": {
+          "customer_id": "DEMO-C001",
+          "name": "Khách Demo 01"
+        },
+        "status": "confirmed",
+        "ordered_at": "2026-07-04T03:28:00Z",
+        "totals": {
+          "grand_total": 2045000
+        }
+      }
+    ],
+    "bookmark": "g1AAAABYeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxiagZRxwJTlgDSCVLGCVYFYnGCVzgYGhllZABhbFuc",
+    "execution_stats": {
+      "total_keys_examined": 4,
+      "total_docs_examined": 4,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 1,
+      "execution_time_ms": 3.209
+    }
+  }
+]

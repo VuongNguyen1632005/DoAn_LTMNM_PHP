@@ -1,0 +1,3 @@
+Stale revision: HTTP 409
+{"error":"conflict","reason":"Document update conflict."}
+

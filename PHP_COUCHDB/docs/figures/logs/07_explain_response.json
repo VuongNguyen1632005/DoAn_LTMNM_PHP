@@ -1,0 +1,622 @@
+{
+  "dbname": "retail_order_delivery_demo",
+  "index": {
+    "ddoc": "_design/catalog_indexes",
+    "name": "admin_orders",
+    "type": "json",
+    "partitioned": false,
+    "def": {
+      "fields": [
+        {
+          "type": "asc"
+        },
+        {
+          "status": "asc"
+        },
+        {
+          "ordered_at": "asc"
+        }
+      ],
+      "partial_filter_selector": {
+        "type": {
+          "$eq": "order"
+        }
+      }
+    }
+  },
+  "partitioned": false,
+  "selector": {
+    "$and": [
+      {
+        "type": {
+          "$eq": "order"
+        }
+      },
+      {
+        "status": {
+          "$eq": "pending"
+        }
+      },
+      {
+        "payment.method": {
+          "$eq": "cod"
+        }
+      },
+      {
+        "payment.paid": {
+          "$eq": false
+        }
+      }
+    ]
+  },
+  "opts": {
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "bookmark": "nil",
+    "limit": 20,
+    "skip": 0,
+    "sort": {
+      "ordered_at": "desc"
+    },
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at",
+      "payment",
+      "totals"
+    ],
+    "partition": "",
+    "r": 1,
+    "conflicts": false,
+    "stale": false,
+    "update": true,
+    "stable": false,
+    "execution_stats": true,
+    "allow_fallback": true
+  },
+  "limit": 20,
+  "skip": 0,
+  "fields": [
+    "_id",
+    "status",
+    "ordered_at",
+    "payment",
+    "totals"
+  ],
+  "index_candidates": [
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "orders_type_scan",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "sort_order_mismatch"
+          }
+        ],
+        "ranking": 1,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "orders_by_total",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "totals.grand_total": "asc"
+            },
+            {
+              "ordered_at": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "orders_by_receiver",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "receiver.name": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "guest_orders",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "guest_order": "asc"
+            },
+            {
+              "ordered_at": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "delivery_tracking_code",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "delivery_tracking.tracking_code": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "delivery_status",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "delivery_tracking.status": "asc"
+            },
+            {
+              "ordered_at": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "customer_orders_status",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "customer.customer_id": "asc"
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "field_mismatch"
+          }
+        ],
+        "ranking": 1,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "customer_orders",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "customer.customer_id": "asc"
+            },
+            {
+              "ordered_at": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "admin_reviews",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "review"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "admin_products",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "product"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "admin_orders_by_date",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "ordered_at": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$eq": "order"
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "active_reviews",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "active": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "$and": [
+              {
+                "type": {
+                  "$eq": "review"
+                }
+              },
+              {
+                "active": {
+                  "$eq": true
+                }
+              }
+            ]
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "active_products",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "active": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "$and": [
+              {
+                "type": {
+                  "$eq": "product"
+                }
+              },
+              {
+                "active": {
+                  "$eq": true
+                }
+              }
+            ]
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": "_design/catalog_indexes",
+        "name": "account_usernames",
+        "type": "json",
+        "partitioned": false,
+        "def": {
+          "fields": [
+            {
+              "type": "asc"
+            },
+            {
+              "auth.username": "asc"
+            }
+          ],
+          "partial_filter_selector": {
+            "type": {
+              "$in": [
+                "customer",
+                "staff"
+              ]
+            }
+          }
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "is_partial"
+          }
+        ],
+        "ranking": 2,
+        "covering": false
+      }
+    },
+    {
+      "index": {
+        "ddoc": null,
+        "name": "_all_docs",
+        "type": "special",
+        "def": {
+          "fields": [
+            {
+              "_id": "asc"
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "usable": false,
+        "reasons": [
+          {
+            "name": "field_mismatch"
+          }
+        ],
+        "ranking": 1,
+        "covering": null
+      }
+    }
+  ],
+  "selector_hints": [
+    {
+      "type": "json",
+      "indexable_fields": [
+        "payment.method",
+        "payment.paid",
+        "status",
+        "type"
+      ],
+      "unindexable_fields": []
+    }
+  ],
+  "mrargs": {
+    "include_docs": true,
+    "view_type": "map",
+    "reduce": false,
+    "partition": null,
+    "start_key": [
+      "order",
+      "pending",
+      "<MAX>"
+    ],
+    "end_key": [
+      "order",
+      "pending"
+    ],
+    "direction": "rev",
+    "stable": false,
+    "update": true,
+    "conflicts": "undefined"
+  },
+  "covering": false
+}

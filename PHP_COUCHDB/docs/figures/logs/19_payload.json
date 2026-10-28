@@ -1,0 +1,226 @@
+[
+  {
+    "selector": {
+      "$and": [
+        {
+          "type": {
+            "$eq": "order"
+          }
+        },
+        {
+          "$not": {
+            "status": {
+              "$eq": "cancelled"
+            }
+          }
+        },
+        {
+          "payment.method": {
+            "$eq": "cod"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "payment.method",
+      "totals.grand_total"
+    ],
+    "limit": 10,
+    "skip": 0,
+    "execution_stats": true
+  },
+  {
+    "selector": {
+      "$and": [
+        {
+          "type": {
+            "$eq": "order"
+          }
+        },
+        {
+          "$not": {
+            "status": {
+              "$eq": "cancelled"
+            }
+          }
+        },
+        {
+          "payment.method": {
+            "$eq": "cod"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "payment.method",
+      "totals.grand_total"
+    ],
+    "limit": 10,
+    "skip": 0,
+    "execution_stats": true,
+    "bookmark": "g1AAAABxeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5gag5RxwJTlABUwg1SxglWBWJwpqTmZZalFqWDdIkYGRma6Bpa6RmYhhoZWRpZWBgZRWVkAsmkdPA"
+  },
+  {
+    "selector": {
+      "$and": [
+        {
+          "type": {
+            "$eq": "order"
+          }
+        },
+        {
+          "$not": {
+            "status": {
+              "$eq": "cancelled"
+            }
+          }
+        },
+        {
+          "payment.method": {
+            "$eq": "cod"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "payment.method",
+      "totals.grand_total"
+    ],
+    "limit": 10,
+    "skip": 0,
+    "execution_stats": true,
+    "bookmark": "g1AAAABveJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxgbgZRxwJTlABUwg1SxglWBWOwFicnZmXnpILaIkYGRma6Bha6hQYiBmZWpmZWBQVRWFgBrexxc"
+  },
+  {
+    "selector": {
+      "$and": [
+        {
+          "type": {
+            "$eq": "order"
+          }
+        },
+        {
+          "$not": {
+            "status": {
+              "$eq": "cancelled"
+            }
+          }
+        },
+        {
+          "payment.method": {
+            "$eq": "cod"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "payment.method",
+      "totals.grand_total"
+    ],
+    "limit": 10,
+    "skip": 0,
+    "execution_stats": true,
+    "bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxibgJRxwJTlABUwg1SxglWBWBzFGZkFBZl56SCOiJGBkZmugYWuoUmIgbmVkZGVgUFUVhYAkgkc4g"
+  },
+  {
+    "selector": {
+      "$and": [
+        {
+          "type": {
+            "$eq": "order"
+          }
+        },
+        {
+          "$not": {
+            "status": {
+              "$eq": "cancelled"
+            }
+          }
+        },
+        {
+          "payment.method": {
+            "$eq": "cod"
+          }
+        }
+      ]
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders"
+    ],
+    "sort": [
+      {
+        "status": "asc"
+      },
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "payment.method",
+      "totals.grand_total"
+    ],
+    "limit": 10,
+    "skip": 0,
+    "execution_stats": true,
+    "bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5hYgJRxwJTlABUwg1SxglWBWBzFGZkFBZl56SCOiJGBkZmugaWuoWmIoYGVkYmVgUFUVhYAk1Mc5Q"
+  }
+]

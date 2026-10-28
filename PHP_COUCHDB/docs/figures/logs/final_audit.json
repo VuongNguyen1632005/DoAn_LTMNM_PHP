@@ -1,0 +1,20 @@
+{
+  "database": "retail_order_delivery_demo",
+  "fingerprint_matches": true,
+  "before": {
+    "doc_count": 150,
+    "update_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCeexAEmGBiD1HwiyMpgTA3OBAuyWKUaJKcaG6HpwmJLIkFQP1Z4K1m5qkZxkYWKErjgLADIJKzg",
+    "sha256": "0de42e51319fee5be8ae190bb1f44b7bf2bf964c8457f127f6ec46f800583af5",
+    "algorithm": "SHA-256 sorted all_docs, recursive sorted keys, _rev omitted"
+  },
+  "after": {
+    "doc_count": 150,
+    "update_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCeexAEmGBiD1HwiyMpgTA3OBAuyWKUaJKcaG6HpwmJLIkFQP1Z4K1m5qkZxkYWKErjgLADIJKzg",
+    "sha256": "0de42e51319fee5be8ae190bb1f44b7bf2bf964c8457f127f6ec46f800583af5",
+    "algorithm": "SHA-256 sorted all_docs, recursive sorted keys, _rev omitted"
+  },
+  "remaining_capture_databases": [],
+  "cleanup_verified": true,
+  "original_application_database": "shopquan_ao_sql_migration_test",
+  "temporary_exports_remaining": []
+}

@@ -1,0 +1,199 @@
+[
+  {
+    "docs": [
+      {
+        "_id": "order:DEMO-O012",
+        "status": "confirmed",
+        "ordered_at": "2026-06-25T02:36:00Z"
+      },
+      {
+        "_id": "order:DEMO-O013",
+        "status": "confirmed",
+        "ordered_at": "2026-06-28T02:49:00Z"
+      },
+      {
+        "_id": "order:DEMO-O014",
+        "status": "confirmed",
+        "ordered_at": "2026-06-30T03:02:00Z"
+      },
+      {
+        "_id": "order:DEMO-O015",
+        "status": "confirmed",
+        "ordered_at": "2026-07-02T03:15:00Z"
+      },
+      {
+        "_id": "order:DEMO-O016",
+        "status": "confirmed",
+        "ordered_at": "2026-07-04T03:28:00Z"
+      },
+      {
+        "_id": "order:DEMO-O017",
+        "status": "confirmed",
+        "ordered_at": "2026-07-07T03:41:00Z"
+      },
+      {
+        "_id": "order:DEMO-O018",
+        "status": "confirmed",
+        "ordered_at": "2026-07-09T03:54:00Z"
+      },
+      {
+        "_id": "order:DEMO-O019",
+        "status": "confirmed",
+        "ordered_at": "2026-07-11T04:07:00Z"
+      },
+      {
+        "_id": "order:DEMO-O020",
+        "status": "confirmed",
+        "ordered_at": "2026-07-14T04:20:00Z"
+      },
+      {
+        "_id": "order:DEMO-O021",
+        "status": "confirmed",
+        "ordered_at": "2026-07-16T04:33:00Z"
+      },
+      {
+        "_id": "order:DEMO-O022",
+        "status": "confirmed",
+        "ordered_at": "2026-07-18T04:46:00Z"
+      },
+      {
+        "_id": "order:DEMO-O001",
+        "status": "pending",
+        "ordered_at": "2026-06-01T00:13:00Z"
+      },
+      {
+        "_id": "order:DEMO-O002",
+        "status": "pending",
+        "ordered_at": "2026-06-03T00:26:00Z"
+      },
+      {
+        "_id": "order:DEMO-O003",
+        "status": "pending",
+        "ordered_at": "2026-06-05T00:39:00Z"
+      },
+      {
+        "_id": "order:DEMO-O004",
+        "status": "pending",
+        "ordered_at": "2026-06-07T00:52:00Z"
+      },
+      {
+        "_id": "order:DEMO-O005",
+        "status": "pending",
+        "ordered_at": "2026-06-10T01:05:00Z"
+      },
+      {
+        "_id": "order:DEMO-O006",
+        "status": "pending",
+        "ordered_at": "2026-06-12T01:18:00Z"
+      },
+      {
+        "_id": "order:DEMO-O007",
+        "status": "pending",
+        "ordered_at": "2026-06-14T01:31:00Z"
+      },
+      {
+        "_id": "order:DEMO-O008",
+        "status": "pending",
+        "ordered_at": "2026-06-16T01:44:00Z"
+      },
+      {
+        "_id": "order:DEMO-O009",
+        "status": "pending",
+        "ordered_at": "2026-06-19T01:57:00Z"
+      },
+      {
+        "_id": "order:DEMO-O010",
+        "status": "pending",
+        "ordered_at": "2026-06-21T02:10:00Z"
+      },
+      {
+        "_id": "order:DEMO-O011",
+        "status": "pending",
+        "ordered_at": "2026-06-23T02:23:00Z"
+      },
+      {
+        "_id": "order:DEMO-O034",
+        "status": "shipping",
+        "ordered_at": "2026-08-14T07:22:00Z"
+      },
+      {
+        "_id": "order:DEMO-O035",
+        "status": "shipping",
+        "ordered_at": "2026-08-17T07:35:00Z"
+      },
+      {
+        "_id": "order:DEMO-O036",
+        "status": "shipping",
+        "ordered_at": "2026-08-19T07:48:00Z"
+      },
+      {
+        "_id": "order:DEMO-O037",
+        "status": "shipping",
+        "ordered_at": "2026-08-21T08:01:00Z"
+      },
+      {
+        "_id": "order:DEMO-O038",
+        "status": "shipping",
+        "ordered_at": "2026-08-23T08:14:00Z"
+      },
+      {
+        "_id": "order:DEMO-O039",
+        "status": "shipping",
+        "ordered_at": "2026-08-26T08:27:00Z"
+      },
+      {
+        "_id": "order:DEMO-O040",
+        "status": "shipping",
+        "ordered_at": "2026-08-28T08:40:00Z"
+      },
+      {
+        "_id": "order:DEMO-O041",
+        "status": "shipping",
+        "ordered_at": "2026-08-30T08:53:00Z"
+      },
+      {
+        "_id": "order:DEMO-O042",
+        "status": "shipping",
+        "ordered_at": "2026-09-01T09:06:00Z"
+      },
+      {
+        "_id": "order:DEMO-O043",
+        "status": "shipping",
+        "ordered_at": "2026-09-04T09:19:00Z"
+      },
+      {
+        "_id": "order:DEMO-O044",
+        "status": "shipping",
+        "ordered_at": "2026-09-06T09:32:00Z"
+      },
+      {
+        "_id": "order:DEMO-O045",
+        "status": "shipping",
+        "ordered_at": "2026-09-08T09:45:00Z"
+      },
+      {
+        "_id": "order:DEMO-O046",
+        "status": "shipping",
+        "ordered_at": "2026-09-10T09:58:00Z"
+      },
+      {
+        "_id": "order:DEMO-O047",
+        "status": "shipping",
+        "ordered_at": "2026-09-13T10:11:00Z"
+      },
+      {
+        "_id": "order:DEMO-O048",
+        "status": "shipping",
+        "ordered_at": "2026-09-15T10:24:00Z"
+      }
+    ],
+    "bookmark": "g1AAAABweJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5hYgJRxwJTlABUwg1SxglWBWBzFGZkFBZl56SCOiJGBkZmugaWuoWmIoYGVkYmVgUFUVhYAk1Mc5Q",
+    "execution_stats": {
+      "total_keys_examined": 65,
+      "total_docs_examined": 0,
+      "total_quorum_docs_examined": 0,
+      "results_returned": 37,
+      "execution_time_ms": 14.36
+    }
+  }
+]

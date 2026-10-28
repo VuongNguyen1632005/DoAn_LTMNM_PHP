@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "key": "cancelled",
+      "value": 7
+    },
+    {
+      "key": "confirmed",
+      "value": 11
+    },
+    {
+      "key": "delivered",
+      "value": 10
+    },
+    {
+      "key": "packing",
+      "value": 11
+    },
+    {
+      "key": "pending",
+      "value": 11
+    },
+    {
+      "key": "shipping",
+      "value": 15
+    }
+  ]
+}

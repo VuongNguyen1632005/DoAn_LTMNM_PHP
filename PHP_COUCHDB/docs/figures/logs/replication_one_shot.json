@@ -1,0 +1,28 @@
+{
+  "result": {
+    "ok": true,
+    "session_id": "f32e6ea36ae2ef21f25d6a130a81533e",
+    "source_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBuapGcZGFihK4Yh_Y8FiDJ0ACk_kNNCQSbYplilJhibIiuJwsAdhErOA",
+    "replication_id_version": 4,
+    "history": [
+      {
+        "session_id": "f32e6ea36ae2ef21f25d6a130a81533e",
+        "start_time": "Wed, 28 Oct 2026 10:21:16 GMT",
+        "end_time": "Wed, 28 Oct 2026 10:21:17 GMT",
+        "start_last_seq": 0,
+        "end_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBuapGcZGFihK4Yh_Y8FiDJ0ACk_kNNCQSbYplilJhibIiuJwsAdhErOA",
+        "recorded_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBuapGcZGFihK4Yh_Y8FiDJ0ACk_kNNCQSbYplilJhibIiuJwsAdhErOA",
+        "missing_checked": 149,
+        "missing_found": 149,
+        "docs_read": 149,
+        "docs_written": 149,
+        "doc_write_failures": 0,
+        "bulk_get_docs": 147,
+        "bulk_get_attempts": 147
+      }
+    ]
+  },
+  "source_doc_count": 150,
+  "target_doc_count": 150,
+  "validator_installed_last": true
+}

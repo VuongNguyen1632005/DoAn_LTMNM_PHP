@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "key": "cancelled",
+      "value": 7812000
+    },
+    {
+      "key": "confirmed",
+      "value": 14238000
+    },
+    {
+      "key": "delivered",
+      "value": 11690000
+    },
+    {
+      "key": "packing",
+      "value": 12713000
+    },
+    {
+      "key": "pending",
+      "value": 11690000
+    },
+    {
+      "key": "shipping",
+      "value": 17807000
+    }
+  ]
+}

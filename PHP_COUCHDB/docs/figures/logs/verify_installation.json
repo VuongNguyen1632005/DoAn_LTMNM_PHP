@@ -1,0 +1,34 @@
+{
+  "requests": [
+    {
+      "method": "PUT",
+      "path": "/verifytestdb"
+    },
+    {
+      "method": "PUT",
+      "path": "/verifytestdb/test_doc_10"
+    },
+    {
+      "method": "PUT",
+      "path": "/verifytestdb/test_doc_20"
+    },
+    {
+      "method": "PUT",
+      "path": "/verifytestdb/test_doc_30"
+    },
+    {
+      "method": "PUT",
+      "path": "/verifytestdb/_design/view_check"
+    },
+    {
+      "method": "DELETE",
+      "path": "/verifytestdb_replicate"
+    },
+    {
+      "method": "DELETE",
+      "path": "/verifytestdb"
+    }
+  ],
+  "text": "Error: n/a\nError: Cannot read properties of undefined (reading 'set')\nError: n/a\nNotifications\n×\nAll\n\nError: n/a\n\na few seconds ago|Copy\n×\n\nError: Cannot read properties of undefined (reading 'set')\n\na few seconds ago|Copy\n×\n\nError: n/a\n\na few seconds ago|Copy\n×\nClear All\nVerify CouchDB Installation\nVerify Installation\nTest\tStatus\nCreate Database\t✗ failure\nCreate Document\t\nUpdate Document\t✗ failure\nDelete Document\t\nCreate View\t✗ failure\nReplication\t\nFauxton on  Apache CouchDB\nv. 3.5.0\nWhat's New?\nLog Out ",
+  "note": "Writes outside *_scratch blocked to obey capture prompt."
+}

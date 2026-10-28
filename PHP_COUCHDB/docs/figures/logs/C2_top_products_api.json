@@ -1,0 +1,124 @@
+{
+  "rows": [
+    {
+      "key": "product:DEMO-P001",
+      "value": 14
+    },
+    {
+      "key": "product:DEMO-P002",
+      "value": 15
+    },
+    {
+      "key": "product:DEMO-P003",
+      "value": 7
+    },
+    {
+      "key": "product:DEMO-P004",
+      "value": 10
+    },
+    {
+      "key": "product:DEMO-P005",
+      "value": 21
+    },
+    {
+      "key": "product:DEMO-P006",
+      "value": 4
+    },
+    {
+      "key": "product:DEMO-P007",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P008",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P009",
+      "value": 7
+    },
+    {
+      "key": "product:DEMO-P010",
+      "value": 10
+    },
+    {
+      "key": "product:DEMO-P011",
+      "value": 21
+    },
+    {
+      "key": "product:DEMO-P012",
+      "value": 4
+    },
+    {
+      "key": "product:DEMO-P013",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P014",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P015",
+      "value": 6
+    },
+    {
+      "key": "product:DEMO-P016",
+      "value": 8
+    },
+    {
+      "key": "product:DEMO-P017",
+      "value": 21
+    },
+    {
+      "key": "product:DEMO-P018",
+      "value": 5
+    },
+    {
+      "key": "product:DEMO-P019",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P020",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P021",
+      "value": 6
+    },
+    {
+      "key": "product:DEMO-P022",
+      "value": 8
+    },
+    {
+      "key": "product:DEMO-P023",
+      "value": 18
+    },
+    {
+      "key": "product:DEMO-P024",
+      "value": 4
+    },
+    {
+      "key": "product:DEMO-P025",
+      "value": 14
+    },
+    {
+      "key": "product:DEMO-P026",
+      "value": 12
+    },
+    {
+      "key": "product:DEMO-P027",
+      "value": 6
+    },
+    {
+      "key": "product:DEMO-P028",
+      "value": 8
+    },
+    {
+      "key": "product:DEMO-P029",
+      "value": 18
+    },
+    {
+      "key": "product:DEMO-P030",
+      "value": 4
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "ordered_at": {
+        "$gte": "2026-06-01T00:00:00Z",
+        "$lt": "2027-01-01T00:00:00Z"
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders_by_date"
+    ],
+    "sort": [
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at",
+      "totals"
+    ],
+    "limit": 25,
+    "execution_stats": true,
+    "skip": 0
+  },
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "ordered_at": {
+        "$gte": "2026-06-01T00:00:00Z",
+        "$lt": "2027-01-01T00:00:00Z"
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders_by_date"
+    ],
+    "sort": [
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at",
+      "totals"
+    ],
+    "limit": 25,
+    "execution_stats": true,
+    "bookmark": "g1AAAABjeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6GxiZgpRxwJTlgDSCVLGCVYFYIkYGRma6Bua6RqYhBqZWRqZWBgZRWVkAF_UZDA",
+    "skip": 0
+  },
+  {
+    "selector": {
+      "type": {
+        "$eq": "order"
+      },
+      "ordered_at": {
+        "$gte": "2026-06-01T00:00:00Z",
+        "$lt": "2027-01-01T00:00:00Z"
+      }
+    },
+    "use_index": [
+      "_design/catalog_indexes",
+      "admin_orders_by_date"
+    ],
+    "sort": [
+      {
+        "ordered_at": "asc"
+      }
+    ],
+    "fields": [
+      "_id",
+      "status",
+      "ordered_at",
+      "totals"
+    ],
+    "limit": 25,
+    "execution_stats": true,
+    "bookmark": "g1AAAABjeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYrz5xelpBZZubj6-uv6G5gagJRxwJTlgDSCVLGCVYFYIkYGRma6Bpa6RgYhhgZWpgZWBgZRWVkAFzUZAQ",
+    "skip": 0
+  }
+]
