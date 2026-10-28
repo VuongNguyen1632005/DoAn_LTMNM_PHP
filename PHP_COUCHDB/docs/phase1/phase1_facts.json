@@ -1,5 +1,5 @@
 {
-    "generated_at_utc": "2026-10-28T01:24:28Z",
+    "generated_at_utc": "2026-10-28T01:50:38Z",
     "database": "retail_order_delivery_demo",
     "total_documents": 150,
     "design_documents": 3,
@@ -680,7 +680,7 @@
                 "total_docs_examined": 12,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 10.138
+                "execution_time_ms": 65.224
             },
             "warning": ""
         },
@@ -1339,7 +1339,7 @@
                 "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 9.89
+                "execution_time_ms": 8.334
             },
             "warning": ""
         },
@@ -1992,7 +1992,7 @@
                 "total_docs_examined": 10,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 10,
-                "execution_time_ms": 8.396
+                "execution_time_ms": 6.747999999999999
             },
             "warning": ""
         },
@@ -2642,7 +2642,7 @@
                 "total_docs_examined": 7,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 7,
-                "execution_time_ms": 8.158
+                "execution_time_ms": 5.986000000000001
             },
             "warning": ""
         },
@@ -3292,7 +3292,7 @@
                 "total_docs_examined": 4,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 4,
-                "execution_time_ms": 4.313
+                "execution_time_ms": 4.277
             },
             "warning": ""
         },
@@ -3949,7 +3949,7 @@
                 "total_docs_examined": 67,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 25,
-                "execution_time_ms": 30.222
+                "execution_time_ms": 28.232
             },
             "warning": ""
         },
@@ -4617,7 +4617,7 @@
                 "total_docs_examined": 11,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 8,
-                "execution_time_ms": 7.414
+                "execution_time_ms": 6.644
             },
             "warning": ""
         },
@@ -5270,7 +5270,7 @@
                 "total_docs_examined": 15,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 15,
-                "execution_time_ms": 8.873
+                "execution_time_ms": 8.964
             },
             "warning": ""
         },
@@ -5923,7 +5923,7 @@
                 "total_docs_examined": 5,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 5,
-                "execution_time_ms": 5.393
+                "execution_time_ms": 5.193
             },
             "warning": ""
         },
@@ -6576,7 +6576,7 @@
                 "total_docs_examined": 2,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 2,
-                "execution_time_ms": 4.062
+                "execution_time_ms": 4.835
             },
             "warning": ""
         },
@@ -7229,7 +7229,7 @@
                 "total_docs_examined": 3,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 3,
-                "execution_time_ms": 4.77
+                "execution_time_ms": 5.325
             },
             "warning": ""
         },
@@ -7875,7 +7875,7 @@
                 "total_docs_examined": 1,
                 "total_quorum_docs_examined": 0,
                 "results_returned": 1,
-                "execution_time_ms": 3.6550000000000002
+                "execution_time_ms": 4.093
             },
             "warning": ""
         }
@@ -7964,7 +7964,7 @@
                         "total_docs_examined": 5,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 5.566
+                        "execution_time_ms": 5.285
                     },
                     "warning": null
                 },
@@ -7997,7 +7997,7 @@
                         "total_docs_examined": 61,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 5,
-                        "execution_time_ms": 8.951
+                        "execution_time_ms": 10.12
                     },
                     "warning": "No matching index found, create an index to optimize query time.\nThe number of documents examined is high in proportion to the number of results returned. Consider adding a more specific index to improve this."
                 }
@@ -8043,7 +8043,7 @@
                         "total_docs_examined": 6,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 6,
-                        "execution_time_ms": 4.427
+                        "execution_time_ms": 4.695
                     },
                     "warning": null
                 }
@@ -8086,7 +8086,7 @@
                         "total_docs_examined": 26,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 25,
-                        "execution_time_ms": 8.536
+                        "execution_time_ms": 9.463
                     },
                     "warning": null
                 },
@@ -8127,7 +8127,7 @@
                         "total_docs_examined": 26,
                         "total_quorum_docs_examined": 0,
                         "results_returned": 25,
-                        "execution_time_ms": 10.29
+                        "execution_time_ms": 10.852
                     },
                     "warning": null
                 }

@@ -4,14 +4,14 @@ Cơ sở dữ liệu: `retail_order_delivery_demo`. Bằng chứng dưới đây
 
 | Mã | Mục đích | Toán tử | Index `_explain` | Kết quả / đếm PHP | docs_examined | execution_time_ms | Trạng thái |
 |---:|---|---|---|---:|---:|---:|---|
-| 13 | Order pending hoặc confirmed của một khách cụ thể. | `$or` | `customer_orders_status` | 1 / 1 | 7 | 5.015 | PASS |
-| 14 | Lọc nhiều trạng thái và loại cancelled. | `$in, $nin` | `admin_orders` | 37 / 37 | 0 | 8.734 | PASS |
-| 15 | Order có một item quantity ≥ 2 và unit_price > 200000 VND. | `$elemMatch, $gte, $gt` | `orders_type_scan` | 48 / 48 | 66 | 35.628 | PASS |
-| 16 | Order theo khoảng tổng tiền và ngày, sắp xếp theo tổng tiền. | `$gt, $lte, $gte, $lt, sort` | `orders_by_total` | 1 / 1 | 2 | 6.556 | PASS |
-| 17 | Order có delivery_tracking; dùng $exists=false để tìm order không có tracking. | `$exists` | `orders_type_scan` | 15 / 15 | 82 | 26.697 | PASS |
-| 18 | Tìm tên sản phẩm theo regex, giới hạn tập ứng viên bằng type=product và active=true có index. | `$regex` | `active_products` | 5 / 5 | 55 | 18.516 | PASS |
-| 19 | Order COD không cancelled, chiếu một số trường và giới hạn trang. | `$not, $and, fields, limit, skip` | `admin_orders` | 40 / 40 | 68 | 29.75 | PASS |
-| 20 | Tra cứu trường lồng receiver.name vì schema demo không có receiver.city. | `nested field, $eq` | `orders_by_receiver` | 15 / 15 | 15 | 9.021 | PASS |
+| 13 | Order pending hoặc confirmed của một khách cụ thể. | `$or` | `customer_orders_status` | 1 / 1 | 7 | 4.978 | PASS |
+| 14 | Lọc nhiều trạng thái và loại cancelled. | `$in, $nin` | `admin_orders` | 37 / 37 | 0 | 4.217 | PASS |
+| 15 | Order có một item quantity ≥ 2 và unit_price > 200000 VND. | `$elemMatch, $gte, $gt` | `orders_type_scan` | 48 / 48 | 66 | 23.027 | PASS |
+| 16 | Order theo khoảng tổng tiền và ngày, sắp xếp theo tổng tiền. | `$gt, $lte, $gte, $lt, sort` | `orders_by_total` | 1 / 1 | 2 | 3.978 | PASS |
+| 17 | Order có delivery_tracking; dùng $exists=false để tìm order không có tracking. | `$exists` | `orders_type_scan` | 15 / 15 | 82 | 26.196 | PASS |
+| 18 | Tìm tên sản phẩm theo regex, giới hạn tập ứng viên bằng type=product và active=true có index. | `$regex` | `active_products` | 5 / 5 | 55 | 20.556 | PASS |
+| 19 | Order COD không cancelled, chiếu một số trường và giới hạn trang. | `$not, $and, fields, limit, skip` | `admin_orders` | 40 / 40 | 68 | 31.538 | PASS |
+| 20 | Tra cứu trường lồng receiver.name vì schema demo không có receiver.city. | `nested field, $eq` | `orders_by_receiver` | 15 / 15 | 15 | 7.867 | PASS |
 
 ## Query 13 — Order pending hoặc confirmed của một khách cụ thể.
 

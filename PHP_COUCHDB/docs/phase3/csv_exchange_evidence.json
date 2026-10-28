@@ -41,9 +41,9 @@
         "database": "retail_order_delivery_demo",
         "output": "docs/phase3/exports/orders_phase3_20261028.csv",
         "query_count": 65,
-        "rows_exported": 65,
+        "rows_exported": null,
         "docs_examined": 65,
-        "created_now": true
+        "created_now": false
     },
     "export_query_index": "admin_orders",
     "exported_row_count_matches_query": true,
@@ -51,5 +51,5 @@
     "csv_data_rows": 65,
     "export_docs_examined": 65,
     "status": "PASS",
-    "generated_at_utc": "2026-10-28T01:39:43Z"
+    "generated_at_utc": "2026-10-28T01:51:38Z"
 }

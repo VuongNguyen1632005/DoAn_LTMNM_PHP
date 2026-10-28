@@ -1,13 +1,13 @@
 {
     "feature": "security",
     "database": "retail_security_scratch",
-    "member_user": "phase3_member_82eecaef",
-    "outsider_user": "phase3_outsider_82eecaef",
+    "member_user": "phase3_member_a0bc35c0",
+    "outsider_user": "phase3_outsider_a0bc35c0",
     "cleanup": {
         "database": true,
         "users": {
-            "org.couchdb.user:phase3_outsider_82eecaef": true,
-            "org.couchdb.user:phase3_member_82eecaef": true
+            "org.couchdb.user:phase3_outsider_a0bc35c0": true,
+            "org.couchdb.user:phase3_member_a0bc35c0": true
         }
     },
     "users_database_created": false,
@@ -18,7 +18,7 @@
         },
         "members": {
             "names": [
-                "phase3_member_82eecaef"
+                "phase3_member_a0bc35c0"
             ],
             "roles": []
         }
@@ -28,5 +28,5 @@
     "member_design_update_http": 403,
     "member_design_update_body": "{\"error\":\"forbidden\",\"reason\":\"You are not a db or server admin.\"}\n",
     "status": "PASS",
-    "generated_at_utc": "2026-10-28T01:33:03Z"
+    "generated_at_utc": "2026-10-28T01:51:04Z"
 }

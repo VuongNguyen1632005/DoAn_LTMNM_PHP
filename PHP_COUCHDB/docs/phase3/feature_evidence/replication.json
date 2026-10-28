@@ -11,17 +11,17 @@
     "validator_installed_after_replication": true,
     "one_shot_replication": {
         "ok": true,
-        "session_id": "90d015f107cff4b1839ccc8941a17e11",
-        "source_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
+        "session_id": "7e27e13525b65e615a792020db2b6032",
+        "source_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMCelGZqkmhhiK4Yh_Y8FiDJ0ACk_kNNCQSbkmZimmSanIiuJwsAiWQrlQ",
         "replication_id_version": 4,
         "history": [
             {
-                "session_id": "90d015f107cff4b1839ccc8941a17e11",
-                "start_time": "Wed, 28 Oct 2026 01:32:33 GMT",
-                "end_time": "Wed, 28 Oct 2026 01:32:37 GMT",
+                "session_id": "7e27e13525b65e615a792020db2b6032",
+                "start_time": "Wed, 28 Oct 2026 01:50:51 GMT",
+                "end_time": "Wed, 28 Oct 2026 01:50:55 GMT",
                 "start_last_seq": 0,
-                "end_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
-                "recorded_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMBubGCQam5mjq4Yh_Y8FiDJ0ACk_kNNCQSbYmiZYmRsbIauJwsAW5QqqA",
+                "end_last_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMCelGZqkmhhiK4Yh_Y8FiDJ0ACk_kNNCQSbkmZimmSanIiuJwsAiWQrlQ",
+                "recorded_seq": "182-g1AAAACLeJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5MTUXKMCelGZqkmhhiK4Yh_Y8FiDJ0ACk_kNNCQSbkmZimmSanIiuJwsAiWQrlQ",
                 "missing_checked": 149,
                 "missing_found": 149,
                 "docs_read": 149,
@@ -51,7 +51,7 @@
             {
                 "database": null,
                 "id": "dc9c9aa38c824b8a4bbb7f16888047fb+continuous+create_target",
-                "pid": "<0.79589.0>",
+                "pid": "<0.104680.0>",
                 "source": "http://couchdb:5984/retail_order_delivery_demo/",
                 "target": "http://couchdb:5984/retail_demo_replica_scratch/",
                 "user": "webthoitrang_dev",
@@ -59,16 +59,16 @@
                 "info": null,
                 "history": [
                     {
-                        "timestamp": "2026-10-28T01:32:38Z",
+                        "timestamp": "2026-10-28T01:50:56Z",
                         "type": "started"
                     },
                     {
-                        "timestamp": "2026-10-28T01:32:38Z",
+                        "timestamp": "2026-10-28T01:50:56Z",
                         "type": "added"
                     }
                 ],
                 "node": "nonode@nohost",
-                "start_time": "2026-10-28T01:32:38Z"
+                "start_time": "2026-10-28T01:50:56Z"
             }
         ]
     },
@@ -78,5 +78,5 @@
     },
     "active_tasks_after_cancel": [],
     "status": "PASS",
-    "generated_at_utc": "2026-10-28T01:32:39Z"
+    "generated_at_utc": "2026-10-28T01:50:58Z"
 }

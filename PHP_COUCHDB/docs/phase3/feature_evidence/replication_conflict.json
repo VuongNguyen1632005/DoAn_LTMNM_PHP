@@ -11,17 +11,17 @@
     "base_revision": "1-580c248a91089306d941ad0bd992b0df",
     "base_replication": {
         "ok": true,
-        "session_id": "7c6b3dfcf26223d53ab255d2c308107b",
-        "source_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
+        "session_id": "ef05c97213298190da8bfa38fb8ba045",
+        "source_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
         "replication_id_version": 4,
         "history": [
             {
-                "session_id": "7c6b3dfcf26223d53ab255d2c308107b",
-                "start_time": "Wed, 28 Oct 2026 01:32:46 GMT",
-                "end_time": "Wed, 28 Oct 2026 01:32:46 GMT",
+                "session_id": "ef05c97213298190da8bfa38fb8ba045",
+                "start_time": "Wed, 28 Oct 2026 01:50:59 GMT",
+                "end_time": "Wed, 28 Oct 2026 01:51:00 GMT",
                 "start_last_seq": 0,
-                "end_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
-                "recorded_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
+                "end_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
+                "recorded_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
                 "missing_checked": 1,
                 "missing_found": 1,
                 "docs_read": 1,
@@ -36,17 +36,17 @@
     "right_edit_revision": "2-af87709ba0acece687fd487240ec1f0a",
     "conflict_replication": {
         "ok": true,
-        "session_id": "8344202e3ff69ff00723f607abc9701b",
-        "source_last_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEoiJo",
+        "session_id": "a426df97f07dd3569750b42509e80e77",
+        "source_last_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDhQyHU",
         "replication_id_version": 4,
         "history": [
             {
-                "session_id": "8344202e3ff69ff00723f607abc9701b",
-                "start_time": "Wed, 28 Oct 2026 01:32:46 GMT",
-                "end_time": "Wed, 28 Oct 2026 01:32:49 GMT",
-                "start_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
-                "end_last_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEoiJo",
-                "recorded_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEoiJo",
+                "session_id": "a426df97f07dd3569750b42509e80e77",
+                "start_time": "Wed, 28 Oct 2026 01:51:00 GMT",
+                "end_time": "Wed, 28 Oct 2026 01:51:01 GMT",
+                "start_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
+                "end_last_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDhQyHU",
+                "recorded_seq": "2-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kSkXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDhQyHU",
                 "missing_checked": 2,
                 "missing_found": 2,
                 "docs_read": 2,
@@ -56,12 +56,12 @@
                 "bulk_get_attempts": 2
             },
             {
-                "session_id": "7c6b3dfcf26223d53ab255d2c308107b",
-                "start_time": "Wed, 28 Oct 2026 01:32:46 GMT",
-                "end_time": "Wed, 28 Oct 2026 01:32:46 GMT",
+                "session_id": "ef05c97213298190da8bfa38fb8ba045",
+                "start_time": "Wed, 28 Oct 2026 01:50:59 GMT",
+                "end_time": "Wed, 28 Oct 2026 01:51:00 GMT",
                 "start_last_seq": 0,
-                "end_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
-                "recorded_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBumpKcapycjK4Yh_Y8FiDJ0ACk_oNMSWTIAgAEXCJn",
+                "end_last_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
+                "recorded_seq": "1-g1AAAABteJzLYWBgYMpgTmHgzcvPy09JdcjLz8gvLskBCScyJNX___8_K4M5kTEXKMBuaJJibGqYgq4Yh_Y8FiDJ0ACk_oNMSWTIAgDg_SHT",
                 "missing_checked": 1,
                 "missing_found": 1,
                 "docs_read": 1,
@@ -96,5 +96,5 @@
     },
     "winner_rule": "CouchDB selects a deterministic winner from revision-tree ordering; this script records the actual winner from GET ?conflicts=true and tombstones the other branch. The winner value is measured output, not hard-coded.",
     "status": "PASS",
-    "generated_at_utc": "2026-10-28T01:32:49Z"
+    "generated_at_utc": "2026-10-28T01:51:01Z"
 }

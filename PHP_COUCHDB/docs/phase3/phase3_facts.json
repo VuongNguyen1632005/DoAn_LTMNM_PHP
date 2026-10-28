@@ -1,0 +1,1236 @@
+{
+    "generated_at_utc": "2026-10-28T01:57:02Z",
+    "database": "retail_order_delivery_demo",
+    "phase1": {
+        "total_documents": 150,
+        "business_documents": 147,
+        "design_documents": 3,
+        "catalog_mango_indexes": 15,
+        "guest_index_before_after": {
+            "before": {
+                "index": "orders_type_scan",
+                "docs_examined": 65,
+                "results": 15
+            },
+            "after": {
+                "index": "guest_orders",
+                "docs_examined": 15,
+                "results": 15
+            }
+        },
+        "delivery_index_before_after": [
+            {
+                "query": "09",
+                "before_index": "orders_type_scan",
+                "before_docs_examined": 65,
+                "after_index": "_design/catalog_indexes/delivery_status",
+                "after_docs_examined": 5,
+                "before_results": 5,
+                "after_results": 5
+            },
+            {
+                "query": "10",
+                "before_index": "orders_type_scan",
+                "before_docs_examined": 65,
+                "after_index": "_design/catalog_indexes/delivery_status",
+                "after_docs_examined": 2,
+                "before_results": 2,
+                "after_results": 2
+            },
+            {
+                "query": "11",
+                "before_index": "orders_type_scan",
+                "before_docs_examined": 65,
+                "after_index": "_design/catalog_indexes/delivery_status",
+                "after_docs_examined": 3,
+                "before_results": 3,
+                "after_results": 3
+            }
+        ],
+        "query_01_root_cause": "The full query-file payload selects admin_orders. Removing both use_index and sort reproduces _all_docs fallback scanning all 61 rows; removing use_index but keeping the sort returns HTTP 400 (no index for sort). The historical Fauxton Request Payload was not supplied, so this probe cannot prove which fields Fauxton omitted.",
+        "query_06_root_cause": "In the available Phase 06 DB, the query-file payload returns 27 and changing only limit to 25 returns 25, not 21. Default limit alone therefore does not explain 21; the historical Fauxton Request Payload was not supplied, so exact cause remains unverified."
+    },
+    "queries": {
+        "01": {
+            "code": "01",
+            "purpose": "pending orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$eq": "pending"
+                }
+            },
+            "index": "admin_orders",
+            "results": 11,
+            "pages": 3,
+            "docs_examined": 12,
+            "execution_time_ms": 65.224,
+            "status": "PASS",
+            "limit": 10,
+            "bookmark_pages_aggregated": true
+        },
+        "02": {
+            "code": "02",
+            "purpose": "shipping orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$eq": "shipping"
+                }
+            },
+            "index": "admin_orders",
+            "results": 15,
+            "pages": 2,
+            "docs_examined": 15,
+            "execution_time_ms": 8.334,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "03": {
+            "code": "03",
+            "purpose": "delivered orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$eq": "delivered"
+                }
+            },
+            "index": "admin_orders",
+            "results": 10,
+            "pages": 2,
+            "docs_examined": 10,
+            "execution_time_ms": 6.747999999999999,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "04": {
+            "code": "04",
+            "purpose": "cancelled orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$eq": "cancelled"
+                }
+            },
+            "index": "admin_orders",
+            "results": 7,
+            "pages": 2,
+            "docs_examined": 7,
+            "execution_time_ms": 5.986000000000001,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "05": {
+            "code": "05",
+            "purpose": "customer orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "customer.customer_id": {
+                    "$eq": "DEMO-C001"
+                }
+            },
+            "index": "customer_orders",
+            "results": 4,
+            "pages": 2,
+            "docs_examined": 4,
+            "execution_time_ms": 4.277,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "06": {
+            "code": "06",
+            "purpose": "orders by date",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "ordered_at": {
+                    "$gte": "2026-06-01T00:00:00Z",
+                    "$lt": "2027-01-01T00:00:00Z"
+                }
+            },
+            "index": "admin_orders_by_date",
+            "results": 65,
+            "pages": 4,
+            "docs_examined": 67,
+            "execution_time_ms": 28.232,
+            "status": "PASS",
+            "limit": 25,
+            "bookmark_pages_aggregated": true
+        },
+        "07": {
+            "code": "07",
+            "purpose": "unpaid cod",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$eq": "pending"
+                },
+                "payment.method": {
+                    "$eq": "cod"
+                },
+                "payment.paid": {
+                    "$eq": false
+                }
+            },
+            "index": "admin_orders",
+            "results": 8,
+            "pages": 2,
+            "docs_examined": 11,
+            "execution_time_ms": 6.644,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "08": {
+            "code": "08",
+            "purpose": "guest orders",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "guest_order": {
+                    "$eq": true
+                }
+            },
+            "index": "guest_orders",
+            "results": 15,
+            "pages": 2,
+            "docs_examined": 15,
+            "execution_time_ms": 8.964,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "09": {
+            "code": "09",
+            "purpose": "delivery in transit",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "delivery_tracking.status": {
+                    "$eq": "in_transit"
+                }
+            },
+            "index": "delivery_status",
+            "results": 5,
+            "pages": 2,
+            "docs_examined": 5,
+            "execution_time_ms": 5.193,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "10": {
+            "code": "10",
+            "purpose": "delivery out for delivery",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "delivery_tracking.status": {
+                    "$eq": "out_for_delivery"
+                }
+            },
+            "index": "delivery_status",
+            "results": 2,
+            "pages": 2,
+            "docs_examined": 2,
+            "execution_time_ms": 4.835,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "11": {
+            "code": "11",
+            "purpose": "delivery failed",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "delivery_tracking.status": {
+                    "$eq": "failed_delivery"
+                }
+            },
+            "index": "delivery_status",
+            "results": 3,
+            "pages": 2,
+            "docs_examined": 3,
+            "execution_time_ms": 5.325,
+            "status": "PASS",
+            "limit": 20,
+            "bookmark_pages_aggregated": true
+        },
+        "12": {
+            "code": "12",
+            "purpose": "tracking code",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "delivery_tracking.tracking_code": {
+                    "$eq": "DEMO-TRK-035"
+                }
+            },
+            "index": "delivery_tracking_code",
+            "results": 1,
+            "pages": 2,
+            "docs_examined": 1,
+            "execution_time_ms": 4.093,
+            "status": "PASS",
+            "limit": 5,
+            "bookmark_pages_aggregated": true
+        },
+        "13": {
+            "code": "13",
+            "purpose": "Order pending hoặc confirmed của một khách cụ thể.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "customer.customer_id": {
+                    "$eq": "DEMO-C001"
+                },
+                "$or": [
+                    {
+                        "status": {
+                            "$eq": "pending"
+                        }
+                    },
+                    {
+                        "status": {
+                            "$eq": "confirmed"
+                        }
+                    }
+                ]
+            },
+            "operators": "$or",
+            "index": "customer_orders_status",
+            "results": 1,
+            "independent_count": 1,
+            "docs_examined": 7,
+            "execution_time_ms": 4.978,
+            "status": "PASS"
+        },
+        "14": {
+            "code": "14",
+            "purpose": "Lọc nhiều trạng thái và loại cancelled.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "status": {
+                    "$in": [
+                        "pending",
+                        "confirmed",
+                        "shipping",
+                        "cancelled"
+                    ],
+                    "$nin": [
+                        "cancelled"
+                    ]
+                }
+            },
+            "operators": "$in, $nin",
+            "index": "admin_orders",
+            "results": 37,
+            "independent_count": 37,
+            "docs_examined": 0,
+            "execution_time_ms": 4.217,
+            "status": "PASS"
+        },
+        "15": {
+            "code": "15",
+            "purpose": "Order có một item quantity ≥ 2 và unit_price > 200000 VND.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "items": {
+                    "$elemMatch": {
+                        "quantity": {
+                            "$gte": 2
+                        },
+                        "unit_price": {
+                            "$gt": 200000
+                        }
+                    }
+                }
+            },
+            "operators": "$elemMatch, $gte, $gt",
+            "index": "orders_type_scan",
+            "results": 48,
+            "independent_count": 48,
+            "docs_examined": 66,
+            "execution_time_ms": 23.027,
+            "status": "PASS"
+        },
+        "16": {
+            "code": "16",
+            "purpose": "Order theo khoảng tổng tiền và ngày, sắp xếp theo tổng tiền.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "totals.grand_total": {
+                    "$gt": 350000,
+                    "$lte": 500000
+                },
+                "ordered_at": {
+                    "$gte": "2026-06-01T00:00:00Z",
+                    "$lt": "2026-08-01T00:00:00Z"
+                }
+            },
+            "operators": "$gt, $lte, $gte, $lt, sort",
+            "index": "orders_by_total",
+            "results": 1,
+            "independent_count": 1,
+            "docs_examined": 2,
+            "execution_time_ms": 3.978,
+            "status": "PASS"
+        },
+        "17": {
+            "code": "17",
+            "purpose": "Order có delivery_tracking; dùng $exists=false để tìm order không có tracking.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "delivery_tracking": {
+                    "$exists": true
+                }
+            },
+            "operators": "$exists",
+            "index": "orders_type_scan",
+            "results": 15,
+            "independent_count": 15,
+            "docs_examined": 82,
+            "execution_time_ms": 26.196,
+            "status": "PASS"
+        },
+        "18": {
+            "code": "18",
+            "purpose": "Tìm tên sản phẩm theo regex, giới hạn tập ứng viên bằng type=product và active=true có index.",
+            "selector": {
+                "type": {
+                    "$eq": "product"
+                },
+                "active": {
+                    "$eq": true
+                },
+                "name": {
+                    "$regex": "^Sản phẩm Demo 0[1-5]$"
+                }
+            },
+            "operators": "$regex",
+            "index": "active_products",
+            "results": 5,
+            "independent_count": 5,
+            "docs_examined": 55,
+            "execution_time_ms": 20.556,
+            "status": "PASS"
+        },
+        "19": {
+            "code": "19",
+            "purpose": "Order COD không cancelled, chiếu một số trường và giới hạn trang.",
+            "selector": {
+                "$and": [
+                    {
+                        "type": {
+                            "$eq": "order"
+                        }
+                    },
+                    {
+                        "$not": {
+                            "status": {
+                                "$eq": "cancelled"
+                            }
+                        }
+                    },
+                    {
+                        "payment.method": {
+                            "$eq": "cod"
+                        }
+                    }
+                ]
+            },
+            "operators": "$not, $and, fields, limit, skip",
+            "index": "admin_orders",
+            "results": 40,
+            "independent_count": 40,
+            "docs_examined": 68,
+            "execution_time_ms": 31.538,
+            "status": "PASS"
+        },
+        "20": {
+            "code": "20",
+            "purpose": "Tra cứu trường lồng receiver.name vì schema demo không có receiver.city.",
+            "selector": {
+                "type": {
+                    "$eq": "order"
+                },
+                "receiver.name": {
+                    "$eq": "Khách vãng lai Demo"
+                }
+            },
+            "operators": "nested field, $eq",
+            "index": "orders_by_receiver",
+            "results": 15,
+            "independent_count": 15,
+            "docs_examined": 15,
+            "execution_time_ms": 7.867,
+            "status": "PASS"
+        }
+    },
+    "views": {
+        "orders_count": 65,
+        "checks": {
+            "order_count_by_status group=true": "PASS",
+            "order_total_by_status group=true": "PASS",
+            "orders_by_status compatibility group=true": "PASS",
+            "orders_by_month group_level=1": "PASS",
+            "orders_by_month group_level=2": "PASS",
+            "top_products group=true": "PASS",
+            "revenue_delivered_by_month group_level=2": "PASS",
+            "orders_by_customer reduce=false include_docs startkey/endkey": "PASS"
+        },
+        "orders_by_status": {
+            "cancelled": 7,
+            "confirmed": 11,
+            "delivered": 10,
+            "packing": 11,
+            "pending": 11,
+            "shipping": 15
+        },
+        "monthly_revenue_stats": {
+            "[2026,10]": {
+                "count": 11,
+                "sum": 12747000,
+                "min": 294000,
+                "max": 2219000,
+                "sumsqr": 18855845000000
+            },
+            "[2026,6]": {
+                "count": 14,
+                "sum": 14910000,
+                "min": 218000,
+                "max": 2345000,
+                "sumsqr": 21267422000000
+            },
+            "[2026,7]": {
+                "count": 13,
+                "sum": 16927000,
+                "min": 302000,
+                "max": 2051000,
+                "sumsqr": 25618623000000
+            },
+            "[2026,8]": {
+                "count": 14,
+                "sum": 15805000,
+                "min": 176000,
+                "max": 1967000,
+                "sumsqr": 22021411000000
+            },
+            "[2026,9]": {
+                "count": 13,
+                "sum": 15561000,
+                "min": 260000,
+                "max": 2171000,
+                "sumsqr": 22678223000000
+            }
+        },
+        "top_products_quantity": {
+            "product:DEMO-P001": 14,
+            "product:DEMO-P002": 15,
+            "product:DEMO-P003": 7,
+            "product:DEMO-P004": 10,
+            "product:DEMO-P005": 21,
+            "product:DEMO-P006": 4,
+            "product:DEMO-P007": 12,
+            "product:DEMO-P008": 12,
+            "product:DEMO-P009": 7,
+            "product:DEMO-P010": 10,
+            "product:DEMO-P011": 21,
+            "product:DEMO-P012": 4,
+            "product:DEMO-P013": 12,
+            "product:DEMO-P014": 12,
+            "product:DEMO-P015": 6,
+            "product:DEMO-P016": 8,
+            "product:DEMO-P017": 21,
+            "product:DEMO-P018": 5,
+            "product:DEMO-P019": 12,
+            "product:DEMO-P020": 12,
+            "product:DEMO-P021": 6,
+            "product:DEMO-P022": 8,
+            "product:DEMO-P023": 18,
+            "product:DEMO-P024": 4,
+            "product:DEMO-P025": 14,
+            "product:DEMO-P026": 12,
+            "product:DEMO-P027": 6,
+            "product:DEMO-P028": 8,
+            "product:DEMO-P029": 18,
+            "product:DEMO-P030": 4
+        },
+        "delivered_revenue_by_month": {
+            "2026-10": 4935000,
+            "2026-9": 6755000
+        },
+        "customer_lookup_orders": 50
+    },
+    "fauxton_features": {
+        "replication": {
+            "status": "PASS",
+            "cleanup": true,
+            "source": "retail_order_delivery_demo",
+            "target": "retail_demo_replica_scratch",
+            "counts": {
+                "source": 150,
+                "target": 150,
+                "source_all_docs": 150,
+                "target_all_docs": 150
+            },
+            "normalized_hash_mismatch_ids": []
+        },
+        "replication_conflict": {
+            "status": "PASS",
+            "cleanup": {
+                "retail_conflict_right_scratch": true,
+                "retail_conflict_left_scratch": true
+            },
+            "winner_rule": "CouchDB selects a deterministic winner from revision-tree ordering; this script records the actual winner from GET ?conflicts=true and tombstones the other branch. The winner value is measured output, not hard-coded.",
+            "conflicted_document": {
+                "winner": {
+                    "rev": "2-af87709ba0acece687fd487240ec1f0a",
+                    "value": "edited-on-right"
+                },
+                "losing_revisions": [
+                    "2-3782173b1d360c26272022cd75527e4d"
+                ]
+            }
+        },
+        "attachment": {
+            "status": "PASS",
+            "cleanup": true,
+            "attachment_length_bytes": 68,
+            "attachment_content_type": "image/png",
+            "expected_md5_base64": "WY4oUadFjaXDQdG7dbQsYQ==",
+            "couchdb_digest": "md5-WY4oUadFjaXDQdG7dbQsYQ==",
+            "readback_md5_base64": "WY4oUadFjaXDQdG7dbQsYQ==",
+            "delete_http_status": 200
+        },
+        "security": {
+            "status": "PASS",
+            "cleanup": {
+                "database": true,
+                "users": {
+                    "org.couchdb.user:phase3_outsider_a0bc35c0": true,
+                    "org.couchdb.user:phase3_member_a0bc35c0": true
+                }
+            },
+            "member_read_http": 200,
+            "outsider_read_http": 403,
+            "member_design_update_http": 403,
+            "member_design_update_body": "{\"error\":\"forbidden\",\"reason\":\"You are not a db or server admin.\"}\n"
+        },
+        "compaction_delete": {
+            "status": "PASS",
+            "cleanup": true,
+            "revisions_written": 51,
+            "compaction_http": 202,
+            "before": {
+                "doc_count": 1,
+                "data_size": 3195,
+                "data_size_source": "sizes.active",
+                "disk_size": 225629,
+                "disk_size_source": "sizes.file",
+                "runtime_sizes": {
+                    "file": 225629,
+                    "external": 2111,
+                    "active": 3195
+                }
+            },
+            "after_compaction": {
+                "doc_count": 1,
+                "data_size": 2437,
+                "data_size_source": "sizes.active",
+                "disk_size": 33123,
+                "disk_size_source": "sizes.file",
+                "runtime_sizes": {
+                    "file": 33123,
+                    "external": 2111,
+                    "active": 2437
+                }
+            },
+            "delete_http": 200,
+            "deleted_database_http": 404
+        },
+        "backup_replication": {
+            "status": "PASS",
+            "cleanup": true,
+            "source": "retail_order_delivery_demo",
+            "target": "retail_order_delivery_backup_scratch",
+            "source_doc_count": 150,
+            "target_doc_count": 150,
+            "missing_ids": [],
+            "extra_ids": [],
+            "different_content_ids": [],
+            "security_matches": true
+        }
+    },
+    "backup_restore": {
+        "backup_file": "var/backups/phase3-evidence-20261028.json",
+        "backup_documents": 150,
+        "restored_documents": 150,
+        "design_documents": 3,
+        "missing_extra_different": {
+            "missing": 0,
+            "extra": 0,
+            "different": 0
+        },
+        "mango_indexes": 15,
+        "index_rows_including_special_all_docs": 16,
+        "security_parity": true,
+        "validator_probe_http": 403,
+        "status": "PASS",
+        "cleanup": true
+    },
+    "csv_exchange": {
+        "import_database": "retail_csv_import_scratch",
+        "imported_count": 3,
+        "row_errors": [
+            {
+                "line": 5,
+                "id": "product:CSV-CSV-BAD01",
+                "error": "forbidden",
+                "reason": "product variant has invalid id, size, price, stock, or active flag"
+            }
+        ],
+        "export_file": "docs/phase3/exports/orders_phase3_20261028.csv",
+        "export_query_count": 65,
+        "export_rows": 65,
+        "export_index": "admin_orders",
+        "export_docs_examined": 65,
+        "status": "PASS",
+        "cleanup": true
+    },
+    "admin_users": {
+        "check_count": 25,
+        "status": "PASS",
+        "checks": [
+            {
+                "name": "manager can log in over HTTP",
+                "result": "PASS"
+            },
+            {
+                "name": "manager search and customer filter return matching account only",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can view safe account detail",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can edit profile with current CouchDB revision",
+                "result": "PASS"
+            },
+            {
+                "name": "profile edit was persisted",
+                "result": "PASS"
+            },
+            {
+                "name": "stale revision returns HTTP 409 with conflict message",
+                "result": "PASS"
+            },
+            {
+                "name": "stale edit does not overwrite latest profile",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can lock account",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can unlock account",
+                "result": "PASS"
+            },
+            {
+                "name": "missing CSRF token does not change account status",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can create active Staff account",
+                "result": "PASS"
+            },
+            {
+                "name": "backup creation rejects missing CSRF token",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can create a uniquely named backup",
+                "result": "PASS"
+            },
+            {
+                "name": "manager can securely download generated backup JSON",
+                "result": "PASS"
+            },
+            {
+                "name": "backup download rejects a traversal-style filename",
+                "result": "PASS"
+            },
+            {
+                "name": "staff can log in over HTTP",
+                "result": "PASS"
+            },
+            {
+                "name": "staff is denied /admin/users",
+                "result": "PASS"
+            },
+            {
+                "name": "staff is denied /admin/backup",
+                "result": "PASS"
+            },
+            {
+                "name": "staff cannot create backup",
+                "result": "PASS"
+            },
+            {
+                "name": "staff cannot download backup",
+                "result": "PASS"
+            },
+            {
+                "name": "customer can log in over HTTP",
+                "result": "PASS"
+            },
+            {
+                "name": "customer is denied /admin/users",
+                "result": "PASS"
+            },
+            {
+                "name": "customer is denied /admin/backup",
+                "result": "PASS"
+            },
+            {
+                "name": "customer cannot create backup",
+                "result": "PASS"
+            },
+            {
+                "name": "customer cannot download backup",
+                "result": "PASS"
+            }
+        ]
+    },
+    "validator_tests": {
+        "check_count": 6,
+        "status": "PASS",
+        "cases": [
+            {
+                "case": "invalid order status",
+                "expected_http": 403,
+                "actual_http": 403,
+                "expected_reason": "order requires a valid status, receiver, and non-empty items",
+                "response_body": "{\"error\":\"forbidden\",\"reason\":\"order requires a valid status, receiver, and non-empty items\"}\n",
+                "request": {
+                    "_id": "order:validator-status",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-STATUS",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "invalid_status",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "cod",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "pending",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ],
+                    "_rev": "1-346bcdc91e2909b581abfd60f0945c87"
+                },
+                "result": "PASS"
+            },
+            {
+                "case": "delivery history cannot be shortened",
+                "expected_http": 403,
+                "actual_http": 403,
+                "expected_reason": "delivery history is append-only",
+                "response_body": "{\"error\":\"forbidden\",\"reason\":\"delivery history is append-only\"}\n",
+                "request": {
+                    "_id": "order:validator-history",
+                    "_rev": "2-add1e95aaed4b42c6af85b462aeb70be",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-HISTORY",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "shipping",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "cod",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "shipping",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ],
+                    "delivery_tracking": {
+                        "tracking_code": "VAL-TRACK-01",
+                        "status": "created",
+                        "estimated_delivery_date": "2026-10-31",
+                        "delivered_at": null,
+                        "history": [
+                            {
+                                "status": "created",
+                                "at": "2026-10-28T01:49:02+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            }
+                        ]
+                    }
+                },
+                "result": "PASS"
+            },
+            {
+                "case": "paid order cannot revert to unpaid",
+                "expected_http": 403,
+                "actual_http": 403,
+                "expected_reason": "paid orders cannot be marked unpaid",
+                "response_body": "{\"error\":\"forbidden\",\"reason\":\"paid orders cannot be marked unpaid\"}\n",
+                "request": {
+                    "_id": "order:validator-paid",
+                    "_rev": "1-5440f31be2683aecb2fc1c78a9cebb13",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-PAID",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "delivered",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "bank_transfer",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "delivered",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ]
+                },
+                "result": "PASS"
+            },
+            {
+                "case": "invalid delivery transition",
+                "expected_http": 403,
+                "actual_http": 403,
+                "expected_reason": "delivery status transition is not allowed",
+                "response_body": "{\"error\":\"forbidden\",\"reason\":\"delivery status transition is not allowed\"}\n",
+                "request": {
+                    "_id": "order:validator-transition",
+                    "_rev": "1-431762175160be4246ef4274ece94f5b",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-TRANSITION",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "shipping",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "cod",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "shipping",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ],
+                    "delivery_tracking": {
+                        "tracking_code": "VAL-TRACK-01",
+                        "status": "in_transit",
+                        "estimated_delivery_date": "2026-10-31",
+                        "delivered_at": null,
+                        "history": [
+                            {
+                                "status": "created",
+                                "at": "2026-10-28T01:49:02+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            },
+                            {
+                                "status": "in_transit",
+                                "at": "2026-10-28T01:49:03+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            }
+                        ]
+                    }
+                },
+                "result": "PASS"
+            },
+            {
+                "case": "valid initial tracked order",
+                "expected_http": 201,
+                "actual_http": 201,
+                "expected_reason": null,
+                "response_body": "{\"ok\":true,\"id\":\"order:validator-valid\",\"rev\":\"1-b9b67911434dc4cf0924b5a5c6cbdefa\"}\n",
+                "request": {
+                    "_id": "order:validator-valid",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-VALID",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "shipping",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "cod",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "shipping",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ],
+                    "delivery_tracking": {
+                        "tracking_code": "VAL-TRACK-01",
+                        "status": "created",
+                        "estimated_delivery_date": "2026-10-31",
+                        "delivered_at": null,
+                        "history": [
+                            {
+                                "status": "created",
+                                "at": "2026-10-28T01:49:02+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            }
+                        ]
+                    }
+                },
+                "result": "PASS"
+            },
+            {
+                "case": "valid delivery transition",
+                "expected_http": 201,
+                "actual_http": 201,
+                "expected_reason": null,
+                "response_body": "{\"ok\":true,\"id\":\"order:validator-valid\",\"rev\":\"2-7577e4c1a16358e7bdae283618f39dba\"}\n",
+                "request": {
+                    "_id": "order:validator-valid",
+                    "_rev": "1-b9b67911434dc4cf0924b5a5c6cbdefa",
+                    "type": "order",
+                    "schema_version": 2,
+                    "legacy_id": "ORDER-VALIDATOR-VALID",
+                    "ordered_at": "2026-10-28T01:49:02+00:00",
+                    "status": "shipping",
+                    "customer": null,
+                    "guest_order": true,
+                    "receiver": {
+                        "name": "Validator Fixture",
+                        "phone": "0900000000",
+                        "address": "Runtime test"
+                    },
+                    "items": [
+                        {
+                            "product_id": "product:fixture",
+                            "variant_id": "FIXTURE-M",
+                            "quantity": 1,
+                            "unit_price": 100,
+                            "line_total": 100
+                        }
+                    ],
+                    "totals": {
+                        "total_quantity": 1,
+                        "subtotal": 100,
+                        "shipping_fee": 0,
+                        "discount_amount": 0,
+                        "grand_total": 100
+                    },
+                    "payment": {
+                        "method": "cod",
+                        "status": "unpaid",
+                        "paid": false
+                    },
+                    "status_history": [
+                        {
+                            "status": "shipping",
+                            "at": "2026-10-28T01:49:02+00:00",
+                            "source": "validator-test"
+                        }
+                    ],
+                    "delivery_tracking": {
+                        "tracking_code": "VAL-TRACK-01",
+                        "status": "picked_up",
+                        "estimated_delivery_date": "2026-10-31",
+                        "delivered_at": null,
+                        "history": [
+                            {
+                                "status": "created",
+                                "at": "2026-10-28T01:49:02+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            },
+                            {
+                                "status": "picked_up",
+                                "at": "2026-10-28T01:49:03+00:00",
+                                "note": "Validator verification",
+                                "updated_by": "validator-test"
+                            }
+                        ]
+                    }
+                },
+                "result": "PASS"
+            }
+        ]
+    },
+    "runtime_verification": {
+        "docker_compose": "PASS: app and CouchDB 3.5 healthy",
+        "seed_verify": "PASS: 150 docs, 147 business + 3 design; 65 orders, 15 guests",
+        "verify_views": "PASS: 8 checks",
+        "advanced_queries": "PASS: 8/8",
+        "fauxton_D1_D5": "PASS: all five scripts, scratch cleanup=true",
+        "replication_backup": "PASS",
+        "json_restore": "PASS",
+        "csv_exchange": "PASS",
+        "admin_users_http": "PASS",
+        "full_validator": "PASS"
+    }
+}
