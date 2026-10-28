@@ -2,13 +2,36 @@
   "_id": "_design/order_statistics",
   "language": "javascript",
   "views": {
+    "order_count_by_status": {
+      "map": "function (doc) { if (doc.type === 'order' && typeof doc.status === 'string') { emit(doc.status, 1); } }",
+      "reduce": "_count"
+    },
+    "order_total_by_status": {
+      "map": "function (doc) { if (doc.type === 'order' && typeof doc.status === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit(doc.status, doc.totals.grand_total); } }",
+      "reduce": "_sum"
+    },
     "orders_by_status": {
       "map": "function (doc) { if (doc.type === 'order' && typeof doc.status === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit(doc.status, doc.totals.grand_total); } }",
       "reduce": "_sum"
     },
     "orders_by_month": {
+      "map": "function (doc) { if (doc.type === 'order' && typeof doc.ordered_at === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit([parseInt(doc.ordered_at.substring(0, 4), 10), parseInt(doc.ordered_at.substring(5, 7), 10)], doc.totals.grand_total); } }",
+      "reduce": "_stats"
+    },
+    "orders_by_month_total_sum": {
       "map": "function (doc) { if (doc.type === 'order' && typeof doc.ordered_at === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit(doc.ordered_at.substring(0, 7), doc.totals.grand_total); } }",
       "reduce": "_sum"
+    },
+    "top_products": {
+      "map": "function (doc) { if (doc.type === 'order' && Array.isArray(doc.items)) { doc.items.forEach(function (item) { if (item && typeof item.product_id === 'string' && typeof item.quantity === 'number') { emit(item.product_id, item.quantity); } }); } }",
+      "reduce": "_sum"
+    },
+    "revenue_delivered_by_month": {
+      "map": "function (doc) { if (doc.type === 'order' && doc.status === 'delivered' && typeof doc.ordered_at === 'string' && doc.totals && typeof doc.totals.grand_total === 'number') { emit([parseInt(doc.ordered_at.substring(0, 4), 10), parseInt(doc.ordered_at.substring(5, 7), 10)], doc.totals.grand_total); } }",
+      "reduce": "_sum"
+    },
+    "orders_by_customer": {
+      "map": "function (doc) { if (doc.type === 'order' && doc.customer && typeof doc.customer.customer_id === 'string') { emit(doc.customer.customer_id, {status: doc.status, ordered_at: doc.ordered_at}); } }"
     }
   }
 }

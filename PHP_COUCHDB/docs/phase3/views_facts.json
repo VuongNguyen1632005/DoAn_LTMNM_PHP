@@ -1,0 +1,451 @@
+{
+    "database": "retail_order_delivery_demo",
+    "orders_count": 65,
+    "orders_by_status": {
+        "cancelled": 7,
+        "confirmed": 11,
+        "delivered": 10,
+        "packing": 11,
+        "pending": 11,
+        "shipping": 15
+    },
+    "order_total_by_status": {
+        "cancelled": 7812000,
+        "confirmed": 14238000,
+        "delivered": 11690000,
+        "packing": 12713000,
+        "pending": 11690000,
+        "shipping": 17807000
+    },
+    "order_count_by_status": {
+        "cancelled": 7,
+        "confirmed": 11,
+        "delivered": 10,
+        "packing": 11,
+        "pending": 11,
+        "shipping": 15
+    },
+    "monthly_order_count": {
+        "2026-10": 11,
+        "2026-6": 14,
+        "2026-7": 13,
+        "2026-8": 14,
+        "2026-9": 13
+    },
+    "monthly_revenue_stats": {
+        "[2026,10]": {
+            "count": 11,
+            "sum": 12747000,
+            "min": 294000,
+            "max": 2219000,
+            "sumsqr": 18855845000000
+        },
+        "[2026,6]": {
+            "count": 14,
+            "sum": 14910000,
+            "min": 218000,
+            "max": 2345000,
+            "sumsqr": 21267422000000
+        },
+        "[2026,7]": {
+            "count": 13,
+            "sum": 16927000,
+            "min": 302000,
+            "max": 2051000,
+            "sumsqr": 25618623000000
+        },
+        "[2026,8]": {
+            "count": 14,
+            "sum": 15805000,
+            "min": 176000,
+            "max": 1967000,
+            "sumsqr": 22021411000000
+        },
+        "[2026,9]": {
+            "count": 13,
+            "sum": 15561000,
+            "min": 260000,
+            "max": 2171000,
+            "sumsqr": 22678223000000
+        }
+    },
+    "top_products_quantity": {
+        "product:DEMO-P001": 14,
+        "product:DEMO-P002": 15,
+        "product:DEMO-P003": 7,
+        "product:DEMO-P004": 10,
+        "product:DEMO-P005": 21,
+        "product:DEMO-P006": 4,
+        "product:DEMO-P007": 12,
+        "product:DEMO-P008": 12,
+        "product:DEMO-P009": 7,
+        "product:DEMO-P010": 10,
+        "product:DEMO-P011": 21,
+        "product:DEMO-P012": 4,
+        "product:DEMO-P013": 12,
+        "product:DEMO-P014": 12,
+        "product:DEMO-P015": 6,
+        "product:DEMO-P016": 8,
+        "product:DEMO-P017": 21,
+        "product:DEMO-P018": 5,
+        "product:DEMO-P019": 12,
+        "product:DEMO-P020": 12,
+        "product:DEMO-P021": 6,
+        "product:DEMO-P022": 8,
+        "product:DEMO-P023": 18,
+        "product:DEMO-P024": 4,
+        "product:DEMO-P025": 14,
+        "product:DEMO-P026": 12,
+        "product:DEMO-P027": 6,
+        "product:DEMO-P028": 8,
+        "product:DEMO-P029": 18,
+        "product:DEMO-P030": 4
+    },
+    "delivered_revenue_by_month": {
+        "2026-10": 4935000,
+        "2026-9": 6755000
+    },
+    "customer_lookup_orders": 50,
+    "checks": {
+        "order_count_by_status group=true": {
+            "status": "PASS",
+            "expected": {
+                "cancelled": 7,
+                "confirmed": 11,
+                "delivered": 10,
+                "packing": 11,
+                "pending": 11,
+                "shipping": 15
+            },
+            "actual": {
+                "cancelled": 7,
+                "confirmed": 11,
+                "delivered": 10,
+                "packing": 11,
+                "pending": 11,
+                "shipping": 15
+            }
+        },
+        "order_total_by_status group=true": {
+            "status": "PASS",
+            "expected": {
+                "cancelled": 7812000,
+                "confirmed": 14238000,
+                "delivered": 11690000,
+                "packing": 12713000,
+                "pending": 11690000,
+                "shipping": 17807000
+            },
+            "actual": {
+                "cancelled": 7812000,
+                "confirmed": 14238000,
+                "delivered": 11690000,
+                "packing": 12713000,
+                "pending": 11690000,
+                "shipping": 17807000
+            }
+        },
+        "orders_by_status compatibility group=true": {
+            "status": "PASS",
+            "expected": {
+                "cancelled": 7812000,
+                "confirmed": 14238000,
+                "delivered": 11690000,
+                "packing": 12713000,
+                "pending": 11690000,
+                "shipping": 17807000
+            },
+            "actual": {
+                "cancelled": 7812000,
+                "confirmed": 14238000,
+                "delivered": 11690000,
+                "packing": 12713000,
+                "pending": 11690000,
+                "shipping": 17807000
+            }
+        },
+        "orders_by_month group_level=1": {
+            "status": "PASS",
+            "expected": {
+                "[2026]": {
+                    "count": 65,
+                    "sum": 75950000,
+                    "min": 176000,
+                    "max": 2345000,
+                    "sumsqr": 110441524000000
+                }
+            },
+            "actual": {
+                "[2026]": {
+                    "sum": 75950000,
+                    "count": 65,
+                    "min": 176000,
+                    "max": 2345000,
+                    "sumsqr": 110441524000000
+                }
+            }
+        },
+        "orders_by_month group_level=2": {
+            "status": "PASS",
+            "expected": {
+                "[2026,10]": {
+                    "count": 11,
+                    "sum": 12747000,
+                    "min": 294000,
+                    "max": 2219000,
+                    "sumsqr": 18855845000000
+                },
+                "[2026,6]": {
+                    "count": 14,
+                    "sum": 14910000,
+                    "min": 218000,
+                    "max": 2345000,
+                    "sumsqr": 21267422000000
+                },
+                "[2026,7]": {
+                    "count": 13,
+                    "sum": 16927000,
+                    "min": 302000,
+                    "max": 2051000,
+                    "sumsqr": 25618623000000
+                },
+                "[2026,8]": {
+                    "count": 14,
+                    "sum": 15805000,
+                    "min": 176000,
+                    "max": 1967000,
+                    "sumsqr": 22021411000000
+                },
+                "[2026,9]": {
+                    "count": 13,
+                    "sum": 15561000,
+                    "min": 260000,
+                    "max": 2171000,
+                    "sumsqr": 22678223000000
+                }
+            },
+            "actual": {
+                "[2026,6]": {
+                    "sum": 14910000,
+                    "count": 14,
+                    "min": 218000,
+                    "max": 2345000,
+                    "sumsqr": 21267422000000
+                },
+                "[2026,7]": {
+                    "sum": 16927000,
+                    "count": 13,
+                    "min": 302000,
+                    "max": 2051000,
+                    "sumsqr": 25618623000000
+                },
+                "[2026,8]": {
+                    "sum": 15805000,
+                    "count": 14,
+                    "min": 176000,
+                    "max": 1967000,
+                    "sumsqr": 22021411000000
+                },
+                "[2026,9]": {
+                    "sum": 15561000,
+                    "count": 13,
+                    "min": 260000,
+                    "max": 2171000,
+                    "sumsqr": 22678223000000
+                },
+                "[2026,10]": {
+                    "sum": 12747000,
+                    "count": 11,
+                    "min": 294000,
+                    "max": 2219000,
+                    "sumsqr": 18855845000000
+                }
+            }
+        },
+        "top_products group=true": {
+            "status": "PASS",
+            "expected": {
+                "product:DEMO-P001": 14,
+                "product:DEMO-P002": 15,
+                "product:DEMO-P003": 7,
+                "product:DEMO-P004": 10,
+                "product:DEMO-P005": 21,
+                "product:DEMO-P006": 4,
+                "product:DEMO-P007": 12,
+                "product:DEMO-P008": 12,
+                "product:DEMO-P009": 7,
+                "product:DEMO-P010": 10,
+                "product:DEMO-P011": 21,
+                "product:DEMO-P012": 4,
+                "product:DEMO-P013": 12,
+                "product:DEMO-P014": 12,
+                "product:DEMO-P015": 6,
+                "product:DEMO-P016": 8,
+                "product:DEMO-P017": 21,
+                "product:DEMO-P018": 5,
+                "product:DEMO-P019": 12,
+                "product:DEMO-P020": 12,
+                "product:DEMO-P021": 6,
+                "product:DEMO-P022": 8,
+                "product:DEMO-P023": 18,
+                "product:DEMO-P024": 4,
+                "product:DEMO-P025": 14,
+                "product:DEMO-P026": 12,
+                "product:DEMO-P027": 6,
+                "product:DEMO-P028": 8,
+                "product:DEMO-P029": 18,
+                "product:DEMO-P030": 4
+            },
+            "actual": {
+                "product:DEMO-P001": 14,
+                "product:DEMO-P002": 15,
+                "product:DEMO-P003": 7,
+                "product:DEMO-P004": 10,
+                "product:DEMO-P005": 21,
+                "product:DEMO-P006": 4,
+                "product:DEMO-P007": 12,
+                "product:DEMO-P008": 12,
+                "product:DEMO-P009": 7,
+                "product:DEMO-P010": 10,
+                "product:DEMO-P011": 21,
+                "product:DEMO-P012": 4,
+                "product:DEMO-P013": 12,
+                "product:DEMO-P014": 12,
+                "product:DEMO-P015": 6,
+                "product:DEMO-P016": 8,
+                "product:DEMO-P017": 21,
+                "product:DEMO-P018": 5,
+                "product:DEMO-P019": 12,
+                "product:DEMO-P020": 12,
+                "product:DEMO-P021": 6,
+                "product:DEMO-P022": 8,
+                "product:DEMO-P023": 18,
+                "product:DEMO-P024": 4,
+                "product:DEMO-P025": 14,
+                "product:DEMO-P026": 12,
+                "product:DEMO-P027": 6,
+                "product:DEMO-P028": 8,
+                "product:DEMO-P029": 18,
+                "product:DEMO-P030": 4
+            }
+        },
+        "revenue_delivered_by_month group_level=2": {
+            "status": "PASS",
+            "expected": {
+                "[2026,10]": 4935000,
+                "[2026,9]": 6755000
+            },
+            "actual": {
+                "[2026,9]": 6755000,
+                "[2026,10]": 4935000
+            }
+        },
+        "orders_by_customer reduce=false include_docs startkey/endkey": {
+            "status": "PASS",
+            "expected": [
+                "order:DEMO-O016",
+                "order:DEMO-O017",
+                "order:DEMO-O018",
+                "order:DEMO-O019",
+                "order:DEMO-O020",
+                "order:DEMO-O021",
+                "order:DEMO-O022",
+                "order:DEMO-O023",
+                "order:DEMO-O024",
+                "order:DEMO-O025",
+                "order:DEMO-O026",
+                "order:DEMO-O027",
+                "order:DEMO-O028",
+                "order:DEMO-O029",
+                "order:DEMO-O030",
+                "order:DEMO-O031",
+                "order:DEMO-O032",
+                "order:DEMO-O033",
+                "order:DEMO-O034",
+                "order:DEMO-O035",
+                "order:DEMO-O036",
+                "order:DEMO-O037",
+                "order:DEMO-O038",
+                "order:DEMO-O039",
+                "order:DEMO-O040",
+                "order:DEMO-O041",
+                "order:DEMO-O042",
+                "order:DEMO-O043",
+                "order:DEMO-O044",
+                "order:DEMO-O045",
+                "order:DEMO-O046",
+                "order:DEMO-O047",
+                "order:DEMO-O048",
+                "order:DEMO-O049",
+                "order:DEMO-O050",
+                "order:DEMO-O051",
+                "order:DEMO-O052",
+                "order:DEMO-O053",
+                "order:DEMO-O054",
+                "order:DEMO-O055",
+                "order:DEMO-O056",
+                "order:DEMO-O057",
+                "order:DEMO-O058",
+                "order:DEMO-O059",
+                "order:DEMO-O060",
+                "order:DEMO-O061",
+                "order:DEMO-O062",
+                "order:DEMO-O063",
+                "order:DEMO-O064",
+                "order:DEMO-O065"
+            ],
+            "actual": [
+                "order:DEMO-O016",
+                "order:DEMO-O017",
+                "order:DEMO-O018",
+                "order:DEMO-O019",
+                "order:DEMO-O020",
+                "order:DEMO-O021",
+                "order:DEMO-O022",
+                "order:DEMO-O023",
+                "order:DEMO-O024",
+                "order:DEMO-O025",
+                "order:DEMO-O026",
+                "order:DEMO-O027",
+                "order:DEMO-O028",
+                "order:DEMO-O029",
+                "order:DEMO-O030",
+                "order:DEMO-O031",
+                "order:DEMO-O032",
+                "order:DEMO-O033",
+                "order:DEMO-O034",
+                "order:DEMO-O035",
+                "order:DEMO-O036",
+                "order:DEMO-O037",
+                "order:DEMO-O038",
+                "order:DEMO-O039",
+                "order:DEMO-O040",
+                "order:DEMO-O041",
+                "order:DEMO-O042",
+                "order:DEMO-O043",
+                "order:DEMO-O044",
+                "order:DEMO-O045",
+                "order:DEMO-O046",
+                "order:DEMO-O047",
+                "order:DEMO-O048",
+                "order:DEMO-O049",
+                "order:DEMO-O050",
+                "order:DEMO-O051",
+                "order:DEMO-O052",
+                "order:DEMO-O053",
+                "order:DEMO-O054",
+                "order:DEMO-O055",
+                "order:DEMO-O056",
+                "order:DEMO-O057",
+                "order:DEMO-O058",
+                "order:DEMO-O059",
+                "order:DEMO-O060",
+                "order:DEMO-O061",
+                "order:DEMO-O062",
+                "order:DEMO-O063",
+                "order:DEMO-O064",
+                "order:DEMO-O065"
+            ]
+        }
+    }
+}
