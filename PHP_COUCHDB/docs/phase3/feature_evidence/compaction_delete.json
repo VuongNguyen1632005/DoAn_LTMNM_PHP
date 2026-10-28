@@ -1,0 +1,36 @@
+{
+    "feature": "compaction_delete",
+    "database": "retail_compaction_scratch",
+    "cleanup": true,
+    "revisions_written": 51,
+    "compaction_http": 202,
+    "compaction_poll_count": 1,
+    "before": {
+        "doc_count": 1,
+        "data_size": 3195,
+        "data_size_source": "sizes.active",
+        "disk_size": 225629,
+        "disk_size_source": "sizes.file",
+        "runtime_sizes": {
+            "file": 225629,
+            "external": 2111,
+            "active": 3195
+        }
+    },
+    "after_compaction": {
+        "doc_count": 1,
+        "data_size": 2437,
+        "data_size_source": "sizes.active",
+        "disk_size": 33123,
+        "disk_size_source": "sizes.file",
+        "runtime_sizes": {
+            "file": 33123,
+            "external": 2111,
+            "active": 2437
+        }
+    },
+    "delete_http": 200,
+    "deleted_database_http": 404,
+    "status": "PASS",
+    "generated_at_utc": "2026-10-28T01:33:12Z"
+}

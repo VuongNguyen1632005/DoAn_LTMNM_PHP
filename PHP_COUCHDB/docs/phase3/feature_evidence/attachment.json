@@ -1,0 +1,15 @@
+{
+    "feature": "attachment",
+    "database": "retail_attachment_scratch",
+    "cleanup": true,
+    "doc_revision": "1-b03862eae5a0d5bd14bf927f31a7f432",
+    "attachment_length_bytes": 68,
+    "attachment_content_type": "image/png",
+    "expected_md5_base64": "WY4oUadFjaXDQdG7dbQsYQ==",
+    "couchdb_digest": "md5-WY4oUadFjaXDQdG7dbQsYQ==",
+    "readback_md5_base64": "WY4oUadFjaXDQdG7dbQsYQ==",
+    "delete_http_status": 200,
+    "attachment_present_after_delete": false,
+    "status": "PASS",
+    "generated_at_utc": "2026-10-28T01:32:57Z"
+}
