@@ -9,7 +9,13 @@
         <h1 class="h2 fw-bold mb-0">Thanh toán & Đặt hàng</h1>
     </div>
 
-    <form id="checkoutForm" action="{{ route('checkout.process') }}" method="POST">
+    @if(request()->boolean('session_expired'))
+        <div class="alert alert-warning" role="alert">
+            Phiên thanh toán đã hết hạn. Vui lòng kiểm tra lại thông tin và nhấn đặt hàng lần nữa.
+        </div>
+    @endif
+
+    <form id="checkoutForm" action="/checkout" method="POST">
         @csrf
         <input type="hidden" name="idempotency_key" value="{{ (string) \Illuminate\Support\Str::uuid() }}">
         <div class="row g-4">
@@ -124,6 +130,10 @@
                             <small class="text-success fw-bold d-block mt-1">
                                 <i class="fa-solid fa-check-circle me-1"></i>Đã áp dụng mã {{ $voucher->MaCode }}: Giảm {{ number_format($discount_amount, 0, ',', '.') }}₫
                             </small>
+                        @elseif($voucher_error)
+                            <small class="text-danger fw-bold d-block mt-1">
+                                <i class="fa-solid fa-circle-exclamation me-1"></i>{{ $voucher_error }}
+                            </small>
                         @endif
                     </div>
 
@@ -163,11 +173,45 @@
 
 @push('scripts')
 <script>
-document.getElementById('checkoutForm')?.addEventListener('submit', function (e) {
+let checkoutSubmitting = false;
+
+document.getElementById('checkoutForm')?.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (checkoutSubmitting) return;
+    checkoutSubmitting = true;
+
     const btn = document.getElementById('btnSubmitOrder');
     if (btn) {
         btn.disabled = true;
         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Đang xử lý đơn hàng...';
+    }
+
+    try {
+        const response = await fetch(window.location.href, {
+            method: 'GET',
+            credentials: 'same-origin',
+            cache: 'no-store',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        });
+
+        if (!response.ok) throw new Error('Không thể làm mới phiên thanh toán.');
+
+        const html = await response.text();
+        const freshPage = new DOMParser().parseFromString(html, 'text/html');
+        const freshToken = freshPage.querySelector('#checkoutForm input[name="_token"]')?.value;
+        const currentToken = this.querySelector('input[name="_token"]');
+
+        if (!freshToken || !currentToken) throw new Error('Không tìm thấy mã bảo vệ phiên thanh toán.');
+
+        currentToken.value = freshToken;
+        this.submit();
+    } catch (error) {
+        checkoutSubmitting = false;
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-lock me-2"></i>Hoàn tất đặt hàng';
+        }
+        window.alert('Không thể xác nhận phiên thanh toán. Vui lòng tải lại trang checkout rồi thử lại.');
     }
 });
 

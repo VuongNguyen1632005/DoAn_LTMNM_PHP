@@ -28,7 +28,7 @@ class CheckoutService
 
     /**
      * Preview checkout summary with given shipping method and voucher code.
-     * @return array{items: array, subtotal: float, shipping_fee: float, discount_amount: float, grand_total: float, voucher: ?MaGiamGia, shipping_method: ?PhuongThucVanChuyen}
+     * @return array{items: array, subtotal: float, shipping_fee: float, discount_amount: float, grand_total: float, voucher: ?MaGiamGia, voucher_error: ?string, shipping_method: ?PhuongThucVanChuyen}
      */
     public function preview(?string $shippingCode = 'HT', ?string $voucherCode = null): array
     {
@@ -39,10 +39,19 @@ class CheckoutService
         $shippingFee = $shippingMethod ? (float) $shippingMethod->GiaVanChuyen : 0.0;
 
         $voucher = null;
+        $voucherError = null;
         $discountAmount = 0.0;
         if ($voucherCode) {
-            $voucher = MaGiamGia::where('MaCode', strtoupper(trim($voucherCode)))->where('TrangThai', true)->first();
-            if ($voucher && $voucher->isValid()) {
+            $candidateVoucher = MaGiamGia::where('MaCode', strtoupper(trim($voucherCode)))->first();
+
+            if (!$candidateVoucher) {
+                $voucherError = 'Mã giảm giá không tồn tại.';
+            } elseif (!$candidateVoucher->TrangThai) {
+                $voucherError = 'Mã giảm giá hiện không được kích hoạt.';
+            } elseif ($candidateVoucher->SoLuong <= 0) {
+                $voucherError = 'Mã giảm giá đã hết lượt sử dụng.';
+            } else {
+                $voucher = $candidateVoucher;
                 $discountAmount = $voucher->calculateDiscount($subtotal, $shippingFee);
             }
         }
@@ -56,6 +65,7 @@ class CheckoutService
             'discount_amount' => $discountAmount,
             'grand_total' => $grandTotal,
             'voucher' => $voucher,
+            'voucher_error' => $voucherError,
             'shipping_method' => $shippingMethod,
         ];
     }

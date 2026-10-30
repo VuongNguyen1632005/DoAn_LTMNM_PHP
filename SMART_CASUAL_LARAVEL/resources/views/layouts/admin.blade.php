@@ -158,6 +158,12 @@
             <a href="{{ route('admin.revenue.index') }}" class="admin-nav-link {{ request()->routeIs('admin.revenue.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-chart-line"></i> Doanh thu
             </a>
+            <a href="{{ route('admin.employees.index') }}" class="admin-nav-link {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-users-gear"></i> Nhân viên
+            </a>
+            <a href="{{ route('admin.vouchers.index') }}" class="admin-nav-link {{ request()->routeIs('admin.vouchers.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-ticket"></i> Mã giảm giá
+            </a>
             @endif
 
             <div class="sidebar-heading">Tương tác khách hàng</div>

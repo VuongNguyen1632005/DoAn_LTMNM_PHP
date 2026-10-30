@@ -42,6 +42,7 @@ class CheckoutController extends Controller
             'discount_amount' => $preview['discount_amount'],
             'grand_total' => $preview['grand_total'],
             'voucher' => $preview['voucher'],
+            'voucher_error' => $preview['voucher_error'],
             'voucher_code' => $voucherCode,
             'selected_shipping' => $shippingCode,
             'shipping_methods' => $shippingMethods,

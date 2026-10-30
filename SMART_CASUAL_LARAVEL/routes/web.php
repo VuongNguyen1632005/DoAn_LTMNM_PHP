@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminRevenueController;
 use App\Http\Controllers\Admin\AdminReviewController;
+use App\Http\Controllers\Admin\AdminEmployeeController;
+use App\Http\Controllers\Admin\AdminVoucherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +86,22 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::middleware('manager')->group(function () {
             // Revenue Statistics (Manager only)
             Route::get('revenue', [AdminRevenueController::class, 'index'])->name('revenue.index');
+
+            // Employee account management (Manager only)
+            Route::get('employees', [AdminEmployeeController::class, 'index'])->name('employees.index');
+            Route::get('employees/create', [AdminEmployeeController::class, 'create'])->name('employees.create');
+            Route::post('employees', [AdminEmployeeController::class, 'store'])->name('employees.store');
+            Route::get('employees/{id}/edit', [AdminEmployeeController::class, 'edit'])->name('employees.edit');
+            Route::put('employees/{id}', [AdminEmployeeController::class, 'update'])->name('employees.update');
+            Route::patch('employees/{id}/status', [AdminEmployeeController::class, 'toggleStatus'])->name('employees.status');
+
+            // Voucher management (Manager only)
+            Route::get('vouchers', [AdminVoucherController::class, 'index'])->name('vouchers.index');
+            Route::get('vouchers/create', [AdminVoucherController::class, 'create'])->name('vouchers.create');
+            Route::post('vouchers', [AdminVoucherController::class, 'store'])->name('vouchers.store');
+            Route::get('vouchers/{code}/edit', [AdminVoucherController::class, 'edit'])->name('vouchers.edit');
+            Route::put('vouchers/{code}', [AdminVoucherController::class, 'update'])->name('vouchers.update');
+            Route::patch('vouchers/{code}/status', [AdminVoucherController::class, 'toggleStatus'])->name('vouchers.status');
 
             // Category mutations (Manager only)
             Route::get('categories/create', [AdminCategoryController::class, 'create'])->name('categories.create');

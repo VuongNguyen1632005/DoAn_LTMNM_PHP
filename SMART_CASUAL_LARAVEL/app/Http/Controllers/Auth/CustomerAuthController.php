@@ -36,11 +36,15 @@ class CustomerAuthController extends Controller
             ->first();
 
         if (!$customer || !Hash::check($password, $customer->MatKhau)) {
-            return redirect()->back()->withInput()->with('error', 'Tên đăng nhập / Email hoặc mật khẩu không chính xác.');
+            return redirect()->route('login')
+                ->withInput($request->only('login'))
+                ->withErrors(['login' => 'Tên đăng nhập / Email hoặc mật khẩu không chính xác.']);
         }
 
         if (!$customer->TrangThai) {
-            return redirect()->back()->with('error', 'Tài khoản của bạn đã bị tạm khóa. Vui lòng liên hệ hỗ trợ.');
+            return redirect()->route('login')
+                ->withInput($request->only('login'))
+                ->withErrors(['login' => 'Tài khoản của bạn đã bị tạm khóa. Vui lòng liên hệ hỗ trợ.']);
         }
 
         // Login via guard

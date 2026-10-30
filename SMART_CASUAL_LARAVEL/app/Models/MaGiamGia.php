@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MaGiamGia extends Model
 {
@@ -24,6 +25,11 @@ class MaGiamGia extends Model
         'SoLuong' => 'integer',
         'TrangThai' => 'boolean',
     ];
+
+    public function donHangs(): HasMany
+    {
+        return $this->hasMany(DonHang::class, 'MaCode', 'MaCode');
+    }
 
     public function isValid(): bool
     {

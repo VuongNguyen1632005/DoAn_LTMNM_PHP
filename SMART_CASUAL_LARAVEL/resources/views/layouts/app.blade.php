@@ -37,7 +37,7 @@
                 <span class="account-greeting">Xin chào, {{ $user->HoTen }}</span>
                 <form class="d-inline" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-sm btn-outline-light rounded-pill px-3 py-1 ms-1">Đăng xuất</button>
+                    <button type="submit" class="btn btn-sm btn-outline-dark rounded-pill px-3 py-1 ms-1">Đăng xuất</button>
                 </form>
             @elseif(Auth::guard('admin')->check())
                 @php $admin = Auth::guard('admin')->user(); @endphp
